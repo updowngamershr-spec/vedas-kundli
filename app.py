@@ -1199,47 +1199,64 @@ def index_ui():
     }
   
     /* ========================================================= */
-    /* 📱 MOBILE RESPONSIVE ADAPTATION ENGINE (< 768px)          */
+    /* 📱 UNIVERSAL MOBILE & TABLET RESPONSIVE ARCHITECTURE      */
     /* ========================================================= */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+
     .mobile-menu-btn {
       display: none;
       background: #F4ECE1;
-      border: 1px solid #EADBC8;
-      font-size: 20px;
+      border: 1.5px solid #D9C3AB;
+      font-size: 22px;
       color: #7C2D12;
       cursor: pointer;
-      padding: 4px 10px;
+      padding: 6px 12px;
       border-radius: 8px;
       line-height: 1;
       margin-right: 8px;
+      touch-action: manipulation;
     }
     .mobile-sidebar-close {
       display: none;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
       color: #FEF08A;
-      font-size: 16px;
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
+      font-size: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
       cursor: pointer;
       margin-left: auto;
       align-items: center;
       justify-content: center;
+      touch-action: manipulation;
     }
     .sidebar-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
       z-index: 998;
+      touch-action: manipulation;
     }
     .sidebar-backdrop.open {
       display: block;
     }
 
-    @media (max-width: 768px) {
+    /* Deity Cards on Desktop */
+    .deity-cards-wrapper {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+
+    /* Responsive Breakpoint 1: Tablets and Small Laptops (<= 1024px) */
+    @media (max-width: 1024px) {
       .mobile-menu-btn {
         display: inline-flex !important;
         align-items: center;
@@ -1249,51 +1266,113 @@ def index_ui():
         display: inline-flex !important;
       }
       .desktop-app {
-        position: relative;
-        overflow-x: hidden;
+        position: relative !important;
+        overflow-x: hidden !important;
       }
       .desktop-sidebar {
         position: fixed !important;
         top: 0 !important;
-        left: -300px !important;
-        width: 275px !important;
-        min-width: 275px !important;
+        left: -320px !important;
+        width: 290px !important;
+        min-width: 290px !important;
         height: 100vh !important;
         height: 100dvh !important;
         z-index: 1000 !important;
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         box-shadow: none !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
       }
       .desktop-sidebar.open {
         left: 0 !important;
-        box-shadow: 10px 0 30px rgba(0,0,0,0.5) !important;
+        box-shadow: 10px 0 35px rgba(0,0,0,0.55) !important;
+      }
+      .desktop-main {
+        width: 100% !important;
+        min-width: 100% !important;
+        overflow-x: hidden !important;
       }
       .desktop-topbar {
-        padding: 0 10px !important;
+        padding: 0 12px !important;
         gap: 6px !important;
       }
       .topbar-title {
-        font-size: 12.5px !important;
+        font-size: 13.5px !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        max-width: 155px !important;
+        max-width: 180px !important;
       }
       .status-pill {
         display: none !important;
       }
+      .btn-exit-top {
+        display: none !important; /* Hide exit in web view */
+      }
+    }
+
+    /* Responsive Breakpoint 2: Phones & Phablets (<= 768px) */
+    @media (max-width: 768px) {
       .desktop-content-area {
         padding: 10px 8px 60px 8px !important;
         -webkit-overflow-scrolling: touch !important;
+        overflow-x: hidden !important;
       }
 
-      /* Single column forms and grids */
-      .grid, .form-grid, .two-col, [style*="grid-template-columns: 1fr 1fr"], [style*="grid-template-columns: 2fr 1fr"], [style*="grid-template-columns: repeat"] {
+      /* Touch Carousel for 5 Deities on Mobile */
+      .deity-cards-wrapper {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 10px !important;
+        padding: 4px 2px 10px 2px !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .deity-cards-wrapper > div {
+        flex: 0 0 135px !important;
+        scroll-snap-align: start !important;
+      }
+
+      /* Quick Actions Bar Responsive Tiles */
+      .quick-actions-bar {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+      .btn-quick-act {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 8px !important;
+        font-size: 11px !important;
+        text-align: center !important;
+      }
+
+      /* Metrics Grid Responsive */
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      /* Collapse all 2-column or multi-column grids to 1-column */
+      .grid, .form-grid, .two-col,
+      [style*="grid-template-columns: 1fr 1fr"],
+      [style*="grid-template-columns: 1.1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1.5fr"],
+      [style*="grid-template-columns: repeat(6, 1fr)"],
+      [style*="grid-template-columns: repeat(5, 1fr)"],
+      [style*="grid-template-columns: 2fr 1fr 1fr 1fr"] {
         grid-template-columns: 1fr !important;
         gap: 12px !important;
       }
 
-      /* Horizontal scrollable tables */
+      /* Form controls full width & comfortable touch targets */
+      .form-group, input, select, textarea {
+        max-width: 100% !important;
+        font-size: 14px !important;
+        min-height: 40px !important;
+      }
+
+      /* Horizontal Scrollable Tables with smooth swipe */
       table {
         display: block !important;
         width: 100% !important;
@@ -1308,7 +1387,7 @@ def index_ui():
         height: auto !important;
       }
 
-      /* Responsive Login Modal */
+      /* Mobile Login Gateway Dialog */
       #vedasLoginGateway > div {
         width: 95% !important;
         max-width: 95% !important;
@@ -1318,11 +1397,28 @@ def index_ui():
         overflow-y: auto !important;
       }
 
-      /* Responsive Splash */
+      /* Mobile Splash Screen */
       #vedasSplashScreen > div {
         width: 92% !important;
         max-width: 92% !important;
         padding: 24px 14px !important;
+      }
+    }
+
+    /* Small Screen Phones (<= 480px) */
+    @media (max-width: 480px) {
+      .topbar-controls {
+        gap: 4px !important;
+      }
+      .control-btn {
+        padding: 4px 6px !important;
+        font-size: 10px !important;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .quick-actions-bar {
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
@@ -1645,7 +1741,7 @@ def index_ui():
             <span style="font-size:13px; font-weight:800; color:#7C2D12;">🕉️ Auspicious Vedic Deities (शुभ देवी-देवता आशीर्वाद व नवग्रह रक्षा)</span>
             <span class="badge" style="background:#FEF3C7; color:#78350F; font-weight:700;">Divine Kundli Blessings</span>
           </div>
-          <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:12px; text-align:center;">
+          <div class="deity-cards-wrapper">
             <div style="background:#FFFFFF; border:1.5px solid #FDE68A; border-radius:10px; padding:10px; box-shadow:0 2px 8px rgba(212,175,55,0.08);">
               <img src="/assets/gods/ganesha.png" alt="Shree Ganesh" style="width:70px; height:70px; object-fit:cover; border-radius:50%; border:2px solid #D4AF37; margin:0 auto 6px auto; display:block; box-shadow:0 0 10px rgba(212,175,55,0.3);"/>
               <strong style="color:#7C2D12; font-size:12px; display:block;">श्री गणेश</strong>
@@ -2615,74 +2711,79 @@ def index_ui():
 
     // Dashboard Data Loader
     async function loadDashboard() {
+      // 1. Independent Client Fetch
+      let clients = [];
+      const tbody = document.getElementById('dashRecentClientsBody');
+      const tc = document.getElementById('dashTotalClients');
       try {
-        const [cRes, rRes] = await Promise.all([
-          fetch('/api/clients'),
-          fetch('/api/reports')
-        ]);
-        const cData = await cRes.json();
-        const rData = await rRes.json();
-
-        const clients = cData.clients || [];
-        const reports = rData.reports || [];
-
-        const tc = document.getElementById('dashTotalClients');
-        if (tc) tc.innerText = clients.length;
-        const tr = document.getElementById('dashTotalReports');
-        if (tr) tr.innerText = reports.length;
-
-        // Populate Recent Clients
-        const tbody = document.getElementById('dashRecentClientsBody');
-        if (tbody) {
-          if (clients.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="7" style="padding:16px; color:#6B7280; font-style:italic;">No clients saved yet. Click "+ Add Client" to create one.</td></tr>';
-          } else {
-            tbody.innerHTML = clients.slice(0, 6).map(c => `
-              <tr>
-                <td style="font-weight:800; color:#7C2D12;">${c.name}</td>
-                <td>${c.sex || 'Male'}</td>
-                <td style="font-weight:600;">${c.day}/${c.month}/${c.year}</td>
-                <td style="font-family:monospace; font-weight:700;">${String(c.hour).padStart(2,'0')}:${String(c.minute).padStart(2,'0')}</td>
-                <td>${c.place}</td>
-                <td><span class="badge">${c.category || 'General'}</span></td>
-                <td>
-                  <button type="button" class="btn-table-action" onclick="openClientInWorkspace(${c.id})">🪐 Open</button>
-                  <button type="button" class="btn-table-action" onclick="openClientInReports(${c.id})">📄 PDF</button>
-                  <button type="button" class="btn-table-del" onclick="deleteClientRecord(${c.id})">✕</button>
-                </td>
-              </tr>
-            `).join('');
+        const cRes = await fetch('/api/clients');
+        if (cRes.ok) {
+          const cData = await cRes.json();
+          clients = cData.clients || [];
+          if (tc) tc.innerText = clients.length;
+          if (tbody) {
+            if (clients.length === 0) {
+              tbody.innerHTML = '<tr><td colspan="7" style="padding:16px; color:#6B7280; font-style:italic;">No clients saved yet. Click "+ Add Client" to create one.</td></tr>';
+            } else {
+              tbody.innerHTML = clients.slice(0, 6).map(c => `
+                <tr>
+                  <td style="font-weight:800; color:#7C2D12;">${c.name}</td>
+                  <td>${c.sex || 'Male'}</td>
+                  <td style="font-weight:600;">${c.day}/${c.month}/${c.year}</td>
+                  <td style="font-family:monospace; font-weight:700;">${String(c.hour).padStart(2,'0')}:${String(c.minute).padStart(2,'0')}</td>
+                  <td>${c.place}</td>
+                  <td><span class="badge">${c.category || 'General'}</span></td>
+                  <td>
+                    <button class="btn-table-action" onclick="loadClientIntoKundli(${c.id})">🔮 Open Kundli</button>
+                    <button class="btn-table-action" style="color:#DC2626; border-color:#FCA5A5;" onclick="deleteClientRecord(${c.id})">🗑️ Delete</button>
+                  </td>
+                </tr>
+              `).join('');
+            }
           }
+        } else {
+          if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="padding:14px; color:#DC2626; font-weight:600;">Notice: Server starting up or connecting. <button onclick="loadDashboard()" style="padding:2px 8px; border-radius:4px; background:#7C2D12; color:#FFF; border:none; cursor:pointer;">Retry 🔄</button></td></tr>';
         }
+      } catch (e) {
+        console.warn('Clients fetch notice:', e);
+        if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="padding:14px; color:#DC2626; font-weight:600;">Server starting up. <button onclick="loadDashboard()" style="padding:2px 8px; border-radius:4px; background:#7C2D12; color:#FFF; border:none; cursor:pointer;">Retry 🔄</button></td></tr>';
+      }
 
-        // Populate Recent Reports
-        const rBody = document.getElementById('dashRecentReportsBody');
-        if (rBody) {
-          if (reports.length === 0) {
-            rBody.innerHTML = '<tr><td colspan="4" style="padding:16px; color:#6B7280; font-style:italic;">No generated dossiers found in reports/ folder.</td></tr>';
-          } else {
-            rBody.innerHTML = reports.slice(0, 5).map(r => `
-              <tr>
-                <td style="font-weight:700; color:#7C2D12; text-align:left; padding-left:14px;">${r.filename}</td>
-                <td>${r.size_mb} MB</td>
-                <td style="color:#574032; font-weight:600;">${r.modified}</td>
-                <td>
-                  <a href="${r.download_url}" target="_blank" class="btn-table-action" style="text-decoration:none;">⬇️ Open / Save</a>
-                </td>
-              </tr>
-            `).join('');
+      // 2. Independent Reports Fetch
+      let reports = [];
+      const rbody = document.getElementById('dashRecentReportsBody');
+      const tr = document.getElementById('dashTotalReports');
+      try {
+        const rRes = await fetch('/api/reports');
+        if (rRes.ok) {
+          const rData = await rRes.json();
+          reports = rData.reports || [];
+          if (tr) tr.innerText = reports.length;
+          if (rbody) {
+            if (reports.length === 0) {
+              rbody.innerHTML = '<tr><td colspan="4" style="padding:16px; color:#6B7280; font-style:italic;">No PDF dossiers generated yet. Create a Kundli or Milan to generate reports.</td></tr>';
+            } else {
+              rbody.innerHTML = reports.slice(0, 6).map(r => `
+                <tr>
+                  <td style="font-weight:700; color:#1E3A8A;">${r.filename}</td>
+                  <td>${r.size_mb} MB</td>
+                  <td style="font-size:11.5px; color:#6B7280;">${r.modified}</td>
+                  <td>
+                    <a href="${r.download_url}" target="_blank" class="btn-table-action" style="text-decoration:none; display:inline-block;">📥 Download PDF</a>
+                  </td>
+                </tr>
+              `).join('');
+            }
           }
+        } else {
+          if (rbody) rbody.innerHTML = '<tr><td colspan="4" style="padding:14px; color:#6B7280; font-style:italic;">No PDF dossiers generated yet.</td></tr>';
         }
-      } catch (err) {
-        console.error('Error loading dashboard:', err);
-        const tbody = document.getElementById('dashRecentClientsBody');
-        if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="padding:16px; color:#6B7280; font-style:italic;">No clients saved yet. Click "+ Add Client" to create one.</td></tr>';
-        const rBody = document.getElementById('dashRecentReportsBody');
-        if (rBody) rBody.innerHTML = '<tr><td colspan="4" style="padding:16px; color:#6B7280; font-style:italic;">No generated dossiers found in reports/ folder.</td></tr>';
+      } catch (e) {
+        console.warn('Reports fetch notice:', e);
+        if (rbody) rbody.innerHTML = '<tr><td colspan="4" style="padding:14px; color:#6B7280; font-style:italic;">No PDF dossiers generated yet.</td></tr>';
       }
     }
 
-    // Clients Directory Table
     async function loadClientsTable() {
       const q = document.getElementById('clientsSearchInput') ? document.getElementById('clientsSearchInput').value.trim() : '';
       try {
