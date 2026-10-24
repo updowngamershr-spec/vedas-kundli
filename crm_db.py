@@ -132,6 +132,42 @@ def init_crm_db():
             updated_at TEXT NOT NULL
         )
     """)
+    # 1. Seed Sample VIP Client (Harmanjot Singh) if clients table is empty
+    cur.execute("SELECT COUNT(*) FROM clients")
+    if cur.fetchone()[0] == 0:
+        cur.execute("""
+            INSERT INTO clients (name, sex, year, month, day, hour, minute, second, place, lat, lon, tz, phone, email, category, notes, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "Harmanjot Singh (Sample Kundli)",
+            "Male",
+            2005, 10, 3,
+            10, 2, 6,
+            "Ludhiana",
+            30.9010, 75.8573, 5.5,
+            "+91 98765 43210",
+            "client@vedaskundli.com",
+            "VIP Kundli Analysis",
+            "Sample Pre-Loaded Kundli — Parashari Shodashvarga, KP Cuspal, Lal Kitab & Planetary Dashas loaded.",
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        ))
+
+    # 2. Seed Pre-Activated 30-Day Trial Encryption Key if not present
+    cur.execute("SELECT COUNT(*) FROM demo_keys WHERE key_code = 'VEDAS-TRIAL-30D-8F92'")
+    if cur.fetchone()[0] == 0:
+        expires = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d %H:%M:%S")
+        cur.execute("""
+            INSERT INTO demo_keys (key_code, client_name, duration_days, created_at, expires_at, status)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (
+            "VEDAS-TRIAL-30D-8F92",
+            "VIP Trial Client (30-Day Free Demo)",
+            30,
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            expires,
+            "ACTIVE"
+        ))
+
     cur.execute("SELECT COUNT(*) FROM branding WHERE id = 1")
     if cur.fetchone()[0] == 0:
         cur.execute("""

@@ -1197,6 +1197,134 @@ def index_ui():
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+  
+    /* ========================================================= */
+    /* 📱 MOBILE RESPONSIVE ADAPTATION ENGINE (< 768px)          */
+    /* ========================================================= */
+    .mobile-menu-btn {
+      display: none;
+      background: #F4ECE1;
+      border: 1px solid #EADBC8;
+      font-size: 20px;
+      color: #7C2D12;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 8px;
+      line-height: 1;
+      margin-right: 8px;
+    }
+    .mobile-sidebar-close {
+      display: none;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #FEF08A;
+      font-size: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(2px);
+      z-index: 998;
+    }
+    .sidebar-backdrop.open {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobile-sidebar-close {
+        display: inline-flex !important;
+      }
+      .desktop-app {
+        position: relative;
+        overflow-x: hidden;
+      }
+      .desktop-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: -300px !important;
+        width: 275px !important;
+        min-width: 275px !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 1000 !important;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: none !important;
+      }
+      .desktop-sidebar.open {
+        left: 0 !important;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5) !important;
+      }
+      .desktop-topbar {
+        padding: 0 10px !important;
+        gap: 6px !important;
+      }
+      .topbar-title {
+        font-size: 12.5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 155px !important;
+      }
+      .status-pill {
+        display: none !important;
+      }
+      .desktop-content-area {
+        padding: 10px 8px 60px 8px !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      /* Single column forms and grids */
+      .grid, .form-grid, .two-col, [style*="grid-template-columns: 1fr 1fr"], [style*="grid-template-columns: 2fr 1fr"], [style*="grid-template-columns: repeat"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      /* Horizontal scrollable tables */
+      table {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+      }
+
+      /* Scaled SVG chart graphics */
+      svg, .chart-container, .kundli-svg-box {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Responsive Login Modal */
+      #vedasLoginGateway > div {
+        width: 95% !important;
+        max-width: 95% !important;
+        padding: 20px 14px !important;
+        margin: 10px auto !important;
+        max-height: 92vh !important;
+        overflow-y: auto !important;
+      }
+
+      /* Responsive Splash */
+      #vedasSplashScreen > div {
+        width: 92% !important;
+        max-width: 92% !important;
+        padding: 24px 14px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1354,6 +1482,11 @@ def index_ui():
         ">
           ✨ Activate Demo Session (डेमो शुरू करें)
         </button>
+        <div style="margin-top: 14px; padding: 10px 12px; background: rgba(217,119,6,0.08); border: 1px dashed #D97706; border-radius: 8px; font-size: 11.5px; color: #92400E; text-align: center;">
+          🎁 <b>Pre-Activated 30-Day Demo Key:</b><br/>
+          <code style="display: inline-block; margin-top: 4px; background: #FFF; border: 1px solid #FCD34D; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 12.5px; color: #7C2D12; cursor: pointer; letter-spacing: 0.5px;" onclick="document.getElementById('inputCustomerKey').value='VEDAS-TRIAL-30D-8F92'; doKeyLogin();" title="Click to auto-fill & login">VEDAS-TRIAL-30D-8F92</code>
+          <div style="font-size: 10px; color: #B45309; margin-top: 4px;">(Click key above to 1-click test)</div>
+        </div>
       </div>
 
       <div id="gateAdminForm">
@@ -1418,6 +1551,7 @@ def index_ui():
 
   <!-- Desktop Application Shell -->
   <div class="desktop-app">
+  <div id="sidebarBackdrop" class="sidebar-backdrop" onclick="toggleMobileSidebar(false)"></div>
     <!-- Left Navigation Sidebar -->
     <aside class="desktop-sidebar">
       <div>
@@ -1427,6 +1561,7 @@ def index_ui():
             <div class="title">VEDAS KUNDLI</div>
             <div class="sub">Desktop Astrological Suite</div>
           </div>
+          <button class="mobile-sidebar-close" onclick="toggleMobileSidebar(false)" aria-label="Close Menu">✕</button>
         </div>
 
         <nav class="sidebar-nav">
@@ -1470,6 +1605,7 @@ def index_ui():
     <div class="desktop-main">
       <!-- Top Utilities Bar -->
       <header class="desktop-topbar">
+        <button id="mobileMenuBtn" class="mobile-menu-btn" onclick="toggleMobileSidebar()" aria-label="Toggle Navigation">☰</button>
         <div class="topbar-title" id="topbarTitle">
           📊 Executive Astrological Dashboard
         </div>
@@ -2415,7 +2551,22 @@ def index_ui():
     let searchDebounceTimer = null;
 
     // View Switching (Forced Style Display)
+    
+    function toggleMobileSidebar(force) {
+      const sb = document.querySelector('.desktop-sidebar');
+      const bd = document.getElementById('sidebarBackdrop');
+      if (!sb) return;
+      if (typeof force === 'boolean') {
+        if (force) { sb.classList.add('open'); if (bd) bd.classList.add('open'); }
+        else { sb.classList.remove('open'); if (bd) bd.classList.remove('open'); }
+      } else {
+        sb.classList.toggle('open');
+        if (bd) bd.classList.toggle('open');
+      }
+    }
+
     function switchNav(viewId) {
+      if (window.innerWidth <= 768) { toggleMobileSidebar(false); }
       console.log('[Nav] Switching to view:', viewId);
       try {
         document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
