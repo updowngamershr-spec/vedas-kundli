@@ -4311,7 +4311,7 @@ def index_ui():
         });
         const data = await res.json();
         if (data.success) {
-          alert('✅ नई डेमो चाबी तैयार है:\n\nग्राहक: ' + data.key.client_name + '\nचाबी: ' + data.key.key_code + '\nअवधि: ' + (data.key.duration_days > 0 ? data.key.duration_days + ' दिन' : 'आजीवन') + '\n\nइसे कॉपी करके ग्राहक को भेजें!');
+          alert(`✅ नई डेमो चाबी तैयार है:\n\nग्राहक: ${data.key.client_name}\nचाबी: ${data.key.key_code}\nअवधि: ${data.key.duration_days > 0 ? data.key.duration_days + ' दिन' : 'आजीवन'}\n\nइसे कॉपी करके ग्राहक को भेजें!`);
           document.getElementById('demoNewClientName').value = '';
           loadDemoKeys();
         }
