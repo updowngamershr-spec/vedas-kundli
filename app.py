@@ -37,6 +37,20 @@ app = FastAPI(title="Vedas Kundli Predictions")
 REPORTS_DIR = os.path.join(get_user_data_root(), "reports")
 os.makedirs(REPORTS_DIR, exist_ok=True)
 
+# Auto-sync bundled sample reports (Harman Kundli & Milan) into active reports directory
+_bundled_reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
+if os.path.exists(_bundled_reports_dir):
+    for _rf in os.listdir(_bundled_reports_dir):
+        if _rf.lower().endswith(".pdf"):
+            _src_path = os.path.join(_bundled_reports_dir, _rf)
+            _dst_path = os.path.join(REPORTS_DIR, _rf)
+            if not os.path.exists(_dst_path) and os.path.isfile(_src_path):
+                try:
+                    import shutil
+                    shutil.copy2(_src_path, _dst_path)
+                except Exception:
+                    pass
+
 
 class KundliRequest(BaseModel):
     id: int | None = None
@@ -679,30 +693,40 @@ def api_export_pdf(req: KundliRequest):
 @app.get("/api/reports")
 def api_list_reports():
     reports = []
-    if os.path.exists(REPORTS_DIR):
-        for f in os.listdir(REPORTS_DIR):
-            if f.lower().endswith(".pdf"):
-                full_path = os.path.join(REPORTS_DIR, f)
-                try:
-                    stat = os.stat(full_path)
-                    reports.append({
-                        "filename": f,
-                        "size_mb": round(stat.st_size / (1024 * 1024), 2),
-                        "modified": datetime.fromtimestamp(stat.st_mtime).strftime("%d %b %Y, %I:%M %p"),
-                        "mtime": stat.st_mtime,
-                        "download_url": f"/api/download-pdf/{f}",
-                    })
-                except Exception:
-                    continue
+    seen = set()
+    candidate_dirs = [REPORTS_DIR, os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")]
+    for s_dir in candidate_dirs:
+        if os.path.exists(s_dir):
+            try:
+                for f in os.listdir(s_dir):
+                    if f.lower().endswith(".pdf") and f not in seen:
+                        full_path = os.path.join(s_dir, f)
+                        try:
+                            stat = os.stat(full_path)
+                            seen.add(f)
+                            reports.append({
+                                "filename": f,
+                                "size_mb": round(stat.st_size / (1024 * 1024), 2),
+                                "modified": datetime.fromtimestamp(stat.st_mtime).strftime("%d %b %Y, %I:%M %p"),
+                                "mtime": stat.st_mtime,
+                                "download_url": f"/api/download-pdf/{f}",
+                            })
+                        except Exception:
+                            continue
+            except Exception:
+                pass
     reports.sort(key=lambda x: x.get("mtime", 0), reverse=True)
     return {"reports": reports[:30]}
 
 
 @app.get("/api/download-pdf/{filename}")
 def api_download_pdf(filename: str):
-    pdf_path = os.path.join(REPORTS_DIR, os.path.basename(filename))
-    if os.path.exists(pdf_path):
-        return FileResponse(pdf_path, media_type="application/pdf", filename=filename)
+    safe_name = os.path.basename(filename)
+    candidate_dirs = [REPORTS_DIR, os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")]
+    for s_dir in candidate_dirs:
+        pdf_path = os.path.join(s_dir, safe_name)
+        if os.path.exists(pdf_path) and os.path.isfile(pdf_path):
+            return FileResponse(pdf_path, media_type="application/pdf", filename=safe_name)
     return JSONResponse({"error": "File not found"}, status_code=404)
 
 

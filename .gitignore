@@ -17,7 +17,11 @@ Release/
 installer_assets/
 
 # Temporary & Test files
-*.pdf
+reports/Test_*.pdf
+reports/test_*.pdf
+reports/Gurukulam_Kundli_*.pdf
+reports/*_pages/
+*.tmp
 test_*.py
 test_*.json
 served_*.js
@@ -33,3 +37,7 @@ check_served_html.py
 enrich_workspace_modules.py
 .system_generated/
 *.tmp
+
+reports/Vedas_Kundli_Groom_*.pdf
+reports/Vedas_Kundli_Predictions_*.pdf
+test_*.pdf
