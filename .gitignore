@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Build & Dist
+dist/
+build/
+*.spec
+*.exe
+Release/
+installer_assets/
+
+# Temporary & Test files
+*.pdf
+test_*.py
+test_*.json
+served_*.js
+patch_*.py
+apply_*.py
+add_*.py
+debug_*.py
+fix_*.py
+upgrade_*.py
+verify_*.py
+get_api_data.py
+check_served_html.py
+enrich_workspace_modules.py
+.system_generated/
+*.tmp
