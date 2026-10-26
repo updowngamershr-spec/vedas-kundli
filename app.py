@@ -34,6 +34,16 @@ from engine.milan_dossier import build_milan_dossier_html
 from crm_db import init_crm_db, list_clients, get_client, save_client, delete_client, get_branding, save_branding, get_user_data_root, create_demo_key, list_demo_keys, toggle_demo_key_status, validate_access_key
 
 app = FastAPI(title="Vedas Kundli Predictions")
+
+@app.get("/presentation", response_class=HTMLResponse)
+@app.get("/pitch", response_class=HTMLResponse)
+def serve_sales_presentation():
+    pres_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "presentation.html")
+    if os.path.exists(pres_file):
+        with open(pres_file, "r", encoding="utf-8") as f:
+            return HTMLResponse(f.read())
+    return HTMLResponse("Presentation loading...", status_code=200)
+
 REPORTS_DIR = os.path.join(get_user_data_root(), "reports")
 os.makedirs(REPORTS_DIR, exist_ok=True)
 
