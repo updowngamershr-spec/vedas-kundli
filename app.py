@@ -1233,47 +1233,99 @@ def index_ui():
     }
   
     /* ========================================================= */
-    /* 📱 UNIVERSAL MOBILE & TABLET RESPONSIVE ARCHITECTURE      */
+    /* 📱 PRO MOBILE & TABLET APPLICATION ARCHITECTURE (ZERO OVERFLOW) */
     /* ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     html, body {
-      overflow-x: hidden !important;
+      width: 100% !important;
       max-width: 100vw !important;
+      overflow-x: hidden !important;
+      position: relative !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .desktop-app {
+      width: 100% !important;
+      max-width: 100vw !important;
+      min-height: 100vh !important;
+      min-height: 100dvh !important;
+      overflow-x: hidden !important;
+      position: relative !important;
+    }
+
+    .desktop-main {
+      width: 100% !important;
+      max-width: 100vw !important;
+      min-width: 0 !important;
+      flex: 1 !important;
+      overflow-x: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .desktop-content-area {
+      width: 100% !important;
+      max-width: 100vw !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+      min-width: 0 !important;
+    }
+
+    .view-pane {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      overflow-x: hidden !important;
     }
 
     .mobile-menu-btn {
       display: none;
       background: #F4ECE1;
       border: 1.5px solid #D9C3AB;
-      font-size: 22px;
+      font-size: 20px;
       color: #7C2D12;
       cursor: pointer;
-      padding: 6px 12px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
-      margin-right: 8px;
+      margin-right: 6px;
+      flex-shrink: 0;
       touch-action: manipulation;
     }
+
     .mobile-sidebar-close {
       display: none;
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.25);
       color: #FEF08A;
       font-size: 18px;
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
       cursor: pointer;
       margin-left: auto;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       touch-action: manipulation;
     }
+
     .sidebar-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 998;
       touch-action: manipulation;
     }
@@ -1281,147 +1333,401 @@ def index_ui():
       display: block;
     }
 
-    /* Deity Cards on Desktop */
     .deity-cards-wrapper {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    /* Responsive Breakpoint 1: Tablets and Small Laptops (<= 1024px) */
+    /* Native-Style Mobile Bottom Navigation Dock */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      height: calc(60px + env(safe-area-inset-bottom, 0px));
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      background: rgba(28, 16, 9, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1.5px solid rgba(212, 175, 55, 0.35);
+      z-index: 990;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.45);
+    }
+    .mob-tab-btn {
+      flex: 1;
+      height: 100%;
+      background: transparent;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: #D1C7BD;
+      cursor: pointer;
+      padding: 4px 2px;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+    .mob-tab-btn .mob-icon {
+      font-size: 19px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .mob-tab-btn .mob-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      line-height: 1;
+    }
+    .mob-tab-btn.active {
+      color: #FEF08A;
+    }
+    .mob-tab-btn.active .mob-icon {
+      transform: translateY(-2px) scale(1.1);
+      filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6));
+    }
+    .mob-tab-btn.active .mob-label {
+      color: #D4AF37;
+      font-weight: 800;
+    }
+
+    /* ========================================================= */
+    /* RESPONSIVE TABLETS & IPADS (<= 1024px)                     */
+    /* ========================================================= */
     @media (max-width: 1024px) {
       .mobile-menu-btn {
         display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
       }
       .mobile-sidebar-close {
         display: inline-flex !important;
-      }
-      .desktop-app {
-        position: relative !important;
-        overflow-x: hidden !important;
       }
       .desktop-sidebar {
         position: fixed !important;
         top: 0 !important;
         left: -320px !important;
-        width: 290px !important;
-        min-width: 290px !important;
+        width: 280px !important;
+        min-width: 280px !important;
         height: 100vh !important;
         height: 100dvh !important;
         z-index: 1000 !important;
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: none !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
       }
       .desktop-sidebar.open {
         left: 0 !important;
-        box-shadow: 10px 0 35px rgba(0,0,0,0.55) !important;
-      }
-      .desktop-main {
-        width: 100% !important;
-        min-width: 100% !important;
-        overflow-x: hidden !important;
+        box-shadow: 10px 0 35px rgba(0,0,0,0.6) !important;
       }
       .desktop-topbar {
         padding: 0 12px !important;
-        gap: 6px !important;
-      }
-      .topbar-title {
-        font-size: 13.5px !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        max-width: 180px !important;
       }
       .status-pill {
         display: none !important;
       }
-      .btn-exit-top {
-        display: none !important; /* Hide exit in web view */
+      .btn-lock {
+        display: none !important;
       }
     }
 
-    /* Responsive Breakpoint 2: Phones & Phablets (<= 768px) */
+    /* ========================================================= */
+    /* RESPONSIVE MOBILE PHONES (<= 768px)                       */
+    /* ========================================================= */
     @media (max-width: 768px) {
+      .mobile-bottom-bar {
+        display: flex !important;
+      }
+
+      .desktop-topbar {
+        height: 50px !important;
+        min-height: 50px !important;
+        padding: 0 10px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      .topbar-title {
+        font-size: 12.5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        flex: 1 !important;
+        margin: 0 6px !important;
+        max-width: calc(100vw - 165px) !important;
+      }
+      .topbar-controls {
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+      }
+      /* Hide redundant chart style pills in mobile topbar */
+      .control-pill[title="Chart Style"] {
+        display: none !important;
+      }
+      .control-pill[title="Report Language"] .control-btn {
+        padding: 4px 6px !important;
+        font-size: 10.5px !important;
+      }
+      .control-pill[title="Report Language"] #lang_both {
+        display: none !important;
+      }
+      .btn-action-top {
+        padding: 5px 8px !important;
+        font-size: 11px !important;
+      }
+      .btn-lock {
+        display: none !important;
+      }
+
       .desktop-content-area {
-        padding: 10px 8px 60px 8px !important;
-        -webkit-overflow-scrolling: touch !important;
+        padding: 10px 8px 80px 8px !important;
         overflow-x: hidden !important;
       }
 
-      /* Touch Carousel for 5 Deities on Mobile */
+      /* 5 Deities Touch Swipe Carousel */
       .deity-cards-wrapper {
         display: flex !important;
+        flex-wrap: nowrap !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
         gap: 10px !important;
-        padding: 4px 2px 10px 2px !important;
+        padding: 2px 2px 10px 2px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
         -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+      }
+      .deity-cards-wrapper::-webkit-scrollbar {
+        display: none !important;
       }
       .deity-cards-wrapper > div {
-        flex: 0 0 135px !important;
+        flex: 0 0 125px !important;
+        width: 125px !important;
+        min-width: 125px !important;
+        max-width: 125px !important;
         scroll-snap-align: start !important;
+        box-sizing: border-box !important;
       }
 
-      /* Quick Actions Bar Responsive Tiles */
+      /* Metrics 2x2 Grid */
+      .metrics-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .metric-card {
+        padding: 10px 8px !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+      }
+      .metric-icon-box {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 17px !important;
+      }
+      .metric-data .val {
+        font-size: 19px !important;
+      }
+      .metric-data .lbl {
+        font-size: 9.5px !important;
+      }
+
+      /* Quick Actions 2-Column Responsive Grid */
       .quick-actions-bar {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
       .btn-quick-act {
         width: 100% !important;
-        justify-content: center !important;
-        padding: 10px 8px !important;
-        font-size: 11px !important;
+        box-sizing: border-box !important;
         text-align: center !important;
+        justify-content: center !important;
+        font-size: 11px !important;
+        padding: 9px 4px !important;
+        line-height: 1.25 !important;
+        white-space: normal !important;
+        min-height: 42px !important;
       }
 
-      /* Metrics Grid Responsive */
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
+      /* Glass Cards Zero-Overflow */
+      .glass-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 14px 10px !important;
+        margin-bottom: 12px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+      }
+      .card-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        width: 100% !important;
       }
 
-      /* Collapse all 2-column or multi-column grids to 1-column */
+      /* Force ALL Desktop Multi-Column Grids into 1 Column on Mobile */
       .grid, .form-grid, .two-col,
       [style*="grid-template-columns: 1fr 1fr"],
       [style*="grid-template-columns: 1.1fr 1fr"],
       [style*="grid-template-columns: 1fr 1.5fr"],
+      [style*="grid-template-columns: 2fr 1fr 1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1.5fr 1.5fr 2fr"],
       [style*="grid-template-columns: repeat(6, 1fr)"],
       [style*="grid-template-columns: repeat(5, 1fr)"],
-      [style*="grid-template-columns: 2fr 1fr 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-      }
-
-      /* Form controls full width & comfortable touch targets */
-      .form-group, input, select, textarea {
-        max-width: 100% !important;
-        font-size: 14px !important;
-        min-height: 40px !important;
-      }
-
-      /* Horizontal Scrollable Tables with smooth swipe */
-      table {
-        display: block !important;
+      [style*="grid-template-columns: repeat(auto-fit"],
+      [style*="grid-template-columns: repeat(auto-fill"] {
+        display: flex !important;
+        flex-direction: column !important;
         width: 100% !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
+        gap: 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Workspace Stats: 2x2 Clean Grid */
+      .workspace-stats-strip {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .stat-pill-card {
+        min-width: 0 !important;
+        padding: 8px 6px !important;
+        box-sizing: border-box !important;
+      }
+      .stat-pill-card .val {
+        font-size: 12px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
         white-space: nowrap !important;
       }
 
-      /* Scaled SVG chart graphics */
-      svg, .chart-container, .kundli-svg-box {
+      /* Workspace Time Rectification Box */
+      .time-adjust-strip {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+      }
+      .adjust-controls {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .btn-time-step {
+        padding: 6px 2px !important;
+        font-size: 11px !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .time-readout-box {
+        grid-column: span 2 !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .btn-time-recalc {
+        grid-column: span 2 !important;
+        width: 100% !important;
+        padding: 8px 4px !important;
+        font-size: 12px !important;
+      }
+
+      /* Kundli Charts Grid: Vertical Stacked 100% Width */
+      .charts-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 14px !important;
+        box-sizing: border-box !important;
+      }
+      .chart-box {
+        width: 100% !important;
         max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        padding: 12px 8px !important;
+      }
+      .chart-box-header {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+      .svg-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-height: auto !important;
+      }
+      .svg-wrapper svg, .kundli-svg {
+        width: 100% !important;
+        max-width: 320px !important;
         height: auto !important;
       }
 
-      /* Mobile Login Gateway Dialog */
+      /* Kundli Milan Groom & Bride Boxes */
+      #pane_milan .glass-card > div[style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+      }
+      #pane_milan .form-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+      #pane_milan .form-group[style*="grid-column: span 2"] {
+        grid-column: span 2 !important;
+        width: 100% !important;
+      }
+
+      /* Form Controls iOS Safari 16px to prevent auto-zoom */
+      .form-group, input, select, textarea {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 15px !important;
+        min-height: 42px !important;
+      }
+
+      /* Horizontal Scrollable Table Containers (No Page Jump) */
+      [style*="overflow-x:auto"], .table-responsive {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+        box-sizing: border-box !important;
+      }
+      table {
+        min-width: 480px !important;
+        width: 100% !important;
+      }
+
+      /* Mobile Login Gateway */
       #vedasLoginGateway > div {
         width: 95% !important;
         max-width: 95% !important;
@@ -1429,32 +1735,10 @@ def index_ui():
         margin: 10px auto !important;
         max-height: 92vh !important;
         overflow-y: auto !important;
-      }
-
-      /* Mobile Splash Screen */
-      #vedasSplashScreen > div {
-        width: 92% !important;
-        max-width: 92% !important;
-        padding: 24px 14px !important;
+        border-radius: 14px !important;
       }
     }
 
-    /* Small Screen Phones (<= 480px) */
-    @media (max-width: 480px) {
-      .topbar-controls {
-        gap: 4px !important;
-      }
-      .control-btn {
-        padding: 4px 6px !important;
-        font-size: 10px !important;
-      }
-      .metrics-grid {
-        grid-template-columns: 1fr !important;
-      }
-      .quick-actions-bar {
-        grid-template-columns: 1fr !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -2653,6 +2937,30 @@ def index_ui():
     </div>
   </div>
 
+  <!-- Native-Grade Mobile Bottom Navigation Dock -->
+  <nav class="mobile-bottom-bar" id="mobileBottomBar">
+    <button class="mob-tab-btn active" id="mobtab_dashboard" onclick="switchNav('dashboard')" aria-label="Dashboard">
+      <span class="mob-icon">📊</span>
+      <span class="mob-label">Dashboard</span>
+    </button>
+    <button class="mob-tab-btn" id="mobtab_new_kundli" onclick="switchNav('new_kundli')" aria-label="New Kundli">
+      <span class="mob-icon">➕</span>
+      <span class="mob-label">New Kundli</span>
+    </button>
+    <button class="mob-tab-btn" id="mobtab_workspace" onclick="switchNav('workspace')" aria-label="Charts Workspace">
+      <span class="mob-icon">🪐</span>
+      <span class="mob-label">Charts</span>
+    </button>
+    <button class="mob-tab-btn" id="mobtab_milan" onclick="switchNav('milan')" aria-label="Kundli Milan">
+      <span class="mob-icon">💍</span>
+      <span class="mob-label">Milan</span>
+    </button>
+    <button class="mob-tab-btn" id="mobtab_settings" onclick="switchNav('settings')" aria-label="Settings">
+      <span class="mob-icon">⚙️</span>
+      <span class="mob-label">Settings</span>
+    </button>
+  </nav>
+
   <!-- Filmora-Style Luxury Progress Modal -->
   <div id="loadingModal">
     <div class="modal-content-box">
@@ -2696,6 +3004,10 @@ def index_ui():
     }
 
     function switchNav(viewId) {
+      // Update Mobile Bottom Bar
+      document.querySelectorAll('.mob-tab-btn').forEach(btn => btn.classList.remove('active'));
+      const activeMobTab = document.getElementById('mobtab_' + viewId);
+      if (activeMobTab) activeMobTab.classList.add('active');
       if (window.innerWidth <= 768) { toggleMobileSidebar(false); }
       console.log('[Nav] Switching to view:', viewId);
       try {
