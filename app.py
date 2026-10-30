@@ -2092,37 +2092,6 @@ def index_ui():
           </div>
         </div>
 
-        <!-- 🚀 HIGH-CONVERTING 10-SECOND LIVE DEMO & BUY CARD -->
-        <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); border:2px solid #D4AF37; border-radius:14px; padding:16px 14px; margin-bottom:16px; box-shadow:0 4px 15px rgba(212,175,55,0.22); position:relative; overflow:hidden;">
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-            <div>
-              <div style="display:inline-flex; align-items:center; gap:6px; background:#78350F; color:#FEF08A; font-size:11px; font-weight:900; padding:3px 10px; border-radius:20px; letter-spacing:0.8px; text-transform:uppercase;">
-                ⚡ 10-Second Live Magic Preview
-              </div>
-              <h3 style="font-family:'Cinzel', serif; font-size:16px; font-weight:900; color:#78350F; margin:6px 0 2px 0;">
-                अपनी आँखों से देखें — 1 सेकंड में 56-पेज कुण्डली का जादू!
-              </h3>
-              <p style="font-size:12px; color:#92400E; margin:0; line-height:1.4;">
-                बिना कोई समय गंवाए सीधे लाइव कुण्डली चलाएं या असली 56-पेज रंगीन VIP PDF देखें।
-              </p>
-            </div>
-            
-            <div style="display:flex; gap:8px; flex-wrap:wrap; width:100%; justify-content:flex-start;">
-              <button type="button" onclick="loadClientIntoKundli(1)" style="flex:1; min-width:140px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); color:#FEF08A; border:1px solid #D4AF37; border-radius:8px; padding:10px 14px; font-size:12.5px; font-weight:800; cursor:pointer; box-shadow:0 2px 8px rgba(124,45,18,0.25); display:inline-flex; align-items:center; justify-content:center; gap:6px;">
-                🔮 Open Live Sample
-              </button>
-              
-              <button type="button" onclick="window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank')" style="flex:1; min-width:140px; background:#FFFFFF; color:#7C2D12; border:1.5px solid #D4AF37; border-radius:8px; padding:10px 14px; font-size:12.5px; font-weight:800; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.05); display:inline-flex; align-items:center; justify-content:center; gap:6px;">
-                📥 Free 56-Page PDF
-              </button>
-              
-              <button type="button" onclick="openBuyModal()" style="flex:2; min-width:200px; background:linear-gradient(135deg, #16A34A 0%, #15803D 100%); color:#FFFFFF; border:none; border-radius:8px; padding:10px 16px; font-size:13px; font-weight:900; cursor:pointer; box-shadow:0 3px 12px rgba(22,163,74,0.35); display:inline-flex; align-items:center; justify-content:center; gap:6px; letter-spacing:0.3px;">
-                👑 Buy Lifetime Deal @ ₹699
-              </button>
-            </div>
-          </div>
-        </div>
-
           <!-- Metrics Grid -->
           <div class="metrics-grid">
             <div class="metric-card">
@@ -4731,16 +4700,6 @@ def index_ui():
       });
     }
 
-    // Auto-show Mobile Sticky Deal Ribbon on small screens
-    function checkMobileSticky() {
-      if (window.innerWidth <= 768) {
-        const s = document.getElementById('mobStickyDeal');
-        if (s) s.style.display = 'flex';
-      }
-    }
-    window.addEventListener('load', checkMobileSticky);
-
-
     function initApp() {
       console.log('[Init] Vedas Kundli Professional starting...');
       runSplashScreen();
@@ -4816,23 +4775,6 @@ def index_ui():
           ⚡ स्क्रीनशॉट भेजते ही 2 मिनट में आपकी चाबी एक्टिवेट हो जाएगी।
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Mobile Floating Sticky Deal Ribbon -->
-  <div id="mobStickyDeal" style="display:none; position:fixed; bottom:64px; left:8px; right:8px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); border:1.5px solid #D4AF37; border-radius:10px; padding:8px 12px; z-index:980; align-items:center; justify-content:space-between; box-shadow:0 4px 20px rgba(0,0,0,0.5);">
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:18px;">👑</span>
-      <div>
-        <div style="font-size:11.5px; font-weight:800; color:#FEF08A; line-height:1.2;">लाइफटाइम एक्सेस मात्र ₹699</div>
-        <div style="font-size:10px; color:#D1D5DB;">56-पेज VIP कुण्डली प्रिंट शामिल</div>
-      </div>
-    </div>
-    <div style="display:flex; align-items:center; gap:6px;">
-      <button onclick="openBuyModal()" style="background:linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); color:#000; font-weight:900; font-size:11px; border:none; padding:6px 12px; border-radius:6px; cursor:pointer;">
-        Unlock Deal
-      </button>
-      <button onclick="document.getElementById('mobStickyDeal').style.display='none'" style="background:transparent; border:none; color:#E5E7EB; font-size:14px; padding:2px; cursor:pointer;">✕</button>
     </div>
   </div>
 
