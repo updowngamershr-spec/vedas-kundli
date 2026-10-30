@@ -1453,19 +1453,23 @@ def index_ui():
       .desktop-topbar {
         height: 50px !important;
         min-height: 50px !important;
-        padding: 0 10px !important;
+        padding: 0 8px !important;
         width: 100% !important;
         max-width: 100vw !important;
         overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
       }
       .topbar-title {
-        font-size: 12.5px !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         flex: 1 !important;
         margin: 0 6px !important;
-        max-width: calc(100vw - 165px) !important;
+        max-width: none !important;
       }
       .topbar-controls {
         gap: 6px !important;
@@ -1490,9 +1494,39 @@ def index_ui():
         display: none !important;
       }
 
-      .desktop-content-area {
-        padding: 10px 8px 80px 8px !important;
+      /* Full hardware-accelerated touch momentum scrolling with 140px clearance */
+      .desktop-viewport {
+        padding: 10px 10px 140px 10px !important;
+        overflow-y: auto !important;
         overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-y: contain !important;
+        scroll-behavior: smooth !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .view-pane {
+        padding-bottom: 40px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Form Action Buttons: Stack vertically on mobile so none get squeezed or cut */
+      #pane_new_kundli div[style*="display:flex; gap:12px; align-items:center"] {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-top: 14px !important;
+        margin-bottom: 24px !important;
+      }
+      #pane_new_kundli .btn-primary-gradient,
+      #pane_new_kundli .btn-secondary-outline {
+        width: 100% !important;
+        padding: 12px 14px !important;
+        font-size: 13.5px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
       }
 
       /* 5 Deities Touch Swipe Carousel */
@@ -2353,6 +2387,29 @@ def index_ui():
         <!-- VIEW 4: INTERACTIVE ASTROLOGY WORKSPACE -->
         <!-- =============================================================== -->
         <section class="view-pane" id="pane_workspace">
+          <!-- 👑 TOP ACTION BAR: 1-CLICK COMPLETE 56-PAGE VIP PDF VIEW -->
+          <div class="workspace-pdf-banner" style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); border:2px solid #D4AF37; border-radius:12px; padding:12px 14px; margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; box-shadow:0 4px 14px rgba(212,175,55,0.22);">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:24px;">👑</span>
+              <div>
+                <strong style="font-family:'Cinzel', serif; font-size:14px; font-weight:900; color:#78350F; display:block;">
+                  संपूर्ण 56-पेज VIP कुण्डली महा-डॉसियर (Full VIP Dossier)
+                </strong>
+                <span style="font-size:11px; color:#92400E; font-weight:600;">
+                  16 वर्ग चार्ट • विंशोत्तरी महादशा • लाल किताब 1952 उपाय एवं अष्टकवर्ग
+                </span>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; width:100%; max-width:340px;">
+              <button type="button" onclick="exportPDF()" style="flex:1; min-width:145px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); color:#FEF08A; border:1px solid #D4AF37; font-weight:900; font-size:12.5px; padding:10px 14px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; box-shadow:0 2px 8px rgba(124,45,18,0.25);">
+                📄 View Complete PDF
+              </button>
+              <button type="button" onclick="loadInAppPdfPreview(); switchNav('reports');" style="flex:1; min-width:130px; background:#FFFFFF; color:#7C2D12; border:1.5px solid #D4AF37; font-weight:800; font-size:12px; padding:10px 12px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+                👁️ Live Preview
+              </button>
+            </div>
+          </div>
+
           <!-- Active Client Stats Strip -->
           <div class="workspace-stats-strip">
             <div class="stat-pill-card">
@@ -3030,7 +3087,17 @@ def index_ui():
           pane.style.display = 'block';
         }
 
-        const titles = {
+        const isMobScreen = window.innerWidth <= 768;
+        const titles = isMobScreen ? {
+          'dashboard': '📊 Dashboard',
+          'new_kundli': '➕ New Kundli',
+          'clients': '👥 Clients CRM',
+          'workspace': '🪐 Kundli Workspace',
+          'milan': '💍 Kundli Milan',
+          'reports': '📄 Report Studio',
+          'prashna': '⏱️ Prashna Kundli',
+          'settings': '⚙️ Settings'
+        } : {
           'dashboard': '📊 Executive Astrological Dashboard',
           'new_kundli': '➕ New Kundli Creation & Native Registration',
           'clients': '👥 Client Consultations Directory (Offline CRM)',
@@ -4024,6 +4091,11 @@ def index_ui():
 
     async function exportPDF() {
       const p = getFormPayload();
+      if (!p.name) {
+        // If native details are not entered yet, open the VIP 56-page full sample PDF immediately
+        window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank');
+        return;
+      }
       if (!validateInputs(p)) return;
 
       // Show Filmora-Style Progress Modal
