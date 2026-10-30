@@ -969,8 +969,12 @@ def index_ui():
     .desktop-viewport {
       flex: 1;
       overflow-y: auto;
+      overflow-x: hidden;
       padding: 20px 24px;
       position: relative;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
     }
 
     .view-pane {
@@ -2084,6 +2088,37 @@ def index_ui():
               <img src="/assets/gods/hanuman.png" alt="Hanuman Ji" style="width:70px; height:70px; object-fit:cover; border-radius:50%; border:2px solid #D4AF37; margin:0 auto 6px auto; display:block; box-shadow:0 0 10px rgba(212,175,55,0.3);"/>
               <strong style="color:#7C2D12; font-size:12px; display:block;">हनुमान जी</strong>
               <span style="font-size:10.5px; color:#B45309; font-weight:700;">संकटमोचन रक्षा</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🚀 HIGH-CONVERTING 10-SECOND LIVE DEMO & BUY CARD -->
+        <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); border:2px solid #D4AF37; border-radius:14px; padding:16px 14px; margin-bottom:16px; box-shadow:0 4px 15px rgba(212,175,55,0.22); position:relative; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="display:inline-flex; align-items:center; gap:6px; background:#78350F; color:#FEF08A; font-size:11px; font-weight:900; padding:3px 10px; border-radius:20px; letter-spacing:0.8px; text-transform:uppercase;">
+                ⚡ 10-Second Live Magic Preview
+              </div>
+              <h3 style="font-family:'Cinzel', serif; font-size:16px; font-weight:900; color:#78350F; margin:6px 0 2px 0;">
+                अपनी आँखों से देखें — 1 सेकंड में 56-पेज कुण्डली का जादू!
+              </h3>
+              <p style="font-size:12px; color:#92400E; margin:0; line-height:1.4;">
+                बिना कोई समय गंवाए सीधे लाइव कुण्डली चलाएं या असली 56-पेज रंगीन VIP PDF देखें।
+              </p>
+            </div>
+            
+            <div style="display:flex; gap:8px; flex-wrap:wrap; width:100%; justify-content:flex-start;">
+              <button type="button" onclick="loadClientIntoKundli(1)" style="flex:1; min-width:140px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); color:#FEF08A; border:1px solid #D4AF37; border-radius:8px; padding:10px 14px; font-size:12.5px; font-weight:800; cursor:pointer; box-shadow:0 2px 8px rgba(124,45,18,0.25); display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+                🔮 Open Live Sample
+              </button>
+              
+              <button type="button" onclick="window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank')" style="flex:1; min-width:140px; background:#FFFFFF; color:#7C2D12; border:1.5px solid #D4AF37; border-radius:8px; padding:10px 14px; font-size:12.5px; font-weight:800; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.05); display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+                📥 Free 56-Page PDF
+              </button>
+              
+              <button type="button" onclick="openBuyModal()" style="flex:2; min-width:200px; background:linear-gradient(135deg, #16A34A 0%, #15803D 100%); color:#FFFFFF; border:none; border-radius:8px; padding:10px 16px; font-size:13px; font-weight:900; cursor:pointer; box-shadow:0 3px 12px rgba(22,163,74,0.35); display:inline-flex; align-items:center; justify-content:center; gap:6px; letter-spacing:0.3px;">
+                👑 Buy Lifetime Deal @ ₹699
+              </button>
             </div>
           </div>
         </div>
@@ -4678,6 +4713,34 @@ def index_ui():
     }
 
 
+    
+    function openBuyModal() {
+      const m = document.getElementById('vedasBuyModal');
+      if (m) m.style.display = 'flex';
+    }
+    function closeBuyModal() {
+      const m = document.getElementById('vedasBuyModal');
+      if (m) m.style.display = 'none';
+    }
+    function copyUpiId() {
+      const upi = document.getElementById('txtUpiId').innerText;
+      navigator.clipboard.writeText(upi).then(() => {
+        alert('✅ UPI ID ' + upi + ' कॉपी हो गई है! अब PhonePe/GPay में पेस्ट करके ₹699 पे करें।');
+      }).catch(() => {
+        alert('UPI ID: ' + upi);
+      });
+    }
+
+    // Auto-show Mobile Sticky Deal Ribbon on small screens
+    function checkMobileSticky() {
+      if (window.innerWidth <= 768) {
+        const s = document.getElementById('mobStickyDeal');
+        if (s) s.style.display = 'flex';
+      }
+    }
+    window.addEventListener('load', checkMobileSticky);
+
+
     function initApp() {
       console.log('[Init] Vedas Kundli Professional starting...');
       runSplashScreen();
@@ -4695,6 +4758,84 @@ def index_ui():
 
 // Clean exit via topbar close button only
   </script>
+
+  <!-- =============================================================== -->
+  <!-- 👑 HIGH-CONVERTING ₹699 LIFETIME BUY MODAL & UPI SCANNER -->
+  <!-- =============================================================== -->
+  <div id="vedasBuyModal" style="display:none; position:fixed; inset:0; z-index:999999; background:rgba(0,0,0,0.78); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:14px;">
+    <div style="background:linear-gradient(145deg, #23120A 0%, #120904 100%); border:2px solid #D4AF37; border-radius:18px; width:100%; max-width:480px; padding:22px; color:#FFF; box-shadow:0 20px 60px rgba(0,0,0,0.8); position:relative; max-height:92vh; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+      
+      <!-- Close Button -->
+      <button onclick="closeBuyModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:#FEF08A; width:30px; height:30px; border-radius:50%; font-size:16px; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
+
+      <div style="text-align:center;">
+        <span style="background:linear-gradient(135deg, #EAB308 0%, #B45309 100%); color:#000; font-size:11px; font-weight:900; padding:4px 14px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;">
+          🔥 LIMITED TIME LAUNCH DEAL
+        </span>
+        <h2 style="font-family:'Cinzel', serif; font-size:22px; font-weight:900; color:#FEF08A; margin:8px 0 2px 0;">
+          VEDAS KUNDLI PRO
+        </h2>
+        <p style="font-size:12.5px; color:#D1C7BD; margin:0 0 14px 0;">
+          आजीवन वीआईपी लाइसेंस (One-Time Payment • No Monthly Fees)
+        </p>
+
+        <!-- Price Callout -->
+        <div style="background:rgba(255,255,255,0.04); border:1.5px dashed #D4AF37; border-radius:12px; padding:10px; margin-bottom:14px;">
+          <div style="font-size:13px; color:#A8A29E; text-decoration:line-through;">सामान्य कीमत: ₹15,000</div>
+          <div style="font-size:38px; font-weight:900; color:#FEF08A; line-height:1.1; margin:2px 0;">
+            ₹699 <span style="font-size:14px; color:#86EFAC; font-weight:700;">(लाइफटाइम)</span>
+          </div>
+          <div style="font-size:11.5px; color:#34D399; font-weight:700;">✓ पहले ही क्लाइंट की फीस में पूरा सॉफ्टवेयर 100% फ्री!</div>
+        </div>
+
+        <!-- 3 Mega Bonuses -->
+        <div style="text-align:left; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; margin-bottom:14px; font-size:12px; line-height:1.6; color:#E5E7EB;">
+          <div style="color:#FDE68A; font-weight:800; font-size:12.5px; margin-bottom:4px;">🎁 3 मुफ़्त महा-बोनस शामिल:</div>
+          <div>✓ <b>बोनस 1:</b> मूल लाल किताब 1952 हस्तलिखित उपाय डायरेक्टरी (मूल्य ₹1,999)</div>
+          <div>✓ <b>बोनस 2:</b> 36-गुण अष्टकूट विवाह मिलान 10-पेज डॉसियर (मूल्य ₹2,499)</div>
+          <div>✓ <b>बोनस 3:</b> आपके ज्योतिष केंद्र का नाम व लोगो हर रिपोर्ट पर हमेशा के लिए सेट</div>
+        </div>
+
+        <!-- UPI QR Code Simulator -->
+        <div style="background:#FFFFFF; border-radius:12px; padding:12px; display:inline-block; margin-bottom:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=harmanjotsingh0310@okaxis&pn=Vedas%20Kundli%20Pro&am=699&cu=INR" alt="Scan & Pay ₹699 via PhonePe/GPay/Paytm" style="width:145px; height:145px; display:block;"/>
+          <div style="font-size:11px; font-weight:800; color:#1F2937; margin-top:4px;">GPay • PhonePe • Paytm • UPI</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <span style="font-size:11.5px; color:#A8A29E;">UPI ID: </span>
+          <code style="background:rgba(255,255,255,0.08); border:1px solid #D4AF37; padding:3px 8px; border-radius:6px; color:#FEF08A; font-size:12px; font-weight:800;" id="txtUpiId">harmanjotsingh0310@okaxis</code>
+          <button onclick="copyUpiId()" style="background:#D4AF37; color:#000; font-weight:800; font-size:11px; border:none; padding:4px 8px; border-radius:4px; margin-left:6px; cursor:pointer;">📋 Copy</button>
+        </div>
+
+        <!-- Direct WhatsApp Activation CTA -->
+        <a href="https://wa.me/?text=Hello!%20I%20have%20paid%20Rs.699%20for%20Vedas%20Kundli%20Pro%20Lifetime%20License.%20Attached%20is%20my%20screenshot.%20Please%20send%20my%20activation%20key!" target="_blank" style="display:block; width:100%; background:linear-gradient(135deg, #25D366 0%, #128C7E 100%); color:#FFF; font-weight:900; font-size:14.5px; padding:12px; border-radius:10px; text-decoration:none; text-align:center; box-shadow:0 4px 16px rgba(37,211,102,0.4); margin-bottom:8px;">
+          💬 WhatsApp पर स्क्रीनशॉट भेजें (Instant Key)
+        </a>
+        <div style="font-size:11px; color:#9CA3AF;">
+          ⚡ स्क्रीनशॉट भेजते ही 2 मिनट में आपकी चाबी एक्टिवेट हो जाएगी।
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Floating Sticky Deal Ribbon -->
+  <div id="mobStickyDeal" style="display:none; position:fixed; bottom:64px; left:8px; right:8px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); border:1.5px solid #D4AF37; border-radius:10px; padding:8px 12px; z-index:980; align-items:center; justify-content:space-between; box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:18px;">👑</span>
+      <div>
+        <div style="font-size:11.5px; font-weight:800; color:#FEF08A; line-height:1.2;">लाइफटाइम एक्सेस मात्र ₹699</div>
+        <div style="font-size:10px; color:#D1D5DB;">56-पेज VIP कुण्डली प्रिंट शामिल</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <button onclick="openBuyModal()" style="background:linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); color:#000; font-weight:900; font-size:11px; border:none; padding:6px 12px; border-radius:6px; cursor:pointer;">
+        Unlock Deal
+      </button>
+      <button onclick="document.getElementById('mobStickyDeal').style.display='none'" style="background:transparent; border:none; color:#E5E7EB; font-size:14px; padding:2px; cursor:pointer;">✕</button>
+    </div>
+  </div>
+
 </body>
 </html>
 """, headers=headers)
