@@ -1990,14 +1990,36 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
         max-width: 100% !important;
         min-height: auto !important;
         max-height: none !important;
-        margin: 10px 0 !important;
-        padding: 14px 10px !important;
+        margin: 8px 0 !important;
+        padding: 8px 6px !important;
         box-sizing: border-box !important;
         border-radius: 10px !important;
-        overflow: visible !important;
+        overflow: hidden !important;
+        word-wrap: break-word !important;
       }
       .kundli-page * {
         box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+      .cover-brand-title {
+        font-size: 20px !important;
+        letter-spacing: 2px !important;
+        line-height: 1.2 !important;
+      }
+      .cover-brand-hindi {
+        font-size: 15px !important;
+      }
+      .cover-border-outer, .cover-border-inner {
+        padding: 6px !important;
+        height: auto !important;
+      }
+      .cover-client-card {
+        padding: 8px !important;
+        margin: 8px 0 !important;
+      }
+      .cover-emblem svg {
+        max-width: 200px !important;
+        height: auto !important;
       }
       svg {
         max-width: 100% !important;
@@ -2006,8 +2028,14 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
       table {
         width: 100% !important;
         max-width: 100% !important;
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
       }
       [style*="display:grid"], [style*="display: grid"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
         max-width: 100% !important;
       }
     }
