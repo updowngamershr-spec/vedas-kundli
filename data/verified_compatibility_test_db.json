@@ -1,0 +1,103 @@
+{
+  "database_name": "Astro Architects Canonical Verified Compatibility Test Database",
+  "version": "1.0.0",
+  "description": "Benchmark verified Vedic horoscopes for testing 36-point Ashtakoot Milan, Dosha cancellations, and Triple Manglik parity.",
+  "cases": [
+    {
+      "case_id": "BENCHMARK_001_BHAUBHALI_SROPNKHA",
+      "title": "Bhaubhali (Ludhiana) & Sropnkha (Vashi) Benchmark",
+      "groom": {
+        "name": "Bhaubhali", "sex": "male",
+        "year": 2001, "month": 8, "day": 15, "hour": 10, "minute": 30, "second": 0,
+        "place": "Ludhiana", "lat": 30.9010, "lon": 75.8573, "tz": 5.5
+      },
+      "bride": {
+        "name": "Sropnkha", "sex": "female",
+        "year": 2005, "month": 11, "day": 22, "hour": 14, "minute": 15, "second": 0,
+        "place": "Vashi", "lat": 19.0787, "lon": 73.0006, "tz": 5.5
+      },
+      "expected": {
+        "groom_moon_sign": "Gemini",
+        "groom_nakshatra": "Mrigashira",
+        "groom_pada": 4,
+        "groom_varna": "Shudra",
+        "groom_vashya": "Dvipada",
+        "groom_yoni": "Serpent",
+        "groom_gana": "Deva",
+        "groom_nadi": "Madhya",
+        "bride_moon_sign": "Cancer",
+        "bride_nakshatra": "Ashlesha",
+        "bride_pada": 1,
+        "bride_varna": "Brahmin",
+        "bride_vashya": "Jalachara",
+        "bride_yoni": "Cat",
+        "bride_gana": "Rakshasa",
+        "bride_nadi": "Antya",
+        "kootas": {
+          "varna": 0.0,
+          "vashya": 0.5,
+          "tara": 1.5,
+          "yoni": 2.0,
+          "graha_maitri": 1.0,
+          "gana": 0.0,
+          "bhakoot": 0.0,
+          "nadi": 8.0
+        },
+        "total_score": 13.0,
+        "bhakoot_dosha": true,
+        "bhakoot_parihara": false,
+        "nadi_dosha": false,
+        "groom_manglik": {
+          "from_lagna": false,
+          "from_moon": false,
+          "from_venus": false,
+          "classification": "Non-Manglik"
+        },
+        "bride_manglik": {
+          "from_lagna": true,
+          "from_moon": false,
+          "from_venus": false,
+          "lagna_house": 2,
+          "cancelled": true,
+          "cancellation_rule": "SWAKSHETRA_ARIES",
+          "classification": "Cancelled Manglik (Swakshetra Parihara)"
+        },
+        "manglik_compatibility": "Dosha Samya / Neutralized"
+      }
+    },
+    {
+      "case_id": "BENCHMARK_002_NADI_PADA_PARIHARA",
+      "title": "Same Nakshatra & Rashi with Different Padas (Nadi Parihara Case)",
+      "groom": {
+        "name": "Arjun", "sex": "male",
+        "year": 1998, "month": 5, "day": 10, "hour": 6, "minute": 15, "second": 0,
+        "place": "Delhi", "lat": 28.6139, "lon": 77.2090, "tz": 5.5
+      },
+      "bride": {
+        "name": "Pooja", "sex": "female",
+        "year": 2000, "month": 9, "day": 18, "hour": 18, "minute": 45, "second": 0,
+        "place": "Delhi", "lat": 28.6139, "lon": 77.2090, "tz": 5.5
+      },
+      "expected": {
+        "nadi_parihara_check": "Verified textual parihara applies when nakshatra and rashi are same with different padas"
+      }
+    },
+    {
+      "case_id": "BENCHMARK_003_BHAKOOT_SATURN_PARIHARA",
+      "title": "Capricorn-Aquarius Dvidwadasha (Saturn Lordship Parihara Case)",
+      "groom": {
+        "name": "Rohan", "sex": "male",
+        "year": 1995, "month": 1, "day": 20, "hour": 12, "minute": 0, "second": 0,
+        "place": "Varanasi", "lat": 25.3176, "lon": 82.9739, "tz": 5.5
+      },
+      "bride": {
+        "name": "Ananya", "sex": "female",
+        "year": 1997, "month": 3, "day": 15, "hour": 8, "minute": 30, "second": 0,
+        "place": "Varanasi", "lat": 25.3176, "lon": 82.9739, "tz": 5.5
+      },
+      "expected": {
+        "bhakoot_parihara_check": "Identical sign lord Saturn neutralizes 2/12 dosha per Muhurta Chintamani v.32"
+      }
+    }
+  ]
+}

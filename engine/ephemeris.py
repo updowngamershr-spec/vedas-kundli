@@ -556,20 +556,69 @@ def compute_core_ephemeris(
         else:
             p["combust"] = False
 
-        # Dignity
+        # Dignity & Sign Lord Relationship
         s_num = p["sign_num"]
+        sign_lord = p.get("sign_lord_en", "")
+        
+        # Natural relationship to sign lord
+        planet_friends = {
+            "Sun": {"Moon", "Mars", "Jupiter"},
+            "Moon": {"Sun", "Mercury"},
+            "Mars": {"Sun", "Moon", "Jupiter"},
+            "Mercury": {"Sun", "Venus"},
+            "Jupiter": {"Sun", "Moon", "Mars"},
+            "Venus": {"Mercury", "Saturn"},
+            "Saturn": {"Mercury", "Venus"},
+            "Rahu": {"Venus", "Saturn", "Mercury"},
+            "Ketu": {"Mars", "Venus", "Jupiter"}
+        }
+        planet_enemies = {
+            "Sun": {"Venus", "Saturn"},
+            "Moon": set(),
+            "Mars": {"Mercury"},
+            "Mercury": {"Moon"},
+            "Jupiter": {"Mercury", "Venus"},
+            "Venus": {"Sun", "Moon"},
+            "Saturn": {"Sun", "Moon", "Mars"},
+            "Rahu": {"Sun", "Moon", "Mars"},
+            "Ketu": {"Sun", "Moon"}
+        }
+
         if pid in exalt_signs and s_num == exalt_signs[pid]:
             p["dignity_en"] = "Exalted"
             p["dignity_hi"] = "उच्च (Exalted)"
+            p["sign_relation_en"] = "Exalted"
+            p["sign_relation_hi"] = "उच्च"
         elif pid in debilit_signs and s_num == debilit_signs[pid]:
             p["dignity_en"] = "Debilitated"
             p["dignity_hi"] = "नीच (Debilitated)"
+            p["sign_relation_en"] = "Debilitated"
+            p["sign_relation_hi"] = "नीच"
         elif pid in own_signs and s_num in own_signs[pid]:
             p["dignity_en"] = "Own Sign"
             p["dignity_hi"] = "स्वक्षेत्री (Own)"
+            p["sign_relation_en"] = "Own Sign"
+            p["sign_relation_hi"] = "स्वक्षेत्री"
+        elif sign_lord == pid:
+            p["dignity_en"] = "Own Sign"
+            p["dignity_hi"] = "स्वक्षेत्री (Own)"
+            p["sign_relation_en"] = "Own Sign"
+            p["sign_relation_hi"] = "स्वक्षेत्री"
+        elif sign_lord in planet_friends.get(pid, set()):
+            p["dignity_en"] = "Friendly Sign"
+            p["dignity_hi"] = "मित्र राशि"
+            p["sign_relation_en"] = "Friendly Sign"
+            p["sign_relation_hi"] = "मित्र राशि"
+        elif sign_lord in planet_enemies.get(pid, set()):
+            p["dignity_en"] = "Enemy Sign"
+            p["dignity_hi"] = "शत्रु राशि"
+            p["sign_relation_en"] = "Enemy Sign"
+            p["sign_relation_hi"] = "शत्रु राशि"
         else:
-            p["dignity_en"] = "Normal"
-            p["dignity_hi"] = "सामान्य"
+            p["dignity_en"] = "Neutral Sign"
+            p["dignity_hi"] = "सम राशि"
+            p["sign_relation_en"] = "Neutral Sign"
+            p["sign_relation_hi"] = "सम राशि"
 
     # Panchang: Tithi, Paksha, Yoga, Karana, Vara
     moon_sun_diff = (moon_p["sid_lon"] - sun_p["sid_lon"]) % 360.0
@@ -671,6 +720,7 @@ def compute_core_ephemeris(
             "lmt_str": hours_to_hms_str(lmt_hours, ":"),
             "gmt_str": f"{int(gmt_hours)}:{int((gmt_hours % 1)*60):02d}:{int(((gmt_hours*60)%1)*60)}",
             "julian_day": jd_int,
+            "jd": jd_ut,
             "jd_float": jd_ut,
             "ayanamsa_deg": lahiri_ayan,
             "ayanamsa_dms": deg_to_dms_str(lahiri_ayan, sep="-", pad_deg=3),
@@ -720,6 +770,7 @@ def compute_core_ephemeris(
         "planets": planets,
         "planet_by_id": planet_by_id,
         "chalit_table": chalit_table,
+        "houses": chalit_table,
         "placidus_trop": placidus_trop,
         "mid_bhavs": mid_bhavs,
         "bhav_begins": bhav_begins,

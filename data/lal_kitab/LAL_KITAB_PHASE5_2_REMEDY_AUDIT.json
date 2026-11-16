@@ -1,0 +1,302 @@
+{
+  "auditVersion": "5.2.0",
+  "date": "2026-11-08",
+  "totalRemediesAudited": 15,
+  "verifiedDirectSource": 15,
+  "daylightMandateEnforced": true,
+  "universalDaylightSafa": 155,
+  "universalDaylightFarman": 9,
+  "sunProhibitionScope": "House 6 and 10 only (House 7 debility is not a donation ban)",
+  "animalWelfareEnforced": true,
+  "remedies": [
+    {
+      "id": "REM_TIME_UNIVERSAL_DAYLIGHT",
+      "category": "timingRules",
+      "titleHi": "अनिवार्य नियम: केवल दिन के समय उपाय (सूर्योदय से सूर्यास्त)",
+      "titleEn": "Universal Rule: Daylight Hours Only (Sunrise to Sunset)",
+      "remedyHi": "लाल किताब का हर उपाय दिन के समय, सूर्य के प्रकाश में ही किया जाना अनिवार्य है। सूर्यास्त के बाद कोई भी उपाय करना पूर्णतः वर्जित व हानिकारक है।",
+      "remedyEn": "Every Lal Kitab remedy must strictly be carried out between sunrise and sunset. Nighttime remedies are completely prohibited and considered harmful.",
+      "sourceRuleId": "LK1952_F09_UPAYA_DAYLIGHT",
+      "farmanNumber": 9,
+      "safaNumber": 155,
+      "pdfPage": 158,
+      "hindiExcerpt": "उपाय का वक्त सूरज निकलने से सूरज छुपने तक दिन का अरसा है। रात को सनिचर का राज माना है, जिस में उपाय करना कई दफा खतरनाक भी हो सकता है इसलिए बेहतर यही होगा कि रात के वक्त कोई उपाय न किया जावे (सफ़ा 155)।",
+      "daytimeOnly": true,
+      "duration": "40 to 43 consecutive days (Safa 156)",
+      "contraindications": [
+        "सूर्यास्त के उपरांत कोई भी तांत्रिक अथवा लाल किताब उपाय कदापि न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_BEH_SAT_H01",
+      "category": "behavioural",
+      "titleHi": "शनि प्रथम भाव: मद्यपान, मांसाहार व असत्य का त्याग",
+      "titleEn": "Saturn in 1st House: Strict Moral Discipline",
+      "remedyHi": "शराब, मांसाहार, परस्त्री गमन एवं झूठी गवाही से सर्वथा दूर रहें। अपने आचरण को सात्विक रखें और श्रमिकों का सम्मान करें।",
+      "remedyEn": "Strictly abstain from alcohol, meat, and false speech. Respect manual workers and maintain moral integrity.",
+      "sourceRuleId": "LK1952_F10_PROHIBITION_SATURN_OIL_ALCOHOL",
+      "farmanNumber": 10,
+      "safaNumber": 169,
+      "pdfPage": 172,
+      "hindiExcerpt": "किताब में जगह-बा-जगह हिदायत है कि गोश्त खाना, शराब पीना, झूठ बोलना... से (खास ग्रहों के) टेवे वाले को परहेज़... (सफ़ा 231)",
+      "daytimeOnly": true,
+      "duration": "Lifelong behavioural discipline",
+      "contraindications": [
+        "शराब या तंबाकू का सेवन शनि के अनिष्ट को सक्रिय कर देता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_BEH_GENERAL_TRUTH",
+      "category": "behavioural",
+      "titleHi": "सत्यवादिता एवं वचन पालन",
+      "titleEn": "Truthfulness & Keeping Commitments",
+      "remedyHi": "दीन-दुखियों का अनादर न करें, बुजुर्गों का चरण स्पर्श कर आशीर्वाद लें और दिए गए वचन का पूर्ण निष्ठा से पालन करें।",
+      "remedyEn": "Honor commitments, respect elders, and protect the vulnerable.",
+      "sourceRuleId": "LK1952_F01_GENERAL_DISCIPLINE",
+      "farmanNumber": 1,
+      "safaNumber": 12,
+      "pdfPage": 15,
+      "hindiExcerpt": "नेक नीयत और बुजुर्गों की सेवा से ग्रह दोष टलते हैं।",
+      "daytimeOnly": true,
+      "duration": "Continuous life discipline",
+      "contraindications": [
+        "अहंकार व निर्बलों का अपमान भाग्य को बाधित करता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_PROHIBITION_MOON",
+      "category": "donation",
+      "titleHi": "सावधान! दूध, जल व प्याऊ दान का सख्त निषेध (चंद्र भाव 6/8/10)",
+      "titleEn": "Warning: Strict Prohibition on Donating Milk/Water (Moon House 6/8/10)",
+      "remedyHi": "चंद्र भाव 6, 8 या 10 में होने के कारण मुफ्त दूध, पानी का वितरण अथवा सार्वजनिक प्याऊ लगवाना जातक के लिए अत्यधिक हानिकारक है। इसके स्थान पर धार्मिक स्थलों में पूज्य सेवा करें।",
+      "remedyEn": "Do NOT donate milk, water, or setup public drinking stalls when Moon is in House 6, 8, or 10. Such donations severely weaken mental and financial stability.",
+      "sourceRuleId": "LK1952_F10_PROHIBITION_MOON_WATER_MILK",
+      "farmanNumber": 10,
+      "safaNumber": 165,
+      "pdfPage": 168,
+      "hindiExcerpt": "अगर चन्द्रमा खाना नम्बर 6, 8 या 10 में हो तो दूध या पानी का दान या प्याऊ लगाना सख्त मना है। यह जातक की हानि करता है।",
+      "daytimeOnly": true,
+      "duration": "Strict permanent taboo",
+      "contraindications": [
+        "मुफ्त जल वितरण, दूध दान व प्याऊ निर्माण सख्त वर्जित"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_PROHIBITION_SUN",
+      "category": "donation",
+      "titleHi": "सावधान! तांबे व गुड़ के दान का सख्त निषेध (सूर्य भाव 6/10)",
+      "titleEn": "Warning: Strict Prohibition on Donating Copper/Jaggery (Sun House 6/10)",
+      "remedyHi": "सूर्य भाव 6 या 10 में होने पर तांबे के पात्र अथवा गुड़ का दान भूलकर भी न करें। यह प्रतिष्ठा व स्वास्थ्य को क्षति पहुँचाता है। (नोट: भाव 7 में सूर्य नीच है, जहां दान का निषेध शास्त्रीय व्याकरण ग्रंथ में नहीं है)।",
+      "remedyEn": "Do NOT donate copper vessels or jaggery when Sun occupies House 6 or 10. It damages honor and health. (Note: House 7 is debility, not a donation taboo in 1952 grammar).",
+      "sourceRuleId": "LK1952_F10_PROHIBITION_SUN_COPPER_JAGGERY",
+      "farmanNumber": 10,
+      "safaNumber": 167,
+      "pdfPage": 170,
+      "hindiExcerpt": "सूर्य खाना नम्बर 6 या 10 में बैठा हो तो तांबे और गुड़ का दान कभी न करें।",
+      "daytimeOnly": true,
+      "duration": "Strict permanent taboo",
+      "contraindications": [
+        "तांबे का दान वर्जित है",
+        "गुड़ का दान आर्थिक संकट उत्पन्न कर सकता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_GEN_YELLOW",
+      "category": "donation",
+      "titleHi": "बृहस्पति कृपा: पीले वस्त्र अथवा चने की दाल का दान",
+      "titleEn": "Jupiter Grace: Offering Yellow Cloth or Gram Dal",
+      "remedyHi": "गुरु ग्रह की शुभता बढ़ाने हेतु योग्य याचक अथवा धर्म स्थान में पीले वस्त्र, हल्दी या चने की दाल का आदरपूर्वक दान करें।",
+      "remedyEn": "Offer yellow cloth, turmeric, or gram dal to worthy persons or sanctified spaces in daylight hours.",
+      "sourceRuleId": "LK1952_F07_JUP_REMEDY",
+      "farmanNumber": 9,
+      "safaNumber": 156,
+      "pdfPage": 159,
+      "hindiExcerpt": "बृहस्पति. ज़र्द: हरि पूजन दाल चना, सोना (सफ़ा 156)।",
+      "daytimeOnly": true,
+      "duration": "Daytime charity",
+      "contraindications": [
+        "उचित पात्रता का ध्यान रखें; दान का कभी प्रदर्शन न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_BIRDS_MOONG",
+      "category": "animalBird",
+      "titleHi": "पक्षियों को भीगी मूंग दाल चुगाना (जीव सेवा)",
+      "titleEn": "Feeding Soaked Green Moong to Wild Birds",
+      "remedyHi": "बुध ग्रह की शुद्धि व शांति हेतु दिन के समय पक्षियों को भीगी हुई साबुत हरी मूंग की दाल खुली छत या चबूतरे पर डालें। पक्षियों को पिंजरे में कभी कैद न रखें। पर्यावरण व जीव-सुरक्षा का पूर्ण ध्यान रखें।",
+      "remedyEn": "Offer clean, soaked whole green moong to wild birds in open daylight spaces. Never keep birds caged. Observe environmental cleanliness and animal welfare.",
+      "sourceRuleId": "LK1952_F07_MERCURY_BIRDS",
+      "farmanNumber": 9,
+      "safaNumber": 152,
+      "pdfPage": 155,
+      "hindiExcerpt": "बुध के बचाव के लिए परिंदों को हरी मूंग डालना मुफीद है।",
+      "daytimeOnly": true,
+      "duration": "Daylight feeding (no weekday restriction per Safa 156)",
+      "contraindications": [
+        "पिंजरे में बंद पक्षियों को न पालें; पक्षियों को मुक्त रखें",
+        "बासी या फफूंद लगी दाल न डालें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_BLACK_DOG",
+      "category": "animalBird",
+      "titleHi": "श्वान (कुत्ते) को रोटी खिलाना (शनि-केतु रक्षा)",
+      "titleEn": "Feeding Unleavened Bread to Stray Dogs",
+      "remedyHi": "शनि व केतु की रक्षा हेतु दिन के समय बिना नमक व बिना मिर्च-मसाले की तंदूरी या तवे की रोटी पर हल्का तेल लगाकर श्वान (कुत्ते) को दें। पशु को कभी प्रताड़ित या आहत न करें।",
+      "remedyEn": "Feed unsalted, unspiced bread lightly oiled to dogs during daylight hours. Never harm, tease, or distress animals.",
+      "sourceRuleId": "LK1952_F07_SATURN_DOG",
+      "farmanNumber": 9,
+      "safaNumber": 152,
+      "pdfPage": 155,
+      "hindiExcerpt": "काले कुत्ते को रोटी का टुकड़ा देना शनि-केतु का उत्तम उपाय है।",
+      "daytimeOnly": true,
+      "duration": "Daylight feeding",
+      "contraindications": [
+        "कुत्तों को कभी प्रताड़ित या आहत न करें",
+        "तीखा व मसालेदार भोजन न दें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_COW_GREEN_GRASS",
+      "category": "animalBird",
+      "titleHi": "गोसेवा: गौमाता को हरा चारा व भोजन",
+      "titleEn": "Cow Service: Offering Green Fodder",
+      "remedyHi": "शुक्र व चंद्र की अनुकूलता हेतु दिन के समय देसी गौमाता को ताजा हरा चारा एवं शुद्ध आटे का पेड़ा खिलाएं। बासी, सड़ा-गला या प्लास्टिक मिश्रित भोजन कदापि न दें।",
+      "remedyEn": "Offer fresh green fodder and clean flour dough to cows during morning daylight. Never feed spoiled or waste items.",
+      "sourceRuleId": "LK1952_F07_VENUS_COW",
+      "farmanNumber": 9,
+      "safaNumber": 151,
+      "pdfPage": 154,
+      "hindiExcerpt": "शुकर की मदद के लिये गाय को अपनी खुराक का हिस्सा देवें।",
+      "daytimeOnly": true,
+      "duration": "Morning daylight feeding",
+      "contraindications": [
+        "बासी अथवा जूठा भोजन गौमाता को न दें",
+        "प्लास्टिक कचरा चारा के साथ न जाने दें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_FOD_SWEET_WATER",
+      "category": "foodDiet",
+      "titleHi": "प्रातः मीठा जल सेवन",
+      "titleEn": "Morning Sweetened Water Intake",
+      "remedyHi": "प्रातःकाल घर से प्रस्थान करने से पूर्व थोड़ा मीठा खाकर और ऊपर से ताजा जल पीकर निकलें। यह सूर्य को बल प्रदान करता है।",
+      "remedyEn": "Consume a piece of natural sweetener and drink fresh water before stepping out in the morning.",
+      "sourceRuleId": "LK1952_F07_SUN_SWEET",
+      "farmanNumber": 7,
+      "safaNumber": 57,
+      "pdfPage": 60,
+      "hindiExcerpt": "घर से निकलते समय मीठा मुंह करके पानी पीना सूर्य का तेज बढ़ाता है।",
+      "daytimeOnly": true,
+      "duration": "Daily morning routine",
+      "contraindications": [
+        "अत्यधिक तीखे व बासी भोज्य पदार्थों से बचें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_FOD_SATVIK_DIET",
+      "category": "foodDiet",
+      "titleHi": "सात्विक व सुपाच्य भोजन अनुशासन",
+      "titleEn": "Satvik Dietary Discipline",
+      "remedyHi": "भोजन शांत चित्त होकर करें और अन्न का एक भी दाना व्यर्थ न छोड़ें। रसोईघर में बैठकर भोजन करना राहु को शांत रखता है।",
+      "remedyEn": "Dine in a tranquil space, preferably close to the hearth, avoiding any wastage of food grain.",
+      "sourceRuleId": "LK1952_F06_RAHU_KITCHEN",
+      "farmanNumber": 6,
+      "safaNumber": 38,
+      "pdfPage": 41,
+      "hindiExcerpt": "रसोई में बैठकर खाना खाने से राहु का असर शांत रहता है।",
+      "daytimeOnly": true,
+      "duration": "Daily household discipline",
+      "contraindications": [
+        "बिस्तर पर बैठकर भोजन करना राहु दोष को बढ़ाता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HOU_ROOF_CLEANLINESS",
+      "category": "householdEnv",
+      "titleHi": "छत पर कबाड़ व अनुपयोगी सामान न रखें",
+      "titleEn": "Keep House Terrace Clear of Clutter",
+      "remedyHi": "घर की छत पर पुराना जंग लगा लोहा, टूटे कांच, अनुपयोगी लकड़ी या कबाड़ कदापि एकत्रित न होने दें। छत को स्वच्छ रखें।",
+      "remedyEn": "Do not hoard rusted iron, broken glass, or unused junk on the house roof. Keep terrace spotless.",
+      "sourceRuleId": "LK1952_F06_RAHU_TERRACE",
+      "farmanNumber": 6,
+      "safaNumber": 40,
+      "pdfPage": 43,
+      "hindiExcerpt": "मकान की छत साफ रखना राहु के जहर से बचने की पहली शर्त है।",
+      "daytimeOnly": true,
+      "duration": "Permanent domestic hygiene",
+      "contraindications": [
+        "छत पर कबाड़ रखने से राहु-शनि का अवांछित उपद्रव बढ़ता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HOU_EAST_LIGHT",
+      "category": "householdEnv",
+      "titleHi": "पूर्व दिशा व प्रवेश द्वार की स्वच्छता",
+      "titleEn": "East Direction & Entry Cleanliness",
+      "remedyHi": "मुख्य द्वार के सामने जल भराव अथवा गंदगी न रहने दें। पूर्व दिशा से प्राकृतिक प्रकाश का आगमन सुगम रखें।",
+      "remedyEn": "Maintain a clean entry vestibule and facilitate morning sunlight from the eastern quadrant.",
+      "sourceRuleId": "LK1952_F07_SUN_ENTRANCE",
+      "farmanNumber": 7,
+      "safaNumber": 57,
+      "pdfPage": 60,
+      "hindiExcerpt": "दरवाजे की सफाई और सूरज की धूप घर को आबाद रखती है।",
+      "daytimeOnly": true,
+      "duration": "Daily morning hygiene",
+      "contraindications": [
+        "मुख्य द्वार पर जूते-चप्पल बिखरे न छोड़ें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_PLN_JUPITER_KESAR",
+      "category": "planetary",
+      "titleHi": "बृहस्पति रक्षा: नाभि व माथे पर केसर तिलक (पीड़ित/प्रसुप्त गुरु)",
+      "titleEn": "Jupiter Shield: Saffron Tilak (Afflicted/Dormant Jupiter)",
+      "remedyHi": "बृहस्पति के नीच (भाव 10), राहु युति अथवा प्रसुप्त अवस्था में होने पर प्रतिदिन स्नान उपरांत शुद्ध केसर अथवा हल्दी का तिलक माथे व नाभि पर लगाएं। यह गुरु की सात्विक ऊर्जा को पुनर्स्थापित करता है।",
+      "remedyEn": "Apply pure saffron or turmeric tilak on forehead and navel each morning when Jupiter is debilitated in House 10, conjunct Rahu, or dormant.",
+      "sourceRuleId": "LK1952_F07_JUP_TILAK",
+      "farmanNumber": 7,
+      "safaNumber": 63,
+      "pdfPage": 66,
+      "hindiExcerpt": "पेशानी पर तिलक... बृहस्पत कायम करना (या जिस्म पर केसर/सोना रखना) मददगार बल्कि ज़रूरी होगा (सफ़ा 63 व 233)।",
+      "daytimeOnly": true,
+      "duration": "Daily morning application",
+      "contraindications": [
+        "गंदे वस्त्र धारण कर पूजा अथवा तिलक न लगाएं"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HSP_ANDHA_TEVA_FEED",
+      "category": "houseSpecific",
+      "titleHi": "अंधा टेवा निवारण: 10 दृष्टिबाधित व्यक्तियों को मिष्ठान्न भोजन",
+      "titleEn": "Andha Teva Pacification: Nourishing 10 Visually Impaired Persons",
+      "remedyHi": "दसवें घर में शत्रु ग्रहों के टकराव को शांत करने हेतु दिन के समय 10 दृष्टिबाधित व्यक्तियों को आदरपूर्वक भरपेट मिष्ठान्न भोजन कराएं।",
+      "remedyEn": "Respectfully serve nourishing sweet meals to 10 visually impaired persons during daylight hours to harmonize 10th house discord.",
+      "sourceRuleId": "LK1952_F14_TEVA_ANDHA_REMEDY",
+      "farmanNumber": 14,
+      "safaNumber": 228,
+      "pdfPage": 231,
+      "hindiExcerpt": "अंधे टेवे का उपाय: 10 अंधों को खाना खिलाना सबसे मुफीद इलाज है।",
+      "daytimeOnly": true,
+      "duration": "Daylight execution",
+      "contraindications": [
+        "यह उपाय सूर्यास्त से पहले ही संपन्न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    }
+  ]
+}

@@ -1,0 +1,1246 @@
+{
+  "product": "Vedas Kundli",
+  "dataset_name": "Ashtakoota Jyotish Master Dataset",
+  "version": "1.0.0",
+  "status": "reference-backed baseline; validate against licensed/owned printed editions before production",
+  "locale": "en-IN",
+  "calculation_conventions": {
+    "zodiac": "sidereal",
+    "ayanamsha_default": "Lahiri",
+    "nakshatra_model": "27 equal nakshatras of 13°20' each",
+    "groom_bride_orientation": "matrices are bride rows and groom columns unless stated otherwise",
+    "score_policy": "raw koota scores are never silently changed by dosha-parihara rules",
+    "source_policy": "persist source_id and rule_version with every calculation"
+  },
+  "rashis": [
+    {
+      "index": 1,
+      "name": "Aries",
+      "lord": "Mars",
+      "varna": "Kshatriya"
+    },
+    {
+      "index": 2,
+      "name": "Taurus",
+      "lord": "Venus",
+      "varna": "Vaishya"
+    },
+    {
+      "index": 3,
+      "name": "Gemini",
+      "lord": "Mercury",
+      "varna": "Shudra"
+    },
+    {
+      "index": 4,
+      "name": "Cancer",
+      "lord": "Moon",
+      "varna": "Brahmin"
+    },
+    {
+      "index": 5,
+      "name": "Leo",
+      "lord": "Sun",
+      "varna": "Kshatriya"
+    },
+    {
+      "index": 6,
+      "name": "Virgo",
+      "lord": "Mercury",
+      "varna": "Vaishya"
+    },
+    {
+      "index": 7,
+      "name": "Libra",
+      "lord": "Venus",
+      "varna": "Shudra"
+    },
+    {
+      "index": 8,
+      "name": "Scorpio",
+      "lord": "Mars",
+      "varna": "Brahmin"
+    },
+    {
+      "index": 9,
+      "name": "Sagittarius",
+      "lord": "Jupiter",
+      "varna": "Kshatriya"
+    },
+    {
+      "index": 10,
+      "name": "Capricorn",
+      "lord": "Saturn",
+      "varna": "Vaishya"
+    },
+    {
+      "index": 11,
+      "name": "Aquarius",
+      "lord": "Saturn",
+      "varna": "Shudra"
+    },
+    {
+      "index": 12,
+      "name": "Pisces",
+      "lord": "Jupiter",
+      "varna": "Brahmin"
+    }
+  ],
+  "nakshatras": [
+    {
+      "index": 1,
+      "name": "Ashwini",
+      "start_longitude_deg": 0.0,
+      "end_longitude_deg": 13.333333,
+      "lord": "Ketu",
+      "rashis_touched": [
+        "Aries"
+      ],
+      "yoni": "Horse",
+      "gana": "Deva",
+      "nadi": "Adi"
+    },
+    {
+      "index": 2,
+      "name": "Bharani",
+      "start_longitude_deg": 13.333333,
+      "end_longitude_deg": 26.666667,
+      "lord": "Venus",
+      "rashis_touched": [
+        "Aries"
+      ],
+      "yoni": "Elephant",
+      "gana": "Manushya",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 3,
+      "name": "Krittika",
+      "start_longitude_deg": 26.666667,
+      "end_longitude_deg": 40.0,
+      "lord": "Sun",
+      "rashis_touched": [
+        "Aries",
+        "Taurus"
+      ],
+      "yoni": "Sheep",
+      "gana": "Rakshasa",
+      "nadi": "Antya"
+    },
+    {
+      "index": 4,
+      "name": "Rohini",
+      "start_longitude_deg": 40.0,
+      "end_longitude_deg": 53.333333,
+      "lord": "Moon",
+      "rashis_touched": [
+        "Taurus"
+      ],
+      "yoni": "Serpent",
+      "gana": "Manushya",
+      "nadi": "Antya"
+    },
+    {
+      "index": 5,
+      "name": "Mrigashira",
+      "start_longitude_deg": 53.333333,
+      "end_longitude_deg": 66.666667,
+      "lord": "Mars",
+      "rashis_touched": [
+        "Taurus",
+        "Gemini"
+      ],
+      "yoni": "Serpent",
+      "gana": "Deva",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 6,
+      "name": "Ardra",
+      "start_longitude_deg": 66.666667,
+      "end_longitude_deg": 80.0,
+      "lord": "Rahu",
+      "rashis_touched": [
+        "Gemini"
+      ],
+      "yoni": "Dog",
+      "gana": "Manushya",
+      "nadi": "Adi"
+    },
+    {
+      "index": 7,
+      "name": "Punarvasu",
+      "start_longitude_deg": 80.0,
+      "end_longitude_deg": 93.333333,
+      "lord": "Jupiter",
+      "rashis_touched": [
+        "Gemini",
+        "Cancer"
+      ],
+      "yoni": "Cat",
+      "gana": "Deva",
+      "nadi": "Adi"
+    },
+    {
+      "index": 8,
+      "name": "Pushya",
+      "start_longitude_deg": 93.333333,
+      "end_longitude_deg": 106.666667,
+      "lord": "Saturn",
+      "rashis_touched": [
+        "Cancer"
+      ],
+      "yoni": "Sheep",
+      "gana": "Deva",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 9,
+      "name": "Ashlesha",
+      "start_longitude_deg": 106.666667,
+      "end_longitude_deg": 120.0,
+      "lord": "Mercury",
+      "rashis_touched": [
+        "Cancer"
+      ],
+      "yoni": "Cat",
+      "gana": "Rakshasa",
+      "nadi": "Antya"
+    },
+    {
+      "index": 10,
+      "name": "Magha",
+      "start_longitude_deg": 120.0,
+      "end_longitude_deg": 133.333333,
+      "lord": "Ketu",
+      "rashis_touched": [
+        "Leo"
+      ],
+      "yoni": "Rat",
+      "gana": "Rakshasa",
+      "nadi": "Antya"
+    },
+    {
+      "index": 11,
+      "name": "Purva Phalguni",
+      "start_longitude_deg": 133.333333,
+      "end_longitude_deg": 146.666667,
+      "lord": "Venus",
+      "rashis_touched": [
+        "Leo"
+      ],
+      "yoni": "Rat",
+      "gana": "Manushya",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 12,
+      "name": "Uttara Phalguni",
+      "start_longitude_deg": 146.666667,
+      "end_longitude_deg": 160.0,
+      "lord": "Sun",
+      "rashis_touched": [
+        "Leo",
+        "Virgo"
+      ],
+      "yoni": "Cow",
+      "gana": "Manushya",
+      "nadi": "Adi"
+    },
+    {
+      "index": 13,
+      "name": "Hasta",
+      "start_longitude_deg": 160.0,
+      "end_longitude_deg": 173.333333,
+      "lord": "Moon",
+      "rashis_touched": [
+        "Virgo"
+      ],
+      "yoni": "Buffalo",
+      "gana": "Deva",
+      "nadi": "Adi"
+    },
+    {
+      "index": 14,
+      "name": "Chitra",
+      "start_longitude_deg": 173.333333,
+      "end_longitude_deg": 186.666667,
+      "lord": "Mars",
+      "rashis_touched": [
+        "Virgo",
+        "Libra"
+      ],
+      "yoni": "Tiger",
+      "gana": "Rakshasa",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 15,
+      "name": "Swati",
+      "start_longitude_deg": 186.666667,
+      "end_longitude_deg": 200.0,
+      "lord": "Rahu",
+      "rashis_touched": [
+        "Libra"
+      ],
+      "yoni": "Buffalo",
+      "gana": "Deva",
+      "nadi": "Antya"
+    },
+    {
+      "index": 16,
+      "name": "Vishakha",
+      "start_longitude_deg": 200.0,
+      "end_longitude_deg": 213.333333,
+      "lord": "Jupiter",
+      "rashis_touched": [
+        "Libra",
+        "Scorpio"
+      ],
+      "yoni": "Tiger",
+      "gana": "Rakshasa",
+      "nadi": "Antya"
+    },
+    {
+      "index": 17,
+      "name": "Anuradha",
+      "start_longitude_deg": 213.333333,
+      "end_longitude_deg": 226.666667,
+      "lord": "Saturn",
+      "rashis_touched": [
+        "Scorpio"
+      ],
+      "yoni": "Deer",
+      "gana": "Deva",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 18,
+      "name": "Jyeshtha",
+      "start_longitude_deg": 226.666667,
+      "end_longitude_deg": 240.0,
+      "lord": "Mercury",
+      "rashis_touched": [
+        "Scorpio"
+      ],
+      "yoni": "Deer",
+      "gana": "Rakshasa",
+      "nadi": "Adi"
+    },
+    {
+      "index": 19,
+      "name": "Mula",
+      "start_longitude_deg": 240.0,
+      "end_longitude_deg": 253.333333,
+      "lord": "Ketu",
+      "rashis_touched": [
+        "Sagittarius"
+      ],
+      "yoni": "Dog",
+      "gana": "Rakshasa",
+      "nadi": "Adi"
+    },
+    {
+      "index": 20,
+      "name": "Purva Ashadha",
+      "start_longitude_deg": 253.333333,
+      "end_longitude_deg": 266.666667,
+      "lord": "Venus",
+      "rashis_touched": [
+        "Sagittarius"
+      ],
+      "yoni": "Monkey",
+      "gana": "Manushya",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 21,
+      "name": "Uttara Ashadha",
+      "start_longitude_deg": 266.666667,
+      "end_longitude_deg": 280.0,
+      "lord": "Sun",
+      "rashis_touched": [
+        "Sagittarius",
+        "Capricorn"
+      ],
+      "yoni": "Mongoose",
+      "gana": "Manushya",
+      "nadi": "Antya"
+    },
+    {
+      "index": 22,
+      "name": "Shravana",
+      "start_longitude_deg": 280.0,
+      "end_longitude_deg": 293.333333,
+      "lord": "Moon",
+      "rashis_touched": [
+        "Capricorn"
+      ],
+      "yoni": "Monkey",
+      "gana": "Deva",
+      "nadi": "Antya"
+    },
+    {
+      "index": 23,
+      "name": "Dhanishta",
+      "start_longitude_deg": 293.333333,
+      "end_longitude_deg": 306.666667,
+      "lord": "Mars",
+      "rashis_touched": [
+        "Capricorn",
+        "Aquarius"
+      ],
+      "yoni": "Lion",
+      "gana": "Rakshasa",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 24,
+      "name": "Shatabhisha",
+      "start_longitude_deg": 306.666667,
+      "end_longitude_deg": 320.0,
+      "lord": "Rahu",
+      "rashis_touched": [
+        "Aquarius"
+      ],
+      "yoni": "Horse",
+      "gana": "Rakshasa",
+      "nadi": "Adi"
+    },
+    {
+      "index": 25,
+      "name": "Purva Bhadrapada",
+      "start_longitude_deg": 320.0,
+      "end_longitude_deg": 333.333333,
+      "lord": "Jupiter",
+      "rashis_touched": [
+        "Aquarius",
+        "Pisces"
+      ],
+      "yoni": "Lion",
+      "gana": "Manushya",
+      "nadi": "Adi"
+    },
+    {
+      "index": 26,
+      "name": "Uttara Bhadrapada",
+      "start_longitude_deg": 333.333333,
+      "end_longitude_deg": 346.666667,
+      "lord": "Saturn",
+      "rashis_touched": [
+        "Pisces"
+      ],
+      "yoni": "Cow",
+      "gana": "Manushya",
+      "nadi": "Madhya"
+    },
+    {
+      "index": 27,
+      "name": "Revati",
+      "start_longitude_deg": 346.666667,
+      "end_longitude_deg": 360.0,
+      "lord": "Mercury",
+      "rashis_touched": [
+        "Pisces"
+      ],
+      "yoni": "Elephant",
+      "gana": "Deva",
+      "nadi": "Antya"
+    }
+  ],
+  "kootas": {
+    "varna": {
+      "max_score": 1,
+      "input": [
+        "groom.moon_rashi",
+        "bride.moon_rashi"
+      ],
+      "varna_order": [
+        "Brahmin",
+        "Kshatriya",
+        "Vaishya",
+        "Shudra"
+      ],
+      "score_rule": "1 if groom varna rank <= bride varna rank in the displayed order (groom equal or higher); else 0",
+      "source_note": "Historical astrological varna classification, not a statement of social caste or human worth."
+    },
+    "vashya": {
+      "max_score": 2,
+      "input": [
+        "groom.moon_rashi",
+        "bride.moon_rashi",
+        "moon_longitude_within_sign"
+      ],
+      "primary_classes": {
+        "Dvipada": [
+          "Gemini",
+          "Virgo",
+          "Libra"
+        ],
+        "Chatushpada": [
+          "Aries",
+          "Taurus",
+          "Leo",
+          "Sagittarius"
+        ],
+        "Jalachara": [
+          "Cancer",
+          "Capricorn",
+          "Aquarius",
+          "Pisces"
+        ],
+        "Keeta": [
+          "Scorpio"
+        ]
+      },
+      "primary_matrix": {
+        "row_axis": "bride",
+        "column_axis": "groom",
+        "classes": [
+          "Dvipada",
+          "Chatushpada",
+          "Jalachara",
+          "Keeta"
+        ],
+        "scores": [
+          [
+            2,
+            0.5,
+            0.5,
+            1
+          ],
+          [
+            0.5,
+            2,
+            2,
+            2
+          ],
+          [
+            0.5,
+            2,
+            2,
+            2
+          ],
+          [
+            1,
+            2,
+            2,
+            2
+          ]
+        ]
+      },
+      "alternate_tradition": "Nemichandra Shastri classifies Capricorn and Sagittarius by half-sign and uses five classes including Sarpa; implement as a separate rule profile, not merged.",
+      "score_rule": "lookup selected tradition matrix; if longitude-dependent classification is needed and exact Moon degree is unavailable, return score range/unknown rather than guess."
+    },
+    "tara": {
+      "max_score": 3,
+      "input": [
+        "groom.nakshatra_index",
+        "bride.nakshatra_index"
+      ],
+      "formula": "count inclusive from bride nakshatra to groom nakshatra and reverse; remainder = count mod 9, with 0 interpreted as 9",
+      "unfavourable_tara_numbers": [
+        3,
+        5,
+        7
+      ],
+      "direction_score": "1.5 if favourable, else 0",
+      "total": "sum both directional scores"
+    },
+    "yoni": {
+      "max_score": 4,
+      "input": [
+        "groom.nakshatra",
+        "bride.nakshatra"
+      ],
+      "animal_order": [
+        "Horse",
+        "Elephant",
+        "Sheep",
+        "Serpent",
+        "Dog",
+        "Cat",
+        "Rat",
+        "Cow",
+        "Buffalo",
+        "Tiger",
+        "Deer",
+        "Monkey",
+        "Mongoose",
+        "Lion"
+      ],
+      "nakshatra_to_yoni": {
+        "Horse": [
+          "Ashwini",
+          "Shatabhisha"
+        ],
+        "Elephant": [
+          "Bharani",
+          "Revati"
+        ],
+        "Sheep": [
+          "Krittika",
+          "Pushya"
+        ],
+        "Serpent": [
+          "Rohini",
+          "Mrigashira"
+        ],
+        "Dog": [
+          "Ardra",
+          "Mula"
+        ],
+        "Cat": [
+          "Punarvasu",
+          "Ashlesha"
+        ],
+        "Rat": [
+          "Magha",
+          "Purva Phalguni"
+        ],
+        "Cow": [
+          "Uttara Phalguni",
+          "Uttara Bhadrapada"
+        ],
+        "Buffalo": [
+          "Hasta",
+          "Swati"
+        ],
+        "Tiger": [
+          "Chitra",
+          "Vishakha"
+        ],
+        "Deer": [
+          "Anuradha",
+          "Jyeshtha"
+        ],
+        "Monkey": [
+          "Purva Ashadha",
+          "Shravana"
+        ],
+        "Mongoose": [
+          "Uttara Ashadha"
+        ],
+        "Lion": [
+          "Dhanishta",
+          "Purva Bhadrapada"
+        ]
+      },
+      "matrix": {
+        "row_axis": "bride_yoni",
+        "column_axis": "groom_yoni",
+        "scores": [
+          [
+            4,
+            2,
+            3,
+            2,
+            2,
+            3,
+            3,
+            3,
+            0,
+            1,
+            3,
+            2,
+            2,
+            1
+          ],
+          [
+            2,
+            4,
+            3,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            2,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            4,
+            3,
+            2,
+            3,
+            1,
+            3,
+            3,
+            1,
+            3,
+            0,
+            3,
+            1
+          ],
+          [
+            2,
+            2,
+            3,
+            4,
+            2,
+            2,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            0,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            2,
+            4,
+            1,
+            1,
+            2,
+            2,
+            1,
+            0,
+            2,
+            2,
+            1
+          ],
+          [
+            2,
+            2,
+            3,
+            2,
+            1,
+            4,
+            0,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            4,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1
+          ],
+          [
+            3,
+            2,
+            3,
+            1,
+            2,
+            2,
+            2,
+            4,
+            3,
+            0,
+            3,
+            2,
+            3,
+            1
+          ],
+          [
+            0,
+            3,
+            3,
+            2,
+            2,
+            2,
+            2,
+            3,
+            4,
+            1,
+            2,
+            2,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            1,
+            2,
+            1,
+            1,
+            2,
+            0,
+            1,
+            4,
+            2,
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            3,
+            2,
+            0,
+            2,
+            2,
+            3,
+            2,
+            1,
+            4,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            4,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            3,
+            0,
+            2,
+            2,
+            2,
+            3,
+            2,
+            2,
+            2,
+            2,
+            4,
+            2
+          ],
+          [
+            1,
+            0,
+            1,
+            2,
+            1,
+            2,
+            1,
+            1,
+            3,
+            2,
+            2,
+            2,
+            2,
+            4
+          ]
+        ]
+      },
+      "score_scale": {
+        "same_yoni": 4,
+        "friendly": 3,
+        "neutral": 2,
+        "enemy": 1,
+        "great_enemy": 0
+      },
+      "note": "The selected source table contains editorial corrections to two cells; retain source and correction notes."
+    },
+    "graha_maitri": {
+      "max_score": 5,
+      "input": [
+        "groom.moon_rashi_lord",
+        "bride.moon_rashi_lord"
+      ],
+      "planet_order": [
+        "Sun",
+        "Moon",
+        "Mars",
+        "Mercury",
+        "Jupiter",
+        "Venus",
+        "Saturn"
+      ],
+      "matrix": {
+        "row_axis": "bride_rashi_lord",
+        "column_axis": "groom_rashi_lord",
+        "scores": [
+          [
+            5,
+            5,
+            5,
+            4,
+            5,
+            0,
+            0
+          ],
+          [
+            5,
+            5,
+            4,
+            1,
+            4,
+            0.5,
+            0.5
+          ],
+          [
+            5,
+            4,
+            5,
+            0.5,
+            5,
+            3,
+            0.5
+          ],
+          [
+            4,
+            1,
+            0.5,
+            5,
+            0.5,
+            5,
+            4
+          ],
+          [
+            5,
+            4,
+            5,
+            0.5,
+            5,
+            0.5,
+            3
+          ],
+          [
+            0,
+            0.5,
+            3,
+            5,
+            0.5,
+            5,
+            5
+          ],
+          [
+            0,
+            0.5,
+            0.5,
+            4,
+            3,
+            5,
+            5
+          ]
+        ]
+      },
+      "friendships": {
+        "Sun": {
+          "friends": [
+            "Moon",
+            "Mars",
+            "Jupiter"
+          ],
+          "enemies": [
+            "Venus",
+            "Saturn"
+          ]
+        },
+        "Moon": {
+          "friends": [
+            "Sun",
+            "Mercury"
+          ],
+          "enemies": []
+        },
+        "Mars": {
+          "friends": [
+            "Sun",
+            "Moon",
+            "Jupiter"
+          ],
+          "enemies": [
+            "Mercury"
+          ]
+        },
+        "Mercury": {
+          "friends": [
+            "Sun",
+            "Venus"
+          ],
+          "enemies": [
+            "Moon"
+          ]
+        },
+        "Jupiter": {
+          "friends": [
+            "Sun",
+            "Moon",
+            "Mars"
+          ],
+          "enemies": [
+            "Mercury",
+            "Venus"
+          ]
+        },
+        "Venus": {
+          "friends": [
+            "Mercury",
+            "Saturn"
+          ],
+          "enemies": [
+            "Sun",
+            "Moon"
+          ]
+        },
+        "Saturn": {
+          "friends": [
+            "Mercury",
+            "Venus"
+          ],
+          "enemies": [
+            "Sun",
+            "Moon",
+            "Mars"
+          ]
+        }
+      },
+      "note": "Natural friendship only in this profile; do not mix temporary friendship."
+    },
+    "gana": {
+      "max_score": 6,
+      "input": [
+        "groom.nakshatra",
+        "bride.nakshatra"
+      ],
+      "nakshatra_to_gana": {
+        "Deva": [
+          "Ashwini",
+          "Mrigashira",
+          "Punarvasu",
+          "Pushya",
+          "Hasta",
+          "Swati",
+          "Anuradha",
+          "Shravana",
+          "Revati"
+        ],
+        "Manushya": [
+          "Bharani",
+          "Rohini",
+          "Ardra",
+          "Purva Phalguni",
+          "Uttara Phalguni",
+          "Purva Ashadha",
+          "Uttara Ashadha",
+          "Purva Bhadrapada",
+          "Uttara Bhadrapada"
+        ],
+        "Rakshasa": [
+          "Krittika",
+          "Ashlesha",
+          "Magha",
+          "Chitra",
+          "Vishakha",
+          "Jyeshtha",
+          "Mula",
+          "Dhanishta",
+          "Shatabhisha"
+        ]
+      },
+      "matrix": {
+        "row_axis": "bride_gana",
+        "column_axis": "groom_gana",
+        "classes": [
+          "Deva",
+          "Manushya",
+          "Rakshasa"
+        ],
+        "scores": [
+          [
+            6,
+            5,
+            1
+          ],
+          [
+            6,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            6
+          ]
+        ]
+      }
+    },
+    "bhakoot": {
+      "max_score": 7,
+      "input": [
+        "groom.moon_rashi_index",
+        "bride.moon_rashi_index"
+      ],
+      "zero_score_relationships": [
+        "2/12",
+        "5/9",
+        "6/8"
+      ],
+      "otherwise_score": 7,
+      "rule": "Check relative sign distance in both directions; classify the pair as 2/12, 5/9, 6/8 or other."
+    },
+    "nadi": {
+      "max_score": 8,
+      "input": [
+        "groom.nakshatra",
+        "bride.nakshatra"
+      ],
+      "nakshatra_to_nadi": {
+        "Adi": [
+          "Ashwini",
+          "Ardra",
+          "Punarvasu",
+          "Uttara Phalguni",
+          "Hasta",
+          "Jyeshtha",
+          "Mula",
+          "Shatabhisha",
+          "Purva Bhadrapada"
+        ],
+        "Madhya": [
+          "Bharani",
+          "Mrigashira",
+          "Pushya",
+          "Purva Phalguni",
+          "Chitra",
+          "Anuradha",
+          "Purva Ashadha",
+          "Dhanishta",
+          "Uttara Bhadrapada"
+        ],
+        "Antya": [
+          "Krittika",
+          "Rohini",
+          "Ashlesha",
+          "Magha",
+          "Swati",
+          "Vishakha",
+          "Uttara Ashadha",
+          "Shravana",
+          "Revati"
+        ]
+      },
+      "score_rule": "8 if different Nadi; 0 if same Nadi"
+    }
+  },
+  "parihara_rules": {
+    "policy": "display separately; do not silently change raw koota scores",
+    "rules": [
+      {
+        "id": "BHAKOOT_SAME_OR_FRIENDLY_LORDS",
+        "applies_to": "Bhakoot Dosha",
+        "condition": "Rashi lords are same or mutual friends, subject to no Nadi Dosha",
+        "source_reference": "Muhurta Chintamani vivaha prakaran verse 32"
+      },
+      {
+        "id": "GANA_FRIENDLY_RASHI_AND_NAVAMSHA_LORDS",
+        "applies_to": "Gana Dosha",
+        "condition": "Rashi lords and Navamsha lords are friends",
+        "source_reference": "Muhurta Chintamani vivaha prakaran verse 33, quoting Atri"
+      },
+      {
+        "id": "NADI_GANA_SAME_RASHI_DIFFERENT_NAKSHATRA",
+        "applies_to": "Nadi and Gana Dosha",
+        "condition": "Same Rashi with different Nakshatras, or same Nakshatra in different Rashis",
+        "source_reference": "Muhurta Chintamani vivaha prakaran verse 37"
+      },
+      {
+        "id": "SAME_RASHI_NAKSHATRA_DIFFERENT_PADA",
+        "applies_to": "Nadi Dosha",
+        "condition": "Same Nakshatra and same Rashi but different Padas; source states auspicious under this condition",
+        "source_reference": "Muhurta Chintamani vivaha prakaran verse 37"
+      }
+    ],
+    "implementation_note": "These are one selected textual profile, not universally accepted across all Jyotish schools. Record applicability, evidence, source and reviewer status."
+  },
+  "mangal_dosha": {
+    "included_in_ashtakoota": false,
+    "status": "separate_engine_required",
+    "candidate_reference_points": [
+      "Lagna",
+      "Moon",
+      "Venus"
+    ],
+    "traditional_house_set": [
+      1,
+      2,
+      4,
+      7,
+      8,
+      12
+    ],
+    "production_warning": "Do not activate cancellation rules as universal defaults. Build a separately versioned Mangal rule profile with source citations and astrologer review."
+  },
+  "validation": {
+    "max_total_score": 36,
+    "component_maxima": {
+      "varna": 1,
+      "vashya": 2,
+      "tara": 3,
+      "yoni": 4,
+      "graha_maitri": 5,
+      "gana": 6,
+      "bhakoot": 7,
+      "nadi": 8
+    },
+    "must_test_directionality": [
+      "varna",
+      "vashya",
+      "tara",
+      "gana",
+      "bhakoot"
+    ],
+    "boundary_tests": [
+      "nakshatra_boundary",
+      "rashi_boundary",
+      "Sagittarius_15_degree",
+      "Capricorn_15_degree",
+      "birth_time_uncertainty"
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC_MC_BJ_BR",
+      "title": "Guna Milan Method – Ashtakoota Tables & Sources",
+      "url": "https://thetelugucalendar.com/marriage-matching/method/",
+      "basis": "Published transcription of Muhurta Chintamani (vivaha prakaran verses 21–37, Piyushadhara commentary and Kedar Datt Joshi charts), Nemichandra Shastri Bharatiya Jyotish (1970, chapter 5), cross-check with B.V. Raman Muhurtha (1948)."
+    },
+    {
+      "id": "SRC_TOLKARO",
+      "title": "Kundli matching (Ashta Kuta gun milan, 36 points)",
+      "url": "https://tolkaro.com/en-in/faith-festivals/kundli-matching-gun-milan",
+      "basis": "Secondary implementation cross-check; not primary authority."
+    }
+  ],
+  "notices": [
+    "Traditional astrology dataset; not a scientifically validated measure of relationship outcomes.",
+    "Varna labels are historical chart classifications, not social caste or human-worth judgments.",
+    "Do not infer health, fertility, genetics, or guaranteed marriage outcomes from Nadi or any score.",
+    "Regional and textual variations exist; show the active rule profile in every report."
+  ]
+}

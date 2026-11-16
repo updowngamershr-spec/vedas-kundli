@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LalKitabRemedyContentSchema",
+  "description": "Standardized schema for categorized classical remedies with daylight execution enforcement, contraindications, and mandatory fallback verification.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "timingConstraint",
+    "categories",
+    "fallbackTemplate",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": ["1.0.0-audited"]
+    },
+    "timingConstraint": {
+      "type": "object",
+      "required": ["daytimeOnlyMandatory", "nightProhibitionWording"],
+      "properties": {
+        "daytimeOnlyMandatory": { "type": "boolean", "const": true },
+        "nightProhibitionWording": {
+          "type": "string",
+          "const": "लाल किताब का हर उपाय दिन के समय (सूरज निकलते से लेकर सूरज डूबने तक) किया जाना ज़रूरी है। रात के वक्त कोई उपाय न किया जावे।"
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "nameHi", "nameEn"],
+        "properties": {
+          "id": { "type": "string" },
+          "nameHi": { "type": "string" },
+          "nameEn": { "type": "string" }
+        }
+      }
+    },
+    "fallbackTemplate": {
+      "type": "object",
+      "required": ["remedyHi", "remedyEn", "sourceRuleId", "isVerified"],
+      "properties": {
+        "remedyHi": { "type": "string", "const": "इस ग्रह स्थिति के लिए कोई सत्यापित शास्त्रीय उपाय उपलब्ध नहीं है" },
+        "remedyEn": { "type": "string", "const": "No verified remedy available for this combination" },
+        "sourceRuleId": { "type": "string", "const": "UNVERIFIED_PENDING_AUDIT" },
+        "isVerified": { "type": "boolean", "const": false }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RemedyRecord"
+      }
+    }
+  },
+  "$defs": {
+    "RemedyRecord": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "titleHi",
+        "titleEn",
+        "remedyHi",
+        "remedyEn",
+        "contraindications",
+        "sourceRuleId",
+        "farmanNumber",
+        "safaNumber",
+        "hindiExcerpt",
+        "isVerified",
+        "daytimeOnly"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": [
+            "planetary",
+            "houseSpecific",
+            "behavioural",
+            "donation",
+            "foodDiet",
+            "animalBird",
+            "householdEnv",
+            "timingRules"
+          ]
+        },
+        "titleHi": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "remedyHi": { "type": "string" },
+        "remedyEn": { "type": "string" },
+        "contraindications": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sourceRuleId": { "type": "string" },
+        "farmanNumber": { "type": "integer", "minimum": 1, "maximum": 14 },
+        "safaNumber": { "type": "integer", "minimum": 1, "maximum": 234 },
+        "hindiExcerpt": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "daytimeOnly": { "type": "boolean", "const": true }
+      }
+    }
+  }
+}

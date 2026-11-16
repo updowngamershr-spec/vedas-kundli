@@ -195,11 +195,53 @@ def render_ashtakavarga_svg(chart_houses: dict, size: int = 340, theme: str = "r
     return "\n".join(svg)
 
 
-def render_gurukulam_cover_svg(lagna_sign: int, house_planets: dict) -> str:
+def render_gurukulam_cover_svg(lagna_sign: int, house_planets: dict, logo_data: str = None, brand_name: str = None) -> str:
     """
-    Render the auspicious Gurukulam Cover Emblem with traditional Kundli Chakra,
-    Swastika symbols, and sacred Sri Ganeshaya Namah crest.
+    Render the auspicious Cover Emblem with traditional Kundli Chakra,
+    Swastika symbols, and sacred medallion featuring the brand Logo & title.
     """
+    if logo_data is None or brand_name is None:
+        try:
+            from crm_db import get_branding
+            b = get_branding()
+            if logo_data is None:
+                logo_data = b.get("logo_data")
+            if brand_name is None:
+                brand_name = b.get("kendra_name") or "ASTRO ARCHITECTS"
+        except Exception:
+            pass
+    if not brand_name:
+        brand_name = "ASTRO ARCHITECTS"
+
+    medallion_content = ""
+    if logo_data:
+        medallion_content = f"""
+  <defs>
+    <clipPath id="medallionClip">
+      <circle cx="180" cy="148" r="44"/>
+    </clipPath>
+  </defs>
+  <!-- Central Sacred Lotus & Custom Brand Logo Medallion -->
+  <circle cx="180" cy="155" r="64" fill="#7C2D12" stroke="#F59E0B" stroke-width="3.5"/>
+  <circle cx="180" cy="155" r="56" fill="#FFFDF8" stroke="#FDE047" stroke-width="1.8" stroke-dasharray="4,3"/>
+  <circle cx="180" cy="148" r="44" fill="#FFFFFF"/>
+  <g clip-path="url(#medallionClip)">
+    <image href="{logo_data}" x="136" y="104" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <circle cx="180" cy="148" r="44" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+  <rect x="112" y="194" width="136" height="15" rx="7.5" fill="#7C2D12" stroke="#F59E0B" stroke-width="1"/>
+  <text x="180" y="205" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="8.5" font-weight="900" letter-spacing="1.2" fill="#FEF08A">{brand_name.upper()}</text>
+        """
+    else:
+        medallion_content = f"""
+  <!-- Central Sacred Lotus & Om Shri Ganeshaya Medallion -->
+  <circle cx="180" cy="155" r="64" fill="#7C2D12" stroke="#F59E0B" stroke-width="3.5"/>
+  <circle cx="180" cy="155" r="56" fill="#991B1B" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="180" y="146" text-anchor="middle" font-family="'Noto Serif Devanagari', Georgia, serif" font-size="42" font-weight="bold" fill="#FEF08A">ॐ</text>
+  <text x="180" y="178" text-anchor="middle" font-family="'Noto Serif Devanagari', Georgia, serif" font-size="13" font-weight="bold" fill="#FDE68A">श्री गणेशाय नमः</text>
+  <text x="180" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" letter-spacing="1.5" fill="#FED7AA">{brand_name.upper()}</text>
+        """
+
     return f"""
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="320" height="285">
   <defs>
@@ -227,12 +269,7 @@ def render_gurukulam_cover_svg(lagna_sign: int, house_planets: dict) -> str:
     <text x="248" y="162" text-anchor="middle" font-size="22" fill="#DC2626" font-weight="bold">卐</text>
     <text x="160" y="262" text-anchor="middle" font-size="22" fill="#DC2626" font-weight="bold">卐</text>
   </g>
-  <!-- Central Sacred Lotus & Om Shri Ganeshaya Medallion -->
-  <circle cx="180" cy="155" r="64" fill="#7C2D12" stroke="#F59E0B" stroke-width="3.5"/>
-  <circle cx="180" cy="155" r="56" fill="#991B1B" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <text x="180" y="146" text-anchor="middle" font-family="'Noto Serif Devanagari', Georgia, serif" font-size="42" font-weight="bold" fill="#FEF08A">ॐ</text>
-  <text x="180" y="178" text-anchor="middle" font-family="'Noto Serif Devanagari', Georgia, serif" font-size="13" font-weight="bold" fill="#FDE68A">श्री गणेशाय नमः</text>
-  <text x="180" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" letter-spacing="1.5" fill="#FED7AA">GURUKULAM JYOTISH</text>
+{medallion_content}
 </svg>
 """
 

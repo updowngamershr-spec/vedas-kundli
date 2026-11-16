@@ -1,0 +1,392 @@
+[
+  {
+    "id": "KUNDLI_01",
+    "nativeName": "Rajesh Sharma (Leader Chart)",
+    "dob": "1980-04-14",
+    "tob": "06:15",
+    "ageYears": 44,
+    "planetPositions": {
+      "Sun": 1,
+      "Mars": 1,
+      "Jupiter": 5,
+      "Saturn": 10,
+      "Mercury": 2,
+      "Venus": 12,
+      "Moon": 4,
+      "Rahu": 3,
+      "Ketu": 9
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Sun in H1 (Aries), Mars in H1 (Aries), Moon in H4 (Cancer), Jupiter in H5 (Leo), Saturn in H10 (Capricorn)",
+      "pakkaGharMatches": [
+        "Sun in H1 (Own Pakka)",
+        "Mars in H1 (Own Pakka)",
+        "Moon in H4 (Own Pakka)",
+        "Jupiter in H5 (Own Pakka)",
+        "Saturn in H10 (Own Pakka)"
+      ],
+      "tevaType": "Dharmi (Saturn in 10 / Moon in 4)",
+      "masnooi": "None (No canonical synthetic pair co-occupying same house)",
+      "aspects": "Sun+Mars in 1 cast 100% aspect on H7; Moon in 4 casts 50% on H8; Rahu in 3 casts 50% on H11; Jupiter in 5 casts 25% on Ketu in H9",
+      "takkar": "Rahu in 3 vs Ketu in 9 is 3-9, not 1-7 or 2-8; no direct enemy Takkar",
+      "dhoka": "Saturn in 10 hits House 2 (Mercury) and House 8 (empty) with Dhoka",
+      "dormancy": "Houses 6, 7, 8, 11 receive aspects or are occupied; House 7 has 100% ray so not sleeping",
+      "varshphal44": "Sun in 1: 44%1=0->H1; Mars in 1: 44%1=0->H1; Moon in 4: 44%4=0->H4; Jupiter in 5: 44%5=4 (Moon occupies 4)->H4; Saturn in 10: 44%10=4 (Moon in 4)->H4",
+      "applicableRemedies": [
+        "Universal daylight execution rule (sunrise to sunset)",
+        "Saturn in 10 Pakka Ghar: Respect elders and feed crows/laborers",
+        "Dhoka on H2: Offer yellow gram (chana dal) to cows during daytime"
+      ],
+      "prohibitions": "Do not execute remedies after sunset"
+    }
+  },
+  {
+    "id": "KUNDLI_02",
+    "nativeName": "Pooja Verma (Dharmi Saturn 11)",
+    "dob": "1992-08-18",
+    "tob": "14:20",
+    "ageYears": 32,
+    "planetPositions": {
+      "Saturn": 11,
+      "Moon": 4,
+      "Venus": 7,
+      "Mercury": 6,
+      "Sun": 5,
+      "Jupiter": 9,
+      "Mars": 3,
+      "Rahu": 8,
+      "Ketu": 2
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Saturn in H11 (Aquarius), Moon in H4 (Cancer), Venus in H7 (Libra), Mercury in H6 (Virgo)",
+      "pakkaGharMatches": [
+        "Saturn in H11 (Own Pakka)",
+        "Moon in H4 (Own Pakka)",
+        "Venus in H7 (Own Pakka)",
+        "Mercury in H6 (Own Pakka)",
+        "Jupiter in H9 (Own Pakka)",
+        "Mars in H3 (Own Pakka)"
+      ],
+      "tevaType": "Dharmi (Saturn in 11 confers unconditional Dharmi Teva per Farman 14 Safa 226)",
+      "masnooi": "None",
+      "aspects": "Mercury in 6 casts 25% on 12; Mars in 3 casts 50% on Saturn in 11; Jupiter in 9 supports 5; Ketu in 2 vs Rahu in 8",
+      "takkar": "Ketu in 2 vs Rahu in 8 (2-8 Takkar axis)",
+      "dhoka": "House 10 empty -> No Dhoka strike",
+      "dormancy": "House 1 empty and receives 0% rays -> Sleeping House 1",
+      "varshphal32": "Saturn in 11: 32%11=10 (natal 10 empty -> defaults to 11); Moon in 4: 32%4=0->H4; Venus in 7: 32%7=4 (natal 4 has Moon)->H4",
+      "applicableRemedies": [
+        "Universal daylight execution rule",
+        "Dharmi Teva: Divine protection active, no aggressive rituals",
+        "Mercury in 6: Feed dogs and wear seamless silver ring"
+      ],
+      "prohibitions": "Never donate exalted or beneficial planetary items"
+    }
+  },
+  {
+    "id": "KUNDLI_03",
+    "nativeName": "Amitabh Sen (Dharmi Jupiter 10 + Malefic 4)",
+    "dob": "1975-11-05",
+    "tob": "18:30",
+    "ageYears": 49,
+    "planetPositions": {
+      "Jupiter": 10,
+      "Rahu": 4,
+      "Sun": 1,
+      "Moon": 10,
+      "Mars": 7,
+      "Saturn": 3,
+      "Venus": 12,
+      "Mercury": 1,
+      "Ketu": 10
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Jupiter in 10, Rahu in 4, Sun in 1, Moon in 10, Mars in 7",
+      "pakkaGharMatches": [
+        "Sun in H1 (Own Pakka)",
+        "Mars in H3 Lord in 7",
+        "Venus in 12 (Exalted sign)"
+      ],
+      "tevaType": "Dharmi (Jupiter in 10 unconditionally confers Dharmi Teva; Moon in 10 conjunct Ketu also qualifies per Farman 14 Safa 226)",
+      "masnooi": "Sun + Mercury in 1 does not form Masnooi (only Mercury + Venus = Sun); Moon + Ketu in 10",
+      "aspects": "Sun in 1 <-> Mars in 7 (100% reciprocal)",
+      "takkar": "Sun in 1 vs Mars in 7 (Sun and Mars are natural friends per Farman 6 Safa 31 -> No Takkar collision!)",
+      "dhoka": "Jupiter, Moon, Ketu in 10 cast Dhoka on House 2 (empty) and House 8 (empty)",
+      "dormancy": "House 2 empty and receives 0% rays -> Sleeping House 2; House 8 empty and receives 0% rays -> Sleeping House 8",
+      "varshphal49": "Sun in 1: 49%1=0->H1; Jupiter in 10: 49%10=9 (natal 9 empty -> defaults to H10); Mars in 7: 49%7=0->H7",
+      "applicableRemedies": [
+        "Universal daylight execution rule",
+        "Rahu in 4: Feed stray animals and keep silver piece",
+        "Dharmi Teva: Protection active against fatal malefic blows"
+      ],
+      "prohibitions": "Do not perform nighttime rituals"
+    }
+  },
+  {
+    "id": "KUNDLI_04",
+    "nativeName": "Vikramaditya Rao (Andha Teva)",
+    "dob": "1988-02-12",
+    "tob": "11:45",
+    "ageYears": 36,
+    "planetPositions": {
+      "Sun": 10,
+      "Saturn": 10,
+      "Moon": 2,
+      "Mars": 4,
+      "Jupiter": 1,
+      "Venus": 11,
+      "Mercury": 9,
+      "Rahu": 6,
+      "Ketu": 12
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Sun and Saturn in 10, Moon in 2, Mars in 4",
+      "pakkaGharMatches": [
+        "Saturn in H10 (Own Pakka)",
+        "Jupiter in H1 (Honorary)"
+      ],
+      "tevaType": "Andha Teva (Farman 14 Safa 228: Sun and Saturn are bitter mutual enemies co-occupying House 10)",
+      "masnooi": "Sun + Saturn in 10 = Mangal Bad (Malefic Synthetic Mars, Farman 6 Safa 27)",
+      "aspects": "Mars in 4 casts 50% on 8; Sun+Saturn in 10 hit House 2 with Dhoka; Mercury in 9 supports 5",
+      "takkar": "Moon in 2 vs empty 8; Mars in 4 vs empty 10 (Sun+Saturn in 10 hit by Mars 4? Mars in 4 casts on 8, not 10); no Takkar",
+      "dhoka": "Sun + Saturn in 10 strike House 2 (Moon) with Dhoka deceit blow!",
+      "dormancy": "House 8 empty with 50% ray from Mars 4 -> Awake! House 3 empty and 0% ray -> Sleeping House 3",
+      "varshphal36": "Sun in 10: 36%10=6 (Rahu in 6)->H6; Saturn in 10: 36%10=6 (Rahu in 6)->H6; Moon in 2: 36%2=0->H2; Mars in 4: 36%4=0->H4",
+      "applicableRemedies": [
+        "Andha Teva Remedy (Farman 14 Safa 228): Feed 10 visually impaired persons on a single day with sweet kheer or fried puris",
+        "Mangal Bad in 10: Exercise extreme caution in business disputes and keep silver square",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Do not start new ventures at midnight; strictly avoid alcohol (Saturn in 10 afflicted)"
+    }
+  },
+  {
+    "id": "KUNDLI_05",
+    "nativeName": "Kavita Nair (Ratandh Teva - Sun in 7)",
+    "dob": "1995-10-24",
+    "tob": "17:10",
+    "ageYears": 29,
+    "planetPositions": {
+      "Sun": 7,
+      "Saturn": 1,
+      "Mars": 8,
+      "Moon": 12,
+      "Jupiter": 2,
+      "Venus": 6,
+      "Mercury": 7,
+      "Rahu": 5,
+      "Ketu": 11
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Sun in 7, Saturn in 1, Mars in 8",
+      "pakkaGharMatches": [
+        "Jupiter in H2 (Own Pakka)",
+        "Mars in H8 (Own Pakka)"
+      ],
+      "tevaType": "Ratandh Teva (Farman 14 Safa 230: Sun in 7 creates Ratandh / twilight misjudgment)",
+      "masnooi": "None (Sun + Mercury in 7 is Budhaditya, not Masnooi)",
+      "aspects": "Saturn in 1 <-> Sun + Mercury in 7 (100% reciprocal aspect)",
+      "takkar": "Saturn in 1 vs Sun in 7 (Direct 1-7 Takkar collision of mutual enemies per Farman 8 Safa 112!)",
+      "dhoka": "House 10 empty -> No Dhoka strike",
+      "dormancy": "House 3 empty and 0% ray -> Sleeping House 3; House 4 empty and 0% ray -> Sleeping House 4; House 10 empty and 0% ray -> Sleeping House 10",
+      "varshphal29": "Sun in 7: 29%7=1 (Saturn occupies 1)->H1; Saturn in 1: 29%1=0->H1; Jupiter in 2: 29%2=1 (Saturn in 1)->H1",
+      "applicableRemedies": [
+        "Ratandh Teva Remedy (Farman 14 Safa 230): Avoid signing contracts or making major purchases after sunset",
+        "Takkar 1-7 pacification: Establish copper and brass items to mediate between Sun and Saturn",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Sun in 7: Do not consume alcohol; strictly avoid late-night decision making"
+    }
+  },
+  {
+    "id": "KUNDLI_06",
+    "nativeName": "Devendra Joshi (Ratandh Teva Variant - Sat 7 + Sun 4)",
+    "dob": "1984-06-30",
+    "tob": "23:45",
+    "ageYears": 40,
+    "planetPositions": {
+      "Saturn": 7,
+      "Sun": 4,
+      "Venus": 2,
+      "Moon": 9,
+      "Mars": 12,
+      "Mercury": 5,
+      "Jupiter": 8,
+      "Rahu": 1,
+      "Ketu": 7
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Saturn in 7, Sun in 4, Venus in 2",
+      "pakkaGharMatches": [
+        "Venus in H2 (Own Pakka)",
+        "Jupiter in H8 (Own Pakka)",
+        "Mars in H12 (Ruler)"
+      ],
+      "tevaType": "Ratandh Teva (Farman 14 Safa 230: Saturn in 7 with Sun in 4 creates Ratandh Teva variant)",
+      "masnooi": "Saturn + Ketu in 7 does not form canonical Masnooi (only Mars+Saturn=Rahu or Sun+Saturn=Mangal Bad)",
+      "aspects": "Rahu in 1 <-> Saturn+Ketu in 7 (100% reciprocal); Sun in 4 casts 50% on Jupiter in 8",
+      "takkar": "Rahu in 1 vs Saturn/Ketu in 7 (Rahu and Saturn are mutual friends, not enemies; no Takkar)",
+      "dhoka": "House 10 empty -> No Dhoka strike",
+      "dormancy": "House 6 empty and 0% ray -> Sleeping House 6; House 10 empty and 0% ray -> Sleeping House 10; House 11 empty and 0% ray -> Sleeping House 11",
+      "varshphal40": "Sun in 4: 40%4=0->H4; Saturn in 7: 40%7=5 (Mercury in 5)->H5; Venus in 2: 40%2=0->H2; Jupiter in 8: 40%8=0->H8",
+      "applicableRemedies": [
+        "Ratandh Teva precautions: Defer crucial business affairs to morning hours",
+        "Sun in 4: Feed green grass to cows and respect father",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Do not conduct spiritual offerings after dark"
+    }
+  },
+  {
+    "id": "KUNDLI_07",
+    "nativeName": "Meenakshi Sundaram (Synthetic Ketu & Soya Grah)",
+    "dob": "1998-03-22",
+    "tob": "08:10",
+    "ageYears": 26,
+    "planetPositions": {
+      "Sun": 1,
+      "Venus": 1,
+      "Jupiter": 9,
+      "Moon": 11,
+      "Mars": 5,
+      "Saturn": 12,
+      "Mercury": 2,
+      "Rahu": 4,
+      "Ketu": 10
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Sun and Venus in 1, Jupiter in 9, Moon in 11",
+      "pakkaGharMatches": [
+        "Sun in H1 (Own Pakka)",
+        "Jupiter in H9 (Own Pakka)"
+      ],
+      "tevaType": "Sadharan Teva",
+      "masnooi": "Sun + Venus in House 1 = Masnooi Ketu (Farman 6 Safa 27)",
+      "aspects": "Sun+Venus in 1 cast 100% on empty 7; Rahu in 4 casts 50% on empty 8; Mars in 5 casts 25% on Jupiter in 9",
+      "takkar": "Rahu in 4 vs Ketu in 10 (4-10 axis, not 1-7 or 2-8 Takkar axis); no Takkar",
+      "dhoka": "Ketu in 10 strikes House 2 (Mercury) with Dhoka",
+      "dormancy": "House 7 empty, receives 100% ray -> Awake! House 3 empty and 0% ray -> Sleeping House 3; House 6 empty and 0% ray -> Sleeping House 6; Moon in 11 has empty 5 (Mars is in 5! So Moon's 7th house has Mars -> Moon is NOT dormant!)",
+      "varshphal26": "Sun in 1: 26%1=0->H1; Venus in 1: 26%1=0->H1; Jupiter in 9: 26%9=8 (natal 8 empty -> defaults to 9); Moon in 11: 26%11=4 (Rahu in 4)->H4",
+      "applicableRemedies": [
+        "Synthetic Ketu in 1: Feed stray dogs with bread and respect daughter/sister",
+        "Dhoka on House 2: Feed green moong to birds on Wednesday morning",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Do not donate copper or gold on behalf of House 1"
+    }
+  },
+  {
+    "id": "KUNDLI_08",
+    "nativeName": "Harpreet Singh (Synthetic Rahu + 2-8 Takkar)",
+    "dob": "1982-12-04",
+    "tob": "04:30",
+    "ageYears": 42,
+    "planetPositions": {
+      "Mars": 2,
+      "Saturn": 2,
+      "Ketu": 8,
+      "Mercury": 6,
+      "Sun": 7,
+      "Venus": 7,
+      "Moon": 1,
+      "Jupiter": 11,
+      "Rahu": 2
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Mars and Saturn in 2, Ketu in 8, Mercury in 6",
+      "pakkaGharMatches": [
+        "Mercury in H6 (Own Pakka)",
+        "Jupiter in H11 (Own Pakka)"
+      ],
+      "tevaType": "Ratandh Teva (Sun in 7 per Farman 14 Safa 230)",
+      "masnooi": "Mars + Saturn in House 2 = Masnooi Rahu (Farman 6 Safa 27); Sun + Venus in House 7 = Masnooi Ketu",
+      "aspects": "Moon in 1 <-> Sun+Venus in 7 (100% reciprocal); Mars+Saturn+Rahu in 2 vs Ketu in 8",
+      "takkar": "Mars in 2 vs Ketu in 8 (Mars and Ketu are mutual enemies per Farman 6 Safa 31 -> Direct 2-8 Takkar collision!)",
+      "dhoka": "House 10 empty -> No Dhoka strike",
+      "dormancy": "House 3 empty and 0% ray -> Sleeping House 3; House 4 empty and 0% ray -> Sleeping House 4; House 5 empty and 0% ray -> Sleeping House 5; House 9 empty and 0% ray -> Sleeping House 9; House 12 empty and 0% ray -> Sleeping House 12",
+      "varshphal42": "Mars in 2: 42%2=0->H2; Saturn in 2: 42%2=0->H2; Ketu in 8: 42%8=2 (Mars/Saturn in 2)->H2; Mercury in 6: 42%6=0->H6; Sun in 7: 42%7=0->H7; Venus in 7: 42%7=0->H7",
+      "applicableRemedies": [
+        "2-8 Takkar Collision: Keep solid silver ball or square piece in purse/home",
+        "Masnooi Rahu in 2: Apply saffron tilak and avoid rough speech",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Strictly refrain from taking financial risks after sunset"
+    }
+  },
+  {
+    "id": "KUNDLI_09",
+    "nativeName": "Aarav Gupta (Nabaligh Teva - Empty Kendra)",
+    "dob": "2018-05-10",
+    "tob": "07:20",
+    "ageYears": 8,
+    "planetPositions": {
+      "Sun": 2,
+      "Moon": 3,
+      "Jupiter": 5,
+      "Saturn": 6,
+      "Mercury": 8,
+      "Venus": 9,
+      "Mars": 11,
+      "Rahu": 12,
+      "Ketu": 6
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Kendras 1, 4, 7, 10 all vacant! Sun in 2, Moon in 3, Jupiter in 5, Saturn in 6, Mercury in 8",
+      "pakkaGharMatches": [
+        "Jupiter in H5 (Own Pakka)",
+        "Saturn in H6 (Ruler in 6)"
+      ],
+      "tevaType": "Nabaligh Teva (Farman 14 Safa 232: Age is 8 years [< 12] AND Khali Mutthi [Kendras 1, 4, 7, 10 all vacant!])",
+      "masnooi": "Saturn + Ketu in 6 is not canonical Masnooi",
+      "aspects": "Moon in 3 casts 50% on Mars in 11; Jupiter in 5 casts 25% on Venus in 9; Saturn in 6 casts 25% on Rahu in 12",
+      "takkar": "Sun in 2 vs Mercury in 8 (Sun and Mercury are mutual friends -> No Takkar); Saturn in 6 vs Rahu in 12 (Saturn and Rahu are friends -> No Takkar)",
+      "dhoka": "House 10 empty -> No Dhoka strike",
+      "dormancy": "House 1 empty and 0% ray -> Sleeping House 1; House 4 empty and 0% ray -> Sleeping House 4; House 7 empty and 0% ray -> Sleeping House 7; House 10 empty and 0% ray -> Sleeping House 10 (All 4 Kendras dormant!)",
+      "varshphal8": "Sun in 2: 8%2=0->H2; Moon in 3: 8%3=2 (Sun occupies 2)->H2; Jupiter in 5: 8%5=3 (Moon occupies 3)->H3; Saturn in 6: 8%6=2 (Sun in 2)->H2",
+      "applicableRemedies": [
+        "Nabaligh Teva Guidance (Farman 14 Safa 232): No aggressive rituals for child; gentle maternal blessings and charity only",
+        "Jupiter in 5: Offer yellow flowers and saffron milk to child",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "Strictly forbid harsh tantric or iron/lead remedies during minority years"
+    }
+  },
+  {
+    "id": "KUNDLI_10",
+    "nativeName": "Shalini Deshmukh (Moon in 6 Prohibition & Varshaphala)",
+    "dob": "1988-09-14",
+    "tob": "15:50",
+    "ageYears": 36,
+    "planetPositions": {
+      "Moon": 6,
+      "Jupiter": 2,
+      "Mercury": 3,
+      "Saturn": 4,
+      "Sun": 10,
+      "Mars": 11,
+      "Venus": 1,
+      "Rahu": 7,
+      "Ketu": 1
+    },
+    "independentAnalysis": {
+      "fixedKalpurusha": "Moon in 6, Jupiter in 2, Mercury in 3, Saturn in 4, Sun in 10",
+      "pakkaGharMatches": [
+        "Jupiter in H2 (Own Pakka)",
+        "Moon in 6 (Debilitated house)",
+        "Saturn in 4 (Hostile house)"
+      ],
+      "tevaType": "Dharmi (Saturn in 4 with Moon in 6/Rahu 7? No, Dharmi requires Moon in 4 or 10 with paap, or Saturn in 11, or Jupiter in 7/10; Saturn is in 4, Jupiter is in 2, Moon is in 6 -> Sadharan Teva)",
+      "masnooi": "Venus + Ketu in 1 is not canonical Masnooi (only Sun+Venus=Ketu)",
+      "aspects": "Venus+Ketu in 1 <-> Rahu in 7 (100% reciprocal); Saturn in 4 casts 50% on empty 8; Mercury in 3 casts 50% on Mars in 11; Moon in 6 casts 25% on empty 12",
+      "takkar": "Sun in 10 vs Saturn in 4 (4-10 axis is not 1-7 or 2-8; no direct Takkar)",
+      "dhoka": "Sun in 10 casts Dhoka on House 2 (Jupiter)!",
+      "dormancy": "House 5 empty and 0% ray -> Sleeping House 5; House 8 empty with 50% ray -> Awake; House 9 empty and 0% ray -> Sleeping House 9; House 12 empty with 25% ray -> Awake",
+      "varshphal36": "Moon in 6: 36%6=0->H6; Jupiter in 2: 36%2=0->H2; Mercury in 3: 36%3=0->H3; Saturn in 4: 36%4=0->H4; Sun in 10: 36%10=6 (Moon in 6)->H6; Mars in 11: 36%11=3 (Mercury in 3)->H3",
+      "applicableRemedies": [
+        "CRITICAL CONTRAINDICATION (Farman 10 Safa 165): Moon in House 6 STRICTLY FORBIDS donating milk, water, or setting up public drinking stalls. Doing so causes financial ruin and mental distress.",
+        "Sun in 10: Respect authority figures and keep bronze utensils clean",
+        "Universal daylight execution rule"
+      ],
+      "prohibitions": "STRICT PROHIBITION: Never donate milk or install water taps/stalls. Never perform remedies at night."
+    }
+  }
+]

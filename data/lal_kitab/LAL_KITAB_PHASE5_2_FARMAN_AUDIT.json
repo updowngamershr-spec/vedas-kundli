@@ -1,0 +1,235 @@
+{
+  "auditVersion": "5.2.0",
+  "date": "2026-11-08",
+  "sourceDocument": "Lal-Kitab-1952 Grammer Portion Page-1-to-234.pdf",
+  "totalFarmansInGrammar": 14,
+  "constantPdfOffset": 3,
+  "offsetFormula": "PDF_Page = Printed_Safa + 3",
+  "farmans": [
+    {
+      "farmanNumber": 1,
+      "titleHi": "कुण्डली बनाने का असूल व नेकी असूल",
+      "titleEn": "Foundational Principles of Horoscope & Moral Discipline",
+      "printedSafa": "12",
+      "pdfPage": "15",
+      "auditStatus": "TEXT_AUDITED",
+      "implementedRuleIds": [
+        "LK1952_F01_GENERAL_DISCIPLINE"
+      ],
+      "unresolvedNotes": "Truthfulness and moral integrity serve as foundational non-material remedy. General predictive aphorisms reserved for subsequent volumes.",
+      "overlapResolution": "Covers Safa 12. Preceded by introductory aphorisms (Safas 1-11)."
+    },
+    {
+      "farmanNumber": 2,
+      "titleHi": "ग्रह की ताक़त, मुतअल्लिका दरख्त व असर",
+      "titleEn": "Planetary Inherent Strength, Associated Trees & Natural Rays",
+      "printedSafa": "13 - 15",
+      "pdfPage": "16 - 18",
+      "auditStatus": "TEXT_AUDITED",
+      "implementedRuleIds": [
+        "LK1952_F02_PLANETARY_TREES"
+      ],
+      "unresolvedNotes": "Qualitative botanical associations verified. Modern numerical Shadbala metrics marked UNRESOLVED.",
+      "overlapResolution": "Direct sequence Safa 13 to 15."
+    },
+    {
+      "farmanNumber": 3,
+      "titleHi": "ग्रह फल बनाम राशि फल के भेद",
+      "titleEn": "Distinction Between Unalterable Destiny (Grah Phal) & Remediable Influence (Rashi Phal)",
+      "printedSafa": "16 - 17",
+      "pdfPage": "19 - 20",
+      "auditStatus": "TEXT_AUDITED",
+      "implementedRuleIds": [
+        "LK1952_F03_GRAH_VS_RASHI"
+      ],
+      "unresolvedNotes": "Foundational doctrinal partition: Grah Phal is fixed karma; Rashi Phal is alterable by classical Upaya.",
+      "overlapResolution": "Direct sequence Safa 16 to 17."
+    },
+    {
+      "farmanNumber": 4,
+      "titleHi": "कायम ग्रह, नेक-बद व मुश्तर्का असर",
+      "titleEn": "Standing Planets (Kayam Grah), Benefic/Malefic Dignity & Conjunctions",
+      "printedSafa": "18 - 20",
+      "pdfPage": "21 - 23",
+      "auditStatus": "TEXT_AUDITED",
+      "implementedRuleIds": [
+        "LK1952_F04_KAYAM_GRAH"
+      ],
+      "unresolvedNotes": "Kayam Grah doctrine: planets retaining uncorrupted sovereignty. Safa 21 verified as Grammar title page divider.",
+      "overlapResolution": "Farman 4 ends on Safa 20. Safa 21 is 'ग्रामर' (Grammar section start). Unassigned gap resolved."
+    },
+    {
+      "farmanNumber": 5,
+      "titleHi": "तकदीर पहले या तदबीर (कालपुरुष मेष लग्न व 12 भाव)",
+      "titleEn": "Destiny vs Remedial Action (Fixed Aries Kalpurusha Lagna & 12 Houses)",
+      "printedSafa": "22 - 24",
+      "pdfPage": "25 - 27",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F05_FIXED_ARIES_LAGNA"
+      ],
+      "unresolvedNotes": "Fixed Aries Kalpurusha principle: House 1 is permanently Aries regardless of ascendant degree. Palmistry lines mapped to houses.",
+      "overlapResolution": "Begins at Safa 22 ('तकदीर पहले या तदबीर') following Safa 21 Grammar title, ending at Safa 24. Exact range verified."
+    },
+    {
+      "farmanNumber": 6,
+      "titleHi": "किस्मत की गाँठों ही से ग्रह बन गया (मस्नूई ग्रह व प्रसुप्त भाव/ग्रह)",
+      "titleEn": "Planetary Knots of Fate: Synthetic Planets (Masnooi) & Dormancy (Soye Hue Ghar/Grah)",
+      "printedSafa": "25 - 55",
+      "pdfPage": "28 - 58",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F06_MASNOOI_KETU",
+        "LK1952_F06_MASNOOI_MANGAL_BAD",
+        "LK1952_F06_MASNOOI_MANGAL_NEK",
+        "LK1952_F06_MASNOOI_SUN",
+        "LK1952_F06_MASNOOI_RAHU",
+        "LK1952_F06_SOYE_HUE_GHAR",
+        "LK1952_F06_SOYE_HUE_GRAH",
+        "LK1952_F06_RAHU_KETU_AXIS",
+        "LK1952_F06_RAHU_KITCHEN",
+        "LK1952_F06_RAHU_TERRACE"
+      ],
+      "unresolvedNotes": "All 5 canonical synthetic pairs and dormancy mechanics (0% aspect rays, vacant 7th house) verified against Safas 27-43. Triple conjunctions marked UNRESOLVED.",
+      "overlapResolution": "Begins at Safa 25 ('किस्मत की गाँठों ही से ग्रह मण्डल बन गया') and extends to Safa 55."
+    },
+    {
+      "farmanNumber": 7,
+      "titleHi": "12 पक्के घर एवं स्थायी ग्रह आधिपत्य",
+      "titleEn": "12 Permanent Pakke Ghar Sovereigns & Awakening Ages",
+      "printedSafa": "56 - 99",
+      "pdfPage": "59 - 102",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F07_PAKKA_GHAR_LORDS",
+        "LK1952_F07_SUN_H01",
+        "LK1952_F07_JUP_MOON_H02",
+        "LK1952_F07_MOON_H04",
+        "LK1952_F07_JUP_H05",
+        "LK1952_F07_VEN_H07",
+        "LK1952_F07_MARS_SAT_H08",
+        "LK1952_F07_JUP_H09",
+        "LK1952_F07_SAT_H10",
+        "LK1952_F07_JUP_TILAK",
+        "LK1952_F07_SUN_SWEET",
+        "LK1952_F07_SUN_ENTRANCE"
+      ],
+      "unresolvedNotes": "Sovereign lords assigned: H1: Sun/Mars, H2: Jup, H3: Mars, H4: Moon, H5: Jup, H6: Merc/Ketu, H7: Ven/Merc, H8: Sat/Mars, H9: Jup, H10: Sat, H11: Jup, H12: Jup/Rahu.",
+      "overlapResolution": "Farman 7 ends cleanly on Safa 99 (planetary awakening age tables). Previous overlap at Safa 101 resolved."
+    },
+    {
+      "farmanNumber": 8,
+      "titleHi": "ग्रह दृष्टि (100%, 50%, 25%, टक्कर, धोखा, बुनियादी मदद)",
+      "titleEn": "Planetary Aspects: Full, Half, Quarter, Collision (Takkar), Deceit (Dhoka), Foundation (Buniyadi)",
+      "printedSafa": "100 - 149",
+      "pdfPage": "103 - 152",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F08_DRISHTI_FULL_1_7",
+        "LK1952_F08_DRISHTI_HALF_4_8",
+        "LK1952_F08_DRISHTI_HALF_3_11",
+        "LK1952_F08_DRISHTI_QUARTER_5_9",
+        "LK1952_F08_DRISHTI_QUARTER_2_6",
+        "LK1952_F08_DRISHTI_QUARTER_6_12",
+        "LK1952_F08_DRISHTI_TAKKAR",
+        "LK1952_F08_DRISHTI_DHOKA",
+        "LK1952_F08_DRISHTI_BUNIYAD"
+      ],
+      "unresolvedNotes": "Full reciprocal 1<->7, directional half 4->8 and 3->11, directional quarter 5->9, 2->6, 6->12. Dhoka strikes (H10->H2, H10->H8, H8->H2) verified on Safa 112 table.",
+      "overlapResolution": "Farman 8 title page is Safa 100; text commences on Safa 101. No overlap with Farman 7."
+    },
+    {
+      "farmanNumber": 9,
+      "titleHi": "मददगार उपाय (दिन के समय अनिवार्यता व नियम)",
+      "titleEn": "Helpful Remedies (Mandatory Daytime Execution, 40-43 Days Duration & Deities Table)",
+      "printedSafa": "150 - 161",
+      "pdfPage": "153 - 164",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F09_UPAYA_DAYLIGHT",
+        "LK1952_F09_NO_DONATION_EXALTED",
+        "LK1952_F07_MERCURY_BIRDS",
+        "LK1952_F07_SATURN_DOG",
+        "LK1952_F07_VENUS_COW",
+        "LK1952_F07_JUP_REMEDY"
+      ],
+      "unresolvedNotes": "Safa 155 mandates daytime execution: sunrise to sunset. Night remedies prohibited as Saturn's realm. 40-43 day duration rule on Safa 156. No weekday constraints.",
+      "overlapResolution": "Universal daytime rule isolated to Farman 9 Safa 155. Farman 10 Safa 162 is chapter heading for Planetary Effects."
+    },
+    {
+      "farmanNumber": 10,
+      "titleHi": "ग्रह का असर एवं विशिष्ट भाव दान निषेध",
+      "titleEn": "Planetary Effects & House-Specific Donation Prohibitions (Moon 6/8/10, Sun 6/10, Sat 1)",
+      "printedSafa": "162 - 184",
+      "pdfPage": "165 - 187",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F10_PROHIBITION_MOON_WATER_MILK",
+        "LK1952_F10_PROHIBITION_SUN_COPPER_JAGGERY",
+        "LK1952_F10_PROHIBITION_SATURN_OIL_ALCOHOL"
+      ],
+      "unresolvedNotes": "Strict prohibitions: Moon in 6/8/10 (milk/water/drinking stalls), Sun in 6/10 (copper/jaggery), Saturn in 1 (oil/alcohol/meat/falsehood). Sun in 7 is debility (not donation ban).",
+      "overlapResolution": "Clarified role: Farman 10 covers planetary effects and specific donation taboos; general daytime timing belongs to Farman 9."
+    },
+    {
+      "farmanNumber": 11,
+      "titleHi": "साथी ग्रह, कुण्डली मिलान व कुर्बानी का बकरा",
+      "titleEn": "Companion Planets, Horoscope Matching & Sacrificial Scapegoat (Bali Ka Bakra)",
+      "printedSafa": "185 - 190",
+      "pdfPage": "188 - 193",
+      "auditStatus": "TEXT_AUDITED",
+      "implementedRuleIds": [
+        "LK1952_F11_BALI_KA_BAKRA"
+      ],
+      "unresolvedNotes": "Secondary planet absorbs malefic blow for primary planet. Complex synthetic matchmaking marked UNRESOLVED pending full flemish commentary.",
+      "overlapResolution": "Direct sequence Safa 185 to 190."
+    },
+    {
+      "farmanNumber": 12,
+      "titleHi": "कुंडली की बनावट: जन्म, चंद्र व मकान कुंडली (मित्रता-शत्रुता चक्र)",
+      "titleEn": "Chart Construction: Birth, Moon & Domestic Charts; Natural Planetary Enmity Matrix",
+      "printedSafa": "191 - 212",
+      "pdfPage": "194 - 215",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F12_FRIENDSHIP_MATRIX"
+      ],
+      "unresolvedNotes": "9x9 natural friendship, enmity, and neutral relations matrix. House roof hygiene for Rahu (Safa 191).",
+      "overlapResolution": "Direct sequence Safa 191 to 212."
+    },
+    {
+      "farmanNumber": 13,
+      "titleHi": "वर्षफल का 120 साला चक्कर गणित व शेषफल",
+      "titleEn": "Annual Varshaphala 120-Year Rotation Modulo Mathematics",
+      "printedSafa": "213 - 225",
+      "pdfPage": "216 - 228",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F13_VARSHPHAL_120_CYCLE"
+      ],
+      "unresolvedNotes": "Modulo formula: Remainder = Age % NatalHouse. When 0 or when remainder house is vacant in natal chart, planet stays anchored in natal house (Safa 217).",
+      "overlapResolution": "Direct sequence Safa 213 to 225."
+    },
+    {
+      "farmanNumber": 14,
+      "titleHi": "टेवे की किस्में: धर्मी, अंधा, रतौंधी, नाबालिग व बालिग",
+      "titleEn": "Special Horoscope Classifications: Dharmi, Andha, Ratandh, Nabaligh & Baligh",
+      "printedSafa": "226 - 234",
+      "pdfPage": "229 - 237",
+      "auditStatus": "VERIFIED_DIRECT_SOURCE",
+      "implementedRuleIds": [
+        "LK1952_F14_TEVA_DHARMI",
+        "LK1952_F14_TEVA_DHARMI_SATURN_11",
+        "LK1952_F14_TEVA_DHARMI_JUPITER_7_10",
+        "LK1952_F14_TEVA_DHARMI_MOON_KENDRA_PAAP",
+        "LK1952_F14_TEVA_ANDHA",
+        "LK1952_F14_TEVA_RATANDH",
+        "LK1952_F14_TEVA_NABALIGH",
+        "LK1952_F14_TEVA_BALIGH",
+        "LK1952_F14_TEVA_ANDHA_REMEDY"
+      ],
+      "unresolvedNotes": "Algorithmic classifications, protective shields, and remedial restrictions for each special horoscope. Safa 234 marks end of Grammar portion.",
+      "overlapResolution": "Final chapter of grammar portion (Safa 226 to 234). Safa 235 begins Faladesh (unscanned)."
+    }
+  ]
+}

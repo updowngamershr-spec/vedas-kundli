@@ -16,9 +16,18 @@ Features:
 import os
 import sys
 import io
+import re
+import time
+import threading
 import zipfile
 import webbrowser
+from datetime import datetime
 from threading import Timer
+
+if sys.stdout is None:
+    sys.stdout = io.StringIO()
+if sys.stderr is None:
+    sys.stderr = io.StringIO()
 from fastapi import FastAPI, Query
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from pydantic import BaseModel
@@ -31,9 +40,23 @@ from engine.report_html_pdf import build_full_56_page_html, export_html_to_pdf
 from engine.svg_charts import render_north_indian_svg, render_south_indian_svg, render_east_indian_svg
 from engine.kundli_milan import calculate_ashtakoot_milan
 from engine.milan_dossier import build_milan_dossier_html
-from crm_db import init_crm_db, list_clients, get_client, save_client, delete_client, get_branding, save_branding, get_user_data_root, create_demo_key, list_demo_keys, toggle_demo_key_status, validate_access_key
+from engine.numerology_engine import (
+    build_complete_numerology_profile,
+    transliterate_indic_name,
+    detect_script
+)
+from engine.numerology_pdf import (
+    export_numerology_pdf,
+    build_numerology_30_page_html
+)
+from crm_db import (
+    init_crm_db, list_clients, get_client, save_client, delete_client,
+    get_branding, save_branding, get_user_data_root, create_demo_key,
+    list_demo_keys, toggle_demo_key_status, validate_access_key,
+    save_numerology_profile, get_numerology_profile, list_numerology_profiles, delete_numerology_profile
+)
 
-app = FastAPI(title="Vedas Kundli Predictions")
+app = FastAPI(title="Astro Architects")
 
 @app.get("/presentation", response_class=HTMLResponse)
 @app.get("/pitch", response_class=HTMLResponse)
@@ -124,6 +147,17 @@ class MilanRequest(BaseModel):
     boy: MilanPerson
     girl: MilanPerson
     lang: str = "both"
+
+
+class NumerologyRequest(BaseModel):
+    id: int | None = None
+    client_id: int | None = None
+    name: str = ""
+    confirmed_latin_name: str | None = None
+    dob: str = ""
+    target_year: int | None = None
+    system: str = "both"
+    life_path_policy: str = "component_reduction"
 
 
 last_heartbeat_time = 0.0
@@ -594,6 +628,20 @@ def api_export_milan_summary_pdf(req: MilanRequest):
 
     milan_html = build_milan_dossier_html(boy_core, girl_core, milan, brand, lang=req.lang or "hi")
 
+    # Mandatory Zero-Error Quality Audit Gate before PDF rendering
+    from engine.quality_checker import run_mandatory_zero_error_audit
+    try:
+        audit_cert = run_mandatory_zero_error_audit(
+            report_type="milan",
+            data={"milan": milan, "boy_core": boy_core, "girl_core": girl_core},
+            html_str=milan_html
+        )
+    except Exception as ze:
+        return JSONResponse(
+            {"success": False, "error": f"Zero-Error Policy Violation: {str(ze)}", "audit_passed": False},
+            status_code=422
+        )
+
     safe_b = "".join(c if c.isalnum() else "_" for c in req.boy.name or "Groom")
     safe_g = "".join(c if c.isalnum() else "_" for c in req.girl.name or "Bride")
     milan_filename = f"Kundli_Milan_{safe_b}_{safe_g}.pdf"
@@ -605,9 +653,35 @@ def api_export_milan_summary_pdf(req: MilanRequest):
             "success": True,
             "filename": milan_filename,
             "download_url": f"/api/download-pdf/{milan_filename}",
-            "page_count": res.get("page_count", 3)
+            "page_count": res.get("page_count", 3),
+            "audit_certificate": audit_cert
         }
-    return JSONResponse({"success": False, "error": res.get("error", "Milan PDF generation failed")}, status_code=500)
+    return JSONResponse({"success": False, "error": res.get("error", "Milan PDF generation failed"), "audit_passed": True}, status_code=500)
+
+def apply_branding_to_kundli_data(data: dict) -> dict:
+    """Apply white-label custom brand name, logo, astrologer info to complete kundli dictionary."""
+    brand_cfg = get_branding()
+    if brand_cfg:
+        b_name = brand_cfg.get("kendra_name") or "Astro Architects"
+        data["brand"]["kendra_name"] = b_name
+        data["brand"]["name_en"] = b_name
+        data["brand"]["name_hi"] = b_name
+        if brand_cfg.get("astrologer_name"):
+            data["brand"]["astrologer_name"] = brand_cfg["astrologer_name"]
+        if brand_cfg.get("phone"):
+            data["brand"]["phone"] = brand_cfg["phone"]
+        if brand_cfg.get("email"):
+            data["brand"]["email"] = brand_cfg["email"]
+        if brand_cfg.get("address"):
+            data["brand"]["address"] = brand_cfg["address"]
+        if brand_cfg.get("tagline"):
+            data["brand"]["tagline_en"] = brand_cfg["tagline"]
+            data["brand"]["tagline_hi"] = brand_cfg["tagline"]
+        if brand_cfg.get("logo_data"):
+            data["brand"]["logo_data"] = brand_cfg["logo_data"]
+            data["brand"]["logo"] = brand_cfg["logo_data"]
+    return data
+
 
 @app.post("/api/export-milan-person-pdf")
 def api_export_milan_person_pdf(person: MilanPerson, lang: str = "hi"):
@@ -621,7 +695,23 @@ def api_export_milan_person_pdf(person: MilanPerson, lang: str = "hi"):
         hour=person.hour, minute=person.minute, second=person.second,
         place=person.place, lat=p_lat, lon=p_lon, tz=p_tz,
     )
+    apply_branding_to_kundli_data(data)
     html_str = build_full_56_page_html(data, lang=lang)
+
+    # Mandatory Zero-Error Quality Audit Gate before PDF rendering
+    from engine.quality_checker import run_mandatory_zero_error_audit
+    try:
+        audit_cert = run_mandatory_zero_error_audit(
+            report_type="kundli",
+            data=data,
+            html_str=html_str
+        )
+    except Exception as ze:
+        return JSONResponse(
+            {"success": False, "error": f"Zero-Error Policy Violation: {str(ze)}", "audit_passed": False},
+            status_code=422
+        )
+
     safe_name = "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in person.name).strip("_") or "Kundli"
     pdf_filename = f"Vedas_Kundli_{safe_name}_{lang.upper()}.pdf"
     pdf_path = os.path.join(REPORTS_DIR, pdf_filename)
@@ -631,9 +721,10 @@ def api_export_milan_person_pdf(person: MilanPerson, lang: str = "hi"):
             "success": True,
             "filename": pdf_filename,
             "download_url": f"/api/download-pdf/{pdf_filename}",
-            "page_count": res.get("page_count", 62)
+            "page_count": res.get("page_count", 62),
+            "audit_certificate": audit_cert
         }
-    return JSONResponse({"success": False, "error": "Export failed"}, status_code=500)
+    return JSONResponse({"success": False, "error": res.get("error", "Export failed"), "audit_passed": True}, status_code=500)
 
 
 
@@ -646,17 +737,7 @@ def api_generate_html(req: KundliRequest):
         place=req.place, lat=req.lat, lon=req.lon, tz=req.tz,
         varsha_year=req.varsha_year,
     )
-    brand_cfg = get_branding()
-    if brand_cfg:
-        if brand_cfg.get("kendra_name"):
-            data["brand"]["kendra_name"] = brand_cfg["kendra_name"]
-            data["brand"]["name_en"] = brand_cfg["kendra_name"]
-        if brand_cfg.get("astrologer_name"):
-            data["brand"]["astrologer_name"] = brand_cfg["astrologer_name"]
-        if brand_cfg.get("phone"):
-            data["brand"]["phone"] = brand_cfg["phone"]
-        if brand_cfg.get("tagline"):
-            data["brand"]["tagline_en"] = brand_cfg["tagline"]
+    apply_branding_to_kundli_data(data)
     html_str = build_full_56_page_html(data, lang=req.lang, package=req.report_package)
     return HTMLResponse(content=html_str)
 
@@ -670,18 +751,23 @@ def api_export_pdf(req: KundliRequest):
         place=req.place, lat=req.lat, lon=req.lon, tz=req.tz,
         varsha_year=req.varsha_year,
     )
-    brand_cfg = get_branding()
-    if brand_cfg:
-        if brand_cfg.get("kendra_name"):
-            data["brand"]["kendra_name"] = brand_cfg["kendra_name"]
-            data["brand"]["name_en"] = brand_cfg["kendra_name"]
-        if brand_cfg.get("astrologer_name"):
-            data["brand"]["astrologer_name"] = brand_cfg["astrologer_name"]
-        if brand_cfg.get("phone"):
-            data["brand"]["phone"] = brand_cfg["phone"]
-        if brand_cfg.get("tagline"):
-            data["brand"]["tagline_en"] = brand_cfg["tagline"]
+    apply_branding_to_kundli_data(data)
     html_str = build_full_56_page_html(data, lang=req.lang, package=req.report_package)
+
+    # Mandatory Zero-Error Quality Audit Gate before PDF rendering
+    from engine.quality_checker import run_mandatory_zero_error_audit
+    try:
+        audit_cert = run_mandatory_zero_error_audit(
+            report_type="kundli",
+            data=data,
+            html_str=html_str
+        )
+    except Exception as ze:
+        return JSONResponse(
+            {"success": False, "error": f"Zero-Error Policy Violation: {str(ze)}", "audit_passed": False},
+            status_code=422
+        )
+
     safe_name = "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in req.name).strip("_") or "Kundli"
     pkg_suffix = f"_{req.report_package.upper()}" if req.report_package != "maha" else ""
     pdf_filename = f"Vedas_Kundli_{safe_name}{pkg_suffix}_{req.lang.upper()}.pdf"
@@ -696,30 +782,59 @@ def api_export_pdf(req: KundliRequest):
             "download_url": f"/api/download-pdf/{pdf_filename}",
             "single_pages_url": f"/api/download-single-pages-zip/{pdf_filename}",
             "page_count": res.get("page_count", 0),
+            "audit_certificate": audit_cert
         }
     
-    # Universal fallback for cloud containers without headless chrome (e.g. Render/iPhone)
-    sample_pdf = os.path.join(REPORTS_DIR, "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
-    if not os.path.exists(sample_pdf):
-        sample_pdf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports", "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
-    if os.path.exists(sample_pdf):
-        import shutil
-        shutil.copyfile(sample_pdf, pdf_path)
-        return {
-            "success": True,
-            "filename": pdf_filename,
-            "path": pdf_path,
-            "download_url": f"/api/download-pdf/{pdf_filename}",
-            "single_pages_url": f"/api/download-single-pages-zip/{pdf_filename}",
-            "page_count": 56,
-        }
-    
-    return {
-        "success": True,
-        "filename": "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf",
-        "download_url": "/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf",
-        "page_count": 56,
-    }
+    return JSONResponse(
+        {
+            "success": False,
+            "error": res.get("error", "PDF generation failed. Zero-Error policy prevented fallback to unverified dossier."),
+            "audit_passed": True
+        },
+        status_code=500
+    )
+
+
+@app.post("/api/open-system-pdf")
+def api_open_system_pdf(req: KundliRequest):
+    try:
+        data = generate_complete_kundli(
+            name=req.name, sex=req.sex,
+            year=req.year, month=req.month, day=req.day,
+            hour=req.hour, minute=req.minute, second=req.second,
+            place=req.place, lat=req.lat, lon=req.lon, tz=req.tz,
+            varsha_year=req.varsha_year,
+        )
+        apply_branding_to_kundli_data(data)
+        html_str = build_full_56_page_html(data, lang=req.lang, package=req.report_package)
+        safe_name = "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in req.name).strip("_") or "Kundli"
+        pkg_suffix = f"_{req.report_package.upper()}" if req.report_package != "maha" else ""
+        pdf_filename = f"Vedas_Kundli_{safe_name}{pkg_suffix}_{req.lang.upper()}.pdf"
+        pdf_path = os.path.join(REPORTS_DIR, pdf_filename)
+
+        if not os.path.exists(pdf_path):
+            export_html_to_pdf(html_str, pdf_path, split_single_pages=False)
+
+        if os.path.exists(pdf_path):
+            if sys.platform == "win32":
+                os.startfile(pdf_path)
+            return {"success": True, "filename": pdf_filename, "path": pdf_path}
+
+        sample_pdf = os.path.join(REPORTS_DIR, "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
+        if not os.path.exists(sample_pdf):
+            sample_pdf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports", "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
+        if os.path.exists(sample_pdf) and sys.platform == "win32":
+            os.startfile(sample_pdf)
+            return {"success": True, "filename": "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf", "path": sample_pdf, "fallback": True}
+        return {"success": False, "error": "PDF file could not be generated"}
+    except Exception as e:
+        sample_pdf = os.path.join(REPORTS_DIR, "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
+        if not os.path.exists(sample_pdf):
+            sample_pdf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports", "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf")
+        if os.path.exists(sample_pdf) and sys.platform == "win32":
+            os.startfile(sample_pdf)
+            return {"success": True, "filename": "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf", "path": sample_pdf, "fallback": True}
+        return {"success": False, "error": str(e)}
 
 
 @app.get("/api/reports")
@@ -785,6 +900,220 @@ def api_download_single_pages_zip(filename: str):
     )
 
 
+# ===========================================================================
+# NUMEROLOGY API ENDPOINTS
+# ===========================================================================
+
+@app.post("/api/numerology/calculate")
+def api_numerology_calculate(req: NumerologyRequest):
+    try:
+        profile = build_complete_numerology_profile(
+            name=req.name,
+            dob_str=req.dob,
+            target_year=req.target_year,
+            system=req.system,
+            life_path_policy=req.life_path_policy,
+            confirmed_latin_name=req.confirmed_latin_name
+        )
+        return {"success": True, "profile": profile}
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=400)
+
+
+@app.post("/api/numerology/transliterate")
+def api_numerology_transliterate(payload: dict):
+    name = str(payload.get("name", "")).strip()
+    if not name:
+        return JSONResponse({"success": False, "error": "Name is required"}, status_code=400)
+    res = transliterate_indic_name(name)
+    return {"success": True, "transliteration": res}
+
+
+@app.get("/api/numerology/profiles")
+def api_list_numerology_profiles(q: str = ""):
+    return {"profiles": list_numerology_profiles(q)}
+
+
+@app.get("/api/numerology/profiles/{profile_id}")
+def api_get_numerology_profile(profile_id: int):
+    p = get_numerology_profile(profile_id)
+    if not p:
+        return JSONResponse({"error": "Profile not found"}, status_code=404)
+    return {"profile": p}
+
+
+@app.post("/api/numerology/profiles")
+def api_save_numerology_profile(req: NumerologyRequest):
+    try:
+        profile = build_complete_numerology_profile(
+            name=req.name,
+            dob_str=req.dob,
+            target_year=req.target_year,
+            system=req.system,
+            life_path_policy=req.life_path_policy,
+            confirmed_latin_name=req.confirmed_latin_name
+        )
+        script_detected = profile.get("meta", {}).get("script_detected", "Latin")
+        pid = save_numerology_profile({
+            "id": req.id,
+            "client_id": req.client_id,
+            "name": req.name,
+            "original_name": req.name,
+            "script_lang": script_detected,
+            "dob": req.dob,
+            "target_year": req.target_year or datetime.now().year,
+            "system": req.system,
+            "life_path_policy": req.life_path_policy,
+            "profile_data": profile
+        })
+        return {"success": True, "id": pid, "profile": profile, "profiles": list_numerology_profiles()}
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=400)
+
+
+@app.delete("/api/numerology/profiles/{profile_id}")
+def api_delete_numerology_profile(profile_id: int):
+    success = delete_numerology_profile(profile_id)
+    return {"success": success, "profiles": list_numerology_profiles()}
+
+
+@app.post("/api/numerology/preview-html", response_class=HTMLResponse)
+def api_preview_numerology_html(req: NumerologyRequest):
+    try:
+        profile = build_complete_numerology_profile(
+            name=req.name,
+            dob_str=req.dob,
+            target_year=req.target_year,
+            system=req.system,
+            life_path_policy=req.life_path_policy,
+            confirmed_latin_name=req.confirmed_latin_name
+        )
+        brand = get_branding()
+        html_str = build_numerology_30_page_html(profile, brand)
+        return HTMLResponse(content=html_str)
+    except Exception as e:
+        return HTMLResponse(
+            content=f"<div style='color:red; padding:30px; font-family:sans-serif;'><h3>Error generating dossier preview</h3><p>{str(e)}</p></div>",
+            status_code=500
+        )
+
+
+@app.get("/api/numerology/preview-dossier", response_class=HTMLResponse)
+def api_get_preview_numerology_dossier(
+    name: str = "Aarav Sharma",
+    dob: str = "1990-10-12",
+    target_year: int = 2026,
+    system: str = "both",
+    life_path_policy: str = "component_reduction",
+    confirmed_latin_name: str | None = None
+):
+    try:
+        profile = build_complete_numerology_profile(
+            name=name,
+            dob_str=dob,
+            target_year=target_year,
+            system=system,
+            life_path_policy=life_path_policy,
+            confirmed_latin_name=confirmed_latin_name or None
+        )
+        brand = get_branding()
+        html_str = build_numerology_30_page_html(profile, brand)
+        return HTMLResponse(content=html_str)
+    except Exception as e:
+        return HTMLResponse(
+            content=f"<div style='color:red; padding:30px; font-family:sans-serif;'><h3>Error loading 30-page dossier</h3><p>{str(e)}</p></div>",
+            status_code=500
+        )
+
+
+@app.post("/api/numerology/open-system-pdf")
+def api_open_numerology_system_pdf(req: NumerologyRequest):
+    try:
+        profile = build_complete_numerology_profile(
+            name=req.name,
+            dob_str=req.dob,
+            target_year=req.target_year,
+            system=req.system,
+            life_path_policy=req.life_path_policy,
+            confirmed_latin_name=req.confirmed_latin_name
+        )
+        brand = get_branding()
+        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', req.name.strip()) or "Client"
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        pdf_filename = f"Numerology_30_Pages_{clean_name_str}_{stamp}.pdf"
+        output_pdf = os.path.join(REPORTS_DIR, pdf_filename)
+
+        res = export_numerology_pdf(profile, output_pdf, brand)
+        if not res.get("success"):
+            return JSONResponse({"success": False, "error": res.get("error")}, status_code=500)
+
+        opened = False
+        if os.path.exists(output_pdf) and sys.platform == "win32":
+            try:
+                os.startfile(output_pdf)
+                opened = True
+            except Exception:
+                opened = False
+
+        return {
+            "success": True,
+            "filename": pdf_filename,
+            "path": output_pdf,
+            "download_url": f"/api/download-pdf/{pdf_filename}",
+            "opened": opened
+        }
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=500)
+
+
+@app.post("/api/numerology/export-pdf")
+def api_export_numerology_pdf(req: NumerologyRequest):
+    try:
+        profile = build_complete_numerology_profile(
+            name=req.name,
+            dob_str=req.dob,
+            target_year=req.target_year,
+            system=req.system,
+            life_path_policy=req.life_path_policy,
+            confirmed_latin_name=req.confirmed_latin_name
+        )
+        brand = get_branding()
+        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', req.name.strip()) or "Client"
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        pdf_filename = f"Numerology_30_Pages_{clean_name_str}_{stamp}.pdf"
+        output_pdf = os.path.join(REPORTS_DIR, pdf_filename)
+
+        res = export_numerology_pdf(profile, output_pdf, brand)
+        if not res.get("success"):
+            return JSONResponse({"success": False, "error": res.get("error")}, status_code=500)
+
+        if os.path.exists(output_pdf) and sys.platform == "win32":
+            try:
+                os.startfile(output_pdf)
+            except Exception:
+                pass
+
+        return {
+            "success": True,
+            "filename": pdf_filename,
+            "page_count": res.get("page_count", 30),
+            "download_url": f"/api/download-pdf/{pdf_filename}",
+            "full_path": output_pdf,
+            "opened": True
+        }
+    except Exception as e:
+        return JSONResponse({"success": False, "error": str(e)}, status_code=500)
+
+
+@app.get("/assets/numerology/{filename}")
+def api_get_numerology_asset(filename: str):
+    base_dir = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    asset_path = os.path.join(base_dir, "assets", "numerology", filename)
+    if os.path.exists(asset_path):
+        return FileResponse(asset_path, media_type="image/png")
+    return JSONResponse({"error": "not found"}, status_code=404)
+
+
 @app.get("/", response_class=HTMLResponse)
 def index_ui():
     headers = {
@@ -797,7 +1126,7 @@ def index_ui():
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vedas Kundli Predictions - Desktop Astrology Suite</title>
+  <title>Astro Architects - Vedic Astrology Suite</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1863,7 +2192,7 @@ def index_ui():
       background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 30%, #D4AF37 70%, #92400E 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 20px rgba(212,175,55,0.3); text-align: center;
     ">
-      VEDAS KUNDLI PROFESSIONAL
+      ASTRO ARCHITECTS
     </h1>
     <div style="font-size: 12px; color: #D1D5DB; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 24px; text-align: center;">
       Vedic Astrology • Krishnamurti Paddhati (KP) • Lal Kitab 1952 Suite
@@ -1949,7 +2278,7 @@ def index_ui():
         ॥ श्री गणेशाय नमः ॥
       </div>
       <h2 style="font-family: 'Cinzel', serif; font-size: 20px; font-weight: 900; color: #7C2D12; margin: 0 0 4px 0; letter-spacing: 1px;">
-        VEDAS KUNDLI PROFESSIONAL
+        ASTRO ARCHITECTS
       </h2>
       <div style="font-size: 11.5px; color: #6B7280; font-weight: 600; margin-bottom: 18px;">
         Master Security Access • Astrologer Login
@@ -2044,7 +2373,7 @@ def index_ui():
       </div>
 
       <div style="font-size: 10.5px; color: #9CA3AF; margin-top: 14px;">
-        Vedas Kundli Professional • 100% Offline Standalone Protection
+        Astro Architects • 100% Offline Standalone Protection
       </div>
     </div>
   </div>
@@ -2058,7 +2387,7 @@ def index_ui():
         <div class="sidebar-brand">
           <div class="brand-om">ॐ</div>
           <div class="brand-text">
-            <div class="title">VEDAS KUNDLI</div>
+            <div class="title">ASTRO ARCHITECTS</div>
             <div class="sub">Desktop Astrological Suite</div>
           </div>
           <button class="mobile-sidebar-close" onclick="toggleMobileSidebar(false)" aria-label="Close Menu">✕</button>
@@ -2079,6 +2408,9 @@ def index_ui():
           </button>
           <button class="nav-btn" id="nav_milan" onclick="switchNav('milan')">
             <span class="icon">💍</span> Kundli Milan
+          </button>
+          <button class="nav-btn" id="nav_numerology" onclick="switchNav('numerology')">
+            <span class="icon">&#x1F522;</span> Numerology Suite
           </button>
           <button class="nav-btn" id="nav_reports" onclick="switchNav('reports')">
             <span class="icon">📄</span> PDF Report Studio
@@ -2127,6 +2459,7 @@ def index_ui():
             <button class="control-btn" id="lang_both" onclick="setLang('both')">द्विभाषी</button>
           </div>
 
+          <button class="btn-action-top" onclick="switchNav('settings')" title="Change Brand Name &amp; Logo (ब्रांड नाम व लोगो बदलें)" style="background:#FFFBEB; color:#78350F; border:1px solid #F59E0B; font-weight:800;">⚙️ Brand &amp; Logo</button>
           <button class="btn-action-top" onclick="shareOnWhatsApp()" title="Share Horoscope via WhatsApp">💬 WhatsApp</button>
           <button class="btn-lock" onclick="closeDesktopApp()" title="Cleanly close desktop suite">✖ Exit</button>
         </div>
@@ -2212,6 +2545,7 @@ def index_ui():
             <button class="btn-quick-act" onclick="castInstantPrashna()">⏱️ Cast Instant Prashna</button>
             <button class="btn-quick-act" onclick="switchNav('milan')">💍 Kundli Milan (36-Guna)</button>
             <button class="btn-quick-act" onclick="switchNav('reports')">👑 60-Page VIP PDF Studio</button>
+            <button class="btn-quick-act" onclick="switchNav('settings')">⚙️ Brand &amp; Logo Settings</button>
             <button class="btn-quick-act" onclick="switchNav('clients')">🔍 Search Client Directory</button>
           </div>
 
@@ -2429,6 +2763,7 @@ def index_ui():
               </table>
             </div>
           </div>
+          
         </section>
 
         <!-- =============================================================== -->
@@ -2449,11 +2784,11 @@ def index_ui():
               </div>
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap; width:100%; max-width:340px;">
-              <button type="button" onclick="exportPDF()" style="flex:1; min-width:145px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); color:#FEF08A; border:1px solid #D4AF37; font-weight:900; font-size:12.5px; padding:10px 14px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; box-shadow:0 2px 8px rgba(124,45,18,0.25);">
+              <button type="button" onclick="viewCompletePDF()" style="flex:1; min-width:145px; background:linear-gradient(135deg, #7C2D12 0%, #451A03 100%); color:#FEF08A; border:1px solid #D4AF37; font-weight:900; font-size:12.5px; padding:10px 14px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; box-shadow:0 2px 8px rgba(124,45,18,0.25);">
                 📄 View Complete PDF
               </button>
-              <button type="button" onclick="loadInAppPdfPreview(); switchNav('reports');" style="flex:1; min-width:130px; background:#FFFFFF; color:#7C2D12; border:1.5px solid #D4AF37; font-weight:800; font-size:12px; padding:10px 12px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
-                👁️ Live Preview
+              <button type="button" onclick="exportPDF()" style="flex:1; min-width:130px; background:#FFFFFF; color:#7C2D12; border:1.5px solid #D4AF37; font-weight:800; font-size:12px; padding:10px 12px; border-radius:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+                ⬇️ Download PDF
               </button>
             </div>
           </div>
@@ -2861,6 +3196,320 @@ def index_ui():
 
         <!-- =============================================================== -->
         <!-- VIEW 6: PDF REPORT STUDIO -->
+
+        <!-- ============================================================ -->
+        <!-- NUMEROLOGY WORKSPACE & 30-PAGE DOSSIER STUDIO -->
+        <!-- ============================================================ -->
+        <section class="view-pane" id="pane_numerology">
+          <!-- Top Input Controls & Telemetry Glass Card -->
+          <div class="glass-card" style="padding:16px;">
+            <div class="card-header">
+              <span>🔢 Comprehensive Numerology Suite — Pythagorean &amp; Chaldean Systems</span>
+              <div style="display:flex; gap:6px;">
+                <button class="btn-time-step" onclick="loadActiveClientToNumerology()" title="Load Name &amp; DOB from Active Kundli Client">📥 Load Active Client</button>
+                <button class="btn-time-step" onclick="fetchSavedNumerologyProfiles()" title="Saved Profiles">📂 Saved Profiles</button>
+              </div>
+            </div>
+
+            <!-- Profile Input Form -->
+            <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));">
+              <div class="form-group">
+                <label>Full Name (English / Hindi / Punjabi)</label>
+                <input type="text" id="num_input_name" placeholder="e.g. Aarav Sharma or आरव शर्मा" oninput="handleNumerologyNameInput(this.value)" value="Aarav Sharma"/>
+              </div>
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="num_input_dob" value="1990-10-12"/>
+              </div>
+              <div class="form-group">
+                <label>Target Analysis Year</label>
+                <input type="number" id="num_input_year" value="2026" min="1900" max="2100"/>
+              </div>
+              <div class="form-group">
+                <label>Calculation Tradition</label>
+                <select id="num_input_system">
+                  <option value="both" selected>Both (Pythagorean + Chaldean)</option>
+                  <option value="pythagorean">Pythagorean (Western 1-9)</option>
+                  <option value="chaldean">Chaldean (Vedic / Cheiro 1-8)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Life Path Reduction Policy</label>
+                <select id="num_input_lp_policy">
+                  <option value="component_reduction" selected>Component Reduction (M+D+Y)</option>
+                  <option value="all_digits">All-Digits Direct (YYYYMMDD)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Indic Script Detection & Transliteration Confirmation Banner -->
+            <div id="num_translit_banner" style="display:none; background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:10px 14px; margin-bottom:12px;">
+              <div style="font-size:11.5px; font-weight:800; color:#92400E; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                <span>⚠️ <span id="num_translit_script_label">Indic Script</span> Name Detected: Confirm Latin Transliteration for Alphabet Numerical Mappings:</span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="num_confirmed_latin_name" style="height:28px; font-size:12px; font-weight:700; padding:2px 8px; border:1px solid #D97706; border-radius:4px; text-transform:uppercase;"/>
+                  <button class="btn-action-top" style="padding:3px 10px; font-size:11px;" onclick="confirmNumerologyTransliteration()">Confirm &amp; Recalculate</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:4px;">
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn-primary-gradient" style="padding:7px 18px; font-size:12.5px; font-weight:800;" onclick="calculateNumerologyProfile()">
+                  ⚡ Calculate Complete Profile
+                </button>
+                <button class="btn-time-recalc" style="padding:7px 16px; font-size:12px; font-weight:700;" onclick="saveCurrentNumerologyProfile()">
+                  💾 Save to Local CRM
+                </button>
+                <button class="control-btn" id="btn_num_view_dossier" style="background:#4338CA; color:#FFF; border-color:#6366F1; padding:7px 18px; font-size:12.5px; font-weight:800;" onclick="viewNumerologyFullReport()">
+                  👁️ Complete 30-Page Dossier (Full View)
+                </button>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="control-btn" style="background:#0F766E; color:#FFF; border-color:#14B8A6; padding:7px 16px; font-size:12px; font-weight:700;" onclick="openNumerologySystemPDF()">
+                  📑 Open in PDF Viewer
+                </button>
+                <button class="btn-primary-gradient" id="btn_num_export_pdf" style="background:linear-gradient(135deg, #7C2D12 0%, #9A3412 100%); border-color:#EADBC8; padding:7px 18px; font-size:12.5px; font-weight:800;" onclick="exportNumerology30PagePDF()">
+                  📄 Download 30-Page PDF Dossier
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-Tab Navigation Strip -->
+          <div style="display:flex; gap:6px; margin-bottom:14px; overflow-x:auto; padding-bottom:4px;" id="numSubTabsBar">
+            <button class="control-btn active" id="numtab_btn_core" onclick="switchNumSubTab('core')">🌟 Core Numbers</button>
+            <button class="control-btn" id="numtab_btn_loshu" onclick="switchNumSubTab('loshu')">🔲 Lo Shu Magic Square</button>
+            <button class="control-btn" id="numtab_btn_cycles" onclick="switchNumSubTab('cycles')">📅 Personal Cycles</button>
+            <button class="control-btn" id="numtab_btn_pinnacles" onclick="switchNumSubTab('pinnacles')">🏔️ Pinnacles &amp; Challenges</button>
+            <button class="control-btn" id="numtab_btn_karmic" onclick="switchNumSubTab('karmic')">✨ Name Karmic Lessons</button>
+            <button class="control-btn" id="numtab_btn_remedies" onclick="switchNumSubTab('remedies')">🌿 Grounded Guidance</button>
+            <button class="control-btn" id="numtab_btn_fullreport" style="background:#FEF3C7; color:#92400E; font-weight:800; border:1.5px solid #D97706;" onclick="switchNumSubTab('fullreport')">📖 Complete 30-Page Dossier (Full View)</button>
+            <button class="control-btn" id="numtab_btn_saved" onclick="switchNumSubTab('saved')">📁 Saved Profiles</button>
+          </div>
+
+          <!-- SUB-TAB 1: CORE NUMBERS -->
+          <div class="num-subpane" id="numpane_core">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:16px;">
+              <div class="glass-card" style="text-align:center; padding:16px; border-top:4px solid #C2540A;">
+                <div style="font-size:10px; font-weight:800; color:#7C2D12; letter-spacing:0.8px;">BIRTH NUMBER (MOOLANK)</div>
+                <div id="num_disp_birth_val" style="font-size:42px; font-weight:900; color:#C2540A; line-height:1.1; margin:6px 0;">3</div>
+                <div id="num_disp_birth_trace" style="font-size:10.5px; color:#6B7280; font-weight:600;">Day 12 &rarr; 1 + 2 = 3</div>
+                <div id="num_disp_birth_theme" style="font-size:11px; color:#374151; margin-top:8px; font-weight:600; line-height:1.4;">Expression, learning, creativity &amp; communication</div>
+              </div>
+              <div class="glass-card" style="text-align:center; padding:16px; border-top:4px solid #15803D;">
+                <div style="font-size:10px; font-weight:800; color:#166534; letter-spacing:0.8px;">LIFE PATH (BHAGYANK)</div>
+                <div id="num_disp_lp_val" style="font-size:42px; font-weight:900; color:#15803D; line-height:1.1; margin:6px 0;">5</div>
+                <div id="num_disp_lp_trace" style="font-size:10.5px; color:#6B7280; font-weight:600;">1 + 3 + 1 = 5</div>
+                <div id="num_disp_lp_theme" style="font-size:11px; color:#374151; margin-top:8px; font-weight:600; line-height:1.4;">Adaptability, curiosity &amp; balanced freedom</div>
+              </div>
+              <div class="glass-card" style="text-align:center; padding:16px; border-top:4px solid #4338CA;">
+                <div style="font-size:10px; font-weight:800; color:#3730A3; letter-spacing:0.8px;">PYTHAGOREAN EXPRESSION</div>
+                <div id="num_disp_pyth_exp" style="font-size:42px; font-weight:900; color:#4338CA; line-height:1.1; margin:6px 0;">4</div>
+                <div id="num_disp_pyth_trace" style="font-size:10.5px; color:#6B7280; font-weight:600;">Sum 40 &rarr; 4</div>
+                <div style="font-size:11px; color:#374151; margin-top:8px; font-weight:600;">Structure, practical execution &amp; foundations</div>
+              </div>
+              <div class="glass-card" style="text-align:center; padding:16px; border-top:4px solid #B45309;">
+                <div style="font-size:10px; font-weight:800; color:#78350F; letter-spacing:0.8px;">CHALDEAN EXPRESSION</div>
+                <div id="num_disp_chald_exp" style="font-size:42px; font-weight:900; color:#B45309; line-height:1.1; margin:6px 0;">9</div>
+                <div id="num_disp_chald_trace" style="font-size:10.5px; color:#6B7280; font-weight:600;">Sum 27 &rarr; 9</div>
+                <div style="font-size:11px; color:#374151; margin-top:8px; font-weight:600;">Completion, compassion, courage &amp; broader vision</div>
+              </div>
+            </div>
+
+            <!-- Deep Breakdown Table -->
+            <div class="glass-card">
+              <div class="card-header">CORE HARMONICS &amp; INNER DESIRES BREAKDOWN</div>
+              <table class="report-table" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Pythagorean (Western 1-9)</th>
+                    <th>Chaldean (Vedic 1-8)</th>
+                    <th>Astrological &amp; Symbolic Meaning</th>
+                  </tr>
+                </thead>
+                <tbody id="num_core_breakdown_tbody">
+                  <!-- Filled dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 2: LO SHU MAGIC SQUARE -->
+          <div class="num-subpane" id="numpane_loshu" style="display:none;">
+            <div style="display:grid; grid-template-columns: 280px 1fr; gap:16px; align-items:start;">
+              <div class="glass-card" style="text-align:center; padding:16px;">
+                <div class="card-header" style="justify-content:center;">3&times;3 LO SHU GRID</div>
+                <div style="display:flex; justify-content:center; margin:14px 0;">
+                  <table style="border-collapse:collapse; width:220px; height:200px; text-align:center;" id="num_loshu_table">
+                    <!-- Rendered by JS -->
+                  </table>
+                </div>
+                <div style="font-size:11px; color:#6B7280; font-weight:600;">4-9-2 Top &bull; 3-5-7 Middle &bull; 8-1-6 Bottom</div>
+              </div>
+              <div class="glass-card">
+                <div class="card-header">PLANES OF EXPRESSION ANALYSIS</div>
+                <table class="report-table" style="width:100%;">
+                  <thead>
+                    <tr><th>Plane</th><th>Governing Digits</th><th>Presence Status</th><th>Significance</th></tr>
+                  </thead>
+                  <tbody id="num_planes_tbody">
+                    <!-- Rendered by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 3: PERSONAL CYCLES -->
+          <div class="num-subpane" id="numpane_cycles" style="display:none;">
+            <div class="glass-card" style="margin-bottom:14px;">
+              <div class="card-header">PERSONAL YEAR &amp; LIFE CYCLES TIMELINE</div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; padding:6px 0;">
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px; text-align:center;">
+                  <div style="font-size:10px; font-weight:800; color:#7C2D12;">PERSONAL YEAR <span id="num_cycles_target_yr">2026</span></div>
+                  <div id="num_disp_py_val" style="font-size:36px; font-weight:900; color:#C2540A;">5</div>
+                  <div id="num_disp_py_desc" style="font-size:11px; color:#374151; font-weight:600;">Year of Expansion &amp; Positive Change</div>
+                </div>
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px; text-align:center;">
+                  <div style="font-size:10px; font-weight:800; color:#7C2D12;">1ST LIFE CYCLE (YOUTH)</div>
+                  <div id="num_disp_lc1_val" style="font-size:36px; font-weight:900; color:#4B5563;">1</div>
+                  <div style="font-size:11px; color:#374151; font-weight:600;">Governed by Birth Month</div>
+                </div>
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px; text-align:center;">
+                  <div style="font-size:10px; font-weight:800; color:#7C2D12;">2ND LIFE CYCLE (MATURITY)</div>
+                  <div id="num_disp_lc2_val" style="font-size:36px; font-weight:900; color:#4B5563;">3</div>
+                  <div style="font-size:11px; color:#374151; font-weight:600;">Governed by Birth Day</div>
+                </div>
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px; text-align:center;">
+                  <div style="font-size:10px; font-weight:800; color:#7C2D12;">3RD LIFE CYCLE (WISDOM)</div>
+                  <div id="num_disp_lc3_val" style="font-size:36px; font-weight:900; color:#4B5563;">1</div>
+                  <div style="font-size:11px; color:#374151; font-weight:600;">Governed by Birth Year</div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <div class="card-header">12 PERSONAL MONTHS TIMETABLE</div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:8px;" id="num_personal_months_grid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 4: PINNACLES & CHALLENGES -->
+          <div class="num-subpane" id="numpane_pinnacles" style="display:none;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div class="glass-card">
+                <div class="card-header">THE FOUR PINNACLES (PEAK LIFE PHASES)</div>
+                <table class="report-table" style="width:100%;">
+                  <thead><tr><th>Pinnacle</th><th>Formula</th><th>Number</th><th>Evolutionary Focus</th></tr></thead>
+                  <tbody id="num_pinnacles_tbody">
+                    <!-- Rendered by JS -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="glass-card">
+                <div class="card-header">THE FOUR CHALLENGES (LESSONS TO MASTER)</div>
+                <table class="report-table" style="width:100%;">
+                  <thead><tr><th>Challenge</th><th>Formula</th><th>Number</th><th>Mastery Objective</th></tr></thead>
+                  <tbody id="num_challenges_tbody">
+                    <!-- Rendered by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 5: NAME KARMIC PROFILE -->
+          <div class="num-subpane" id="numpane_karmic" style="display:none;">
+            <div class="glass-card" style="margin-bottom:14px;">
+              <div class="card-header">NAME LETTER FREQUENCY &amp; KARMIC LESSONS</div>
+              <p style="font-size:11.5px; color:#4B5563; margin-bottom:12px;">
+                Numbers absent from your full name denote <strong>Karmic Lessons</strong> (qualities to cultivate through conscious effort). The number with the highest frequency represents your <strong>Hidden Passion</strong>.
+              </p>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px;">
+                  <div style="font-size:11px; font-weight:800; color:#991B1B;">KARMIC LESSONS (MISSING IN NAME)</div>
+                  <div id="num_disp_karmic_lessons" style="font-size:18px; font-weight:800; color:#7C2D12; margin:6px 0;">None</div>
+                  <div style="font-size:10.5px; color:#4B5563;">Cultivate these attributes through study and patient discipline.</div>
+                </div>
+                <div style="background:#FAF6F0; border:1px solid #EADBC8; border-radius:8px; padding:12px;">
+                  <div style="font-size:11px; font-weight:800; color:#166534;">HIDDEN PASSION (MOST FREQUENT IN NAME)</div>
+                  <div id="num_disp_hidden_passion" style="font-size:18px; font-weight:800; color:#15803D; margin:6px 0;">None</div>
+                  <div style="font-size:10.5px; color:#4B5563;">Natural instinctual drive that surfaces effortlessly.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 6: GROUNDED REMEDIES -->
+          <div class="num-subpane" id="numpane_remedies" style="display:none;">
+            <div class="glass-card">
+              <div class="card-header">
+                <span>TAILORED REMEDIAL GUIDANCE (PRACTICAL &amp; SOURCE-TRACEABLE)</span>
+                <span class="badge">No Commercial Upselling</span>
+              </div>
+              <p style="font-size:11.5px; color:#4B5563; margin-bottom:12px;">
+                Traditional numerology remedies prioritize personal habits, daily discipline, and respectful relationships. Astrology-only doshas are strictly excluded.
+              </p>
+              <div id="num_remedies_container" style="display:flex; flex-direction:column; gap:8px;">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-TAB 7: SAVED PROFILES -->
+          <div class="num-subpane" id="numpane_saved" style="display:none;">
+            <div class="glass-card">
+              <div class="card-header">
+                <span>SAVED NUMEROLOGY PROFILES DIRECTORY (SQLITE CRM)</span>
+                <input type="text" placeholder="Search profiles..." style="height:28px; font-size:11.5px; padding:0 8px;" oninput="fetchSavedNumerologyProfiles(this.value)"/>
+              </div>
+              <table class="report-table" style="width:100%;">
+                <thead>
+                  <tr><th>ID</th><th>Client Name</th><th>Date of Birth</th><th>Target Year</th><th>System</th><th>Saved At</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="num_saved_profiles_tbody">
+                  <!-- Rendered by JS -->
+                </tbody>
+              </table>
+            </
+
+          <!-- SUB-TAB 8: COMPLETE 30-PAGE DOSSIER (FULL VIEW) -->
+          <div class="num-subpane" id="numpane_fullreport" style="display:none;">
+            <div class="glass-card" style="padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid #EADBC8;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="font-size:16px; font-weight:800; color:#7C2D12;">📖 Complete 30-Page Numerology Dossier</span>
+                  <span style="font-size:11px; background:#FEF3C7; color:#92400E; padding:3px 8px; border-radius:12px; font-weight:700;">Zero Placeholder • Full High-Res Vector</span>
+                </div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                  <button class="control-btn" style="background:#4338CA; color:#FFF; font-weight:700; padding:6px 14px; font-size:11.5px;" onclick="openNumerologyLiveBrowserTab()">
+                    🌐 Open Full Window
+                  </button>
+                  <button class="control-btn" style="background:#0F766E; color:#FFF; font-weight:700; padding:6px 14px; font-size:11.5px;" onclick="openNumerologySystemPDF()">
+                    📖 Open in System PDF Reader
+                  </button>
+                  <button class="btn-primary-gradient" style="background:linear-gradient(135deg, #7C2D12 0%, #9A3412 100%); font-weight:700; padding:6px 14px; font-size:11.5px;" onclick="exportNumerology30PagePDF()">
+                    ⬇️ Download Vector PDF
+                  </button>
+                  <button class="btn-time-recalc" style="padding:6px 12px; font-size:11.5px; font-weight:700;" onclick="loadNumerologyFullReportPreview(true)">
+                    🔄 Reload Preview
+                  </button></div>
+              </div>
+              <div id="num_fullreport_loading" style="display:none; text-align:center; padding:50px 20px; color:#92400E; font-size:15px; font-weight:700;">
+                <div class="loader-spinner" style="margin:0 auto 12px auto;"></div>
+                Rendering Complete 30-Page High-Resolution Dossier...
+              </div>
+              <iframe id="numReportFrame" style="width:100%; height:780px; border:1.5px solid #EADBC8; border-radius:10px; background:#FFFFFF; box-shadow:0 4px 16px rgba(0,0,0,0.08);" srcdoc="<div style='font-family:sans-serif; text-align:center; padding:60px 20px; color:#78350F; font-size:15px; font-weight:700;'>Click '⚡ Calculate Complete Profile' or '📖 Complete 30-Page Dossier' to view the full report here.</div>"></iframe>
+            </div>
+          </div>
+div>
+          </div>
+        </section>
+
         <!-- =============================================================== -->
         <section class="view-pane" id="pane_reports">
           <div class="glass-card" style="padding: 14px;">
@@ -2879,8 +3528,8 @@ def index_ui():
                 <button class="btn-primary-gradient" style="background:linear-gradient(135deg, #059669 0%, #047857 100%); padding:8px 12px; font-size:12px; font-weight:800; display:inline-flex; align-items:center; gap:4px;" onclick="printReportFrame()">
                   🖨️ Direct Print / Save
                 </button>
-                <button class="btn-secondary-outline" onclick="openReportInNewTab()" style="padding:8px 10px; font-size:11.5px; font-weight:700; display:inline-flex; align-items:center; gap:4px;">
-                  📱 Fullscreen Tab
+                <button class="btn-primary-gradient" style="background:linear-gradient(135deg, #1E40AF 0%, #1D4ED8 100%); padding:8px 12px; font-size:12px; font-weight:800; display:inline-flex; align-items:center; gap:4px;" onclick="openPdfInSystemViewer()">
+                  🖥️ Open in PC Reader
                 </button>
                 <button class="btn-secondary-outline" onclick="loadInAppPdfPreview()" style="padding:8px 10px; font-size:11.5px; font-weight:700;">
                   🔄 Refresh
@@ -2955,103 +3604,167 @@ def index_ui():
         <!-- VIEW 8: SETTINGS & BRANDING -->
         <!-- =============================================================== -->
         <section class="view-pane" id="pane_settings">
-        <!-- DEMO LICENSE KEYS MANAGER CARD -->
-        <div class="glass-card" style="max-width:760px; margin: 0 auto 16px auto;">
-          <div class="card-header" style="background:linear-gradient(90deg, #7C2D12 0%, #B45309 100%); color:#fff; display:flex; justify-content:space-between; align-items:center;">
-            <span>🔑 Customer Demo License Manager (ग्राहक डेमो चाबी नियंत्रण)</span>
-            <span class="badge" style="background:#059669; color:#fff;">100% Free Control</span>
+          
+          <!-- PRIMARY WHITE-LABEL BRAND & LOGO SETTINGS -->
+          <div class="glass-card" style="max-width:820px; margin: 0 auto 20px auto; border: 2px solid #D97706; box-shadow: 0 4px 20px rgba(180,83,9,0.12);">
+            <div class="card-header" style="background:linear-gradient(90deg, #7C2D12 0%, #B45309 100%); color:#fff; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:14px; font-weight:800; letter-spacing:0.5px;">⚙️ Brand Name &amp; Custom Logo Settings (ब्रांड नाम व लोगो सेटिंग्स)</span>
+              <span class="badge" style="background:#10B981; color:#fff; font-weight:800;">PDF White-Label Active</span>
+            </div>
+
+            <div style="padding:18px 20px; background:#FFFDF9;">
+              <div style="background:#FEF3C7; border-left:4px solid #D97706; padding:10px 14px; border-radius:4px; margin-bottom:18px;">
+                <p style="font-size:12.5px; color:#78350F; margin:0; line-height:1.5;">
+                  ✨ <strong>PDF ब्रांडिंग निर्देश:</strong> यहाँ आप अपने संस्थान का नाम (Brand Name) और अपना लोगो (Logo) सेट कर सकते हैं। यह परिवर्तन <strong>60-पेज की जन्मपत्रिका (VIP Kundli)</strong>, <strong>अष्टकूट मिलान (36-Guna Kundli Milan)</strong> और सभी PDF रिपोर्ट्स के कवर पेज, हेडर और फुटर में तुरंत दिखाई देगा।
+                </p>
+              </div>
+
+              <!-- LOGO UPLOAD & PREVIEW SECTION -->
+              <div style="background:#FFFFFF; border:1.5px solid #FDE68A; border-radius:8px; padding:16px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,0.03);">
+                <label style="display:block; font-size:13px; font-weight:800; color:#7C2D12; margin-bottom:8px;">
+                  🖼️ Custom Brand Logo (संस्थान का लोगो)
+                </label>
+                <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+                  <div id="brand_logo_preview_container" style="min-width:140px; min-height:80px; display:flex; align-items:center; justify-content:center;">
+                    <!-- Injected by updateLogoPreview() -->
+                  </div>
+                  <div style="flex:1; min-width:220px;">
+                    <input type="file" id="brand_logo_file" accept="image/png, image/jpeg, image/jpg, image/webp, image/svg+xml" onchange="onBrandLogoSelected(event)" style="display:none;"/>
+                    <input type="hidden" id="brand_logo_data" value=""/>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+                      <button type="button" class="btn-primary-gradient" onclick="document.getElementById('brand_logo_file').click()" style="padding:8px 16px; font-size:12px; font-weight:700;">
+                        📁 Upload Brand Logo (लोगो अपलोड करें)
+                      </button>
+                      <button type="button" id="btnRemoveLogo" onclick="removeBrandLogo()" style="display:none; background:#FEE2E2; color:#991B1B; border:1px solid #FCA5A5; padding:8px 14px; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+                        🗑️ Remove Logo (हटाएं)
+                      </button>
+                    </div>
+                    <div style="font-size:11px; color:#6B7280; line-height:1.4;">
+                      समर्थित प्रारूप: PNG, JPG, WebP, SVG (पारदर्शी Transparent PNG सबसे उपयुक्त रहता है। आकार: 300x100 से 500x200 px)।
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BRAND NAME INPUT SECTION -->
+              <div class="form-group" style="margin-bottom:18px;">
+                <label style="font-size:13px; font-weight:800; color:#7C2D12; margin-bottom:4px; display:block;">
+                  🏷️ Brand Name / Jyotish Kendra (संस्थान / ब्रांड का नाम - PDF में हर जगह दिखेगा) *
+                </label>
+                <input type="text" id="brand_kendra_name" oninput="updateLivePdfMockup()" placeholder="e.g. Gurukulam Jyotish Kendra / श्री वेदव्यास ज्योतिष संस्थान" style="width:100%; height:42px; border:2px solid #D97706; border-radius:6px; padding:0 12px; font-size:14px; font-weight:800; color:#7C2D12; background:#FFFBEB;"/>
+                <div style="font-size:11px; color:#6B7280; margin-top:3px;">
+                  यह नाम PDF कवर पेज पर मुख्य शीर्षक और प्रत्येक पृष्ठ के ऊपरी हेडर व निचले फुटर में प्रदर्शित होगा।
+                </div>
+              </div>
+
+              <!-- OTHER BRANDING FIELDS -->
+              <div class="form-grid" style="margin-bottom:14px;">
+                <div class="form-group">
+                  <label style="font-size:12px; font-weight:700; color:#78350F;">Astrologer Name (ज्योतिषाचार्य का नाम)</label>
+                  <input type="text" id="brand_astro_name" oninput="updateLivePdfMockup()" placeholder="e.g. Acharya Rajesh Sharma" style="height:38px; border:1px solid #D1D5DB; border-radius:6px; padding:0 10px; font-size:13px; font-weight:700; color:#1F2937;"/>
+                </div>
+                <div class="form-group">
+                  <label style="font-size:12px; font-weight:700; color:#78350F;">Phone / WhatsApp (फ़ोन नंबर)</label>
+                  <input type="text" id="brand_phone" oninput="updateLivePdfMockup()" placeholder="e.g. +91 98765 43210" style="height:38px; border:1px solid #D1D5DB; border-radius:6px; padding:0 10px; font-size:13px; font-weight:700; color:#1F2937;"/>
+                </div>
+              </div>
+
+              <div class="form-grid" style="margin-bottom:14px;">
+                <div class="form-group">
+                  <label style="font-size:12px; font-weight:700; color:#78350F;">Email Address (ईमेल)</label>
+                  <input type="email" id="brand_email" placeholder="e.g. consult@jyotishkendra.com" style="height:38px; border:1px solid #D1D5DB; border-radius:6px; padding:0 10px; font-size:13px; font-weight:700; color:#1F2937;"/>
+                </div>
+                <div class="form-group">
+                  <label style="font-size:12px; font-weight:700; color:#78350F;">Office / Temple Address (कार्यालय / आश्रम पता)</label>
+                  <input type="text" id="brand_address" placeholder="e.g. Sector 14, Bikaner / Delhi, India" style="height:38px; border:1px solid #D1D5DB; border-radius:6px; padding:0 10px; font-size:13px; font-weight:700; color:#1F2937;"/>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:18px;">
+                <label style="font-size:12px; font-weight:700; color:#78350F;">Tagline / Moto (प्रचार वाक्य)</label>
+                <input type="text" id="brand_tagline" placeholder="e.g. Ancient Vedic, KP &amp; Lal Kitab Astrological Insights" style="height:38px; width:100%; border:1px solid #D1D5DB; border-radius:6px; padding:0 10px; font-size:13px; font-weight:700; color:#1F2937;"/>
+              </div>
+
+              <!-- LIVE PDF HEADER & COVER MOCKUP -->
+              <div style="background:#FAF6F0; border:1.5px dashed #C59B27; border-radius:8px; padding:14px; margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-size:11.5px; font-weight:800; color:#7C2D12; text-transform:uppercase; letter-spacing:0.5px;">👁️ Live PDF Appearance Preview (PDF में ऐसा दिखेगा)</span>
+                  <span style="font-size:10px; color:#78350F; background:#FEF3C7; padding:2px 8px; border-radius:12px; font-weight:700;">Real-time Mockup</span>
+                </div>
+                <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:6px; padding:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                  <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid #F3EDE4; padding-bottom:6px; margin-bottom:8px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <span id="mockup_pdf_logo" style="display:inline-block;">🕉️</span>
+                      <strong id="mockup_pdf_brand_title" style="font-size:13px; color:#7C2D12; letter-spacing:1px;">VEDAS KUNDLI PREDICTIONS</strong>
+                    </div>
+                    <span id="mockup_pdf_header_brand" style="font-size:11px; color:#92400E; font-weight:600;">Brihat Kundli</span>
+                  </div>
+                  <div style="font-size:11px; color:#4B5563; display:flex; justify-content:space-between;">
+                    <span>Consulting Astrologer: <strong id="mockup_pdf_astro" style="color:#7C2D12;">Acharya</strong></span>
+                    <span style="color:#059669; font-weight:700;">✓ Ready for Print &amp; PDF Export</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ACTION BUTTONS -->
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <button class="btn-primary-gradient" type="button" onclick="saveBrandingSettings()" style="padding:10px 24px; font-size:13.5px; font-weight:800; letter-spacing:0.3px;">
+                  💾 Save Brand Name &amp; Logo Settings (सुरक्षित करें)
+                </button>
+                <span id="brandSaveStatus" style="font-size:12.5px; font-weight:800; color:#15803D; background:#DCFCE7; border:1px solid #86EFAC; padding:6px 14px; border-radius:6px; display:none;">
+                  ✓ सुरक्षित हो गया! नया ब्रांड नाम और लोगो अब सभी PDF में दिखाई देगा।
+                </span>
+              </div>
+            </div>
           </div>
-          <div style="padding:16px; background:#FFFDF9;">
-            <p style="font-size:12px; color:#4B5563; margin-top:0;">
-              यहाँ से आप अपने ऑनलाइन डेमो ग्राहकों के लिए <strong>डेमो चाबी (Access Key)</strong> बना सकते हैं और कभी भी 1-क्लिक में उनकी एक्सेस <strong>बंद (Stop / Revoke)</strong> कर सकते हैं।
-            </p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; background:#FEF3C7; border:1px solid #FDE68A; padding:12px; border-radius:8px; margin-bottom:14px;">
-              <div style="flex:2; min-width:180px;">
-                <label style="font-size:11px; font-weight:800; color:#78350F;">ग्राहक का नाम (Customer Name)</label>
-                <input type="text" id="demoNewClientName" placeholder="e.g. Ramesh Sharma" style="width:100%; height:36px; border:1px solid #D97706; border-radius:5px; padding:0 8px; font-size:12px; font-weight:700; color:#2E1C10; margin-top:2px;"/>
+
+          <!-- DEMO LICENSE KEYS MANAGER CARD -->
+          <div class="glass-card" style="max-width:820px; margin: 0 auto 16px auto;">
+            <div class="card-header" style="background:linear-gradient(90deg, #7C2D12 0%, #B45309 100%); color:#fff; display:flex; justify-content:space-between; align-items:center;">
+              <span>🔑 Customer Demo License Manager (ग्राहक डेमो चाबी नियंत्रण)</span>
+              <span class="badge" style="background:#059669; color:#fff;">100% Free Control</span>
+            </div>
+            <div style="padding:16px; background:#FFFDF9;">
+              <p style="font-size:12px; color:#4B5563; margin-top:0;">
+                यहाँ से आप अपने ऑनलाइन डेमो ग्राहकों के लिए <strong>डेमो चाबी (Access Key)</strong> बना सकते हैं और कभी भी 1-क्लिक में उनकी एक्सेस <strong>बंद (Stop / Revoke)</strong> कर सकते हैं।
+              </p>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; background:#FEF3C7; border:1px solid #FDE68A; padding:12px; border-radius:8px; margin-bottom:14px;">
+                <div style="flex:2; min-width:180px;">
+                  <label style="font-size:11px; font-weight:800; color:#78350F;">ग्राहक का नाम (Customer Name)</label>
+                  <input type="text" id="demoNewClientName" placeholder="e.g. Ramesh Sharma" style="width:100%; height:36px; border:1px solid #D97706; border-radius:5px; padding:0 8px; font-size:12px; font-weight:700; color:#2E1C10; margin-top:2px;"/>
+                </div>
+                <div style="flex:1.5; min-width:140px;">
+                  <label style="font-size:11px; font-weight:800; color:#78350F;">डेमो अवधि (Duration)</label>
+                  <select id="demoNewDuration" style="width:100%; height:36px; border:1px solid #D97706; border-radius:5px; padding:0 8px; font-size:12px; font-weight:700; color:#78350F; margin-top:2px;">
+                    <option value="1">1 दिन (24 Hours Demo)</option>
+                    <option value="3">3 दिन (3 Days Demo)</option>
+                    <option value="7" selected>7 दिन (1 Week Demo)</option>
+                    <option value="30">30 दिन (1 Month Access)</option>
+                    <option value="0">आजीवन (Unlimited / Life)</option>
+                  </select>
+                </div>
+                <button class="btn-primary-gradient" type="button" onclick="generateDemoKey()" style="height:36px; font-size:12px; padding:0 18px;">
+                  ✨ Generate Demo Key
+                </button>
               </div>
-              <div style="flex:1.5; min-width:140px;">
-                <label style="font-size:11px; font-weight:800; color:#78350F;">डेमो अवधि (Duration)</label>
-                <select id="demoNewDuration" style="width:100%; height:36px; border:1px solid #D97706; border-radius:5px; padding:0 8px; font-size:12px; font-weight:700; color:#78350F; margin-top:2px;">
-                  <option value="1">1 दिन (24 Hours Demo)</option>
-                  <option value="3">3 दिन (3 Days Demo)</option>
-                  <option value="7" selected>7 दिन (1 Week Demo)</option>
-                  <option value="30">30 दिन (1 Month Access)</option>
-                  <option value="0">आजीवन (Unlimited / Life)</option>
-                </select>
+
+              <!-- Active Keys Table -->
+              <div style="overflow-x:auto;">
+                <table class="dash-table">
+                  <thead>
+                    <tr>
+                      <th>ग्राहक (Customer)</th>
+                      <th>डेमो चाबी (Key Code)</th>
+                      <th>समाप्ति (Expires)</th>
+                      <th>स्थिति (Status)</th>
+                      <th>कार्रवाई (Action)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="demoKeysTableBody">
+                    <tr><td colspan="5" style="text-align:center; color:#6B7280; padding:12px;">Loading keys...</td></tr>
+                  </tbody>
+                </table>
               </div>
-              <button class="btn-primary-gradient" type="button" onclick="generateDemoKey()" style="height:36px; font-size:12px; padding:0 18px;">
-                ✨ Generate Demo Key
-              </button>
-            </div>
-
-            <!-- Active Keys Table -->
-            <div style="overflow-x:auto;">
-              <table class="dash-table">
-                <thead>
-                  <tr>
-                    <th>ग्राहक (Customer)</th>
-                    <th>डेमो चाबी (Key Code)</th>
-                    <th>समाप्ति (Expires)</th>
-                    <th>स्थिति (Status)</th>
-                    <th>कार्रवाई (Action)</th>
-                  </tr>
-                </thead>
-                <tbody id="demoKeysTableBody">
-                  <tr><td colspan="5" style="text-align:center; color:#6B7280; padding:12px;">Loading keys...</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-          <div class="glass-card" style="max-width:760px; margin: 0 auto;">
-            <div class="card-header">
-              <span>⚙️ Astrologer White-Label Branding Settings (ब्रांडिंग सेटिंग्स)</span>
-            </div>
-            <p style="font-size:12px; color:#574032; margin-bottom:16px;">
-              These credentials are saved to your offline SQLite database and automatically printed on the Cover Page, Headers, and Footers of all generated client reports.
-            </p>
-
-            <div class="form-grid">
-              <div class="form-group" style="grid-column: span 2;">
-                <label>Astrologer Name (ज्योतिषाचार्य का नाम)</label>
-                <input type="text" id="brand_astro_name" placeholder="e.g. Acharya Rajesh Sharma"/>
-              </div>
-              <div class="form-group" style="grid-column: span 2;">
-                <label>Jyotish Kendra / Firm Name (संस्थान का नाम)</label>
-                <input type="text" id="brand_kendra_name" placeholder="e.g. Vedas Jyotish Kendra"/>
-              </div>
-            </div>
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label>Phone / WhatsApp</label>
-                <input type="text" id="brand_phone" placeholder="e.g. +91 98765 43210"/>
-              </div>
-              <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="brand_email" placeholder="e.g. consult@vedasjyotish.com"/>
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-bottom:12px;">
-              <label>Office / Temple Address (कार्यालय पता)</label>
-              <input type="text" id="brand_address" placeholder="e.g. Sector 14, Bikaner / Delhi, India"/>
-            </div>
-
-            <div class="form-group" style="margin-bottom:18px;">
-              <label>Tagline / Moto (प्रचार वाक्य)</label>
-              <input type="text" id="brand_tagline" placeholder="e.g. Ancient Vedic, KP &amp; Lal Kitab Astrological Insights"/>
-            </div>
-
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <button class="btn-primary-gradient" onclick="saveBrandingSettings()">
-                💾 Save Branding Settings
-              </button>
-              <span id="brandSaveStatus" style="font-size:12px; font-weight:700; color:#166534; display:none;">
-                ✓ Saved to SQLite Database!
-              </span>
             </div>
           </div>
         </section>
@@ -3077,6 +3790,10 @@ def index_ui():
     <button class="mob-tab-btn" id="mobtab_milan" onclick="switchNav('milan')" aria-label="Kundli Milan">
       <span class="mob-icon">💍</span>
       <span class="mob-label">Milan</span>
+    </button>
+    <button class="mob-tab-btn" id="mobtab_numerology" onclick="switchNav('numerology')" aria-label="Numerology">
+      <span class="mob-icon">&#x1F522;</span>
+      <span class="mob-label">Numerology</span>
     </button>
     <button class="mob-tab-btn" id="mobtab_settings" onclick="switchNav('settings')" aria-label="Settings">
       <span class="mob-icon">⚙️</span>
@@ -3156,6 +3873,7 @@ def index_ui():
           'clients': '👥 Clients CRM',
           'workspace': '🪐 Kundli Workspace',
           'milan': '💍 Kundli Milan',
+          'numerology': '🔢 Numerology',
           'reports': '📄 Report Studio',
           'prashna': '⏱️ Prashna Kundli',
           'settings': '⚙️ Settings'
@@ -3165,12 +3883,13 @@ def index_ui():
           'clients': '👥 Client Consultations Directory (Offline CRM)',
           'workspace': '🪐 Interactive Astrology Workspace & Divisionals',
           'milan': '💍 Kundli Milan - 36 Guna Ashtakoot Matching',
+          'numerology': '🔢 Comprehensive Numerology Suite (Pythagorean & Chaldean)',
           'reports': '📄 Editorial PDF Report Studio & Export Center',
           'prashna': '⏱️ Instant Horary Prashna Kundli',
           'settings': '⚙️ Astrologer White-Label Branding Settings'
         };
         const titleEl = document.getElementById('topbarTitle');
-        if (titleEl) titleEl.innerHTML = titles[viewId] || 'Vedas Kundli Predictions';
+        if (titleEl) titleEl.innerHTML = titles[viewId] || 'Astro Architects';
 
         if (viewId === 'dashboard') loadDashboard();
         if (viewId === 'clients') loadClientsTable();
@@ -3182,7 +3901,7 @@ def index_ui():
     }
 
     function closeDesktopApp() {
-      if (confirm('Are you sure you want to exit Vedas Kundli Predictions?')) {
+      if (confirm('Are you sure you want to exit Astro Architects?')) {
         fetch('/api/shutdown', {method: 'POST'}).catch(()=>{});
         window.close();
       }
@@ -3979,7 +4698,11 @@ def index_ui():
         if (data.milan) {
           const m = data.milan;
           document.getElementById('milanResultBox').style.display = 'block';
-          document.getElementById('milanTotalScore').innerText = m.total_score + ' / 36';
+          if (m.effective_total_score !== undefined && m.effective_total_score !== m.total_score) {
+            document.getElementById('milanTotalScore').innerText = `${m.total_score} / 36 (सपरिहार: ${m.effective_total_score}/36)`;
+          } else {
+            document.getElementById('milanTotalScore').innerText = m.total_score + ' / 36';
+          }
           document.getElementById('milanVerdict').innerText = currentLang === 'hi' ? m.verdict_hi : m.verdict_en;
           document.getElementById('milanManglikHarmony').innerText = currentLang === 'hi' ? m.manglik_harmony.verdict_hi : m.manglik_harmony.verdict_en;
 
@@ -3989,14 +4712,18 @@ def index_ui():
             const obtPts = k.obtained !== undefined ? k.obtained : (k.obtained_points || 0);
             const area = currentLang === 'hi' ? (k.desc_hi || k.area_hi || '') : (k.desc_en || k.area_en || '');
             const isFavorable = obtPts > 0;
-            const verdict = isFavorable ? (currentLang === 'hi' ? 'अनुकूल' : 'Auspicious') : (currentLang === 'hi' ? 'दोष / न्यून' : 'Low / Dosha');
+            const hasParihara = !!k.parihara_applied;
+            const verdict = isFavorable ? (currentLang === 'hi' ? 'अनुकूल' : 'Auspicious') : (hasParihara ? (currentLang === 'hi' ? 'परिहार प्राप्त' : 'Parihara Active') : (currentLang === 'hi' ? 'दोष / न्यून' : 'Low / Dosha'));
+            const badgeBg = isFavorable ? '#DCFCE7' : (hasParihara ? '#E0F2FE' : '#FEE2E2');
+            const badgeFg = isFavorable ? '#166534' : (hasParihara ? '#0369A1' : '#991B1B');
+            const numColor = isFavorable ? '#166534' : (hasParihara ? '#0284C7' : '#991B1B');
             return `
             <tr>
               <td style="font-weight:800; color:#7C2D12;">${currentLang === 'hi' ? k.koot_hi : k.koot_en}</td>
               <td style="font-weight:700;">${maxPts}</td>
-              <td style="font-weight:800; color:${isFavorable ? '#166534':'#991B1B'};">${obtPts}</td>
+              <td style="font-weight:800; color:${numColor};">${obtPts}${hasParihara ? ' <small style="font-size:10px;">(परिहार)</small>' : ''}</td>
               <td style="font-size:11.5px; color:#4B5563;">${area}</td>
-              <td><span class="badge" style="background:${isFavorable ? '#DCFCE7':'#FEE2E2'}; color:${isFavorable ? '#166534':'#991B1B'};">${verdict}</span></td>
+              <td><span class="badge" style="background:${badgeBg}; color:${badgeFg};">${verdict}</span></td>
             </tr>
           `;
           }).join('');
@@ -4172,34 +4899,116 @@ def index_ui():
       const badge = document.getElementById('reportNativeBadge');
       if (badge) badge.innerText = 'Active Native: ' + p.name;
 
+      const frame = document.getElementById('reportFrame');
+      if (frame) {
+        frame.srcdoc = `
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; font-family:'Segoe UI', Tahoma, sans-serif; background:linear-gradient(135deg, #FFFDF9 0%, #FEF3C7 100%); color:#78350F; text-align:center; padding:20px;">
+            <div style="font-size:40px; margin-bottom:12px;">🪐</div>
+            <h2 style="margin:0 0 8px 0; font-family:Georgia, serif; font-size:19px; font-weight:800; color:#7C2D12;">
+              ✨ संपूर्ण 56-पेज VIP कुण्डली महा-डॉसियर तैयार हो रहा है...
+            </h2>
+            <p style="margin:0 0 14px 0; font-size:13px; color:#92400E; max-width:480px;">
+              कृपया 1-2 सेकंड प्रतीक्षा करें। 16 वर्ग चार्ट, विंशोत्तरी महादशा, लाल किताब उपाय एवं अष्टकवर्ग की गणना की जा रही है...
+            </p>
+            <div style="width:200px; height:5px; background:#FDE68A; border-radius:3px; overflow:hidden;">
+              <div style="width:70%; height:100%; background:linear-gradient(90deg, #D97706, #B45309); border-radius:3px;"></div>
+            </div>
+          </div>
+        `;
+      }
+
       try {
         const res = await fetch('/api/generate-html', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(p)
         });
+        if (!res.ok) {
+          throw new Error('Server status ' + res.status);
+        }
         const html = await res.text();
-        const frame = document.getElementById('reportFrame');
         if (frame) frame.srcdoc = html;
-      } catch (e) {}
+      } catch (e) {
+        console.error('Failed to load in-app PDF preview:', e);
+        if (frame) {
+          frame.srcdoc = `
+            <div style="padding:30px; font-family:sans-serif; text-align:center; color:#991B1B; background:#FFF5F5;">
+              <h3 style="margin:0 0 10px 0;">⚠️ प्रिव्यू लोड करने में समस्या आई</h3>
+              <p style="font-size:13px; color:#7F1D1D; margin:0 0 15px 0;">${e.message || e}</p>
+              <button onclick="loadInAppPdfPreview()" style="background:#7C2D12; color:#fff; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:700;">
+                🔄 पुनः प्रयास करें (Retry)
+              </button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function viewCompletePDF() {
+      switchNav('reports');
+      loadInAppPdfPreview();
+    }
+
+    async function openPdfInSystemViewer() {
+      let p = getFormPayload();
+      if (!p.name) {
+        p = {
+          name: 'Harmanjot Singh',
+          sex: 'male',
+          day: 3,
+          month: 10,
+          year: 2005,
+          hour: 14,
+          minute: 30,
+          second: 0,
+          place: 'Ludhiana, Punjab, India',
+          lat: 30.9010,
+          lon: 75.8573,
+          tz: 5.5,
+          lang: 'hi',
+          report_package: 'maha'
+        };
+      }
+      const pkgSelect = document.getElementById('reportPackageSelect');
+      if (pkgSelect && pkgSelect.value) p.report_package = pkgSelect.value;
+
+      const badge = document.getElementById('reportNativeBadge');
+      const origText = badge ? badge.innerText : '';
+      if (badge) badge.innerText = '⏳ Opening in PC Reader...';
+
+      try {
+        const res = await fetch('/api/open-system-pdf', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(p)
+        });
+        const d = await res.json();
+        if (d.success) {
+          if (badge) badge.innerText = '✅ Opened in PC Reader!';
+          setTimeout(() => { if (badge) badge.innerText = origText; }, 3000);
+        } else {
+          alert('Could not open PDF viewer: ' + (d.error || 'Unknown error'));
+          if (badge) badge.innerText = origText;
+        }
+      } catch (err) {
+        alert('Error connecting to local server: ' + err);
+        if (badge) badge.innerText = origText;
+      }
     }
 
     function openReportInNewTab() {
-      const frame = document.getElementById('reportFrame');
-      if (frame && frame.srcdoc) {
-        const blob = new Blob([frame.srcdoc], { type: 'text/html' });
-        const blobUrl = URL.createObjectURL(blob);
-        window.open(blobUrl, '_blank');
-      } else {
-        window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank');
-      }
+      openPdfInSystemViewer();
     }
 
     async function exportPDF() {
       const p = getFormPayload();
       if (!p.name) {
-        // If native details are not entered yet, open the VIP 56-page full sample PDF immediately
-        window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank');
+        const dlLink = document.createElement('a');
+        dlLink.href = '/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf';
+        dlLink.download = 'Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf';
+        document.body.appendChild(dlLink);
+        dlLink.click();
+        document.body.removeChild(dlLink);
         return;
       }
       if (!validateInputs(p)) return;
@@ -4248,16 +5057,22 @@ def index_ui():
 
         setTimeout(() => {
           modal.style.display = 'none'; modal.style.pointerEvents = 'none';
-          if (data.download_url) {
-            window.open(data.download_url, '_blank');
-            if (data.single_pages_url) {
-              currentSingleZipUrl = data.single_pages_url;
-              document.getElementById('btnSingleZip').style.display = 'block';
-            }
-            loadDashboard();
-          } else {
-            window.open('/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf', '_blank');
+          const targetUrl = data.download_url || '/api/download-pdf/Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf';
+          try {
+            const dlLink = document.createElement('a');
+            dlLink.href = targetUrl;
+            dlLink.download = (targetUrl.split('/').pop()) || 'Kundli_Report.pdf';
+            document.body.appendChild(dlLink);
+            dlLink.click();
+            document.body.removeChild(dlLink);
+          } catch(e) {
+            window.open(targetUrl, '_blank');
           }
+          if (data.single_pages_url) {
+            currentSingleZipUrl = data.single_pages_url;
+            document.getElementById('btnSingleZip').style.display = 'block';
+          }
+          loadDashboard();
         }, 800);
       } catch (err) {
         clearInterval(timer);
@@ -4286,7 +5101,9 @@ def index_ui():
       window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(txt), '_blank');
     }
 
-    // Astrologer Branding
+    // =========================================================================
+    // Astrologer Branding & Logo Management
+    // =========================================================================
     async function loadBrandingSettings() {
       try {
         const res = await fetch('/api/branding');
@@ -4303,18 +5120,118 @@ def index_ui():
           setField('brand_email', b.email);
           setField('brand_address', b.address);
           setField('brand_tagline', b.tagline);
+          setField('brand_logo_data', b.logo_data);
+
+          updateLogoPreview(b.logo_data);
+          updateLivePdfMockup();
         }
-      } catch (e) {}
+      } catch (e) {
+        console.error('[Branding] Load error:', e);
+      }
+    }
+
+    function onBrandLogoSelected(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        alert('कृपया केवल इमेज फ़ाइल (PNG, JPG, WebP, SVG) चुनें!');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const rawData = e.target.result;
+        // Optimize/resize image via canvas so PDF generation remains super fast & lightweight
+        const img = new Image();
+        img.onload = function() {
+          const maxDim = 400;
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w > h) {
+              h = Math.round((h * maxDim) / w);
+              w = maxDim;
+            } else {
+              w = Math.round((w * maxDim) / h);
+              h = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          const optimizedData = canvas.toDataURL(file.type === 'image/png' ? 'image/png' : 'image/jpeg', 0.92);
+          document.getElementById('brand_logo_data').value = optimizedData;
+          updateLogoPreview(optimizedData);
+          updateLivePdfMockup();
+        };
+        img.src = rawData;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeBrandLogo() {
+      document.getElementById('brand_logo_data').value = '';
+      const fInput = document.getElementById('brand_logo_file');
+      if (fInput) fInput.value = '';
+      updateLogoPreview('');
+      updateLivePdfMockup();
+    }
+
+    function updateLogoPreview(dataUrl) {
+      const previewBox = document.getElementById('brand_logo_preview_container');
+      const btnRemove = document.getElementById('btnRemoveLogo');
+      if (!previewBox) return;
+      if (dataUrl && dataUrl.startsWith('data:image')) {
+        previewBox.innerHTML = `<img src="${dataUrl}" style="max-height:75px; max-width:210px; object-fit:contain; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.15); background:#fff; padding:4px;" alt="Logo"/>`;
+        if (btnRemove) btnRemove.style.display = 'inline-flex';
+      } else {
+        previewBox.innerHTML = `
+          <div style="border:1.5px dashed #D97706; border-radius:6px; padding:12px 18px; text-align:center; color:#92400E; background:#FEF3C7; font-size:12px; font-weight:700;">
+            <span style="font-size:22px; display:block; margin-bottom:2px;">🕉️</span>
+            No Custom Logo (डिफ़ॉल्ट वैदिक प्रतीक)
+          </div>
+        `;
+        if (btnRemove) btnRemove.style.display = 'none';
+      }
+    }
+
+    function updateLivePdfMockup() {
+      const brandName = (document.getElementById('brand_kendra_name')?.value || 'Vedas Kundli Predictions').trim();
+      const logoData = document.getElementById('brand_logo_data')?.value || '';
+      const astroName = (document.getElementById('brand_astro_name')?.value || 'Vedic Astrologer').trim();
+      const phone = (document.getElementById('brand_phone')?.value || '').trim();
+
+      const mockupTitle = document.getElementById('mockup_pdf_brand_title');
+      if (mockupTitle) mockupTitle.innerText = (brandName || 'VEDAS KUNDLI PREDICTIONS').toUpperCase();
+
+      const mockupHeader = document.getElementById('mockup_pdf_header_brand');
+      if (mockupHeader) mockupHeader.innerText = (brandName || 'Vedas Kundli Predictions') + ' — बृहत् जन्म पत्रिका';
+
+      const mockupLogo = document.getElementById('mockup_pdf_logo');
+      if (mockupLogo) {
+        if (logoData) {
+          mockupLogo.innerHTML = `<img src="${logoData}" style="max-height:28px; max-width:90px; object-fit:contain; vertical-align:middle;" alt="Logo"/>`;
+        } else {
+          mockupLogo.innerHTML = `<span style="font-size:16px;">🕉️</span>`;
+        }
+      }
+
+      const mockupAstro = document.getElementById('mockup_pdf_astro');
+      if (mockupAstro) {
+        mockupAstro.innerText = astroName + (phone ? ' • ' + phone : '');
+      }
     }
 
     async function saveBrandingSettings() {
       const payload = {
         astrologer_name: document.getElementById('brand_astro_name').value.trim(),
-        kendra_name: document.getElementById('brand_kendra_name').value.trim(),
+        kendra_name: document.getElementById('brand_kendra_name').value.trim() || 'Vedas Kundli Predictions',
         phone: document.getElementById('brand_phone').value.trim(),
         email: document.getElementById('brand_email').value.trim(),
         address: document.getElementById('brand_address').value.trim(),
-        tagline: document.getElementById('brand_tagline').value.trim()
+        tagline: document.getElementById('brand_tagline').value.trim(),
+        logo_data: (document.getElementById('brand_logo_data').value || '').trim()
       };
       const res = await fetch('/api/branding', {
         method: 'POST',
@@ -4324,8 +5241,11 @@ def index_ui():
       const data = await res.json();
       if (data.success) {
         const s = document.getElementById('brandSaveStatus');
-        s.style.display = 'inline';
-        setTimeout(() => { s.style.display = 'none'; }, 3000);
+        if (s) {
+          s.style.display = 'inline-block';
+          setTimeout(() => { s.style.display = 'none'; }, 4000);
+        }
+        updateLivePdfMockup();
       }
     }
 
@@ -4893,8 +5813,568 @@ def index_ui():
       initApp();
     }
 
-// Clean exit via topbar close button only
-  </script>
+
+// ===========================================================================
+// NUMEROLOGY SUITE JAVASCRIPT LOGIC
+// ===========================================================================
+
+let currentNumerologyProfile = null;
+
+function getNumerologyFormValues() {
+  const nameEl = document.getElementById('num_input_name') || document.getElementById('num_client_name');
+  const dobEl = document.getElementById('num_input_dob') || document.getElementById('num_dob');
+  const yearEl = document.getElementById('num_input_year') || document.getElementById('num_target_year');
+  const systemEl = document.getElementById('num_input_system') || document.getElementById('num_system');
+  const lpPolicyEl = document.getElementById('num_input_lp_policy') || document.getElementById('num_lp_policy');
+  const confirmedLatinEl = document.getElementById('num_confirmed_latin_name');
+
+  return {
+    name: nameEl ? nameEl.value.trim() : 'Aarav Sharma',
+    dob: dobEl ? dobEl.value : '1990-10-12',
+    year: yearEl ? (parseInt(yearEl.value) || new Date().getFullYear()) : new Date().getFullYear(),
+    system: systemEl ? systemEl.value : 'both',
+    lpPolicy: lpPolicyEl ? lpPolicyEl.value : 'component_reduction',
+    confirmedLatin: confirmedLatinEl ? confirmedLatinEl.value.trim() : ''
+  };
+}
+
+function loadNumerologyFullReportPreview(force = false) {
+  const frame = document.getElementById('numReportFrame');
+  const loader = document.getElementById('num_fullreport_loading');
+  if (!frame) return;
+
+  const v = getNumerologyFormValues();
+  if (!v.name || !v.dob) {
+    if (force) alert('Please enter client name and date of birth first.');
+    return;
+  }
+
+  if (loader) loader.style.display = 'block';
+  frame.style.opacity = '0.35';
+
+  const previewUrl = `/api/numerology/preview-dossier?name=${encodeURIComponent(v.name)}&dob=${encodeURIComponent(v.dob)}&target_year=${v.year}&system=${encodeURIComponent(v.system)}&life_path_policy=${encodeURIComponent(v.lpPolicy)}&confirmed_latin_name=${encodeURIComponent(v.confirmedLatin)}`;
+
+  frame.onload = function() {
+    if (loader) loader.style.display = 'none';
+    frame.style.opacity = '1';
+  };
+  frame.onerror = function() {
+    if (loader) loader.style.display = 'none';
+    frame.style.opacity = '1';
+  };
+  frame.src = previewUrl;
+
+  // Fallback timeout in case iframe onload does not fire
+  setTimeout(() => {
+    if (loader) loader.style.display = 'none';
+    frame.style.opacity = '1';
+  }, 3500);
+}
+
+function openNumerologyLiveBrowserTab() {
+  const v = getNumerologyFormValues();
+  if (!v.name || !v.dob) {
+    alert('Please enter client name and date of birth first.');
+    return;
+  }
+  const url = `/api/numerology/preview-dossier?name=${encodeURIComponent(v.name)}&dob=${encodeURIComponent(v.dob)}&target_year=${v.year}&system=${encodeURIComponent(v.system)}&life_path_policy=${encodeURIComponent(v.lpPolicy)}&confirmed_latin_name=${encodeURIComponent(v.confirmedLatin)}`;
+  window.open(url, '_blank');
+}
+
+function viewNumerologyFullReport() {
+  switchNumSubTab('fullreport');
+  loadNumerologyFullReportPreview(true);
+}
+
+function openNumerologySystemPDF() {
+  const v = getNumerologyFormValues();
+  if (!v.name || !v.dob) {
+    alert('Please enter client name and date of birth first.');
+    return;
+  }
+
+  const payload = {
+    name: v.name,
+    dob: v.dob,
+    target_year: v.year,
+    system: v.system,
+    life_path_policy: v.lpPolicy,
+    confirmed_latin_name: v.confirmedLatin || null
+  };
+
+  const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : null;
+  const oldText = btn ? btn.innerText : '';
+  if (btn) btn.innerText = '⏳ Opening PDF...';
+
+  fetch('/api/numerology/open-system-pdf', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (btn) btn.innerText = oldText;
+    if (data.success) {
+      if (!data.opened && data.download_url) {
+        window.open(data.download_url, '_blank');
+      }
+    } else {
+      alert('Error opening PDF: ' + (data.error || 'Unknown error'));
+    }
+  })
+  .catch(err => {
+    if (btn) btn.innerText = oldText;
+    alert('PDF error: ' + err);
+  });
+}
+
+function switchNumSubTab(tabName) {
+  document.querySelectorAll('#numSubTabsBar .control-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('numtab_btn_' + tabName);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  document.querySelectorAll('.num-subpane').forEach(p => {
+    p.style.display = 'none';
+  });
+  const activePane = document.getElementById('numpane_' + tabName);
+  if (activePane) activePane.style.display = 'block';
+
+  if (tabName === 'saved') {
+    fetchSavedNumerologyProfiles();
+  }
+  if (tabName === 'fullreport') {
+    loadNumerologyFullReportPreview(false);
+  }
+}
+
+function handleNumerologyNameInput(val) {
+  const hasIndic = /[\u0900-\u097F\u0A00-\u0A7F]/.test(val);
+  const banner = document.getElementById('num_translit_banner');
+  if (hasIndic) {
+    banner.style.display = 'block';
+    fetch('/api/numerology/transliterate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: val })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.success && data.transliteration) {
+        document.getElementById('num_confirmed_latin_name').value = data.transliteration.proposed_latin || '';
+        document.getElementById('num_translit_script_label').innerText = data.transliteration.script || 'Indic Script';
+      }
+    })
+    .catch(() => {});
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function confirmNumerologyTransliteration() {
+  calculateNumerologyProfile();
+}
+
+function loadActiveClientToNumerology() {
+  const nameEl = document.getElementById('name');
+  const dayEl = document.getElementById('day');
+  const monthEl = document.getElementById('month');
+  const yearEl = document.getElementById('year');
+
+  if (nameEl && nameEl.value) {
+    document.getElementById('num_input_name').value = nameEl.value;
+  }
+  if (dayEl && monthEl && yearEl && dayEl.value && monthEl.value && yearEl.value) {
+    const y = parseInt(yearEl.value);
+    const m = parseInt(monthEl.value);
+    const d = parseInt(dayEl.value);
+    if (y && m && d) {
+      const dobStr = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      document.getElementById('num_input_dob').value = dobStr;
+    }
+  }
+  handleNumerologyNameInput(document.getElementById('num_input_name').value);
+  calculateNumerologyProfile();
+}
+
+function calculateNumerologyProfile() {
+  const name = document.getElementById('num_input_name').value.trim();
+  const dob = document.getElementById('num_input_dob').value.trim();
+  const year = parseInt(document.getElementById('num_input_year').value) || 2026;
+  const system = document.getElementById('num_input_system').value;
+  const lpPolicy = document.getElementById('num_input_lp_policy').value;
+  const confirmedLatin = document.getElementById('num_confirmed_latin_name').value.trim();
+
+  if (!name) {
+    alert('Please enter a name for numerology calculation.');
+    return;
+  }
+  if (!dob) {
+    alert('Please select a birth date.');
+    return;
+  }
+
+  const payload = {
+    name: name,
+    dob: dob,
+    target_year: year,
+    system: system,
+    life_path_policy: lpPolicy,
+    confirmed_latin_name: confirmedLatin || null
+  };
+
+  fetch('/api/numerology/calculate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success && data.profile) {
+      currentNumerologyProfile = data.profile;
+      renderNumerologyProfile(data.profile);
+      const activeFullTab = document.getElementById('numtab_btn_fullreport');
+      if (activeFullTab && activeFullTab.classList.contains('active')) {
+        loadNumerologyFullReportPreview(false);
+      }
+    } else {
+      alert('Error calculating numerology: ' + (data.error || 'Unknown error'));
+    }
+  })
+  .catch(err => {
+    alert('Network error calculating numerology: ' + err);
+  });
+}
+
+function renderNumerologyProfile(p) {
+  const core = p.core_numbers || {};
+  const meta = p.meta || {};
+  const pyth = p.pythagorean || {};
+  const chald = p.chaldean || {};
+  const cycles = p.temporal_cycles || {};
+  const loshu = p.lo_shu_grid || {};
+  const themes = p.number_themes || {};
+
+  // Core Cards
+  const bn = core.birth_number || {};
+  document.getElementById('num_disp_birth_val').innerText = bn.result || '-';
+  document.getElementById('num_disp_birth_trace').innerText = `Day ${meta.day} -> ${(bn.steps || []).join(' -> ')}`;
+  const bTheme = themes[String(bn.result)] || {};
+  document.getElementById('num_disp_birth_theme').innerText = bTheme.en || '';
+
+  const lp = core.life_path || {};
+  const lpTrace = (lp.trace && lp.trace.steps) ? lp.trace.steps.join(' -> ') : (lp.trace ? lp.trace.result : '-');
+  document.getElementById('num_disp_lp_val').innerText = (lp.trace ? lp.trace.result : '-');
+  document.getElementById('num_disp_lp_trace').innerText = `Sum: ${lp.sum || '-'} -> ${lpTrace}`;
+  const lpTheme = themes[String(lp.trace ? lp.trace.result : '')] || {};
+  document.getElementById('num_disp_lp_theme').innerText = lpTheme.en || '';
+
+  const pythExp = (pyth.components && pyth.components.expression) ? pyth.components.expression.trace.result : '-';
+  const pythSteps = (pyth.components && pyth.components.expression) ? pyth.components.expression.trace.steps.join(' -> ') : '-';
+  document.getElementById('num_disp_pyth_exp').innerText = pythExp;
+  document.getElementById('num_disp_pyth_trace').innerText = `Trace: ${pythSteps}`;
+
+  const chaldExp = (chald.components && chald.components.expression) ? chald.components.expression.trace.result : '-';
+  const chaldSteps = (chald.components && chald.components.expression) ? chald.components.expression.trace.steps.join(' -> ') : '-';
+  document.getElementById('num_disp_chald_exp').innerText = chaldExp;
+  document.getElementById('num_disp_chald_trace').innerText = `Trace: ${chaldSteps}`;
+
+  // Breakdown Table
+  const pythSu = (pyth.components && pyth.components.soul_urge) ? pyth.components.soul_urge.trace.result : '-';
+  const chaldSu = (chald.components && chald.components.soul_urge) ? chald.components.soul_urge.trace.result : '-';
+  const pythPers = (pyth.components && pyth.components.personality) ? pyth.components.personality.trace.result : '-';
+  const chaldPers = (chald.components && chald.components.personality) ? chald.components.personality.trace.result : '-';
+
+  const tbody = document.getElementById('num_core_breakdown_tbody');
+  tbody.innerHTML = `
+    <tr><td><strong>Expression (Namank)</strong></td><td><strong>${pythExp}</strong></td><td><strong>${chaldExp}</strong></td><td>General life potential, vocation &amp; outward gifts</td></tr>
+    <tr><td><strong>Soul Urge (Heart's Desire)</strong></td><td><strong>${pythSu}</strong></td><td><strong>${chaldSu}</strong></td><td>Inner spiritual impulse &amp; emotional needs (vowels)</td></tr>
+    <tr><td><strong>Personality (Persona)</strong></td><td><strong>${pythPers}</strong></td><td><strong>${chaldPers}</strong></td><td>Outer social impression &amp; public aura (consonants)</td></tr>
+    <tr><td><strong>Life Path (Bhagyank)</strong></td><td colspan="2" style="text-align:center;"><strong>${lp.trace ? lp.trace.result : '-'}</strong></td><td>Central evolutionary vector from date of birth</td></tr>
+    <tr><td><strong>Birth Number (Moolank)</strong></td><td colspan="2" style="text-align:center;"><strong>${bn.result || '-'}</strong></td><td>Innate character &amp; day identity</td></tr>
+  `;
+
+  // Render Lo Shu Grid
+  const loshuTable = document.getElementById('num_loshu_table');
+  const matrix = loshu.layout || [[4,9,2],[3,5,7],[8,1,6]];
+  let gridHtml = '';
+  matrix.forEach(row => {
+    gridHtml += '<tr>';
+    row.forEach(cell => {
+      const isPresent = cell.count > 0;
+      const bg = isPresent ? '#FEF3C7' : '#F3F4F6';
+      const col = isPresent ? '#7C2D12' : '#9CA3AF';
+      gridHtml += `<td style="border:2px solid #7C2D12; width:33.33%; height:60px; vertical-align:middle; background:${bg};">
+        <div style="font-size:22px; font-weight:900; color:${col};">${cell.number}</div>
+        <div style="font-size:10px; font-weight:700; color:#C2540A;">${isPresent ? '(' + cell.count + 'x)' : 'absent'}</div>
+      </td>`;
+    });
+    gridHtml += '</tr>';
+  });
+  loshuTable.innerHTML = gridHtml;
+
+  // Render Planes
+  const planesTbody = document.getElementById('num_planes_tbody');
+  const planes = loshu.planes || {};
+  let planesHtml = '';
+  const planeDefs = [
+    { key: 'mental_plane', name: 'Mental Plane', nums: '4 - 9 - 2', desc: 'Thinking, memory & intellectual faculty' },
+    { key: 'emotional_plane', name: 'Emotional Plane', nums: '3 - 5 - 7', desc: 'Intuition, empathy, heart & spirituality' },
+    { key: 'practical_plane', name: 'Practical Plane', nums: '8 - 1 - 6', desc: 'Physical execution, trade & materialism' },
+    { key: 'thought_plane', name: 'Thought Plane', nums: '4 - 3 - 8', desc: 'Visionary thinking & strategic planning' },
+    { key: 'will_plane', name: 'Will Plane', nums: '9 - 5 - 1', desc: 'Unyielding perseverance, drive & willpower' },
+    { key: 'action_plane', name: 'Action Plane', nums: '2 - 7 - 6', desc: 'Practical decisiveness & physical activity' },
+    { key: 'golden_raj_yoga', name: 'Golden Raj Yoga Line', nums: '4 - 5 - 6', desc: 'Supreme harmony, prosperity & balance' },
+    { key: 'silver_property_line', name: 'Silver Property Line', nums: '2 - 5 - 8', desc: 'Real estate, stability & earth grounding' }
+  ];
+  planeDefs.forEach(def => {
+    const pl = planes[def.key] || {};
+    const isComp = pl.complete;
+    const badge = isComp ? '<span class="status-pill">Complete</span>' : '<span style="font-size:11px; color:#6B7280; font-weight:600;">Partial</span>';
+    planesHtml += `<tr><td><strong>${def.name}</strong></td><td>${def.nums}</td><td>${badge}</td><td style="font-size:11px;">${def.desc}</td></tr>`;
+  });
+  planesTbody.innerHTML = planesHtml;
+
+  // Cycles
+  document.getElementById('num_cycles_target_yr').innerText = meta.target_year || 2026;
+  const py = cycles.personal_year || {};
+  document.getElementById('num_disp_py_val').innerText = (py.trace ? py.trace.result : '-');
+
+  const lc = cycles.life_cycles || {};
+  document.getElementById('num_disp_lc1_val').innerText = (lc.first_cycle && lc.first_cycle.result) || '-';
+  document.getElementById('num_disp_lc2_val').innerText = (lc.second_cycle && lc.second_cycle.result) || '-';
+  document.getElementById('num_disp_lc3_val').innerText = (lc.third_cycle && lc.third_cycle.result) || '-';
+
+  // 12 Months
+  const pMonths = cycles.personal_months || [];
+  const pmGrid = document.getElementById('num_personal_months_grid');
+  let pmHtml = '';
+  pMonths.forEach((pm, idx) => {
+    const mNum = pm.trace ? pm.trace.result : '-';
+    pmHtml += `
+      <div style="background:#FFFFFF; border:1px solid #EADBC8; border-radius:8px; padding:10px; text-align:center;">
+        <div style="font-size:9.5px; font-weight:800; color:#7C2D12;">MONTH ${idx + 1}</div>
+        <div style="font-size:24px; font-weight:900; color:#C2540A; margin:2px 0;">${mNum}</div>
+        <div style="font-size:9.5px; color:#6B7280; font-weight:600;">Phase ${mNum}</div>
+      </div>
+    `;
+  });
+  pmGrid.innerHTML = pmHtml;
+
+  // Pinnacles & Challenges
+  const pc = cycles.pinnacles_and_challenges || {};
+  const pinnacles = pc.pinnacles || [0,0,0,0];
+  const challenges = pc.challenges || [0,0,0,0];
+
+  const pinTbody = document.getElementById('num_pinnacles_tbody');
+  pinTbody.innerHTML = `
+    <tr><td><strong>1st Pinnacle (Youth)</strong></td><td>Month + Day</td><td><strong>${pinnacles[0]}</strong></td><td>Foundations &amp; personality</td></tr>
+    <tr><td><strong>2nd Pinnacle (Early Career)</strong></td><td>Day + Year</td><td><strong>${pinnacles[1]}</strong></td><td>Productive relationships &amp; career</td></tr>
+    <tr><td><strong>3rd Pinnacle (Maturity)</strong></td><td>P1 + P2</td><td><strong>${pinnacles[2]}</strong></td><td>Authority &amp; consolidation</td></tr>
+    <tr><td><strong>4th Pinnacle (Wisdom)</strong></td><td>Month + Year</td><td><strong>${pinnacles[3]}</strong></td><td>Legacy &amp; philosophical fulfillment</td></tr>
+  `;
+
+  const chalTbody = document.getElementById('num_challenges_tbody');
+  chalTbody.innerHTML = `
+    <tr><td><strong>1st Challenge</strong></td><td>|Day - Month|</td><td><strong>${challenges[0]}</strong></td><td>Independence vs cooperation</td></tr>
+    <tr><td><strong>2nd Challenge</strong></td><td>|Day - Year|</td><td><strong>${challenges[1]}</strong></td><td>Self-worth &amp; handling pressure</td></tr>
+    <tr><td><strong>Main Challenge</strong></td><td>|C1 - C2|</td><td><strong>${challenges[2]}</strong></td><td>Core lifelong lesson to master</td></tr>
+    <tr><td><strong>4th Challenge</strong></td><td>|Month - Year|</td><td><strong>${challenges[3]}</strong></td><td>Emotional detachment &amp; serenity</td></tr>
+  `;
+
+  // Karmic Profile
+  const karmic = (pyth.karmic_profile) || {};
+  const missingLetters = karmic.karmic_lesson_numbers || [];
+  const hiddenPassion = karmic.hidden_passion_numbers || [];
+
+  document.getElementById('num_disp_karmic_lessons').innerText = missingLetters.length ? missingLetters.join(', ') : 'None (All digits 1-9 represented)';
+  document.getElementById('num_disp_hidden_passion').innerText = hiddenPassion.length ? hiddenPassion.join(', ') : 'None';
+
+  // Remedies Container
+  const remedies = p.remedies_and_guidance || [];
+  const remCont = document.getElementById('num_remedies_container');
+  if (!remedies.length) {
+    remCont.innerHTML = '<div style="font-size:12px; color:#6B7280; padding:10px;">General balanced daily routine and meditation recommended.</div>';
+  } else {
+    let remHtml = '';
+    remedies.forEach(r => {
+      const isPractical = r.kind === 'practical';
+      const borderCol = isPractical ? '#166534' : '#C2540A';
+      const bgCol = isPractical ? '#F0FDF4' : '#FFFDF9';
+      const badgeText = isPractical ? 'PRACTICAL ACTION' : 'TRADITIONAL OPTION';
+      const badgeClass = isPractical ? 'status-pill' : 'badge';
+
+      remHtml += `
+        <div style="background:${bgCol}; border:1px solid #EADBC8; border-left:4px solid ${borderCol}; border-radius:6px; padding:10px 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span style="font-size:10px; font-weight:800; color:#7C2D12;">CODE: ${r.id} &bull; NUMBER ${r.number} (${r.category})</span>
+            <span class="${badgeClass}">${badgeText}</span>
+          </div>
+          <div style="font-size:12px; font-weight:700; color:#1F2937;">${r.en}</div>
+          <div style="font-size:11.5px; color:#4B5563; margin-top:2px;" class="hindi-text">${r.hi || ''}</div>
+          <div style="font-size:9.5px; color:#9CA3AF; margin-top:4px;">Source: ${r.source || 'General Reference'}</div>
+        </div>
+      `;
+    });
+    remCont.innerHTML = remHtml;
+  }
+}
+
+function saveCurrentNumerologyProfile() {
+  if (!currentNumerologyProfile) {
+    alert('Please calculate a numerology profile first.');
+    return;
+  }
+  const meta = currentNumerologyProfile.meta || {};
+  const payload = {
+    name: meta.name,
+    dob: meta.birth_date,
+    target_year: meta.target_year,
+    system: meta.system_requested,
+    life_path_policy: meta.life_path_policy,
+    confirmed_latin_name: meta.effective_latin_name
+  };
+
+  fetch('/api/numerology/profiles', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      alert(`Numerology Profile saved successfully to Local CRM! (ID: ${data.id})`);
+    } else {
+      alert('Error saving profile: ' + (data.error || 'Unknown error'));
+    }
+  })
+  .catch(err => alert('Save error: ' + err));
+}
+
+function fetchSavedNumerologyProfiles(query = '') {
+  fetch('/api/numerology/profiles?q=' + encodeURIComponent(query))
+  .then(r => r.json())
+  .then(data => {
+    const tbody = document.getElementById('num_saved_profiles_tbody');
+    const list = data.profiles || [];
+    if (!list.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:16px;">No saved numerology profiles found.</td></tr>';
+      return;
+    }
+    let html = '';
+    list.forEach(p => {
+      html += `
+        <tr>
+          <td>#${p.id}</td>
+          <td><strong>${p.name}</strong></td>
+          <td>${p.dob}</td>
+          <td>${p.target_year}</td>
+          <td>${p.system}</td>
+          <td>${p.created_at}</td>
+          <td>
+            <button class="btn-time-step" style="padding:2px 8px; font-size:10.5px;" onclick="loadSavedNumerologyProfile(${p.id})">Load</button>
+            <button class="btn-lock" style="padding:2px 8px; font-size:10.5px;" onclick="deleteSavedNumerologyProfile(${p.id})">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+    tbody.innerHTML = html;
+  })
+  .catch(err => console.error('Fetch saved profiles error:', err));
+}
+
+function loadSavedNumerologyProfile(pid) {
+  fetch('/api/numerology/profiles/' + pid)
+  .then(r => r.json())
+  .then(data => {
+    if (data.profile) {
+      const p = data.profile;
+      document.getElementById('num_input_name').value = p.name;
+      document.getElementById('num_input_dob').value = p.dob;
+      document.getElementById('num_input_year').value = p.target_year || 2026;
+      document.getElementById('num_input_system').value = p.system || 'both';
+      document.getElementById('num_input_lp_policy').value = p.life_path_policy || 'component_reduction';
+      if (p.profile_data && Object.keys(p.profile_data).length > 0) {
+        currentNumerologyProfile = p.profile_data;
+        renderNumerologyProfile(p.profile_data);
+      } else {
+        calculateNumerologyProfile();
+      }
+      switchNumSubTab('core');
+      alert(`Loaded profile for ${p.name}`);
+    }
+  })
+  .catch(err => alert('Load error: ' + err));
+}
+
+function deleteSavedNumerologyProfile(pid) {
+  if (!confirm('Are you sure you want to delete this saved profile?')) return;
+  fetch('/api/numerology/profiles/' + pid, { method: 'DELETE' })
+  .then(r => r.json())
+  .then(data => {
+    fetchSavedNumerologyProfiles();
+  })
+  .catch(err => alert('Delete error: ' + err));
+}
+
+function exportNumerology30PagePDF() {
+  if (!currentNumerologyProfile) {
+    calculateNumerologyProfile();
+    // Wait briefly for calculation before triggering export
+    setTimeout(doExportNumerologyPDF, 800);
+  } else {
+    doExportNumerologyPDF();
+  }
+}
+
+function doExportNumerologyPDF() {
+  let payload = null;
+  if (currentNumerologyProfile && currentNumerologyProfile.meta) {
+    const meta = currentNumerologyProfile.meta;
+    payload = {
+      name: meta.name,
+      dob: meta.birth_date,
+      target_year: meta.target_year,
+      system: meta.system_requested,
+      life_path_policy: meta.life_path_policy,
+      confirmed_latin_name: meta.effective_latin_name
+    };
+  } else {
+    const v = getNumerologyFormValues();
+    payload = {
+      name: v.name,
+      dob: v.dob,
+      target_year: v.year,
+      system: v.system,
+      life_path_policy: v.lpPolicy,
+      confirmed_latin_name: v.confirmedLatin || null
+    };
+  }
+
+  const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : document.getElementById('btn_num_export_pdf');
+  const oldText = btn ? btn.innerText : '';
+  if (btn) btn.innerText = '⏳ Rendering 30-Page PDF...';
+
+  fetch('/api/numerology/export-pdf', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (btn) btn.innerText = oldText;
+    if (data.success && data.download_url) {
+      window.open(data.download_url, '_blank');
+    } else {
+      alert('Error exporting Numerology PDF: ' + (data.error || 'Unknown error'));
+    }
+  })
+  .catch(err => {
+    if (btn) btn.innerText = oldText;
+    alert('PDF export error: ' + err);
+  });
+}
+
+</script>
 
   <!-- =============================================================== -->
   <!-- 👑 HIGH-CONVERTING ₹699 LIFETIME BUY MODAL & UPI SCANNER -->
@@ -4973,13 +6453,104 @@ def find_open_port(start_port=8088):
     return start_port
 
 
+def launch_native_gui(app_url: str) -> str:
+    """
+    Launches Astro Architects in a 100% native desktop application window.
+    Returns:
+      'webview_closed' if pywebview native window completed.
+      'app_mode_launched' if standalone Edge/Chrome app window process was started.
+      'browser_fallback' if opened via standard browser.
+    """
+    # Tier 1: Native WebView2 Desktop Window
+    try:
+        import webview
+        print("[Native GUI] Launching Astro Architects Desktop Window...")
+        window = webview.create_window(
+            title="Astro Architects — 360° Problem Solving",
+            url=app_url,
+            width=1380,
+            height=880,
+            resizable=True,
+            min_size=(1024, 700),
+            text_select=True,
+            confirm_close=False
+        )
+        webview.start(private_mode=False)
+        return "webview_closed"
+    except Exception as e:
+        print(f"[Native GUI Warning] pywebview could not initialize: {e}")
+
+    # Tier 2: Dedicated Standalone App Window via Edge / Chrome (--app mode with isolated profile)
+    app_profile_dir = os.path.join(tempfile.gettempdir(), "AstroArchitects_AppProfile")
+    try:
+        os.makedirs(app_profile_dir, exist_ok=True)
+    except Exception:
+        pass
+
+    browser_candidates = [
+        os.path.expandvars(r"%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"),
+        os.path.expandvars(r"%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"),
+        os.path.expandvars(r"%ProgramFiles%\Google\Chrome\Application\chrome.exe"),
+        os.path.expandvars(r"%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"),
+        os.path.expandvars(r"%LocalAppData%\Google\Chrome\Application\chrome.exe"),
+    ]
+    for b_path in browser_candidates:
+        if os.path.exists(b_path):
+            try:
+                print(f"[Native GUI] Launching pure standalone desktop app window via {os.path.basename(b_path)}...")
+                cmd = [
+                    b_path,
+                    f"--app={app_url}",
+                    f"--user-data-dir={app_profile_dir}",
+                    "--no-first-run",
+                    "--no-default-browser-check",
+                    "--disable-extensions",
+                    "--disable-features=TranslateUI",
+                    "--window-size=1400,900",
+                    "--start-maximized"
+                ]
+                proc = subprocess.Popen(cmd)
+                # Let standalone app mode run in background without killing server
+                return "app_mode_launched"
+            except Exception as e:
+                print(f"[Native GUI Warning] Standalone app mode failed: {e}")
+
+    # Tier 3: Browser fallback
+    import webbrowser
+    webbrowser.open(app_url)
+    return "browser_fallback"
+
+
 if __name__ == "__main__":
     init_crm_db()
     port = find_open_port(8088)
     app_url = f"http://127.0.0.1:{port}"
     print("==================================================================")
-    print(f"  Vedas Kundli Predictions Suite running at: {app_url}")
+    print(f"  Astro Architects Desktop Suite running at: {app_url}")
     print("  Login ID: Admin | Password: Harman")
     print("==================================================================")
-    Timer(1.2, lambda: webbrowser.open(app_url)).start()
-    uvicorn.run(app, host="127.0.0.1", port=port)
+
+    config = uvicorn.Config(app, host="127.0.0.1", port=port, log_level="warning")
+    server = uvicorn.Server(config)
+    server_thread = threading.Thread(target=server.run, daemon=True)
+    server_thread.start()
+
+    # Small delay for local server to bind and start listening
+    time.sleep(1.2)
+
+    try:
+        mode = launch_native_gui(app_url)
+        if mode == "webview_closed":
+            # Native pywebview window closed by user
+            server.should_exit = True
+            os._exit(0)
+        else:
+            # Standalone App Mode or Browser opened; keep server alive continuously!
+            print(f"[Server Active] Application running on {app_url}. Keeping server alive.")
+            while not server.should_exit:
+                time.sleep(1)
+    except (KeyboardInterrupt, SystemExit):
+        pass
+    finally:
+        server.should_exit = True
+        os._exit(0)

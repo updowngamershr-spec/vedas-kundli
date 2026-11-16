@@ -1,0 +1,99 @@
+{
+  "audit_metadata": {
+    "title": "Lal Kitab 1952 Teva Classification Forensic Trace Matrix",
+    "source_text": "Farman 14, Safa 226 to 234",
+    "auditor": "Vedas Kundli Engine Integrity Verification Core"
+  },
+  "teva_rules_evaluated": [
+    {
+      "teva_type": "Dharmi Teva (धर्मी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_DHARMI_SATURN_11",
+      "farman": 14,
+      "safa": 226,
+      "source_text_hi": "11 शनि ... पिछले जन्म का साधु होगा धरमी टेवा सुख देवे जो",
+      "condition": "Saturn situated in House 11 unconditionally confers Dharmi Teva",
+      "remedial_implications": "Divine protection active; native is shielded against fatal malefic blows. Aggressive remedies prohibited.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Dharmi Teva (धर्मी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_DHARMI_JUPITER_07",
+      "farman": 14,
+      "safa": 226,
+      "source_text_hi": "सात गुरू का ... धरमी टेवा सुख देवे जो",
+      "condition": "Jupiter situated in House 7 confers Dharmi Teva",
+      "remedial_implications": "Natural benefic shield active.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Dharmi Teva (धर्मी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_DHARMI_JUPITER_10",
+      "farman": 14,
+      "safa": 226,
+      "source_text_hi": "दस गुरू ... धरमी टेवा सुख देवे जो",
+      "condition": "Jupiter situated in House 10 confers Dharmi Teva",
+      "remedial_implications": "Protective shield against unforeseen career perils.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Dharmi Teva (धर्मी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_DHARMI_MOON_PAAP",
+      "farman": 14,
+      "safa": 226,
+      "source_text_hi": "पाप चंद्र 10 चौथे हो ... धरमी टेवा सुख देवे जो",
+      "condition": "Moon in House 4 or 10 conjoined with malefic planets (Saturn, Rahu, Ketu)",
+      "remedial_implications": "Malefic conjunction is transmuted into protective shielding.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Andha Teva (अंधा टेवा)",
+      "rule_id": "LK1952_F14_TEVA_ANDHA",
+      "farman": 14,
+      "safa": 228,
+      "source_text_hi": "शत्रु बाहम घर 10 में बैठे टेवा होता ग्रह अंधा हो",
+      "condition": "Two or more mutually hostile planets co-occupying House 10",
+      "remedial_implications": "Native experiences directional confusion in career. Remedy: Feed 10 blind persons by daylight.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Ratandh Teva (रतौंधी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_RATANDH_SUN_07",
+      "farman": 14,
+      "safa": 230,
+      "source_text_hi": "सूर्य घर 7 ... टेवा रतौंधी होता हो",
+      "condition": "Sun occupying House 7 creates Night-Blindness Teva",
+      "remedial_implications": "Judgment wavers after twilight. Forbid financial decisions after sunset.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Ratandh Teva (रतौंधी टेवा)",
+      "rule_id": "LK1952_F14_TEVA_RATANDH_SAT_07_SUN_04",
+      "farman": 14,
+      "safa": 230,
+      "source_text_hi": "शनि 7 संग सूर्य 4 हो",
+      "condition": "Saturn in House 7 paired with Sun in House 4",
+      "remedial_implications": "Evening vulnerability; strictly avoid night-time contracts.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Nabaligh Teva (नाबालिग टेवा)",
+      "rule_id": "LK1952_F14_TEVA_NABALIGH",
+      "farman": 14,
+      "safa": 232,
+      "source_text_hi": "ख़ाली मुट्ठी, या बुध पापी वां असर नाबालिग़ देता हो / साल गुज़रते 12 जो",
+      "condition": "Native age under 12, all 4 Kendras (1, 4, 7, 10) vacant (Empty Fist), or Mercury conjoined with malefics",
+      "remedial_implications": "Child's horoscope is unformed; harsh ritual remedies are forbidden. Only gentle maternal blessings permitted.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "teva_type": "Baligh Teva (बालिग टेवा)",
+      "rule_id": "LK1952_F14_TEVA_BALIGH",
+      "farman": 14,
+      "safa": 226,
+      "source_text_hi": "बुध छठे रवि 1-5-11 टेवा बालिग ग्रह होता हो",
+      "condition": "Mercury in House 6 paired with Sun in House 1, 5, or 11",
+      "remedial_implications": "Self-actualizing karmic potency.",
+      "verification_status": "VERIFIED_DIRECT_SOURCE"
+    }
+  ]
+}

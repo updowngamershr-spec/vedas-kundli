@@ -29,21 +29,27 @@ from engine.ephemeris import (
 def _page_wrapper(page_num: int, meta: dict, brand: dict, title_en: str, title_hi: str, inner_html: str, lang: str = "en") -> str:
     """Wrap content in a standard A4 Vedas Kundli Predictions bordered page with header & footer."""
     title_str = title_hi if lang == "hi" else (f"{title_en} / {title_hi}" if lang == "both" and title_hi else title_en)
-    header_right = "वेदास कुंडली प्रेडिक्शन्स — बृहत् कुंडली" if lang == "hi" else "Vedas Kundli Predictions — Brihat Kundli"
+    
+    brand_name = brand.get("kendra_name") or brand.get("name_en") or ("एस्ट्रो आर्किटेक्ट्स" if lang == "hi" else "Astro Architects")
+    header_right = f"{brand_name} — {'बृहत् जन्म पत्रिका' if lang == 'hi' else 'Brihat Kundli'}"
+    
+    logo_data = brand.get("logo_data") or brand.get("logo")
+    logo_html = f'<img src="{logo_data}" style="height:20px; max-width:70px; object-fit:contain; vertical-align:middle; margin-right:6px; border-radius:2px;" alt="Logo"/>' if logo_data else ''
+    
     title_banner = f'<div class="section-title">|| {title_str} ||</div>' if title_str else ""
 
     return f"""
     <div class="kundli-page">
-      <div class="page-header">
+      <div class="page-header" style="display:flex; justify-content:space-between; align-items:center;">
         <span class="header-name">{meta["name"]}</span>
-        <span class="header-brand">{header_right}</span>
+        <span class="header-brand" style="display:inline-flex; align-items:center;">{logo_html}{header_right}</span>
       </div>
       <div class="page-body">
         {title_banner}
         {inner_html}
       </div>
       <div class="page-footer">
-        <span><strong>{brand.get("kendra_name") or brand.get("name_en", "Vedas Kundli Predictions")}</strong> | {brand.get("tagline_en", "Ancient Vedic, KP &amp; Lal Kitab Samhita")}</span>
+        <span><strong>{brand_name}</strong> | {brand.get("tagline_en", "Ancient Vedic, KP &amp; Lal Kitab Samhita")}</span>
         <span>Printing Date: {brand["printed_at"]} | Page No. __PAGE_NUM__ of __TOTAL_PAGES__</span>
       </div>
     </div>
@@ -250,7 +256,11 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
     # PAGE 1: ROYAL GURUKULAM COVER PAGE
     # =========================================================================
     d1_chart = sv["charts"]["D1"]
-    cover_svg = render_gurukulam_cover_svg(d1_chart["lagna_sign"], d1_chart["house_planets"])
+    brand_name = brand.get("kendra_name") or brand.get("name_en", "ASTRO ARCHITECTS")
+    logo_data = brand.get("logo_data") or brand.get("logo")
+    cover_svg = render_gurukulam_cover_svg(d1_chart["lagna_sign"], d1_chart["house_planets"], logo_data=logo_data, brand_name=brand_name)
+    logo_cover_html = ''
+
     p1_html = f"""
     <div class="kundli-page cover-page">
       <div class="cover-border-outer">
@@ -260,9 +270,10 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
             आदित्यचन्द्रावनिलोऽनलश्च द्यौर्भूमिरापो हृदयं यमश्च ।<br/>
             अहश्च रात्रिश्च उभे च सन्ध्ये धर्मोअपि जानाति नरस्य वृत्तम् ॥
           </div>
+          {logo_cover_html}
           <div class="cover-emblem">{cover_svg}</div>
-          <div class="cover-brand-title" style="font-size:32px; letter-spacing:3px;">{(brand.get("kendra_name") or brand.get("name_en", "VEDAS KUNDLI PREDICTIONS")).upper()}</div>
-          <div class="cover-brand-hindi">{brand.get("name_hi", "वेदास कुंडली प्रेडिक्शन्स")}</div>
+          <div class="cover-brand-title" style="font-size:32px; letter-spacing:3px;">{brand_name.upper()}</div>
+          <div class="cover-brand-hindi">{brand_name if brand.get("kendra_name") else brand.get("name_hi", "वेदास कुंडली प्रेडिक्शन्स")}</div>
           {f'<div class="cover-astrologer-meta" style="font-size:15px; color:#c59b27; margin: 5px 0 2px; font-weight:bold;">Consulting Astrologer: {brand.get("astrologer_name")} &nbsp;&bull;&nbsp; {brand.get("phone")}</div>' if brand.get("astrologer_name") else ''}
           <div class="cover-tagline">{brand.get("tagline_en", "Brihat Parashari • KP Nakshatra Nadi • Asli Lal Kitab • Tajika Varshaphal")}</div>
 
@@ -2434,11 +2445,28 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
 
 def export_html_to_pdf(html_content: str, output_pdf_path: str, split_single_pages: bool = True) -> dict:
     """
-    Convert the 55-page Gurukulam HTML report (with inline SVG charts and Unicode Devanagari)
+    Convert the Gurukulam / Astro Architects HTML report (with inline SVG charts and Unicode Devanagari)
     into a high-resolution vector PDF using Microsoft Edge or Google Chrome headless engine.
-    If `split_single_pages` is True, it also extracts all individual pages into a subfolder:
-    e.g., reports/{basename}_single_pages/Page_01.pdf ... Page_55.pdf
+    Strictly adheres to ZERO-ERROR POLICY:
+    - Never substitutes sample dossiers or estimated values.
+    - Validates HTML rendering readiness prior to browser invocation.
+    - Halts with descriptive diagnostic report if browser or rendering fails.
     """
+    from engine.quality_checker import validate_gate_6_pdf_rendering_readiness, ZeroErrorPolicyViolation
+
+    # Run Gate 6: PDF Rendering Readiness pre-check
+    g6_checks = validate_gate_6_pdf_rendering_readiness(html_content)
+    g6_failed = [c for c in g6_checks if not c.get("passed", False)]
+    if g6_failed:
+        failed_reasons = "; ".join(f"{c['check']} ({c.get('value')})" for c in g6_failed)
+        return {
+            "success": False,
+            "pdf_path": output_pdf_path,
+            "error": f"Zero-Error Policy Gate 6 Failed: PDF Rendering Readiness pre-check failed: {failed_reasons}",
+            "single_pages_dir": None,
+            "page_count": 0
+        }
+
     os.makedirs(os.path.dirname(os.path.abspath(output_pdf_path)), exist_ok=True)
     with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8", delete=False) as tf:
         tf.write(html_content)
@@ -2473,73 +2501,64 @@ def export_html_to_pdf(html_content: str, output_pdf_path: str, split_single_pag
             except Exception:
                 pass
 
-        if browser_exe:
-            cmd = [
-                browser_exe,
-                "--headless=new",
-                "--no-sandbox",
-                "--disable-gpu",
-                "--disable-dev-shm-usage",
-                "--no-pdf-header-footer",
-                f"--user-data-dir={user_data_dir}",
-                "--virtual-time-budget=2000",
-                f"--print-to-pdf={os.path.abspath(output_pdf_path)}",
-                f"file:///{temp_html_path.replace(os.sep, '/')}",
-            ]
-            try:
-                flags = 0x08000000 if sys.platform == "win32" else 0
-                run_res = subprocess.run(
-                    cmd,
-                    timeout=90,
-                    stdin=subprocess.DEVNULL,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    creationflags=flags
-                )
-                if run_res.returncode != 0:
-                    result["error"] = run_res.stderr.decode(errors='replace')
-            except Exception as be:
-                result["error"] = str(be)
+        if not browser_exe:
+            result["error"] = "No headless PDF rendering engine detected (Microsoft Edge or Google Chrome required). Cannot generate unverified report."
+            return result
 
-            if os.path.exists(output_pdf_path) and os.path.getsize(output_pdf_path) > 1000:
-                result["success"] = True
-                
-                # Split into individual single page PDFs
-                if split_single_pages:
-                    try:
-                        import pypdf
-                        reader = pypdf.PdfReader(output_pdf_path)
-                        total_p = len(reader.pages)
-                        result["page_count"] = total_p
-                        
-                        base_stem = os.path.splitext(os.path.basename(output_pdf_path))[0]
-                        single_dir = os.path.join(os.path.dirname(output_pdf_path), f"{base_stem}_pages")
-                        os.makedirs(single_dir, exist_ok=True)
-                        result["single_pages_dir"] = single_dir
-                        
-                        for idx, page in enumerate(reader.pages, start=1):
-                            writer = pypdf.PdfWriter()
-                            writer.add_page(page)
-                            out_p = os.path.join(single_dir, f"Page_{idx:02d}.pdf")
-                            with open(out_p, "wb") as pf:
-                                writer.write(pf)
-                    except Exception as pe:
-                        print("Warning: Could not split individual pages:", pe)
+        cmd = [
+            browser_exe,
+            "--headless=new",
+            "--no-sandbox",
+            "--disable-gpu",
+            "--disable-dev-shm-usage",
+            "--no-pdf-header-footer",
+            f"--user-data-dir={user_data_dir}",
+            "--virtual-time-budget=2000",
+            f"--print-to-pdf={os.path.abspath(output_pdf_path)}",
+            f"file:///{temp_html_path.replace(os.sep, '/')}",
+        ]
+        try:
+            flags = 0x08000000 if sys.platform == "win32" else 0
+            run_res = subprocess.run(
+                cmd,
+                timeout=90,
+                stdin=subprocess.DEVNULL,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                creationflags=flags
+            )
+            if run_res.returncode != 0:
+                result["error"] = f"Browser print engine exited with code {run_res.returncode}: {run_res.stderr.decode(errors='replace')}"
+        except Exception as be:
+            result["error"] = f"Subprocess rendering error: {str(be)}"
 
-        if not (os.path.exists(output_pdf_path) and os.path.getsize(output_pdf_path) > 1000):
-            # Universal cloud fallback: if headless browser is absent on cloud container, copy royal gold VIP sample dossier
-            sample_candidates = [
-                os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports", "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf"),
-                os.path.join(os.path.dirname(output_pdf_path), "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf"),
-                os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports", "Vedas_Kundli_Harmanjot_Singh_VIP_Sample.pdf"),
-            ]
-            for s_cand in sample_candidates:
-                if os.path.exists(s_cand):
-                    import shutil
-                    shutil.copyfile(s_cand, output_pdf_path)
-                    result["success"] = True
-                    result["page_count"] = 56
-                    break
+        if os.path.exists(output_pdf_path) and os.path.getsize(output_pdf_path) > 1000:
+            result["success"] = True
+            
+            # Split into individual single page PDFs
+            if split_single_pages:
+                try:
+                    import pypdf
+                    reader = pypdf.PdfReader(output_pdf_path)
+                    total_p = len(reader.pages)
+                    result["page_count"] = total_p
+                    
+                    base_stem = os.path.splitext(os.path.basename(output_pdf_path))[0]
+                    single_dir = os.path.join(os.path.dirname(output_pdf_path), f"{base_stem}_pages")
+                    os.makedirs(single_dir, exist_ok=True)
+                    result["single_pages_dir"] = single_dir
+                    
+                    for idx, page in enumerate(reader.pages, start=1):
+                        writer = pypdf.PdfWriter()
+                        writer.add_page(page)
+                        out_p = os.path.join(single_dir, f"Page_{idx:02d}.pdf")
+                        with open(out_p, "wb") as pf:
+                            writer.write(pf)
+                except Exception as pe:
+                    print("Warning: Could not split individual pages:", pe)
+        else:
+            if "error" not in result or not result["error"]:
+                result["error"] = "PDF file was not created or was under minimum valid size threshold (Zero-Error Policy halted)."
     finally:
         try:
             os.remove(temp_html_path)

@@ -372,9 +372,28 @@ def compute_lal_kitab(core_data: dict):
 
     lk_dasha = compute_lal_kitab_dasha(meta["year"], meta["month"], meta["day"])
 
+    # Forensic 1952 Lal Kitab Engine integration (Pt. Roop Chand Joshi - Farmans 1 to 14)
+    from astrology_engine.lal_kitab import LalKitabEngine
+    lk_positions = {pid: p_map[pid]["house"] for pid in ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"]}
+    age_yrs = meta.get("age_years")
+    if age_yrs is None and "year" in meta:
+        from datetime import datetime
+        age_yrs = datetime.now().year - meta["year"]
+    forensic = LalKitabEngine.analyze(lk_positions, age_years=age_yrs)
+
     return {
         "planet_rows": lk_planet_rows,
         "chart": {"lagna_sign": 1, "house_planets": occupied_houses},
         "dasha_blocks": lk_dasha,
         "rins": rins,
+        "forensic_1952": forensic,
+        "teva_classifications": forensic.get("teva_classifications", []),
+        "teva_flags": forensic.get("teva_flags", {}),
+        "teva_explanations": forensic.get("teva_explanations", []),
+        "teva_remedies": forensic.get("teva_remedies", []),
+        "masnooi_planets": forensic.get("masnooi_planets", []),
+        "aspects_1952": forensic.get("aspects", []),
+        "dormancy": forensic.get("dormancy", {}),
+        "remedy_safeguards": forensic.get("remedy_safeguards", {}),
+        "farman_citations": forensic.get("farman_citations", []),
     }

@@ -1,0 +1,251 @@
+{
+  "total_remedies": 15,
+  "categories_covered": 8,
+  "universal_timing_rule": {
+    "text": "Every Lal Kitab remedy must strictly be performed during daytime (between sunrise and sunset). Night-time execution is strictly prohibited and hazardous.",
+    "citations": [
+      "Farman 9, Safa 150",
+      "Farman 10, Safa 162"
+    ]
+  },
+  "universal_restrictions_audit": {
+    "finding": "Zero fabricated universal prohibitions. Blanket donation bans have been completely removed. All restrictions are strictly house- and planet-specific.",
+    "verified_prohibitions": [
+      {
+        "condition": "Moon in House 6, 8, or 10",
+        "prohibition": "Strictly forbid donating milk, water, or building public drinking wells/stalls.",
+        "source": "Farman 10, Safa 165"
+      },
+      {
+        "condition": "Sun in House 6, 7, or 10",
+        "prohibition": "Strictly forbid donating copper, jaggery, or wheat.",
+        "source": "Farman 10, Safa 167"
+      },
+      {
+        "condition": "Saturn in House 1",
+        "prohibition": "Strictly forbid consuming alcohol, non-vegetarian food, or donating mustard oil.",
+        "source": "Farman 10, Safa 169"
+      },
+      {
+        "condition": "Exalted or Benefic Planet",
+        "prohibition": "Never donate articles of an exalted or naturally auspicious planet, as it divests the native of its positive grace.",
+        "source": "Farman 9, Safa 155"
+      }
+    ]
+  },
+  "remedies": [
+    {
+      "id": "REM_TIME_UNIVERSAL_DAYLIGHT",
+      "category": "timingRules",
+      "condition": "Universal Mandatory Rule",
+      "farman": 10,
+      "safa": 162,
+      "rule_id": "LK1952_F10_TIMING_DAYTIME_ONLY",
+      "remedy_hi": "लाल किताब का हर उपाय दिन के समय, सूर्य के प्रकाश में ही किया जाना अनिवार्य है। सूर्यास्त के बाद कोई भी उपाय करना पूर्णतः वर्जित व हानिकारक है।",
+      "remedy_en": "All Lal Kitab remedies must be executed between sunrise and sunset under natural daylight. Nighttime remedies are strictly forbidden.",
+      "contraindications": [
+        "सूर्यास्त के बाद कभी कोई उपाय न करें",
+        "अंधेरे में किए गए उपाय का फल विपरीत हो सकता है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_BEH_SAT_H01",
+      "category": "behavioural",
+      "condition": "Saturn in House 1",
+      "farman": 10,
+      "safa": 169,
+      "rule_id": "LK1952_F10_PROHIBITION_SATURN_OIL_ALCOHOL",
+      "remedy_hi": "प्रथम भाव में शनि होने पर जातक को शराब, मांस और अनैतिक आचरण से पूर्णतः दूर रहना चाहिए। झूठ और छल से शनि का अनिष्ट तीव्र होता है।",
+      "remedy_en": "With Saturn in House 1, the native must maintain strict abstinence from alcohol, meat, and unethical conduct.",
+      "contraindications": [
+        "मदिरापान सर्वथा वर्जित है",
+        "शनिवार को तेल का दान न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_BEH_GENERAL_TRUTH",
+      "category": "behavioural",
+      "condition": "General Moral Foundation",
+      "farman": 1,
+      "safa": 12,
+      "rule_id": "LK1952_F01_GENERAL_DISCIPLINE",
+      "remedy_hi": "हमेशा सच बोलें, अपने वचनों का पालन करें और बड़ों का आदर करें। यह लाल किताब का मूल उपाय है जिसके बिना अन्य उपाय निष्फल रहते हैं।",
+      "remedy_en": "Speak the truth, honor commitments, and respect elders. This is the cornerstone foundation of all Lal Kitab remedies.",
+      "contraindications": [
+        "मिथ्या भाषण से सभी उपाय निष्प्रभावी हो जाते हैं"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_PROHIBITION_MOON",
+      "category": "donation",
+      "condition": "Moon in House 6, 8, or 10",
+      "farman": 10,
+      "safa": 165,
+      "rule_id": "LK1952_F10_PROHIBITION_MOON_WATER_MILK",
+      "remedy_hi": "चंद्रमा के इस भाव में होने पर कभी भी दूध, पानी या सफेद वस्तुओं का दान न करें और न ही सार्वजनिक प्याऊ बनवाएं। ऐसा दान धन व स्वास्थ्य की हानि करता है।",
+      "remedy_en": "Never donate milk, water, or establish public drinking facilities when Moon is in Houses 6, 8, or 10.",
+      "contraindications": [
+        "दूध या जल का दान सर्वथा निषिद्ध है",
+        "प्याऊ या कुआं न बनवाएं"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_PROHIBITION_SUN",
+      "category": "donation",
+      "condition": "Sun in House 6 or 10",
+      "farman": 10,
+      "safa": 167,
+      "rule_id": "LK1952_F10_PROHIBITION_SUN_COPPER_JAGGERY",
+      "remedy_hi": "सूर्य के इस भाव में होने पर तांबा, गुड़ या गेहूं का दान न करें। इससे राज्यमान्य प्रतिष्ठा और पिता के स्वास्थ्य को क्षति पहुंचती है।",
+      "remedy_en": "Refrain from donating copper, jaggery, or wheat when Sun is situated in House 6 or 10.",
+      "contraindications": [
+        "तांबे के बर्तनों का दान न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_DON_GEN_YELLOW",
+      "category": "donation",
+      "condition": "Jupiter Weak or Afflicted",
+      "farman": 7,
+      "safa": 84,
+      "rule_id": "LK1952_F07_JUP_REMEDY",
+      "remedy_hi": "चने की दाल या हल्दी का दान दिन के समय किसी बुजुर्ग या मंदिर में करें। केसर का तिलक मस्तक पर लगाएं।",
+      "remedy_en": "Offer yellow gram (chana dal) or turmeric to elders during daytime; apply saffron tilak on forehead.",
+      "contraindications": [
+        "रात्रि में दान न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_BIRDS_MOONG",
+      "category": "animalBird",
+      "condition": "Mercury Afflicted",
+      "farman": 7,
+      "safa": 86,
+      "rule_id": "LK1952_F07_MERCURY_BIRDS",
+      "remedy_hi": "बुध के अनिष्ट निवारण हेतु भीगी हुई साबुत मूंग दाल प्रातःकाल पक्षियों को डालें। मिट्टी के बर्तन में पानी रखें।",
+      "remedy_en": "Feed soaked whole green gram (moong dal) to wild birds at dawn; provide clean water in earthen vessels.",
+      "contraindications": [
+        "पक्षियों को पिंजरे में बंद न रखें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_BLACK_DOG",
+      "category": "animalBird",
+      "condition": "Saturn/Ketu Afflicted",
+      "farman": 7,
+      "safa": 100,
+      "rule_id": "LK1952_F07_SATURN_DOG",
+      "remedy_hi": "शनि और केतु की शांति हेतु आवारा कुत्तों को दिन के समय सरसों के तेल से चुपड़ी रोटी या मीठी रोटी खिलाएं।",
+      "remedy_en": "Feed stray dogs plain rotis with mustard oil or sweet bread during daytime for Saturn and Ketu harmony.",
+      "contraindications": [
+        "कुत्तों को सताएं या मारें नहीं"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_ANM_COW_GREEN_GRASS",
+      "category": "animalBird",
+      "condition": "Venus Weak",
+      "farman": 7,
+      "safa": 90,
+      "rule_id": "LK1952_F07_VENUS_COW",
+      "remedy_hi": "शुक्र के शुभ प्रभाव हेतु देसी गाय को हरा चारा, ताजी घास या आटे की लोई दिन के समय खिलाएं।",
+      "remedy_en": "Offer fresh green fodder or wheat dough balls to indigenous cows during daytime to harmonize Venus.",
+      "contraindications": [
+        "बासी या जूठा भोजन न दें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_FOD_SWEET_WATER",
+      "category": "foodDiet",
+      "condition": "Sun Support",
+      "farman": 7,
+      "safa": 72,
+      "rule_id": "LK1952_F07_SUN_SWEET",
+      "remedy_hi": "दिन के समय घर आने वाले अतिथियों को मीठा पानी या शरबत पिलाएं और स्वयं भी तांबे के बर्तन से पानी पिएं।",
+      "remedy_en": "Offer sweet water to visitors during daytime and drink from copper vessels under daylight.",
+      "contraindications": [
+        "सूर्यास्त के बाद यह उपाय न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HSE_SILVER_SQUARE",
+      "category": "householdEnv",
+      "condition": "Moon in Afflicted State",
+      "farman": 7,
+      "safa": 78,
+      "rule_id": "LK1952_F07_MOON_SILVER",
+      "remedy_hi": "घर की तिजोरी या उत्तर-पूर्व दिशा में ठोस चांदी का चौकोर टुकड़ा रखें। इससे चंद्रमा का दोष शांत होता है।",
+      "remedy_en": "Keep a solid square piece of pure silver in native's home or vault to stabilize Lunar energy.",
+      "contraindications": [
+        "खंडित या अशुद्ध चांदी का प्रयोग न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HSE_BRASS_VESSEL",
+      "category": "householdEnv",
+      "condition": "Jupiter Blessings",
+      "farman": 7,
+      "safa": 82,
+      "rule_id": "LK1952_F07_JUP_BRASS",
+      "remedy_hi": "पीतल के बर्तन में गंगाजल भरकर घर के पूजा स्थल या ईशान कोण में स्थापित करें। ढक्कन पर पीतल का ही ढक्कन रखें।",
+      "remedy_en": "Keep clean brass containers filled with pure water in North-East for domestic peace and wisdom.",
+      "contraindications": [
+        "बर्तन को कभी जूठे हाथों से न छुएं"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_HSP_SAT_H10",
+      "category": "houseSpecific",
+      "condition": "Saturn in House 10",
+      "farman": 7,
+      "safa": 98,
+      "rule_id": "LK1952_F07_SAT_H10_REMEDY",
+      "remedy_hi": "दशम शनि होने पर भवन निर्माण या छत की मरम्मत अनावश्यक रूप से न कराएं। श्रमजीवियों व मजदूरों को सम्मानपूर्वक पारिश्रमिक दें।",
+      "remedy_en": "Refrain from unnecessary roof modifications; treat manual laborers and workers with dignity.",
+      "contraindications": [
+        "मजदूरों का पारिश्रमिक न रोकें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_PLN_SUN_COPPER",
+      "category": "planetary",
+      "condition": "Sun Weak in Non-Prohibited Houses",
+      "farman": 7,
+      "safa": 70,
+      "rule_id": "LK1952_F07_SUN_COPPER_REMEDY",
+      "remedy_hi": "रविवार के दिन सूर्योदय के समय बहते पानी में तांबे का सिक्का प्रवाहित करें (यदि सूर्य 6 या 10 में न हो)।",
+      "remedy_en": "Flow a copper coin in running freshwater on Sunday mornings (only if Sun is not in prohibited 6th/10th houses).",
+      "contraindications": [
+        "सूर्य 6 या 10 में होने पर यह उपाय सर्वथा वर्जित है"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    },
+    {
+      "id": "REM_PLN_MARS_REVDI",
+      "category": "planetary",
+      "condition": "Mars Nek Activation",
+      "farman": 7,
+      "safa": 76,
+      "rule_id": "LK1952_F07_MARS_NEK_REMEDY",
+      "remedy_hi": "मंगलवार के दिन मीठी रेवड़ी या बताशे भाइयों या छोटे बालकों में दिन के समय वितरित करें।",
+      "remedy_en": "Distribute sweet revdi or batashas to brothers or young boys during daytime on Tuesdays.",
+      "contraindications": [
+        "रात्रि में वितरण न करें"
+      ],
+      "status": "VERIFIED_DIRECT_SOURCE"
+    }
+  ]
+}

@@ -1,0 +1,1164 @@
+{
+  "audit_phase": "PHASE 2 - INDEPENDENT SOURCE VERIFICATION & CALCULATION CORRECTION",
+  "total_executed": 122,
+  "passed_count": 122,
+  "failed_count": 0,
+  "pass_rate_percentage": 100.0,
+  "engine_guard_verified": true,
+  "results": [
+    {
+      "test_id": "TC_GUARD_01",
+      "category": "GUARD",
+      "name": "Production Guard isSupported == false",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:30.582536"
+    },
+    {
+      "test_id": "TC_PKG_01",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 1 Ownership",
+      "status": "PASS",
+      "expected": [
+        "sun",
+        "mars"
+      ],
+      "actual": [
+        "sun",
+        "mars"
+      ],
+      "timestamp": "2026-11-08T14:23:30.594856"
+    },
+    {
+      "test_id": "TC_PKG_02",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 2 Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "timestamp": "2026-11-08T14:23:30.598465"
+    },
+    {
+      "test_id": "TC_PKG_03",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 3 Ownership",
+      "status": "PASS",
+      "expected": [
+        "mars"
+      ],
+      "actual": [
+        "mars"
+      ],
+      "timestamp": "2026-11-08T14:23:30.604304"
+    },
+    {
+      "test_id": "TC_PKG_04",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 4 Ownership",
+      "status": "PASS",
+      "expected": [
+        "moon"
+      ],
+      "actual": [
+        "moon"
+      ],
+      "timestamp": "2026-11-08T14:23:30.609041"
+    },
+    {
+      "test_id": "TC_PKG_05",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 5 Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "timestamp": "2026-11-08T14:23:30.614255"
+    },
+    {
+      "test_id": "TC_PKG_06",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 6 Ownership",
+      "status": "PASS",
+      "expected": [
+        "ketu"
+      ],
+      "actual": [
+        "ketu"
+      ],
+      "timestamp": "2026-11-08T14:23:30.618974"
+    },
+    {
+      "test_id": "TC_PKG_07",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 7 Ownership",
+      "status": "PASS",
+      "expected": [
+        "venus",
+        "mercury"
+      ],
+      "actual": [
+        "venus",
+        "mercury"
+      ],
+      "timestamp": "2026-11-08T14:23:30.623566"
+    },
+    {
+      "test_id": "TC_PKG_08",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 8 Ownership",
+      "status": "PASS",
+      "expected": [
+        "saturn",
+        "mars"
+      ],
+      "actual": [
+        "saturn",
+        "mars"
+      ],
+      "timestamp": "2026-11-08T14:23:30.626284"
+    },
+    {
+      "test_id": "TC_PKG_09",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 9 Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "timestamp": "2026-11-08T14:23:30.630042"
+    },
+    {
+      "test_id": "TC_PKG_10",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 10 Ownership",
+      "status": "PASS",
+      "expected": [
+        "saturn"
+      ],
+      "actual": [
+        "saturn"
+      ],
+      "timestamp": "2026-11-08T14:23:30.634992"
+    },
+    {
+      "test_id": "TC_PKG_11",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 11 Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "timestamp": "2026-11-08T14:23:30.640553"
+    },
+    {
+      "test_id": "TC_PKG_12",
+      "category": "PAKKE_GHAR",
+      "name": "Pakka Ghar 12 Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter",
+        "rahu"
+      ],
+      "actual": [
+        "jupiter",
+        "rahu"
+      ],
+      "timestamp": "2026-11-08T14:23:30.643504"
+    },
+    {
+      "test_id": "TC_DRS_01",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 7",
+      "status": "PASS",
+      "expected": 100.0,
+      "actual": 100.0,
+      "timestamp": "2026-11-08T14:23:30.650529"
+    },
+    {
+      "test_id": "TC_DRS_02",
+      "category": "DRISHTI",
+      "name": "Drishti 7 -> 1",
+      "status": "PASS",
+      "expected": 100.0,
+      "actual": 100.0,
+      "timestamp": "2026-11-08T14:23:30.655887"
+    },
+    {
+      "test_id": "TC_DRS_03",
+      "category": "DRISHTI",
+      "name": "Drishti 4 -> 8",
+      "status": "PASS",
+      "expected": 50.0,
+      "actual": 50.0,
+      "timestamp": "2026-11-08T14:23:30.659231"
+    },
+    {
+      "test_id": "TC_DRS_04",
+      "category": "DRISHTI",
+      "name": "Drishti 8 -> 4",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.662817"
+    },
+    {
+      "test_id": "TC_DRS_05",
+      "category": "DRISHTI",
+      "name": "Drishti 3 -> 11",
+      "status": "PASS",
+      "expected": 50.0,
+      "actual": 50.0,
+      "timestamp": "2026-11-08T14:23:30.669157"
+    },
+    {
+      "test_id": "TC_DRS_06",
+      "category": "DRISHTI",
+      "name": "Drishti 11 -> 3",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.675192"
+    },
+    {
+      "test_id": "TC_DRS_07",
+      "category": "DRISHTI",
+      "name": "Drishti 5 -> 9",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "timestamp": "2026-11-08T14:23:30.678678"
+    },
+    {
+      "test_id": "TC_DRS_08",
+      "category": "DRISHTI",
+      "name": "Drishti 9 -> 5",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.682"
+    },
+    {
+      "test_id": "TC_DRS_09",
+      "category": "DRISHTI",
+      "name": "Drishti 2 -> 6",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "timestamp": "2026-11-08T14:23:30.686788"
+    },
+    {
+      "test_id": "TC_DRS_10",
+      "category": "DRISHTI",
+      "name": "Drishti 6 -> 2",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.690293"
+    },
+    {
+      "test_id": "TC_DRS_11",
+      "category": "DRISHTI",
+      "name": "Drishti 6 -> 12",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "timestamp": "2026-11-08T14:23:30.694318"
+    },
+    {
+      "test_id": "TC_DRS_12",
+      "category": "DRISHTI",
+      "name": "Drishti 12 -> 6",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.698808"
+    },
+    {
+      "test_id": "TC_DRS_13",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 2",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.703357"
+    },
+    {
+      "test_id": "TC_DRS_14",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 3",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.708063"
+    },
+    {
+      "test_id": "TC_DRS_15",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 4",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.712732"
+    },
+    {
+      "test_id": "TC_DRS_16",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 5",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.717872"
+    },
+    {
+      "test_id": "TC_DRS_17",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 6",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.723049"
+    },
+    {
+      "test_id": "TC_DRS_18",
+      "category": "DRISHTI",
+      "name": "Drishti 1 -> 8",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.727556"
+    },
+    {
+      "test_id": "TC_DRS_19",
+      "category": "DRISHTI",
+      "name": "Drishti 10 -> 4",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.732558"
+    },
+    {
+      "test_id": "TC_DRS_20",
+      "category": "DRISHTI",
+      "name": "Drishti 12 -> 1",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "timestamp": "2026-11-08T14:23:30.738066"
+    },
+    {
+      "test_id": "TC_TDB_01",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Takkar Sun vs Saturn",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.747093"
+    },
+    {
+      "test_id": "TC_TDB_02",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Takkar Mars vs Ketu",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.752443"
+    },
+    {
+      "test_id": "TC_TDB_03",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "No Takkar Sun vs Jupiter",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:30.757521"
+    },
+    {
+      "test_id": "TC_TDB_04",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "No Takkar Moon vs Jupiter",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:30.761263"
+    },
+    {
+      "test_id": "TC_TDB_05",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Dhoka Mars (10) -> Mercury (2)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.765602"
+    },
+    {
+      "test_id": "TC_TDB_06",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Dhoka Saturn (10) -> Sun (8)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.774723"
+    },
+    {
+      "test_id": "TC_TDB_07",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Dhoka Mars (10) -> Empty House 2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.777894"
+    },
+    {
+      "test_id": "TC_TDB_08",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "No Dhoka from House 9",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.783339"
+    },
+    {
+      "test_id": "TC_TDB_09",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "No Dhoka to House 3",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.789271"
+    },
+    {
+      "test_id": "TC_TDB_10",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Buniyadi Jupiter (5) -> Moon (9)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.792807"
+    },
+    {
+      "test_id": "TC_TDB_11",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Buniyadi Venus (2) -> Mercury (6)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.797374"
+    },
+    {
+      "test_id": "TC_TDB_12",
+      "category": "TAKKAR_DHOKA_BUNIYADI",
+      "name": "Asymmetric Buniyadi 6 -> 2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.803944"
+    },
+    {
+      "test_id": "TC_MAS_01",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.venus in H1",
+      "status": "PASS",
+      "expected": "KETU",
+      "actual": "KETU",
+      "timestamp": "2026-11-08T14:23:30.809094"
+    },
+    {
+      "test_id": "TC_MAS_02",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.venus in H7",
+      "status": "PASS",
+      "expected": "KETU",
+      "actual": "KETU",
+      "timestamp": "2026-11-08T14:23:30.813363"
+    },
+    {
+      "test_id": "TC_MAS_03",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.saturn in H3",
+      "status": "PASS",
+      "expected": "MANGAL_BAD",
+      "actual": "MANGAL_BAD",
+      "timestamp": "2026-11-08T14:23:30.816824"
+    },
+    {
+      "test_id": "TC_MAS_04",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.saturn in H8",
+      "status": "PASS",
+      "expected": "MANGAL_BAD",
+      "actual": "MANGAL_BAD",
+      "timestamp": "2026-11-08T14:23:30.821048"
+    },
+    {
+      "test_id": "TC_MAS_05",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.jupiter in H5",
+      "status": "PASS",
+      "expected": "MANGAL_NEK",
+      "actual": "MANGAL_NEK",
+      "timestamp": "2026-11-08T14:23:30.824147"
+    },
+    {
+      "test_id": "TC_MAS_06",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.sun + LalKitabPlanet.jupiter in H9",
+      "status": "PASS",
+      "expected": "MANGAL_NEK",
+      "actual": "MANGAL_NEK",
+      "timestamp": "2026-11-08T14:23:30.827148"
+    },
+    {
+      "test_id": "TC_MAS_07",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.mercury + LalKitabPlanet.venus in H2",
+      "status": "PASS",
+      "expected": "SUN",
+      "actual": "SUN",
+      "timestamp": "2026-11-08T14:23:30.829617"
+    },
+    {
+      "test_id": "TC_MAS_08",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.mercury + LalKitabPlanet.venus in H7",
+      "status": "PASS",
+      "expected": "SUN",
+      "actual": "SUN",
+      "timestamp": "2026-11-08T14:23:30.834636"
+    },
+    {
+      "test_id": "TC_MAS_09",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.mars + LalKitabPlanet.saturn in H10",
+      "status": "PASS",
+      "expected": "RAHU",
+      "actual": "RAHU",
+      "timestamp": "2026-11-08T14:23:30.839263"
+    },
+    {
+      "test_id": "TC_MAS_10",
+      "category": "MASNOOI",
+      "name": "LalKitabPlanet.mars + LalKitabPlanet.saturn in H12",
+      "status": "PASS",
+      "expected": "RAHU",
+      "actual": "RAHU",
+      "timestamp": "2026-11-08T14:23:30.842554"
+    },
+    {
+      "test_id": "TC_MAS_11",
+      "category": "MASNOOI",
+      "name": "Sun + Moon Non-Masnooi",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0,
+      "timestamp": "2026-11-08T14:23:30.844913"
+    },
+    {
+      "test_id": "TC_MAS_12",
+      "category": "MASNOOI",
+      "name": "Jupiter + Venus Non-Masnooi",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0,
+      "timestamp": "2026-11-08T14:23:30.849579"
+    },
+    {
+      "test_id": "TC_DOR_01",
+      "category": "DORMANCY",
+      "name": "Sleeping House 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.856033"
+    },
+    {
+      "test_id": "TC_DOR_02",
+      "category": "DORMANCY",
+      "name": "Sleeping House 12",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.860580"
+    },
+    {
+      "test_id": "TC_DOR_03",
+      "category": "DORMANCY",
+      "name": "Awake House 7 via 100% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.864579"
+    },
+    {
+      "test_id": "TC_DOR_04",
+      "category": "DORMANCY",
+      "name": "Awake House 8 via 50% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.870089"
+    },
+    {
+      "test_id": "TC_DOR_05",
+      "category": "DORMANCY",
+      "name": "Awake House 11 via 50% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.874192"
+    },
+    {
+      "test_id": "TC_DOR_06",
+      "category": "DORMANCY",
+      "name": "Awake House 9 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.878804"
+    },
+    {
+      "test_id": "TC_DOR_07",
+      "category": "DORMANCY",
+      "name": "Awake House 6 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.884814"
+    },
+    {
+      "test_id": "TC_DOR_08",
+      "category": "DORMANCY",
+      "name": "Awake House 12 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.897243"
+    },
+    {
+      "test_id": "TC_DOR_09",
+      "category": "DORMANCY",
+      "name": "Occupied House 1 is Awake",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.904754"
+    },
+    {
+      "test_id": "TC_DOR_10",
+      "category": "DORMANCY",
+      "name": "Sleeping Planet Sun in H1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.909757"
+    },
+    {
+      "test_id": "TC_DOR_11",
+      "category": "DORMANCY",
+      "name": "Awake Planet Sun in H1",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:30.914264"
+    },
+    {
+      "test_id": "TC_DOR_12",
+      "category": "DORMANCY",
+      "name": "Sleeping Planet Mars in H3",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.921266"
+    },
+    {
+      "test_id": "TC_DOR_13",
+      "category": "DORMANCY",
+      "name": "Kendra Awake",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.927779"
+    },
+    {
+      "test_id": "TC_DOR_14",
+      "category": "DORMANCY",
+      "name": "H3 Sleeping",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.932353"
+    },
+    {
+      "test_id": "TC_GNB_01",
+      "category": "GRAH_NEK_BAD",
+      "name": "Mars in House 1 Inherently Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.939550"
+    },
+    {
+      "test_id": "TC_GNB_02",
+      "category": "GRAH_NEK_BAD",
+      "name": "Mars conjunct Saturn in H3 Mangal Bad",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.944873"
+    },
+    {
+      "test_id": "TC_GNB_03",
+      "category": "GRAH_NEK_BAD",
+      "name": "Saturn in House 11 Amrit / Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.948349"
+    },
+    {
+      "test_id": "TC_GNB_04",
+      "category": "GRAH_NEK_BAD",
+      "name": "Rahu in House 12 Malefic Smoke",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.952746"
+    },
+    {
+      "test_id": "TC_GNB_05",
+      "category": "GRAH_NEK_BAD",
+      "name": "Ketu in House 6 Dog of God / Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.961932"
+    },
+    {
+      "test_id": "TC_GNB_06",
+      "category": "GRAH_NEK_BAD",
+      "name": "Jupiter in House 10 Manda without Moon",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.970574"
+    },
+    {
+      "test_id": "TC_GNB_07",
+      "category": "GRAH_NEK_BAD",
+      "name": "Mercury in House 6 Exalted / Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.976083"
+    },
+    {
+      "test_id": "TC_GNB_08",
+      "category": "GRAH_NEK_BAD",
+      "name": "Sun in House 6 Afflicted / Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.981085"
+    },
+    {
+      "test_id": "TC_GNB_09",
+      "category": "GRAH_NEK_BAD",
+      "name": "Venus in House 7 Grihasthi / Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.989245"
+    },
+    {
+      "test_id": "TC_GNB_10",
+      "category": "GRAH_NEK_BAD",
+      "name": "Multi-planet 3-way conflict Unresolved",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:30.995883"
+    },
+    {
+      "test_id": "TC_UPY_01",
+      "category": "UPAYA",
+      "name": "Night remedy prohibition enforced strictly",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.002518"
+    },
+    {
+      "test_id": "TC_UPY_02",
+      "category": "UPAYA",
+      "name": "Sun in H10 prohibition of copper donation",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.009809"
+    },
+    {
+      "test_id": "TC_UPY_03",
+      "category": "UPAYA",
+      "name": "Jupiter in H10 prohibition of home temple",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.014165"
+    },
+    {
+      "test_id": "TC_UPY_04",
+      "category": "UPAYA",
+      "name": "Moon in H6 prohibition of milk donation / well digging",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.021266"
+    },
+    {
+      "test_id": "TC_UPY_05",
+      "category": "UPAYA",
+      "name": "Saturn in H8 prohibition of dark room in rear",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.025268"
+    },
+    {
+      "test_id": "TC_UPY_06",
+      "category": "UPAYA",
+      "name": "Andha Teva remedy feed 10 blind persons on 1 day",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.030831"
+    },
+    {
+      "test_id": "TC_UPY_07",
+      "category": "UPAYA",
+      "name": "Ketu remedy feed two-colored dog",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.037331"
+    },
+    {
+      "test_id": "TC_UPY_08",
+      "category": "UPAYA",
+      "name": "Rahu remedy flow coal / barley in running water",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.041736"
+    },
+    {
+      "test_id": "TC_UPY_09",
+      "category": "UPAYA",
+      "name": "Mangal Bad remedy sweet roti baked in tandoor into river",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.049505"
+    },
+    {
+      "test_id": "TC_UPY_10",
+      "category": "UPAYA",
+      "name": "Venus in H8 remedy bury blue flower in desolate place",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.054501"
+    },
+    {
+      "test_id": "TC_TEV_01",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Saturn in 11 alone",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.063781"
+    },
+    {
+      "test_id": "TC_TEV_02",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Saturn in 11 with Mars",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.069331"
+    },
+    {
+      "test_id": "TC_TEV_03",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Jupiter in 7",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.072515"
+    },
+    {
+      "test_id": "TC_TEV_04",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Jupiter in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.075043"
+    },
+    {
+      "test_id": "TC_TEV_05",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Moon in 4 with Rahu",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.086909"
+    },
+    {
+      "test_id": "TC_TEV_06",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Moon in 10 with Ketu",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.091980"
+    },
+    {
+      "test_id": "TC_TEV_07",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Andha Sun + Saturn in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.095510"
+    },
+    {
+      "test_id": "TC_TEV_08",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Andha Mars + Mercury in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.099601"
+    },
+    {
+      "test_id": "TC_TEV_09",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Non-Andha Sun + Jupiter in 10",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:31.103806"
+    },
+    {
+      "test_id": "TC_TEV_10",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Ratandh Sun in 7",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.107655"
+    },
+    {
+      "test_id": "TC_TEV_11",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Ratandh Saturn in 7 Sun in 4",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.111041"
+    },
+    {
+      "test_id": "TC_TEV_12",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Age 8",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.114081"
+    },
+    {
+      "test_id": "TC_TEV_13",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Empty Fist",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.119112"
+    },
+    {
+      "test_id": "TC_TEV_14",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Budh Paapi",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.123141"
+    },
+    {
+      "test_id": "TC_TEV_15",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Baligh Mercury 6 Sun 1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.125520"
+    },
+    {
+      "test_id": "TC_TEV_16",
+      "category": "TEVA_CLASSIFICATION",
+      "name": "Sadharan Normal Chart",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.128557"
+    },
+    {
+      "test_id": "TC_VAR_01",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 25 % 3 = 1",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "timestamp": "2026-11-08T14:23:31.131683"
+    },
+    {
+      "test_id": "TC_VAR_02",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 25 % 5 = 0 -> 5",
+      "status": "PASS",
+      "expected": 5,
+      "actual": 5,
+      "timestamp": "2026-11-08T14:23:31.136392"
+    },
+    {
+      "test_id": "TC_VAR_03",
+      "category": "VARSHPHAL",
+      "name": "Varshphal empty natal fallback to 5",
+      "status": "PASS",
+      "expected": 5,
+      "actual": 5,
+      "timestamp": "2026-11-08T14:23:31.138467"
+    },
+    {
+      "test_id": "TC_VAR_04",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 37 % 1 = 0 -> 1",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "timestamp": "2026-11-08T14:23:31.141052"
+    },
+    {
+      "test_id": "TC_VAR_05",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 48 % 3 = 0 -> 3",
+      "status": "PASS",
+      "expected": 3,
+      "actual": 3,
+      "timestamp": "2026-11-08T14:23:31.143529"
+    },
+    {
+      "test_id": "TC_VAR_06",
+      "category": "VARSHPHAL",
+      "name": "Varshphal Age 1 boundary",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "timestamp": "2026-11-08T14:23:31.147582"
+    },
+    {
+      "test_id": "TC_VAR_07",
+      "category": "VARSHPHAL",
+      "name": "Varshphal Age 120 boundary",
+      "status": "PASS",
+      "expected": 4,
+      "actual": 4,
+      "timestamp": "2026-11-08T14:23:31.151216"
+    },
+    {
+      "test_id": "TC_VAR_08",
+      "category": "VARSHPHAL",
+      "name": "Annual Chart Aries Lagna",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.154353"
+    },
+    {
+      "test_id": "TC_VAR_09",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 10 % 2 = 0 -> 2",
+      "status": "PASS",
+      "expected": 2,
+      "actual": 2,
+      "timestamp": "2026-11-08T14:23:31.158291"
+    },
+    {
+      "test_id": "TC_VAR_10",
+      "category": "VARSHPHAL",
+      "name": "Varshphal 25 % 6 = 1 -> 1",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "timestamp": "2026-11-08T14:23:31.160346"
+    },
+    {
+      "test_id": "TC_VAL_01",
+      "category": "BOUNDARY_VALIDATION",
+      "name": "Reject House 13",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:31.163493"
+    },
+    {
+      "test_id": "TC_VAL_02",
+      "category": "BOUNDARY_VALIDATION",
+      "name": "Reject House 0",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:31.165705"
+    },
+    {
+      "test_id": "TC_VAL_03",
+      "category": "BOUNDARY_VALIDATION",
+      "name": "Reject negative age",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:31.169509"
+    },
+    {
+      "test_id": "TC_VAL_04",
+      "category": "BOUNDARY_VALIDATION",
+      "name": "Conjunction in H1 allowed",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "timestamp": "2026-11-08T14:23:31.171799"
+    },
+    {
+      "test_id": "TC_VAL_05",
+      "category": "BOUNDARY_VALIDATION",
+      "name": "Empty chart rejected as invalid",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "timestamp": "2026-11-08T14:23:31.176004"
+    }
+  ]
+}

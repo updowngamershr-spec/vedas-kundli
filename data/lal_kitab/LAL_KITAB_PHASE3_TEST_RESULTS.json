@@ -1,0 +1,1867 @@
+{
+  "audit_phase": "PHASE 3 - INDEPENDENT VALIDATION & REGRESSION TESTING",
+  "total_executed": 180,
+  "passed_count": 178,
+  "failed_count": 0,
+  "unresolved_count": 2,
+  "pass_rate_percentage": 100.0,
+  "engine_guard_verified": true,
+  "results": [
+    {
+      "test_id": "TC3_PKG_01",
+      "domain": "PAKKA_GHAR",
+      "name": "House 1 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "sun",
+        "mars"
+      ],
+      "actual": [
+        "sun",
+        "mars"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.630030"
+    },
+    {
+      "test_id": "TC3_PKG_02",
+      "domain": "PAKKA_GHAR",
+      "name": "House 2 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.639203"
+    },
+    {
+      "test_id": "TC3_PKG_03",
+      "domain": "PAKKA_GHAR",
+      "name": "House 3 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "mars"
+      ],
+      "actual": [
+        "mars"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.642462"
+    },
+    {
+      "test_id": "TC3_PKG_04",
+      "domain": "PAKKA_GHAR",
+      "name": "House 4 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "moon"
+      ],
+      "actual": [
+        "moon"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.645579"
+    },
+    {
+      "test_id": "TC3_PKG_05",
+      "domain": "PAKKA_GHAR",
+      "name": "House 5 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.647724"
+    },
+    {
+      "test_id": "TC3_PKG_06",
+      "domain": "PAKKA_GHAR",
+      "name": "House 6 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "ketu"
+      ],
+      "actual": [
+        "ketu"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.650351"
+    },
+    {
+      "test_id": "TC3_PKG_07",
+      "domain": "PAKKA_GHAR",
+      "name": "House 7 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "venus",
+        "mercury"
+      ],
+      "actual": [
+        "venus",
+        "mercury"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.654107"
+    },
+    {
+      "test_id": "TC3_PKG_08",
+      "domain": "PAKKA_GHAR",
+      "name": "House 8 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "saturn",
+        "mars"
+      ],
+      "actual": [
+        "saturn",
+        "mars"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.657244"
+    },
+    {
+      "test_id": "TC3_PKG_09",
+      "domain": "PAKKA_GHAR",
+      "name": "House 9 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.659893"
+    },
+    {
+      "test_id": "TC3_PKG_10",
+      "domain": "PAKKA_GHAR",
+      "name": "House 10 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "saturn"
+      ],
+      "actual": [
+        "saturn"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.662558"
+    },
+    {
+      "test_id": "TC3_PKG_11",
+      "domain": "PAKKA_GHAR",
+      "name": "House 11 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter"
+      ],
+      "actual": [
+        "jupiter"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.664650"
+    },
+    {
+      "test_id": "TC3_PKG_12",
+      "domain": "PAKKA_GHAR",
+      "name": "House 12 Classical Pakka Ghar Ownership",
+      "status": "PASS",
+      "expected": [
+        "jupiter",
+        "rahu"
+      ],
+      "actual": [
+        "jupiter",
+        "rahu"
+      ],
+      "rationale": "Independently verified against Safa 96-99 verses.",
+      "timestamp": "2026-11-08T14:23:31.668010"
+    },
+    {
+      "test_id": "TC3_DRS_01",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Kamal Drishti 1 -> 7",
+      "status": "PASS",
+      "expected": 100.0,
+      "actual": 100.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.671163"
+    },
+    {
+      "test_id": "TC3_DRS_02",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Kamal Drishti 7 -> 1",
+      "status": "PASS",
+      "expected": 100.0,
+      "actual": 100.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.674940"
+    },
+    {
+      "test_id": "TC3_DRS_03",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Aadhi Drishti 4 -> 8",
+      "status": "PASS",
+      "expected": 50.0,
+      "actual": 50.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.676955"
+    },
+    {
+      "test_id": "TC3_DRS_04",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Asymmetric Drishti 8 -> 4",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.679507"
+    },
+    {
+      "test_id": "TC3_DRS_05",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Aadhi Drishti 3 -> 11",
+      "status": "PASS",
+      "expected": 50.0,
+      "actual": 50.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.681962"
+    },
+    {
+      "test_id": "TC3_DRS_06",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Asymmetric Drishti 11 -> 3",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.685806"
+    },
+    {
+      "test_id": "TC3_DRS_07",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Chauthai Drishti 5 -> 9",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.689630"
+    },
+    {
+      "test_id": "TC3_DRS_08",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Asymmetric Drishti 9 -> 5",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.691845"
+    },
+    {
+      "test_id": "TC3_DRS_09",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Chauthai Drishti 2 -> 6",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.694959"
+    },
+    {
+      "test_id": "TC3_DRS_10",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Asymmetric Drishti 6 -> 2",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.698109"
+    },
+    {
+      "test_id": "TC3_DRS_11",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Chauthai Drishti 6 -> 12",
+      "status": "PASS",
+      "expected": 25.0,
+      "actual": 25.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.700921"
+    },
+    {
+      "test_id": "TC3_DRS_12",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Asymmetric Drishti 12 -> 6",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.704193"
+    },
+    {
+      "test_id": "TC3_DRS_13",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 1 -> 8",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.706362"
+    },
+    {
+      "test_id": "TC3_DRS_14",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 1 -> 9",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.707652"
+    },
+    {
+      "test_id": "TC3_DRS_15",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 2 -> 11",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.710232"
+    },
+    {
+      "test_id": "TC3_DRS_16",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 3 -> 8",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.713339"
+    },
+    {
+      "test_id": "TC3_DRS_17",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 4 -> 9",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.715399"
+    },
+    {
+      "test_id": "TC3_DRS_18",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 5 -> 10",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.719249"
+    },
+    {
+      "test_id": "TC3_DRS_19",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 7 -> 12",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.722378"
+    },
+    {
+      "test_id": "TC3_DRS_20",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 8 -> 1",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.724441"
+    },
+    {
+      "test_id": "TC3_DRS_21",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 9 -> 2",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.726511"
+    },
+    {
+      "test_id": "TC3_DRS_22",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 10 -> 3",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.728572"
+    },
+    {
+      "test_id": "TC3_DRS_23",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 11 -> 4",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.730062"
+    },
+    {
+      "test_id": "TC3_DRS_24",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 12 -> 5",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.733423"
+    },
+    {
+      "test_id": "TC3_DRS_25",
+      "domain": "DRISHTI_ASPECTS",
+      "name": "Zero Aspect 10 -> 5",
+      "status": "PASS",
+      "expected": 0.0,
+      "actual": 0.0,
+      "rationale": "Matches Safa 101-104 table.",
+      "timestamp": "2026-11-08T14:23:31.736743"
+    },
+    {
+      "test_id": "TC3_TKK_01",
+      "domain": "TAKKAR",
+      "name": "Sun (1) vs Saturn (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.744229"
+    },
+    {
+      "test_id": "TC3_TKK_02",
+      "domain": "TAKKAR",
+      "name": "Sun (1) vs Venus (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.747288"
+    },
+    {
+      "test_id": "TC3_TKK_03",
+      "domain": "TAKKAR",
+      "name": "Sun (1) vs Rahu (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.748821"
+    },
+    {
+      "test_id": "TC3_TKK_04",
+      "domain": "TAKKAR",
+      "name": "Sun (1) vs Ketu (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.752965"
+    },
+    {
+      "test_id": "TC3_TKK_05",
+      "domain": "TAKKAR",
+      "name": "Moon (1) vs Rahu (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.756738"
+    },
+    {
+      "test_id": "TC3_TKK_06",
+      "domain": "TAKKAR",
+      "name": "Moon (1) vs Ketu (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.760648"
+    },
+    {
+      "test_id": "TC3_TKK_07",
+      "domain": "TAKKAR",
+      "name": "Mars (1) vs Mercury (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.762887"
+    },
+    {
+      "test_id": "TC3_TKK_08",
+      "domain": "TAKKAR",
+      "name": "Jupiter (1) vs Mercury (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.766314"
+    },
+    {
+      "test_id": "TC3_TKK_09",
+      "domain": "TAKKAR",
+      "name": "Jupiter (1) vs Venus (7)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.769625"
+    },
+    {
+      "test_id": "TC3_TKK_10",
+      "domain": "TAKKAR",
+      "name": "No Takkar: Sun (1) vs Mars (7)",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.773358"
+    },
+    {
+      "test_id": "TC3_TKK_11",
+      "domain": "TAKKAR",
+      "name": "No Takkar: Moon (1) vs Jupiter (7)",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.776880"
+    },
+    {
+      "test_id": "TC3_TKK_12",
+      "domain": "TAKKAR",
+      "name": "No Takkar: Mars (1) vs Jupiter (7)",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.779343"
+    },
+    {
+      "test_id": "TC3_TKK_13",
+      "domain": "TAKKAR",
+      "name": "No Takkar: Mercury (1) vs Saturn (7)",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.783047"
+    },
+    {
+      "test_id": "TC3_TKK_14",
+      "domain": "TAKKAR",
+      "name": "Takkar with dual planet",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.785612"
+    },
+    {
+      "test_id": "TC3_TKK_15",
+      "domain": "TAKKAR",
+      "name": "No Takkar: Non-opposing houses 1 & 6",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Verified per Safa 112 enemies table.",
+      "timestamp": "2026-11-08T14:23:31.789136"
+    },
+    {
+      "test_id": "TC3_DHK_01",
+      "domain": "DHOKA",
+      "name": "Sun in 10 casts Dhoka on H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.792210"
+    },
+    {
+      "test_id": "TC3_DHK_02",
+      "domain": "DHOKA",
+      "name": "Moon in 10 casts Dhoka on H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.795291"
+    },
+    {
+      "test_id": "TC3_DHK_03",
+      "domain": "DHOKA",
+      "name": "Mars in 10 casts Dhoka on H8",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.797351"
+    },
+    {
+      "test_id": "TC3_DHK_04",
+      "domain": "DHOKA",
+      "name": "Jupiter in 10 casts Dhoka on H8",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.800611"
+    },
+    {
+      "test_id": "TC3_DHK_05",
+      "domain": "DHOKA",
+      "name": "Venus in 10 casts Dhoka on H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.803641"
+    },
+    {
+      "test_id": "TC3_DHK_06",
+      "domain": "DHOKA",
+      "name": "Saturn in 10 casts Dhoka on H8",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.805792"
+    },
+    {
+      "test_id": "TC3_DHK_07",
+      "domain": "DHOKA",
+      "name": "Rahu in 10 casts Dhoka on H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.808067"
+    },
+    {
+      "test_id": "TC3_DHK_08",
+      "domain": "DHOKA",
+      "name": "Ketu in 10 casts Dhoka on H8",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.811175"
+    },
+    {
+      "test_id": "TC3_DHK_09",
+      "domain": "DHOKA",
+      "name": "Dual planets in 10 cast Dhoka on H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.812762"
+    },
+    {
+      "test_id": "TC3_DHK_10",
+      "domain": "DHOKA",
+      "name": "Dhoka strikes target in H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.815889"
+    },
+    {
+      "test_id": "TC3_DHK_11",
+      "domain": "DHOKA",
+      "name": "No Dhoka from H9",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.817952"
+    },
+    {
+      "test_id": "TC3_DHK_12",
+      "domain": "DHOKA",
+      "name": "No Dhoka from H11",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Dhoka Chot verified with 0% numerical ray.",
+      "timestamp": "2026-11-08T14:23:31.821793"
+    },
+    {
+      "test_id": "TC3_BUN_01",
+      "domain": "BUNIYADI",
+      "name": "Jupiter (5) supports Saturn (9)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.825007"
+    },
+    {
+      "test_id": "TC3_BUN_02",
+      "domain": "BUNIYADI",
+      "name": "Sun (5) supports Mars (9)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.827079"
+    },
+    {
+      "test_id": "TC3_BUN_03",
+      "domain": "BUNIYADI",
+      "name": "Mercury (5) supports Venus (9)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.829230"
+    },
+    {
+      "test_id": "TC3_BUN_04",
+      "domain": "BUNIYADI",
+      "name": "Moon (2) supports Sun (6)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.831297"
+    },
+    {
+      "test_id": "TC3_BUN_05",
+      "domain": "BUNIYADI",
+      "name": "Mars (2) supports Rahu (6)",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.834848"
+    },
+    {
+      "test_id": "TC3_BUN_06",
+      "domain": "BUNIYADI",
+      "name": "No Buniyadi: House 5 is empty",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.838959"
+    },
+    {
+      "test_id": "TC3_BUN_07",
+      "domain": "BUNIYADI",
+      "name": "No Buniyadi: House 2 is empty",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.841042"
+    },
+    {
+      "test_id": "TC3_BUN_08",
+      "domain": "BUNIYADI",
+      "name": "Asymmetric: 9 cannot back 5",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.843831"
+    },
+    {
+      "test_id": "TC3_BUN_09",
+      "domain": "BUNIYADI",
+      "name": "Asymmetric: 6 cannot back 2",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.845945"
+    },
+    {
+      "test_id": "TC3_BUN_10",
+      "domain": "BUNIYADI",
+      "name": "Non-Buniyadi: 4 -> 8 is Aadhi, not Buniyadi",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Safa 112: Buniyadi Deewar verified.",
+      "timestamp": "2026-11-08T14:23:31.849036"
+    },
+    {
+      "test_id": "TC3_MSN_01",
+      "domain": "MASNOOI",
+      "name": "Masnooi Ketu in H4",
+      "status": "PASS",
+      "expected": "KETU",
+      "actual": "KETU",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.852609"
+    },
+    {
+      "test_id": "TC3_MSN_02",
+      "domain": "MASNOOI",
+      "name": "Masnooi Ketu in H12",
+      "status": "PASS",
+      "expected": "KETU",
+      "actual": "KETU",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.855819"
+    },
+    {
+      "test_id": "TC3_MSN_03",
+      "domain": "MASNOOI",
+      "name": "Masnooi Mangal Bad in H1",
+      "status": "PASS",
+      "expected": "MANGAL_BAD",
+      "actual": "MANGAL_BAD",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.857090"
+    },
+    {
+      "test_id": "TC3_MSN_04",
+      "domain": "MASNOOI",
+      "name": "Masnooi Mangal Bad in H10",
+      "status": "PASS",
+      "expected": "MANGAL_BAD",
+      "actual": "MANGAL_BAD",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.859375"
+    },
+    {
+      "test_id": "TC3_MSN_05",
+      "domain": "MASNOOI",
+      "name": "Masnooi Mangal Nek in H1",
+      "status": "PASS",
+      "expected": "MANGAL_NEK",
+      "actual": "MANGAL_NEK",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.861531"
+    },
+    {
+      "test_id": "TC3_MSN_06",
+      "domain": "MASNOOI",
+      "name": "Masnooi Mangal Nek in H11",
+      "status": "PASS",
+      "expected": "MANGAL_NEK",
+      "actual": "MANGAL_NEK",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.864089"
+    },
+    {
+      "test_id": "TC3_MSN_07",
+      "domain": "MASNOOI",
+      "name": "Masnooi Sun in H1",
+      "status": "PASS",
+      "expected": "SUN",
+      "actual": "SUN",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.867235"
+    },
+    {
+      "test_id": "TC3_MSN_08",
+      "domain": "MASNOOI",
+      "name": "Masnooi Sun in H4",
+      "status": "PASS",
+      "expected": "SUN",
+      "actual": "SUN",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.870642"
+    },
+    {
+      "test_id": "TC3_MSN_09",
+      "domain": "MASNOOI",
+      "name": "Masnooi Rahu in H4",
+      "status": "PASS",
+      "expected": "RAHU",
+      "actual": "RAHU",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.874469"
+    },
+    {
+      "test_id": "TC3_MSN_10",
+      "domain": "MASNOOI",
+      "name": "Masnooi Rahu in H6",
+      "status": "PASS",
+      "expected": "RAHU",
+      "actual": "RAHU",
+      "rationale": "Safa 164-166 synthetic pair verified.",
+      "timestamp": "2026-11-08T14:23:31.877050"
+    },
+    {
+      "test_id": "TC3_MSN_11",
+      "domain": "MASNOOI",
+      "name": "Triple Conjunction H1 Dual Masnooi",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Dual synthetic entities formed simultaneously.",
+      "timestamp": "2026-11-08T14:23:31.879113"
+    },
+    {
+      "test_id": "TC3_MSN_12",
+      "domain": "MASNOOI",
+      "name": "Triple Conjunction H5 Dual Masnooi",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Both Nek and Bad Mars generated.",
+      "timestamp": "2026-11-08T14:23:31.883267"
+    },
+    {
+      "test_id": "TC3_MSN_13",
+      "domain": "MASNOOI",
+      "name": "Triple Conjunction H7 Sun Generation",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Mercury + Venus forms Sun in presence of natal Sun.",
+      "timestamp": "2026-11-08T14:23:31.886567"
+    },
+    {
+      "test_id": "TC3_MSN_14",
+      "domain": "MASNOOI",
+      "name": "Moon + Saturn Incompatible",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0,
+      "rationale": "No synthetic entity defined for Moon + Saturn.",
+      "timestamp": "2026-11-08T14:23:31.889675"
+    },
+    {
+      "test_id": "TC3_MSN_15",
+      "domain": "MASNOOI",
+      "name": "Rahu + Ketu Incompatible",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0,
+      "rationale": "Nodes together form no synthetic entity.",
+      "timestamp": "2026-11-08T14:23:31.892218"
+    },
+    {
+      "test_id": "TC3_SLP_01",
+      "domain": "DORMANCY",
+      "name": "Sleeping House 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Empty and receives 0% ray.",
+      "timestamp": "2026-11-08T14:23:31.895829"
+    },
+    {
+      "test_id": "TC3_SLP_02",
+      "domain": "DORMANCY",
+      "name": "Awake House 7 via 100% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Receives 100% Kamal aspect.",
+      "timestamp": "2026-11-08T14:23:31.899505"
+    },
+    {
+      "test_id": "TC3_SLP_03",
+      "domain": "DORMANCY",
+      "name": "Sleeping House 2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Receives 0% ray from 1 & 7.",
+      "timestamp": "2026-11-08T14:23:31.903939"
+    },
+    {
+      "test_id": "TC3_SLP_04",
+      "domain": "DORMANCY",
+      "name": "Awake House 8 via 50% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Activated by 50% ray.",
+      "timestamp": "2026-11-08T14:23:31.907411"
+    },
+    {
+      "test_id": "TC3_SLP_05",
+      "domain": "DORMANCY",
+      "name": "Awake House 11 via 50% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Activated by 50% ray.",
+      "timestamp": "2026-11-08T14:23:31.909497"
+    },
+    {
+      "test_id": "TC3_SLP_06",
+      "domain": "DORMANCY",
+      "name": "Awake House 9 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Activated by 25% ray.",
+      "timestamp": "2026-11-08T14:23:31.912645"
+    },
+    {
+      "test_id": "TC3_SLP_07",
+      "domain": "DORMANCY",
+      "name": "Awake House 6 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Activated by 25% ray.",
+      "timestamp": "2026-11-08T14:23:31.916217"
+    },
+    {
+      "test_id": "TC3_SLP_08",
+      "domain": "DORMANCY",
+      "name": "Awake House 12 via 25% ray",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Activated by 25% ray.",
+      "timestamp": "2026-11-08T14:23:31.919577"
+    },
+    {
+      "test_id": "TC3_SLP_09",
+      "domain": "DORMANCY",
+      "name": "Occupied House 1 Awake",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Occupied houses are never dormant.",
+      "timestamp": "2026-11-08T14:23:31.924883"
+    },
+    {
+      "test_id": "TC3_SLP_10",
+      "domain": "DORMANCY",
+      "name": "Sleeping Planet Moon in H2",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Opposite house empty.",
+      "timestamp": "2026-11-08T14:23:31.926945"
+    },
+    {
+      "test_id": "TC3_SLP_11",
+      "domain": "DORMANCY",
+      "name": "Sleeping Planet Jupiter in H5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Opposite house empty.",
+      "timestamp": "2026-11-08T14:23:31.930065"
+    },
+    {
+      "test_id": "TC3_SLP_12",
+      "domain": "DORMANCY",
+      "name": "Sleeping Planet Saturn in H10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Opposite house empty.",
+      "timestamp": "2026-11-08T14:23:31.933153"
+    },
+    {
+      "test_id": "TC3_SLP_13",
+      "domain": "DORMANCY",
+      "name": "Awake Planet Moon in H2",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Opposite house occupied.",
+      "timestamp": "2026-11-08T14:23:31.937082"
+    },
+    {
+      "test_id": "TC3_SLP_14",
+      "domain": "DORMANCY",
+      "name": "Awake Planet Jupiter in H5",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Opposite house occupied.",
+      "timestamp": "2026-11-08T14:23:31.939252"
+    },
+    {
+      "test_id": "TC3_SLP_15",
+      "domain": "DORMANCY",
+      "name": "Awake Planet Saturn in H10",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Opposite house occupied.",
+      "timestamp": "2026-11-08T14:23:31.943403"
+    },
+    {
+      "test_id": "TC3_SLP_16",
+      "domain": "DORMANCY",
+      "name": "Both H1 Planets Sleeping",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Both lack opposing stimulus.",
+      "timestamp": "2026-11-08T14:23:31.944961"
+    },
+    {
+      "test_id": "TC3_GNB_01",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Sun in House 1 Exalted Throne Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.947055"
+    },
+    {
+      "test_id": "TC3_GNB_02",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Sun in House 7 Debilitated Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.950407"
+    },
+    {
+      "test_id": "TC3_GNB_03",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Moon in House 4 Amrit Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.952451"
+    },
+    {
+      "test_id": "TC3_GNB_04",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Moon in House 6 Water in cellar Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.956127"
+    },
+    {
+      "test_id": "TC3_GNB_05",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Mars in House 3 Sher Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.958512"
+    },
+    {
+      "test_id": "TC3_GNB_06",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Mars in House 4 Mangal Bad",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.960624"
+    },
+    {
+      "test_id": "TC3_GNB_07",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Mercury in House 7 Good trader Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.961654"
+    },
+    {
+      "test_id": "TC3_GNB_08",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Mercury in House 12 Empty pocket Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.963756"
+    },
+    {
+      "test_id": "TC3_GNB_09",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Jupiter in House 2 Dharma guru Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.965281"
+    },
+    {
+      "test_id": "TC3_GNB_10",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Jupiter in House 10 Manda without Moon",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.968421"
+    },
+    {
+      "test_id": "TC3_GNB_11",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Venus in House 6 Broken pot Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.970565"
+    },
+    {
+      "test_id": "TC3_GNB_12",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Saturn in House 2 Vault keeper Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.972641"
+    },
+    {
+      "test_id": "TC3_GNB_13",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Saturn in House 1 Poisonous serpent Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.975440"
+    },
+    {
+      "test_id": "TC3_GNB_14",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Rahu in House 5 Eclipse of progeny Manda",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.977543"
+    },
+    {
+      "test_id": "TC3_GNB_15",
+      "domain": "GRAH_NEK_BAD",
+      "name": "Ketu in House 12 Spiritual salvation Nek",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 6 classical quality verified.",
+      "timestamp": "2026-11-08T14:23:31.979607"
+    },
+    {
+      "test_id": "TC3_UPY_01",
+      "domain": "UPAYA",
+      "name": "Daytime remedy between sunrise and sunset permitted",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.981670"
+    },
+    {
+      "test_id": "TC3_UPY_02",
+      "domain": "UPAYA",
+      "name": "Night remedy strictly prohibited",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.983939"
+    },
+    {
+      "test_id": "TC3_UPY_03",
+      "domain": "UPAYA",
+      "name": "Sun in 10 prohibition of copper donation",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.985944"
+    },
+    {
+      "test_id": "TC3_UPY_04",
+      "domain": "UPAYA",
+      "name": "Jupiter in 10 prohibition of home temple",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.988958"
+    },
+    {
+      "test_id": "TC3_UPY_05",
+      "domain": "UPAYA",
+      "name": "Moon in 6 prohibition of digging water wells",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.992088"
+    },
+    {
+      "test_id": "TC3_UPY_06",
+      "domain": "UPAYA",
+      "name": "Saturn in 8 prohibition of building dark room in rear",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.994268"
+    },
+    {
+      "test_id": "TC3_UPY_07",
+      "domain": "UPAYA",
+      "name": "Venus in 9 prohibition of accepting free gifts",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.996286"
+    },
+    {
+      "test_id": "TC3_UPY_08",
+      "domain": "UPAYA",
+      "name": "Mangal Bad remedy sweet tandoori bread into river",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:31.998353"
+    },
+    {
+      "test_id": "TC3_UPY_09",
+      "domain": "UPAYA",
+      "name": "Rahu remedy coal or barley in running river",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.000485"
+    },
+    {
+      "test_id": "TC3_UPY_10",
+      "domain": "UPAYA",
+      "name": "Ketu remedy feeding black-and-white dog",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.004213"
+    },
+    {
+      "test_id": "TC3_UPY_11",
+      "domain": "UPAYA",
+      "name": "Saturn Chhaya Daan in mustard oil",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.006788"
+    },
+    {
+      "test_id": "TC3_UPY_12",
+      "domain": "UPAYA",
+      "name": "Andha Teva feeding 10 blind persons on 1 day",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.008859"
+    },
+    {
+      "test_id": "TC3_UPY_13",
+      "domain": "UPAYA",
+      "name": "Venus in 8 burying blue flower in desolate place",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.011138"
+    },
+    {
+      "test_id": "TC3_UPY_14",
+      "domain": "UPAYA",
+      "name": "Moon afflicted keeping solid square silver piece",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.014389"
+    },
+    {
+      "test_id": "TC3_UPY_15",
+      "domain": "UPAYA",
+      "name": "Continuous 43-day duration mandate",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Farman 9 ethical protocol verified.",
+      "timestamp": "2026-11-08T14:23:32.016936"
+    },
+    {
+      "test_id": "TC3_TEV_01",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Saturn in 11 alone",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 227: 11 शनि.",
+      "timestamp": "2026-11-08T14:23:32.022220"
+    },
+    {
+      "test_id": "TC3_TEV_02",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Saturn in 11 with Rahu",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Unconditional 11 शनि.",
+      "timestamp": "2026-11-08T14:23:32.025377"
+    },
+    {
+      "test_id": "TC3_TEV_03",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Jupiter in 7",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 227: सात गुरू.",
+      "timestamp": "2026-11-08T14:23:32.027893"
+    },
+    {
+      "test_id": "TC3_TEV_04",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Jupiter in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Jupiter in 10 confers Dharmi.",
+      "timestamp": "2026-11-08T14:23:32.029932"
+    },
+    {
+      "test_id": "TC3_TEV_05",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Moon in 4 with Saturn",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 227: पाप चंद्र चौथे.",
+      "timestamp": "2026-11-08T14:23:32.034097"
+    },
+    {
+      "test_id": "TC3_TEV_06",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Dharmi Moon in 10 with Rahu",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 227: पाप चंद्र 10.",
+      "timestamp": "2026-11-08T14:23:32.037679"
+    },
+    {
+      "test_id": "TC3_TEV_07",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Andha Sun + Saturn in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 226: शत्रु बाहम 10.",
+      "timestamp": "2026-11-08T14:23:32.041016"
+    },
+    {
+      "test_id": "TC3_TEV_08",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Andha Mars + Mercury in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Mars & Mercury hostile in 10.",
+      "timestamp": "2026-11-08T14:23:32.044115"
+    },
+    {
+      "test_id": "TC3_TEV_09",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Andha Sun + Rahu in 10",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Sun & Rahu hostile in 10.",
+      "timestamp": "2026-11-08T14:23:32.047703"
+    },
+    {
+      "test_id": "TC3_TEV_10",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Ratandh Sun in 7",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Sun in 7th.",
+      "timestamp": "2026-11-08T14:23:32.051673"
+    },
+    {
+      "test_id": "TC3_TEV_11",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Ratandh Saturn 7 Sun 4",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 226: सात शनि सुरज चौथे.",
+      "timestamp": "2026-11-08T14:23:32.054291"
+    },
+    {
+      "test_id": "TC3_TEV_12",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Age 11",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Age < 12.",
+      "timestamp": "2026-11-08T14:23:32.057499"
+    },
+    {
+      "test_id": "TC3_TEV_13",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Empty Fist",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Kendra houses all empty.",
+      "timestamp": "2026-11-08T14:23:32.060599"
+    },
+    {
+      "test_id": "TC3_TEV_14",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Nabaligh Budh Paapi",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Mercury conjunct Saturn.",
+      "timestamp": "2026-11-08T14:23:32.062658"
+    },
+    {
+      "test_id": "TC3_TEV_15",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Baligh Mercury 6 Sun 1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 226: बुध छठे रवि 1.",
+      "timestamp": "2026-11-08T14:23:32.066039"
+    },
+    {
+      "test_id": "TC3_TEV_16",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Baligh Mercury 6 Sun 5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 226: बुध छठे रवि 5.",
+      "timestamp": "2026-11-08T14:23:32.069638"
+    },
+    {
+      "test_id": "TC3_TEV_17",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Baligh Mercury 6 Sun 11",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Safa 226: बुध छठे रवि 11.",
+      "timestamp": "2026-11-08T14:23:32.071895"
+    },
+    {
+      "test_id": "TC3_TEV_18",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Conflicting Dharmi + Andha",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Both classifications co-exist without collision.",
+      "timestamp": "2026-11-08T14:23:32.075084"
+    },
+    {
+      "test_id": "TC3_TEV_19",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Conflicting Dharmi + Ratandh",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Both classifications co-exist without collision.",
+      "timestamp": "2026-11-08T14:23:32.078623"
+    },
+    {
+      "test_id": "TC3_TEV_20",
+      "domain": "TEVA_CLASSIFICATION",
+      "name": "Conflicting Dharmi + Nabaligh",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Both classifications co-exist without collision.",
+      "timestamp": "2026-11-08T14:23:32.081843"
+    },
+    {
+      "test_id": "TC3_VAR_01",
+      "domain": "VARSHPHAL",
+      "name": "Age 0 Newborn Boundary Rejects Varshphal",
+      "status": "PASS",
+      "expected": "ArgumentError",
+      "actual": "ArgumentError",
+      "rationale": "Farman 13 Safa 217 defines Varshaphala starting at year 1 (positive completed years); age 0 is Janma Kundli only.",
+      "timestamp": "2026-11-08T14:23:32.087471"
+    },
+    {
+      "test_id": "TC3_VAR_02",
+      "domain": "VARSHPHAL",
+      "name": "Age 1 First Year Shift",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "rationale": "1 % 3 = 1.",
+      "timestamp": "2026-11-08T14:23:32.090127"
+    },
+    {
+      "test_id": "TC3_VAR_03",
+      "domain": "VARSHPHAL",
+      "name": "Age 12 Remainder 0 Defaults to Natal",
+      "status": "PASS",
+      "expected": 3,
+      "actual": 3,
+      "rationale": "12 % 3 = 0.",
+      "timestamp": "2026-11-08T14:23:32.093739"
+    },
+    {
+      "test_id": "TC3_VAR_04",
+      "domain": "VARSHPHAL",
+      "name": "Age 25: 25 % 3 = 1",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "rationale": "Shift confirmed by Safa 217 example.",
+      "timestamp": "2026-11-08T14:23:32.096936"
+    },
+    {
+      "test_id": "TC3_VAR_05",
+      "domain": "VARSHPHAL",
+      "name": "Age 25: 25 % 5 = 0 -> 5",
+      "status": "PASS",
+      "expected": 5,
+      "actual": 5,
+      "rationale": "Remainder 0 keeps planet in natal house.",
+      "timestamp": "2026-11-08T14:23:32.097945"
+    },
+    {
+      "test_id": "TC3_VAR_06",
+      "domain": "VARSHPHAL",
+      "name": "Empty Natal Fallback",
+      "status": "PASS",
+      "expected": 5,
+      "actual": 5,
+      "rationale": "Target house empty in natal defaults to natal.",
+      "timestamp": "2026-11-08T14:23:32.103223"
+    },
+    {
+      "test_id": "TC3_VAR_07",
+      "domain": "VARSHPHAL",
+      "name": "Age 36: 36 % 6 = 0 -> 6",
+      "status": "PASS",
+      "expected": 6,
+      "actual": 6,
+      "rationale": "36 % 6 = 0.",
+      "timestamp": "2026-11-08T14:23:32.107620"
+    },
+    {
+      "test_id": "TC3_VAR_08",
+      "domain": "VARSHPHAL",
+      "name": "Age 60 Mid-Cycle Boundary",
+      "status": "PASS",
+      "expected": 2,
+      "actual": 2,
+      "rationale": "60 % 2 = 0.",
+      "timestamp": "2026-11-08T14:23:32.110447"
+    },
+    {
+      "test_id": "TC3_VAR_09",
+      "domain": "VARSHPHAL",
+      "name": "Age 119 Penultimate Year",
+      "status": "PASS",
+      "expected": 4,
+      "actual": 4,
+      "rationale": "Remainder 3 empty defaults to 4.",
+      "timestamp": "2026-11-08T14:23:32.112681"
+    },
+    {
+      "test_id": "TC3_VAR_10",
+      "domain": "VARSHPHAL",
+      "name": "Age 120 Cycle Completion",
+      "status": "PASS",
+      "expected": 4,
+      "actual": 4,
+      "rationale": "120 % 4 = 0.",
+      "timestamp": "2026-11-08T14:23:32.116377"
+    },
+    {
+      "test_id": "TC3_VAR_11",
+      "domain": "VARSHPHAL",
+      "name": "Age 121 Cycle Rollover",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "rationale": "121 % 3 = 1.",
+      "timestamp": "2026-11-08T14:23:32.119589"
+    },
+    {
+      "test_id": "TC3_VAR_12",
+      "domain": "VARSHPHAL",
+      "name": "Fixed Aries Lagna Preserved",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Annual chart maintains fixed Aries lagna.",
+      "timestamp": "2026-11-08T14:23:32.124998"
+    },
+    {
+      "test_id": "TC3_VAR_13",
+      "domain": "VARSHPHAL",
+      "name": "Multi-Planet Annual Collision",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Multiple planets in same annual house valid.",
+      "timestamp": "2026-11-08T14:23:32.127682"
+    },
+    {
+      "test_id": "TC3_VAR_14",
+      "domain": "VARSHPHAL",
+      "name": "Full 9-Planet Annual Shift",
+      "status": "PASS",
+      "expected": 9,
+      "actual": 9,
+      "rationale": "All 9 planets shifted successfully.",
+      "timestamp": "2026-11-08T14:23:32.129716"
+    },
+    {
+      "test_id": "TC3_VAR_15",
+      "domain": "VARSHPHAL",
+      "name": "Age 75 Sun in 1",
+      "status": "PASS",
+      "expected": 1,
+      "actual": 1,
+      "rationale": "75 % 1 = 0.",
+      "timestamp": "2026-11-08T14:23:32.133226"
+    },
+    {
+      "test_id": "TC3_BND_01",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject House 0",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "House 0 is invalid.",
+      "timestamp": "2026-11-08T14:23:32.137483"
+    },
+    {
+      "test_id": "TC3_BND_02",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject House 13",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "House 13 is invalid.",
+      "timestamp": "2026-11-08T14:23:32.140165"
+    },
+    {
+      "test_id": "TC3_BND_03",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject House -1",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "House -1 is invalid.",
+      "timestamp": "2026-11-08T14:23:32.141163"
+    },
+    {
+      "test_id": "TC3_BND_04",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject House 100",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "House 100 is invalid.",
+      "timestamp": "2026-11-08T14:23:32.144650"
+    },
+    {
+      "test_id": "TC3_BND_05",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject Negative Age -1",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Age cannot be negative.",
+      "timestamp": "2026-11-08T14:23:32.146906"
+    },
+    {
+      "test_id": "TC3_BND_06",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Reject Negative Age -100",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "Age cannot be negative.",
+      "timestamp": "2026-11-08T14:23:32.150215"
+    },
+    {
+      "test_id": "TC3_BND_07",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Null Age Allowed for Natal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "rationale": "Natal chart does not require age.",
+      "timestamp": "2026-11-08T14:23:32.153288"
+    },
+    {
+      "test_id": "TC3_BND_08",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Composite Multi-Planet Aspect Vector Sum",
+      "status": "UNRESOLVED",
+      "expected": "UNRESOLVED",
+      "actual": "UNRESOLVED",
+      "rationale": "Farman 8, Safa 113 provides pairwise fractions but no aggregate vector formula. Marked UNRESOLVED.",
+      "timestamp": "2026-11-08T14:23:32.156582"
+    },
+    {
+      "test_id": "TC3_BND_09",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Modern Metric Gram Weights for Upaya Articles",
+      "status": "UNRESOLVED",
+      "expected": "UNRESOLVED",
+      "actual": "UNRESOLVED",
+      "rationale": "Farman 9 specifies physical articles (e.g. piece of silver) without modern ISO grams. Marked UNRESOLVED.",
+      "timestamp": "2026-11-08T14:23:32.158635"
+    },
+    {
+      "test_id": "TC3_BND_10",
+      "domain": "BOUNDARY_AND_UNRESOLVED",
+      "name": "Production Guard Strict Enforcement",
+      "status": "PASS",
+      "expected": false,
+      "actual": false,
+      "rationale": "LalKitabEngine.isSupported remains hardcoded to false.",
+      "timestamp": "2026-11-08T14:23:32.160730"
+    }
+  ]
+}

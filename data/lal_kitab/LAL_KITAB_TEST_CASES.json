@@ -1,0 +1,274 @@
+[
+  {
+    "case_id": "TC_LK_01_ALL_HOUSES_PLACEMENT",
+    "name": "Every House Placement and Boundary Check",
+    "inputs": {
+      "planets": {
+        "sun": 1,
+        "jupiter": 2,
+        "mars": 3,
+        "moon": 4,
+        "mercury": 5,
+        "ketu": 6,
+        "venus": 7,
+        "saturn": 8,
+        "rahu": 9
+      },
+      "age_years": 25
+    },
+    "target_engine": "LalKitabChart",
+    "expected": {
+      "isValid": true,
+      "occupiedCount": 9,
+      "emptyHouses": [
+        10,
+        11,
+        12
+      ]
+    },
+    "source_rule_id": "LK1952_F05_FIXED_HOUSES",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_02_DRISHTI_PERCENTAGES",
+    "name": "Standard Directional Drishti Percentages (100%, 50%, 25%, 0%)",
+    "inputs": {
+      "pairs": [
+        {
+          "from": 1,
+          "to": 7,
+          "expected_pct": 100.0
+        },
+        {
+          "from": 7,
+          "to": 1,
+          "expected_pct": 100.0
+        },
+        {
+          "from": 4,
+          "to": 8,
+          "expected_pct": 50.0
+        },
+        {
+          "from": 8,
+          "to": 4,
+          "expected_pct": 0.0
+        },
+        {
+          "from": 3,
+          "to": 11,
+          "expected_pct": 50.0
+        },
+        {
+          "from": 11,
+          "to": 3,
+          "expected_pct": 0.0
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "expected_pct": 25.0
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "expected_pct": 25.0
+        },
+        {
+          "from": 6,
+          "to": 12,
+          "expected_pct": 25.0
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "expected_pct": 0.0
+        }
+      ]
+    },
+    "target_engine": "LalKitabAspectCalculator",
+    "expected": "All percentages strictly conform to Farman 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_FULL_1_7",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_03_TAKKAR_DHOKA_BUNIYAD",
+    "name": "Takkar, Dhoka and Buniyadi Aspects Detection",
+    "inputs": {
+      "planets": {
+        "sun": 1,
+        "saturn": 7,
+        "mars": 10,
+        "mercury": 2,
+        "jupiter": 5,
+        "moon": 9
+      }
+    },
+    "target_engine": "LalKitabAspectCalculator",
+    "expected": {
+      "kamal_1_7": true,
+      "takkar_sun_saturn": true,
+      "dhoka_mars10_mercury2": true,
+      "buniyadi_jupiter5_moon9": true
+    },
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_04_MASNOOI_ALL_COMBINATIONS",
+    "name": "All 5 Canonical Masnooi Synthetic Planet Formations",
+    "inputs": {
+      "combinations": [
+        {
+          "component1": "sun",
+          "component2": "venus",
+          "house": 1,
+          "expected": "KETU"
+        },
+        {
+          "component1": "sun",
+          "component2": "saturn",
+          "house": 3,
+          "expected": "MANGAL_BAD"
+        },
+        {
+          "component1": "sun",
+          "component2": "jupiter",
+          "house": 5,
+          "expected": "MANGAL_NEK"
+        },
+        {
+          "component1": "mercury",
+          "component2": "venus",
+          "house": 7,
+          "expected": "SUN"
+        },
+        {
+          "component1": "mars",
+          "component2": "saturn",
+          "house": 12,
+          "expected": "RAHU"
+        }
+      ]
+    },
+    "target_engine": "LalKitabMasnooiCalculator",
+    "expected": "All 5 synthetic entities accurately produced",
+    "source_rule_id": "LK1952_F06_MASNOOI_PLANETS",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_05_DORMANCY_ANALYSIS",
+    "name": "Sleeping House and Sleeping Planet Conditions",
+    "inputs": {
+      "planets": {
+        "sun": 1,
+        "jupiter": 2,
+        "mars": 3,
+        "moon": 4,
+        "mercury": 5
+      }
+    },
+    "target_engine": "LalKitabDormancyCalculator",
+    "expected": {
+      "sleepingHouses": [
+        10,
+        12
+      ],
+      "activeHouses": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ]
+    },
+    "source_rule_id": "LK1952_F06_SOYE_HUE_GHAR",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_06_TEVA_CLASSIFICATION",
+    "name": "Dharmi, Andha, Ratandh, and Nabaligh Teva Checks",
+    "inputs": {
+      "cases": [
+        {
+          "chart": {
+            "jupiter": 10,
+            "sun": 1
+          },
+          "age": 30,
+          "expected_type": "DHARMI"
+        },
+        {
+          "chart": {
+            "sun": 10,
+            "saturn": 10
+          },
+          "age": 35,
+          "expected_type": "ANDHA"
+        },
+        {
+          "chart": {
+            "sun": 7
+          },
+          "age": 28,
+          "expected_type": "RATANDH"
+        },
+        {
+          "chart": {
+            "sun": 1
+          },
+          "age": 8,
+          "expected_type": "NABALIGH"
+        }
+      ]
+    },
+    "target_engine": "LalKitabTevaClassifier",
+    "expected": "All special tevas accurately flagged with source remedies",
+    "source_rule_id": "LK1952_F14_TEVA_DHARMI",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_07_VARSHPHAL_WORKED_EXAMPLE",
+    "name": "Farman 13 Safa 217 Worked Example (Age 25 Moon in 3)",
+    "inputs": {
+      "natal": {
+        "sun": 1,
+        "moon": 3,
+        "jupiter": 5
+      },
+      "age": 25
+    },
+    "target_engine": "LalKitabVarshphalCalculator",
+    "expected": {
+      "moon_annual": 1,
+      "moon_formula": "25 % 3 = 1",
+      "jupiter_annual": 5,
+      "jupiter_formula": "25 % 5 = 0 -> default to 5"
+    },
+    "source_rule_id": "LK1952_F13_VARSHPHAL_120_CYCLE",
+    "audit_result": "PASS"
+  },
+  {
+    "case_id": "TC_LK_08_VARSHPHAL_EMPTY_REMAINDER",
+    "name": "Varshaphala Edge Case: Empty Remainder House Defaults to Natal",
+    "inputs": {
+      "natal": {
+        "moon": 3,
+        "jupiter": 5
+      },
+      "age": 26
+    },
+    "target_engine": "LalKitabVarshphalCalculator",
+    "expected": {
+      "jupiter_annual": 5,
+      "defaultedToNatal": true
+    },
+    "source_rule_id": "LK1952_F13_VARSHPHAL_120_CYCLE",
+    "audit_result": "PASS"
+  }
+]

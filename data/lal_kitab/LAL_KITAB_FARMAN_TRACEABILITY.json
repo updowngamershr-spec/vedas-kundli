@@ -1,0 +1,221 @@
+{
+  "total_farmans": 14,
+  "source_edition": "Lal Kitab 1952 Grammar Portion (Safa 1 to 234)",
+  "digitized_pages": 241,
+  "farmans": [
+    {
+      "farman_number": 1,
+      "title": "कुण्डली बनाने का असूल व नेकी असूल",
+      "title_en": "Foundational Ethics & Chart Basics",
+      "safa_range": "12",
+      "pdf_pages": "15",
+      "audit_status": "TEXT_AUDITED",
+      "verified_rules": [
+        "LK1952_F01_GENERAL_DISCIPLINE"
+      ],
+      "description": "Lays down ethical foundation: truthfulness, honoring commitments, and good conduct as first remedies.",
+      "unresolved_aspects": "Predictive house fruit reserved for subsequent volumes."
+    },
+    {
+      "farman_number": 2,
+      "title": "ग्रह की ताक़त, मुतअल्लिका दरख्त व असर",
+      "title_en": "Planetary Strength Tree & Natural Qualities",
+      "safa_range": "13 - 15",
+      "pdf_pages": "16 - 18",
+      "audit_status": "TEXT_AUDITED",
+      "verified_rules": [
+        "LK1952_F02_PLANETARY_TREES"
+      ],
+      "description": "Describes qualitative trees (darakht) associated with each planet and basic inherent strength.",
+      "unresolved_aspects": "Modern numerical Shadbala comparison marked UNRESOLVED."
+    },
+    {
+      "farman_number": 3,
+      "title": "ग्रह फल बनाम राशि फल के भेद",
+      "title_en": "Planetary Fruit vs Sign Fruit",
+      "safa_range": "16 - 17",
+      "pdf_pages": "19 - 20",
+      "audit_status": "TEXT_AUDITED",
+      "verified_rules": [
+        "LK1952_F03_GRAH_VS_RASHI"
+      ],
+      "description": "Distinguishes between unalterable fate (Grah Phal) and alterable fate (Rashi Phal amenable to remedies).",
+      "unresolved_aspects": "None."
+    },
+    {
+      "farman_number": 4,
+      "title": "कायम ग्रह, नेक-बद व मुश्तर्का असर",
+      "title_en": "Standing Planets & Benefic/Malefic Dignity",
+      "safa_range": "18 - 20",
+      "pdf_pages": "21 - 23",
+      "audit_status": "TEXT_AUDITED",
+      "verified_rules": [
+        "LK1952_F04_KAYAM_GRAH"
+      ],
+      "description": "Defines standing planets (Kayam Grah) that deliver their natural fruit undisturbed by co-occupants.",
+      "unresolved_aspects": "Exact numeric strength coefficients UNRESOLVED."
+    },
+    {
+      "farman_number": 5,
+      "title": "कालपुरुष मेष लग्न व 12 भाव स्वरूप",
+      "title_en": "Fixed Aries Kalpurusha Lagna & House Foundations",
+      "safa_range": "24 - 26",
+      "pdf_pages": "25 - 27",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F05_FIXED_ARIES_LAGNA"
+      ],
+      "description": "Mandates that Lal Kitab charts are permanently anchored to House 1 as Aries, disregarding Parashari rising sign.",
+      "unresolved_aspects": "None. Fully implemented."
+    },
+    {
+      "farman_number": 6,
+      "title": "मस्नूई ग्रह (कृत्रिम) व प्रसुप्त घर/ग्रह (सोए हुए)",
+      "title_en": "Synthetic Planets & Dormancy Analysis",
+      "safa_range": "27 - 55",
+      "pdf_pages": "28 - 58",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F06_MASNOOI_SUN",
+        "LK1952_F06_MASNOOI_MANGAL_NEK",
+        "LK1952_F06_MASNOOI_MANGAL_BAD",
+        "LK1952_F06_MASNOOI_RAHU",
+        "LK1952_F06_MASNOOI_KETU",
+        "LK1952_F06_SOYE_HUE_GHAR",
+        "LK1952_F06_SOYE_HUE_GRAH"
+      ],
+      "description": "All 5 canonical synthetic pairs and dormancy mechanics (vacant + 0% rays, opposite 7th house empty).",
+      "unresolved_aspects": "Multi-planet triple conjunction synthetic synthesis marked UNRESOLVED."
+    },
+    {
+      "farman_number": 7,
+      "title": "12 पक्के घर के स्थायी ग्रह स्वामी",
+      "title_en": "12 Permanent Pakka Ghar Sovereigns",
+      "safa_range": "56 - 101",
+      "pdf_pages": "59 - 102",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F07_PAKKA_GHAR_01",
+        "LK1952_F07_PAKKA_GHAR_02",
+        "LK1952_F07_PAKKA_GHAR_03",
+        "LK1952_F07_PAKKA_GHAR_04",
+        "LK1952_F07_PAKKA_GHAR_05",
+        "LK1952_F07_PAKKA_GHAR_06",
+        "LK1952_F07_PAKKA_GHAR_07",
+        "LK1952_F07_PAKKA_GHAR_08",
+        "LK1952_F07_PAKKA_GHAR_09",
+        "LK1952_F07_PAKKA_GHAR_10",
+        "LK1952_F07_PAKKA_GHAR_11",
+        "LK1952_F07_PAKKA_GHAR_12"
+      ],
+      "description": "Defines permanent lords for all 12 houses (e.g. H1: Sun/Mars, H2: Jup, H4: Moon, H10: Sat).",
+      "unresolved_aspects": "None. Fully implemented."
+    },
+    {
+      "farman_number": 8,
+      "title": "दृष्टि नियम: 100%, 50%, 25%, टक्कर, धोखा, बुनियाद",
+      "title_en": "Aspect Rays, Collisions, Deceit Strikes & Foundations",
+      "safa_range": "101 - 149",
+      "pdf_pages": "103 - 152",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F08_DRISHTI_FULL_1_7",
+        "LK1952_F08_DRISHTI_HALF_4_8",
+        "LK1952_F08_DRISHTI_HALF_3_11",
+        "LK1952_F08_DRISHTI_QUARTER_5_9",
+        "LK1952_F08_DRISHTI_TAKKAR",
+        "LK1952_F08_DRISHTI_DHOKA",
+        "LK1952_F08_DRISHTI_BUNIYAD"
+      ],
+      "description": "Asymmetrical directional sights: 1<->7 (100%), 4->8 & 3->11 (50%), 5->9 & 2->6 (25%), Takkar, Dhoka (10->2/8), Buniyadi (5->9).",
+      "unresolved_aspects": "Multi-planet aspect vector summation marked UNRESOLVED."
+    },
+    {
+      "farman_number": 9,
+      "title": "उपाय नियम: दिन के समय अनिवार्यता व निषेध",
+      "title_en": "Upaya Rules: Mandatory Daylight Execution",
+      "safa_range": "150 - 161",
+      "pdf_pages": "153 - 164",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F09_UPAYA_DAYLIGHT_MANDATORY",
+        "LK1952_F09_NO_DONATION_EXALTED"
+      ],
+      "description": "Mandates remedies between sunrise and sunset. Forbids donating articles of exalted/benefic planets.",
+      "unresolved_aspects": "None. Fully enforced."
+    },
+    {
+      "farman_number": 10,
+      "title": "विशिष्ट भाव दान निषेध (चंद्र 6/8/10, रवि 6/10, शनि 1)",
+      "title_en": "Specific House Prohibitions",
+      "safa_range": "162 - 184",
+      "pdf_pages": "165 - 187",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F10_TIMING_DAYTIME_ONLY",
+        "LK1952_F10_PROHIBITION_MOON_WATER_MILK",
+        "LK1952_F10_PROHIBITION_SUN_COPPER_JAGGERY",
+        "LK1952_F10_PROHIBITION_SATURN_OIL_ALCOHOL"
+      ],
+      "description": "Strict textual prohibitions against milk/water charity for Moon in 6/8/10, copper charity for Sun in 6/10, alcohol/oil for Saturn in 1.",
+      "unresolved_aspects": "None. Fabricated blanket restrictions removed."
+    },
+    {
+      "farman_number": 11,
+      "title": "साथी ग्रह, कुण्डली मिलान व कुर्बानी का बकरा",
+      "title_en": "Companion Planets & Sacrificial Scapegoat Mechanics",
+      "safa_range": "185 - 190",
+      "pdf_pages": "188 - 193",
+      "audit_status": "TEXT_AUDITED",
+      "verified_rules": [
+        "LK1952_F11_BALI_KA_BAKRA"
+      ],
+      "description": "Explains how a secondary planet absorbs the affliction of a primary malefic.",
+      "unresolved_aspects": "Modern marriage matching composite formulas marked UNRESOLVED."
+    },
+    {
+      "farman_number": 12,
+      "title": "ग्रहों की स्वाभाविक मित्रता व शत्रुता चक्र",
+      "title_en": "Planetary Friendship & Enmity Matrix",
+      "safa_range": "191 - 212",
+      "pdf_pages": "194 - 215",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F12_FRIENDSHIP_MATRIX"
+      ],
+      "description": "Full classical matrix of natural friends, neutrals, and mutual enemies.",
+      "unresolved_aspects": "None. Fully implemented."
+    },
+    {
+      "farman_number": 13,
+      "title": "वर्षफल का 120 साला चक्र गणित व शेषफल",
+      "title_en": "Varshaphala 120-Year Rotation Modulo Mathematics",
+      "safa_range": "213 - 225",
+      "pdf_pages": "216 - 228",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F13_VARSHPHAL_120_CYCLE",
+        "LK1952_F13_VARSHPHAL_FIXED_ARIES"
+      ],
+      "description": "Deterministic formula: Planet moves to (Age % NatalHouse), with fallback to natal house if remainder is 0 or vacant.",
+      "unresolved_aspects": "None. Fully verified."
+    },
+    {
+      "farman_number": 14,
+      "title": "टेवे की किस्में: धर्मी, अंधा, रतौंधी, नाबालिग",
+      "title_en": "Teva Classifications: Dharmi, Andha, Ratandh, Nabaligh",
+      "safa_range": "226 - 234",
+      "pdf_pages": "229 - 237",
+      "audit_status": "VERIFIED_DIRECT_SOURCE",
+      "verified_rules": [
+        "LK1952_F14_TEVA_DHARMI",
+        "LK1952_F14_TEVA_ANDHA",
+        "LK1952_F14_TEVA_RATANDH",
+        "LK1952_F14_TEVA_NABALIGH",
+        "LK1952_F14_TEVA_BALIGH"
+      ],
+      "description": "Full algorithmic classification of special horoscopes with protective shields and remedial restrictions.",
+      "unresolved_aspects": "None. Fully traced."
+    }
+  ]
+}

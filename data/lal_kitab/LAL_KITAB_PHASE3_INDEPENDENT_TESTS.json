@@ -1,0 +1,3534 @@
+[
+  {
+    "test_id": "TC3_PKG_01",
+    "domain": "PAKKA_GHAR",
+    "name": "House 1 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_01",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 96,
+    "pdf_page": 99,
+    "original_verse_hindi": "पहला घर सूरज और मंगल का पक्का घर है (बृहस्पति तख्त का मालिक)",
+    "chart_inputs": {
+      "house": 1
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "SUN",
+        "MARS"
+      ],
+      "throne_owner": "JUPITER"
+    },
+    "rationale": "Independently validates permanent ownership of house 1 per Farman 7, Safa 96."
+  },
+  {
+    "test_id": "TC3_PKG_02",
+    "domain": "PAKKA_GHAR",
+    "name": "House 2 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_02",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 96,
+    "pdf_page": 99,
+    "original_verse_hindi": "दूसरा घर बृहस्पति का पक्का घर है (धन, धर्म और कुटुंब)",
+    "chart_inputs": {
+      "house": 2
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "JUPITER"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 2 per Farman 7, Safa 96."
+  },
+  {
+    "test_id": "TC3_PKG_03",
+    "domain": "PAKKA_GHAR",
+    "name": "House 3 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_03",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 96,
+    "pdf_page": 99,
+    "original_verse_hindi": "तीसरा घर मंगल का पक्का घर है (भाई-बंधु, पराक्रम)",
+    "chart_inputs": {
+      "house": 3
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "MARS"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 3 per Farman 7, Safa 96."
+  },
+  {
+    "test_id": "TC3_PKG_04",
+    "domain": "PAKKA_GHAR",
+    "name": "House 4 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_04",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 97,
+    "pdf_page": 100,
+    "original_verse_hindi": "चौथा घर चंद्र का पक्का घर है (माता, जल, शांति)",
+    "chart_inputs": {
+      "house": 4
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "MOON"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 4 per Farman 7, Safa 97."
+  },
+  {
+    "test_id": "TC3_PKG_05",
+    "domain": "PAKKA_GHAR",
+    "name": "House 5 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_05",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 97,
+    "pdf_page": 100,
+    "original_verse_hindi": "पांचवां घर बृहस्पति का पक्का घर है (संतान, विद्या, पूर्व पुण्य)",
+    "chart_inputs": {
+      "house": 5
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "JUPITER"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 5 per Farman 7, Safa 97."
+  },
+  {
+    "test_id": "TC3_PKG_06",
+    "domain": "PAKKA_GHAR",
+    "name": "House 6 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_06",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 97,
+    "pdf_page": 100,
+    "original_verse_hindi": "छठा घर केतु का पक्का घर है (पाताल, मामा, रोग-ऋण)",
+    "chart_inputs": {
+      "house": 6
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "KETU"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 6 per Farman 7, Safa 97."
+  },
+  {
+    "test_id": "TC3_PKG_07",
+    "domain": "PAKKA_GHAR",
+    "name": "House 7 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_07",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 98,
+    "pdf_page": 101,
+    "original_verse_hindi": "सातवां घर शुक्र और बुध का पक्का घर है (गृहस्थी, व्यापार, स्त्री)",
+    "chart_inputs": {
+      "house": 7
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "VENUS",
+        "MERCURY"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 7 per Farman 7, Safa 98."
+  },
+  {
+    "test_id": "TC3_PKG_08",
+    "domain": "PAKKA_GHAR",
+    "name": "House 8 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_08",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 98,
+    "pdf_page": 101,
+    "original_verse_hindi": "आठवां घर शनि और मंगल का पक्का घर है (मौत का घर, श्मशान)",
+    "chart_inputs": {
+      "house": 8
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "SATURN",
+        "MARS"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 8 per Farman 7, Safa 98."
+  },
+  {
+    "test_id": "TC3_PKG_09",
+    "domain": "PAKKA_GHAR",
+    "name": "House 9 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_09",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 98,
+    "pdf_page": 101,
+    "original_verse_hindi": "नौवां घर बृहस्पति का पक्का घर है (भाग्य, धर्म, पिता)",
+    "chart_inputs": {
+      "house": 9
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "JUPITER"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 9 per Farman 7, Safa 98."
+  },
+  {
+    "test_id": "TC3_PKG_10",
+    "domain": "PAKKA_GHAR",
+    "name": "House 10 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_10",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 99,
+    "pdf_page": 102,
+    "original_verse_hindi": "दसवां घर शनि का पक्का घर है (कर्म, आजीविका, दरबार)",
+    "chart_inputs": {
+      "house": 10
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "SATURN"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 10 per Farman 7, Safa 99."
+  },
+  {
+    "test_id": "TC3_PKG_11",
+    "domain": "PAKKA_GHAR",
+    "name": "House 11 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_11",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 99,
+    "pdf_page": 102,
+    "original_verse_hindi": "ग्यारहवां घर बृहस्पति का पक्का घर है (लाभ, आमदनी, इच्छापूर्ति)",
+    "chart_inputs": {
+      "house": 11
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "JUPITER"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 11 per Farman 7, Safa 99."
+  },
+  {
+    "test_id": "TC3_PKG_12",
+    "domain": "PAKKA_GHAR",
+    "name": "House 12 Classical Pakka Ghar Ownership",
+    "source_rule_id": "LK1952_F07_PAKKA_GHAR_12",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 99,
+    "pdf_page": 102,
+    "original_verse_hindi": "बारहवां घर बृहस्पति और राहु का पक्का घर है (व्यय, शयन, मोक्ष)",
+    "chart_inputs": {
+      "house": 12
+    },
+    "expected_result": {
+      "permanent_rulers": [
+        "JUPITER",
+        "RAHU"
+      ],
+      "throne_owner": null
+    },
+    "rationale": "Independently validates permanent ownership of house 12 per Farman 7, Safa 99."
+  },
+  {
+    "test_id": "TC3_DRS_01",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Kamal Drishti from House 1 to House 7",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 1,
+      "toHouse": 7
+    },
+    "expected_result": {
+      "percentage": 100.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 1 to House 7."
+  },
+  {
+    "test_id": "TC3_DRS_02",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Kamal Drishti from House 7 to House 1",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 7,
+      "toHouse": 1
+    },
+    "expected_result": {
+      "percentage": 100.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 7 to House 1."
+  },
+  {
+    "test_id": "TC3_DRS_03",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Aadhi Drishti 4 -> 8 (Half sight)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 4,
+      "toHouse": 8
+    },
+    "expected_result": {
+      "percentage": 50.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 4 to House 8."
+  },
+  {
+    "test_id": "TC3_DRS_04",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Asymmetric Drishti 8 -> 4 (Strictly 0%)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 8,
+      "toHouse": 4
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 8 to House 4."
+  },
+  {
+    "test_id": "TC3_DRS_05",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Aadhi Drishti 3 -> 11 (Half sight)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 3,
+      "toHouse": 11
+    },
+    "expected_result": {
+      "percentage": 50.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 3 to House 11."
+  },
+  {
+    "test_id": "TC3_DRS_06",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Asymmetric Drishti 11 -> 3 (Strictly 0%)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 11,
+      "toHouse": 3
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 11 to House 3."
+  },
+  {
+    "test_id": "TC3_DRS_07",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Chauthai Drishti 5 -> 9 (Quarter sight)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 5,
+      "toHouse": 9
+    },
+    "expected_result": {
+      "percentage": 25.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 5 to House 9."
+  },
+  {
+    "test_id": "TC3_DRS_08",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Asymmetric Drishti 9 -> 5 (Strictly 0%)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 9,
+      "toHouse": 5
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 9 to House 5."
+  },
+  {
+    "test_id": "TC3_DRS_09",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Chauthai Drishti 2 -> 6 (Quarter sight)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 2,
+      "toHouse": 6
+    },
+    "expected_result": {
+      "percentage": 25.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 2 to House 6."
+  },
+  {
+    "test_id": "TC3_DRS_10",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Asymmetric Drishti 6 -> 2 (Strictly 0%)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 6,
+      "toHouse": 2
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 6 to House 2."
+  },
+  {
+    "test_id": "TC3_DRS_11",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Chauthai Drishti 6 -> 12 (Quarter sight)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 6,
+      "toHouse": 12
+    },
+    "expected_result": {
+      "percentage": 25.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 6 to House 12."
+  },
+  {
+    "test_id": "TC3_DRS_12",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Asymmetric Drishti 12 -> 6 (Strictly 0%)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 12,
+      "toHouse": 6
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 12 to House 6."
+  },
+  {
+    "test_id": "TC3_DRS_13",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 1 -> 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 1,
+      "toHouse": 8
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 1 to House 8."
+  },
+  {
+    "test_id": "TC3_DRS_14",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 1 -> 9",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 1,
+      "toHouse": 9
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 1 to House 9."
+  },
+  {
+    "test_id": "TC3_DRS_15",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 2 -> 11",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 2,
+      "toHouse": 11
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 2 to House 11."
+  },
+  {
+    "test_id": "TC3_DRS_16",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 3 -> 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 3,
+      "toHouse": 8
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 3 to House 8."
+  },
+  {
+    "test_id": "TC3_DRS_17",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 4 -> 9",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 4,
+      "toHouse": 9
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 4 to House 9."
+  },
+  {
+    "test_id": "TC3_DRS_18",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 5 -> 10",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 5,
+      "toHouse": 10
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 5 to House 10."
+  },
+  {
+    "test_id": "TC3_DRS_19",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 7 -> 12",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 7,
+      "toHouse": 12
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 7 to House 12."
+  },
+  {
+    "test_id": "TC3_DRS_20",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 8 -> 1",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 8,
+      "toHouse": 1
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 8 to House 1."
+  },
+  {
+    "test_id": "TC3_DRS_21",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 9 -> 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 9,
+      "toHouse": 2
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 9 to House 2."
+  },
+  {
+    "test_id": "TC3_DRS_22",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 10 -> 3",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 10,
+      "toHouse": 3
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 10 to House 3."
+  },
+  {
+    "test_id": "TC3_DRS_23",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 11 -> 4",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 11,
+      "toHouse": 4
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 11 to House 4."
+  },
+  {
+    "test_id": "TC3_DRS_24",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 12 -> 5",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 12,
+      "toHouse": 5
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 12 to House 5."
+  },
+  {
+    "test_id": "TC3_DRS_25",
+    "domain": "DRISHTI_ASPECTS",
+    "name": "Zero Aspect 10 -> 5",
+    "source_rule_id": "LK1952_F08_DRISHTI_TABLE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_verse_hindi": "Farman 8, Safa 101-104: दृष्टि सारणी (1-7 पूरा 100%, 4-8 व 3-11 आधा 50%, 5-9, 2-6, 6-12 चौथाई 25%)",
+    "chart_inputs": {
+      "fromHouse": 10,
+      "toHouse": 5
+    },
+    "expected_result": {
+      "percentage": 0.0
+    },
+    "rationale": "Independently calculates directional ray percentage from House 10 to House 5."
+  },
+  {
+    "test_id": "TC3_TKK_01",
+    "domain": "TAKKAR",
+    "name": "Takkar: Sun (1) vs Saturn (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "SATURN": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "SATURN",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between SUN and SATURN per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_02",
+    "domain": "TAKKAR",
+    "name": "Takkar: Sun (1) vs Venus (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "VENUS": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "VENUS",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between SUN and VENUS per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_03",
+    "domain": "TAKKAR",
+    "name": "Takkar: Sun (1) vs Rahu (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "RAHU": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "RAHU",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between SUN and RAHU per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_04",
+    "domain": "TAKKAR",
+    "name": "Takkar: Sun (1) vs Ketu (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "KETU": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "KETU",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between SUN and KETU per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_05",
+    "domain": "TAKKAR",
+    "name": "Takkar: Moon (1) vs Rahu (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MOON": 1,
+      "RAHU": 7
+    },
+    "expected_result": {
+      "planetA": "MOON",
+      "planetB": "RAHU",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between MOON and RAHU per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_06",
+    "domain": "TAKKAR",
+    "name": "Takkar: Moon (1) vs Ketu (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MOON": 1,
+      "KETU": 7
+    },
+    "expected_result": {
+      "planetA": "MOON",
+      "planetB": "KETU",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between MOON and KETU per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_07",
+    "domain": "TAKKAR",
+    "name": "Takkar: Mars (1) vs Mercury (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MARS": 1,
+      "MERCURY": 7
+    },
+    "expected_result": {
+      "planetA": "MARS",
+      "planetB": "MERCURY",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between MARS and MERCURY per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_08",
+    "domain": "TAKKAR",
+    "name": "Takkar: Jupiter (1) vs Mercury (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "JUPITER": 1,
+      "MERCURY": 7
+    },
+    "expected_result": {
+      "planetA": "JUPITER",
+      "planetB": "MERCURY",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between JUPITER and MERCURY per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_09",
+    "domain": "TAKKAR",
+    "name": "Takkar: Jupiter (1) vs Venus (7) (Natural Enemies)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "JUPITER": 1,
+      "VENUS": 7
+    },
+    "expected_result": {
+      "planetA": "JUPITER",
+      "planetB": "VENUS",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between JUPITER and VENUS per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_10",
+    "domain": "TAKKAR",
+    "name": "No Takkar: Sun (1) vs Mars (7) (Natural Friends)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "MARS": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "MARS",
+      "isTakkar": false
+    },
+    "rationale": "Validates Takkar collision between SUN and MARS per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_11",
+    "domain": "TAKKAR",
+    "name": "No Takkar: Moon (1) vs Jupiter (7) (Natural Friends)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MOON": 1,
+      "JUPITER": 7
+    },
+    "expected_result": {
+      "planetA": "MOON",
+      "planetB": "JUPITER",
+      "isTakkar": false
+    },
+    "rationale": "Validates Takkar collision between MOON and JUPITER per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_12",
+    "domain": "TAKKAR",
+    "name": "No Takkar: Mars (1) vs Jupiter (7) (Natural Friends)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MARS": 1,
+      "JUPITER": 7
+    },
+    "expected_result": {
+      "planetA": "MARS",
+      "planetB": "JUPITER",
+      "isTakkar": false
+    },
+    "rationale": "Validates Takkar collision between MARS and JUPITER per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_13",
+    "domain": "TAKKAR",
+    "name": "No Takkar: Mercury (1) vs Saturn (7) (Friends/Neutral)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "MERCURY": 1,
+      "SATURN": 7
+    },
+    "expected_result": {
+      "planetA": "MERCURY",
+      "planetB": "SATURN",
+      "isTakkar": false
+    },
+    "rationale": "Validates Takkar collision between MERCURY and SATURN per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_14",
+    "domain": "TAKKAR",
+    "name": "Takkar in Multi-Planet Conjunction: Sun (1) vs Saturn (7)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "MOON": 1,
+      "SATURN": 7
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "SATURN",
+      "isTakkar": true
+    },
+    "rationale": "Validates Takkar collision between SUN and SATURN per Safa 112."
+  },
+  {
+    "test_id": "TC3_TKK_15",
+    "domain": "TAKKAR",
+    "name": "No Takkar: Sun (1) vs Saturn (6) (Non-opposing houses)",
+    "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: आमने-सामने के घरों में शत्रु ग्रह आपस में टकराते हैं (टक्कर)",
+    "chart_inputs": {
+      "SUN": 1,
+      "SATURN": 6
+    },
+    "expected_result": {
+      "planetA": "SUN",
+      "planetB": "SATURN",
+      "isTakkar": false
+    },
+    "rationale": "Validates Takkar collision between SUN and SATURN per Safa 112."
+  },
+  {
+    "test_id": "TC3_DHK_01",
+    "domain": "DHOKA",
+    "name": "Sun in 10 casts Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "SUN": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_02",
+    "domain": "DHOKA",
+    "name": "Moon in 10 casts Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "MOON": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_03",
+    "domain": "DHOKA",
+    "name": "Mars in 10 casts Dhoka on House 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "MARS": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 8,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 8."
+  },
+  {
+    "test_id": "TC3_DHK_04",
+    "domain": "DHOKA",
+    "name": "Jupiter in 10 casts Dhoka on House 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "JUPITER": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 8,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 8."
+  },
+  {
+    "test_id": "TC3_DHK_05",
+    "domain": "DHOKA",
+    "name": "Venus in 10 casts Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "VENUS": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_06",
+    "domain": "DHOKA",
+    "name": "Saturn in 10 casts Dhoka on House 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "SATURN": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 8,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 8."
+  },
+  {
+    "test_id": "TC3_DHK_07",
+    "domain": "DHOKA",
+    "name": "Rahu in 10 casts Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "RAHU": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_08",
+    "domain": "DHOKA",
+    "name": "Ketu in 10 casts Dhoka on House 8",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "KETU": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 8,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 8."
+  },
+  {
+    "test_id": "TC3_DHK_09",
+    "domain": "DHOKA",
+    "name": "Dual Planets in 10 cast Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "SUN": 10,
+      "MARS": 10
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_10",
+    "domain": "DHOKA",
+    "name": "Dhoka from Saturn in 10 striking Jupiter in House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "SATURN": 10,
+      "JUPITER": 2
+    },
+    "expected_result": {
+      "fromHouse": 10,
+      "toHouse": 2,
+      "isDhoka": true,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 10 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_11",
+    "domain": "DHOKA",
+    "name": "No Dhoka: House 9 cannot cast Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "MARS": 9,
+      "VENUS": 2
+    },
+    "expected_result": {
+      "fromHouse": 9,
+      "toHouse": 2,
+      "isDhoka": false,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 9 to House 2."
+  },
+  {
+    "test_id": "TC3_DHK_12",
+    "domain": "DHOKA",
+    "name": "No Dhoka: House 11 cannot cast Dhoka on House 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: दसवां घर दूसरे और आठवें पर धोखा चोट करता है (qualitative blow, percentage 0.0)",
+    "chart_inputs": {
+      "MARS": 11,
+      "VENUS": 2
+    },
+    "expected_result": {
+      "fromHouse": 11,
+      "toHouse": 2,
+      "isDhoka": false,
+      "percentage": 0.0
+    },
+    "rationale": "Validates Dhoka deceit strike from House 11 to House 2."
+  },
+  {
+    "test_id": "TC3_BUN_01",
+    "domain": "BUNIYADI",
+    "name": "Buniyadi: Jupiter in 5 supports Saturn in 9",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "JUPITER": 5,
+      "SATURN": 9
+    },
+    "expected_result": {
+      "fromHouse": 5,
+      "toHouse": 9,
+      "isBuniyadi": true
+    },
+    "rationale": "Validates Buniyadi foundation support from House 5 to House 9."
+  },
+  {
+    "test_id": "TC3_BUN_02",
+    "domain": "BUNIYADI",
+    "name": "Buniyadi: Sun in 5 supports Mars in 9",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "SUN": 5,
+      "MARS": 9
+    },
+    "expected_result": {
+      "fromHouse": 5,
+      "toHouse": 9,
+      "isBuniyadi": true
+    },
+    "rationale": "Validates Buniyadi foundation support from House 5 to House 9."
+  },
+  {
+    "test_id": "TC3_BUN_03",
+    "domain": "BUNIYADI",
+    "name": "Buniyadi: Mercury in 5 supports Venus in 9",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "MERCURY": 5,
+      "VENUS": 9
+    },
+    "expected_result": {
+      "fromHouse": 5,
+      "toHouse": 9,
+      "isBuniyadi": true
+    },
+    "rationale": "Validates Buniyadi foundation support from House 5 to House 9."
+  },
+  {
+    "test_id": "TC3_BUN_04",
+    "domain": "BUNIYADI",
+    "name": "Buniyadi: Moon in 2 supports Sun in 6",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "MOON": 2,
+      "SUN": 6
+    },
+    "expected_result": {
+      "fromHouse": 2,
+      "toHouse": 6,
+      "isBuniyadi": true
+    },
+    "rationale": "Validates Buniyadi foundation support from House 2 to House 6."
+  },
+  {
+    "test_id": "TC3_BUN_05",
+    "domain": "BUNIYADI",
+    "name": "Buniyadi: Mars in 2 supports Rahu in 6",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "MARS": 2,
+      "RAHU": 6
+    },
+    "expected_result": {
+      "fromHouse": 2,
+      "toHouse": 6,
+      "isBuniyadi": true
+    },
+    "rationale": "Validates Buniyadi foundation support from House 2 to House 6."
+  },
+  {
+    "test_id": "TC3_BUN_06",
+    "domain": "BUNIYADI",
+    "name": "No Buniyadi: House 5 is empty",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "SATURN": 9
+    },
+    "expected_result": {
+      "fromHouse": 5,
+      "toHouse": 9,
+      "isBuniyadi": false
+    },
+    "rationale": "Validates Buniyadi foundation support from House 5 to House 9."
+  },
+  {
+    "test_id": "TC3_BUN_07",
+    "domain": "BUNIYADI",
+    "name": "No Buniyadi: House 2 is empty",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "SUN": 6
+    },
+    "expected_result": {
+      "fromHouse": 2,
+      "toHouse": 6,
+      "isBuniyadi": false
+    },
+    "rationale": "Validates Buniyadi foundation support from House 2 to House 6."
+  },
+  {
+    "test_id": "TC3_BUN_08",
+    "domain": "BUNIYADI",
+    "name": "Asymmetric Buniyadi: 9 cannot support 5",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "SATURN": 9,
+      "JUPITER": 5
+    },
+    "expected_result": {
+      "fromHouse": 9,
+      "toHouse": 5,
+      "isBuniyadi": false
+    },
+    "rationale": "Validates Buniyadi foundation support from House 9 to House 5."
+  },
+  {
+    "test_id": "TC3_BUN_09",
+    "domain": "BUNIYADI",
+    "name": "Asymmetric Buniyadi: 6 cannot support 2",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "SUN": 6,
+      "MOON": 2
+    },
+    "expected_result": {
+      "fromHouse": 6,
+      "toHouse": 2,
+      "isBuniyadi": false
+    },
+    "rationale": "Validates Buniyadi foundation support from House 6 to House 2."
+  },
+  {
+    "test_id": "TC3_BUN_10",
+    "domain": "BUNIYADI",
+    "name": "Non-Buniyadi: 4 -> 8 is Aadhi Drishti, not Buniyadi",
+    "source_rule_id": "LK1952_F08_DRISHTI_BUNIYADI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_verse_hindi": "Farman 8, Safa 112: पांचवां नौवें को और दूसरा छठे को बुनियादी दीवार की तरह सहारा देता है",
+    "chart_inputs": {
+      "MOON": 4,
+      "MARS": 8
+    },
+    "expected_result": {
+      "fromHouse": 4,
+      "toHouse": 8,
+      "isBuniyadi": false
+    },
+    "rationale": "Validates Buniyadi foundation support from House 4 to House 8."
+  },
+  {
+    "test_id": "TC3_MSN_01",
+    "domain": "MASNOOI",
+    "name": "Masnooi Ketu in H4 (Sun + Venus)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 4,
+      "VENUS": 4
+    },
+    "expected_result": {
+      "house": 4,
+      "resultingEntity": "KETU"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 4."
+  },
+  {
+    "test_id": "TC3_MSN_02",
+    "domain": "MASNOOI",
+    "name": "Masnooi Ketu in H12 (Sun + Venus)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 12,
+      "VENUS": 12
+    },
+    "expected_result": {
+      "house": 12,
+      "resultingEntity": "KETU"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 12."
+  },
+  {
+    "test_id": "TC3_MSN_03",
+    "domain": "MASNOOI",
+    "name": "Masnooi Mangal Bad in H1 (Sun + Saturn)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 1,
+      "SATURN": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "MANGAL_BAD"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_MSN_04",
+    "domain": "MASNOOI",
+    "name": "Masnooi Mangal Bad in H10 (Sun + Saturn)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 10,
+      "SATURN": 10
+    },
+    "expected_result": {
+      "house": 10,
+      "resultingEntity": "MANGAL_BAD"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 10."
+  },
+  {
+    "test_id": "TC3_MSN_05",
+    "domain": "MASNOOI",
+    "name": "Masnooi Mangal Nek in H1 (Sun + Jupiter)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 1,
+      "JUPITER": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "MANGAL_NEK"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_MSN_06",
+    "domain": "MASNOOI",
+    "name": "Masnooi Mangal Nek in H11 (Sun + Jupiter)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 11,
+      "JUPITER": 11
+    },
+    "expected_result": {
+      "house": 11,
+      "resultingEntity": "MANGAL_NEK"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 11."
+  },
+  {
+    "test_id": "TC3_MSN_07",
+    "domain": "MASNOOI",
+    "name": "Masnooi Sun in H1 (Mercury + Venus)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MERCURY": 1,
+      "VENUS": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "SUN"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_MSN_08",
+    "domain": "MASNOOI",
+    "name": "Masnooi Sun in H4 (Mercury + Venus)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MERCURY": 4,
+      "VENUS": 4
+    },
+    "expected_result": {
+      "house": 4,
+      "resultingEntity": "SUN"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 4."
+  },
+  {
+    "test_id": "TC3_MSN_09",
+    "domain": "MASNOOI",
+    "name": "Masnooi Rahu in H4 (Mars + Saturn)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MARS": 4,
+      "SATURN": 4
+    },
+    "expected_result": {
+      "house": 4,
+      "resultingEntity": "RAHU"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 4."
+  },
+  {
+    "test_id": "TC3_MSN_10",
+    "domain": "MASNOOI",
+    "name": "Masnooi Rahu in H6 (Mars + Saturn)",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MARS": 6,
+      "SATURN": 6
+    },
+    "expected_result": {
+      "house": 6,
+      "resultingEntity": "RAHU"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 6."
+  },
+  {
+    "test_id": "TC3_MSN_11",
+    "domain": "MASNOOI",
+    "name": "Triple Conjunction H1 generates Ketu and Mangal Bad",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 1,
+      "VENUS": 1,
+      "SATURN": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "DUAL_MASNOOI"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_MSN_12",
+    "domain": "MASNOOI",
+    "name": "Triple Conjunction H5 generates Mangal Nek and Mangal Bad",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "SUN": 5,
+      "JUPITER": 5,
+      "SATURN": 5
+    },
+    "expected_result": {
+      "house": 5,
+      "resultingEntity": "DUAL_MASNOOI"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 5."
+  },
+  {
+    "test_id": "TC3_MSN_13",
+    "domain": "MASNOOI",
+    "name": "Triple Conjunction H7: Mercury + Venus generates Sun",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MERCURY": 7,
+      "VENUS": 7,
+      "SUN": 7
+    },
+    "expected_result": {
+      "house": 7,
+      "resultingEntity": "SUN"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 7."
+  },
+  {
+    "test_id": "TC3_MSN_14",
+    "domain": "MASNOOI",
+    "name": "Incompatible Conjunction: Moon + Saturn generates No Masnooi",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "MOON": 1,
+      "SATURN": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "NONE"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_MSN_15",
+    "domain": "MASNOOI",
+    "name": "Incompatible Conjunction: Rahu + Ketu generates No Masnooi",
+    "source_rule_id": "LK1952_F10_MASNOOI",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 164,
+    "pdf_page": 167,
+    "original_verse_hindi": "Farman 10, Safa 164-166: मसनूई ग्रहों का मेल मिलावट",
+    "chart_inputs": {
+      "RAHU": 1,
+      "KETU": 1
+    },
+    "expected_result": {
+      "house": 1,
+      "resultingEntity": "NONE"
+    },
+    "rationale": "Validates Masnooi synthetic planet generation in House 1."
+  },
+  {
+    "test_id": "TC3_SLP_01",
+    "domain": "DORMANCY",
+    "name": "Sleeping House 10 in 1-planet chart",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 10,
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 10."
+  },
+  {
+    "test_id": "TC3_SLP_02",
+    "domain": "DORMANCY",
+    "name": "Awake House 7 via 100% ray in 1-planet chart",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 7,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 7."
+  },
+  {
+    "test_id": "TC3_SLP_03",
+    "domain": "DORMANCY",
+    "name": "Sleeping House 2 in 1-7 axis chart",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SUN": 1,
+      "SATURN": 7
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 2,
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 2."
+  },
+  {
+    "test_id": "TC3_SLP_04",
+    "domain": "DORMANCY",
+    "name": "Awake House 8 via 50% ray from Moon in 4",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "MOON": 4
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 8,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 8."
+  },
+  {
+    "test_id": "TC3_SLP_05",
+    "domain": "DORMANCY",
+    "name": "Awake House 11 via 50% ray from Mars in 3",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "MARS": 3
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 11,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 11."
+  },
+  {
+    "test_id": "TC3_SLP_06",
+    "domain": "DORMANCY",
+    "name": "Awake House 9 via 25% ray from Jupiter in 5",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "JUPITER": 5
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 9,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 9."
+  },
+  {
+    "test_id": "TC3_SLP_07",
+    "domain": "DORMANCY",
+    "name": "Awake House 6 via 25% ray from Venus in 2",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "VENUS": 2
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 6,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 6."
+  },
+  {
+    "test_id": "TC3_SLP_08",
+    "domain": "DORMANCY",
+    "name": "Awake House 12 via 25% ray from Ketu in 6",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "KETU": 6
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 12,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 12."
+  },
+  {
+    "test_id": "TC3_SLP_09",
+    "domain": "DORMANCY",
+    "name": "Occupied House 1 in 9-house chart is Awake",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SUN": 1,
+      "MOON": 2,
+      "MARS": 3,
+      "MERCURY": 4,
+      "JUPITER": 5,
+      "VENUS": 6,
+      "SATURN": 7,
+      "RAHU": 8,
+      "KETU": 9
+    },
+    "expected_result": {
+      "targetKind": "HOUSE",
+      "target": 1,
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for HOUSE 1."
+  },
+  {
+    "test_id": "TC3_SLP_10",
+    "domain": "DORMANCY",
+    "name": "Sleeping Planet Moon in H2 (Opposite H8 empty)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "MOON": 2
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "MOON",
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for PLANET MOON."
+  },
+  {
+    "test_id": "TC3_SLP_11",
+    "domain": "DORMANCY",
+    "name": "Sleeping Planet Jupiter in H5 (Opposite H11 empty)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "JUPITER": 5
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "JUPITER",
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for PLANET JUPITER."
+  },
+  {
+    "test_id": "TC3_SLP_12",
+    "domain": "DORMANCY",
+    "name": "Sleeping Planet Saturn in H10 (Opposite H4 empty)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SATURN": 10
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "SATURN",
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for PLANET SATURN."
+  },
+  {
+    "test_id": "TC3_SLP_13",
+    "domain": "DORMANCY",
+    "name": "Awake Planet Moon in H2 (Opposite H8 occupied)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "MOON": 2,
+      "VENUS": 8
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "MOON",
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for PLANET MOON."
+  },
+  {
+    "test_id": "TC3_SLP_14",
+    "domain": "DORMANCY",
+    "name": "Awake Planet Jupiter in H5 (Opposite H11 occupied)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "JUPITER": 5,
+      "MARS": 11
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "JUPITER",
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for PLANET JUPITER."
+  },
+  {
+    "test_id": "TC3_SLP_15",
+    "domain": "DORMANCY",
+    "name": "Awake Planet Saturn in H10 (Opposite H4 occupied)",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SATURN": 10,
+      "SUN": 4
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "SATURN",
+      "isSleeping": false
+    },
+    "rationale": "Validates dormancy analysis for PLANET SATURN."
+  },
+  {
+    "test_id": "TC3_SLP_16",
+    "domain": "DORMANCY",
+    "name": "Both Planets in H1 Sleeping when H7 empty",
+    "source_rule_id": "LK1952_F08_DORMANCY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 114,
+    "pdf_page": 117,
+    "original_verse_hindi": "Farman 8, Safa 114: सोया हुआ घर (खाली व बिना दृष्टि) एवं सोया हुआ ग्रह (सामने घर खाली)",
+    "chart_inputs": {
+      "SUN": 1,
+      "MOON": 1
+    },
+    "expected_result": {
+      "targetKind": "PLANET",
+      "target": "SUN",
+      "isSleeping": true
+    },
+    "rationale": "Validates dormancy analysis for PLANET SUN."
+  },
+  {
+    "test_id": "TC3_GNB_01",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Sun in House 1 (Exalted throne / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 31,
+    "pdf_page": 34,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "planet": "SUN",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of SUN."
+  },
+  {
+    "test_id": "TC3_GNB_02",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Sun in House 7 (Debilitated / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 31,
+    "pdf_page": 34,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "SUN": 7
+    },
+    "expected_result": {
+      "planet": "SUN",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of SUN."
+  },
+  {
+    "test_id": "TC3_GNB_03",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Moon in House 4 (Amrit / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 31,
+    "pdf_page": 34,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MOON": 4
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of MOON."
+  },
+  {
+    "test_id": "TC3_GNB_04",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Moon in House 6 (Water in cellar / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 31,
+    "pdf_page": 34,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MOON": 6
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of MOON."
+  },
+  {
+    "test_id": "TC3_GNB_05",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Mars in House 3 (Sher / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 32,
+    "pdf_page": 35,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MARS": 3
+    },
+    "expected_result": {
+      "planet": "MARS",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of MARS."
+  },
+  {
+    "test_id": "TC3_GNB_06",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Mars in House 4 (Mangal Bad in Moon's house)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 32,
+    "pdf_page": 35,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MARS": 4
+    },
+    "expected_result": {
+      "planet": "MARS",
+      "expectedQuality": "BAD"
+    },
+    "rationale": "Validates classical quality of MARS."
+  },
+  {
+    "test_id": "TC3_GNB_07",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Mercury in House 7 (Good trader / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 32,
+    "pdf_page": 35,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MERCURY": 7
+    },
+    "expected_result": {
+      "planet": "MERCURY",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of MERCURY."
+  },
+  {
+    "test_id": "TC3_GNB_08",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Mercury in House 12 (Empty pocket / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 32,
+    "pdf_page": 35,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "MERCURY": 12
+    },
+    "expected_result": {
+      "planet": "MERCURY",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of MERCURY."
+  },
+  {
+    "test_id": "TC3_GNB_09",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Jupiter in House 2 (Dharma guru / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 33,
+    "pdf_page": 36,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "JUPITER": 2
+    },
+    "expected_result": {
+      "planet": "JUPITER",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of JUPITER."
+  },
+  {
+    "test_id": "TC3_GNB_10",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Jupiter in House 10 (Manda without Moon)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 33,
+    "pdf_page": 36,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "JUPITER": 10
+    },
+    "expected_result": {
+      "planet": "JUPITER",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of JUPITER."
+  },
+  {
+    "test_id": "TC3_GNB_11",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Venus in House 6 (Broken earthen pot / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 33,
+    "pdf_page": 36,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "VENUS": 6
+    },
+    "expected_result": {
+      "planet": "VENUS",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of VENUS."
+  },
+  {
+    "test_id": "TC3_GNB_12",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Saturn in House 2 (Vault keeper / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 34,
+    "pdf_page": 37,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "SATURN": 2
+    },
+    "expected_result": {
+      "planet": "SATURN",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of SATURN."
+  },
+  {
+    "test_id": "TC3_GNB_13",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Saturn in House 1 (Poisonous serpent / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 34,
+    "pdf_page": 37,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "SATURN": 1
+    },
+    "expected_result": {
+      "planet": "SATURN",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of SATURN."
+  },
+  {
+    "test_id": "TC3_GNB_14",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Rahu in House 5 (Eclipse of progeny / Manda)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 34,
+    "pdf_page": 37,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "RAHU": 5
+    },
+    "expected_result": {
+      "planet": "RAHU",
+      "expectedQuality": "MANDA"
+    },
+    "rationale": "Validates classical quality of RAHU."
+  },
+  {
+    "test_id": "TC3_GNB_15",
+    "domain": "GRAH_NEK_BAD",
+    "name": "Ketu in House 12 (Spiritual salvation / Nek)",
+    "source_rule_id": "LK1952_F06_NEK_BAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 34,
+    "pdf_page": 37,
+    "original_verse_hindi": "Farman 6, Safa 31-37: नेक और मंदे ग्रहों की पहचान",
+    "chart_inputs": {
+      "KETU": 12
+    },
+    "expected_result": {
+      "planet": "KETU",
+      "expectedQuality": "NEK"
+    },
+    "rationale": "Validates classical quality of KETU."
+  },
+  {
+    "test_id": "TC3_UPY_01",
+    "domain": "UPAYA",
+    "name": "Daytime remedy between sunrise and sunset is permitted",
+    "source_rule_id": "LK1952_F09_UPAYA_DAY_TIMING_ALLOWED",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 150,
+    "pdf_page": 153,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "DAY_TIMING_ALLOWED"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Daytime remedy between sunrise and sunset is permitted"
+  },
+  {
+    "test_id": "TC3_UPY_02",
+    "domain": "UPAYA",
+    "name": "Remedy performed at night is strictly prohibited",
+    "source_rule_id": "LK1952_F09_UPAYA_NIGHT_TIMING_BANNED",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 150,
+    "pdf_page": 153,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "NIGHT_TIMING_BANNED"
+    },
+    "expected_result": {
+      "isEnforced": false
+    },
+    "rationale": "Remedy performed at night is strictly prohibited"
+  },
+  {
+    "test_id": "TC3_UPY_03",
+    "domain": "UPAYA",
+    "name": "Sun in 10 prohibition of copper coins donation",
+    "source_rule_id": "LK1952_F09_UPAYA_SUN_H10_COPPER_BAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 151,
+    "pdf_page": 154,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "SUN_H10_COPPER_BAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Sun in 10 prohibition of copper coins donation"
+  },
+  {
+    "test_id": "TC3_UPY_04",
+    "domain": "UPAYA",
+    "name": "Jupiter in 10 prohibition of building temple at home",
+    "source_rule_id": "LK1952_F09_UPAYA_JUPITER_H10_TEMPLE_BAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 151,
+    "pdf_page": 154,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "JUPITER_H10_TEMPLE_BAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Jupiter in 10 prohibition of building temple at home"
+  },
+  {
+    "test_id": "TC3_UPY_05",
+    "domain": "UPAYA",
+    "name": "Moon in 6 prohibition of digging water wells or donating milk",
+    "source_rule_id": "LK1952_F09_UPAYA_MOON_H6_WELL_BAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 152,
+    "pdf_page": 155,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "MOON_H6_WELL_BAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Moon in 6 prohibition of digging water wells or donating milk"
+  },
+  {
+    "test_id": "TC3_UPY_06",
+    "domain": "UPAYA",
+    "name": "Saturn in 8 prohibition of building dark room in house rear",
+    "source_rule_id": "LK1952_F09_UPAYA_SATURN_H8_DARK_ROOM_BAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 152,
+    "pdf_page": 155,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "SATURN_H8_DARK_ROOM_BAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Saturn in 8 prohibition of building dark room in house rear"
+  },
+  {
+    "test_id": "TC3_UPY_07",
+    "domain": "UPAYA",
+    "name": "Venus in 9 prohibition of accepting free gifts / donations",
+    "source_rule_id": "LK1952_F09_UPAYA_VENUS_H9_DAAN_BAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 152,
+    "pdf_page": 155,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "VENUS_H9_DAAN_BAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Venus in 9 prohibition of accepting free gifts / donations"
+  },
+  {
+    "test_id": "TC3_UPY_08",
+    "domain": "UPAYA",
+    "name": "Mangal Bad remedy: sweet tandoori bread into flowing river",
+    "source_rule_id": "LK1952_F09_UPAYA_MANGAL_BAD_RIVER_SWEET_BREAD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 154,
+    "pdf_page": 157,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "MANGAL_BAD_RIVER_SWEET_BREAD"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Mangal Bad remedy: sweet tandoori bread into flowing river"
+  },
+  {
+    "test_id": "TC3_UPY_09",
+    "domain": "UPAYA",
+    "name": "Rahu remedy: flowing coal or barley in running river",
+    "source_rule_id": "LK1952_F09_UPAYA_RAHU_FLOW_COAL_BARLEY",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 153,
+    "pdf_page": 156,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "RAHU_FLOW_COAL_BARLEY"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Rahu remedy: flowing coal or barley in running river"
+  },
+  {
+    "test_id": "TC3_UPY_10",
+    "domain": "UPAYA",
+    "name": "Ketu remedy: feeding black-and-white stray dog",
+    "source_rule_id": "LK1952_F09_UPAYA_KETU_FEED_DOGS",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 153,
+    "pdf_page": 156,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "KETU_FEED_DOGS"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Ketu remedy: feeding black-and-white stray dog"
+  },
+  {
+    "test_id": "TC3_UPY_11",
+    "domain": "UPAYA",
+    "name": "Saturn remedy: viewing face in mustard oil and donating with iron pot",
+    "source_rule_id": "LK1952_F09_UPAYA_SATURN_CHHAYA_DAAN",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 154,
+    "pdf_page": 157,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "SATURN_CHHAYA_DAAN"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Saturn remedy: viewing face in mustard oil and donating with iron pot"
+  },
+  {
+    "test_id": "TC3_UPY_12",
+    "domain": "UPAYA",
+    "name": "Andha Teva remedy: feeding 10 blind persons on 1 single day",
+    "source_rule_id": "LK1952_F09_UPAYA_ANDHA_TEVA_FEED_10_BLIND",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "ANDHA_TEVA_FEED_10_BLIND"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Andha Teva remedy: feeding 10 blind persons on 1 single day"
+  },
+  {
+    "test_id": "TC3_UPY_13",
+    "domain": "UPAYA",
+    "name": "Venus in 8 remedy: burying blue flower in desolate ground",
+    "source_rule_id": "LK1952_F09_UPAYA_VENUS_H8_BLUE_FLOWER",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 155,
+    "pdf_page": 158,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "VENUS_H8_BLUE_FLOWER"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Venus in 8 remedy: burying blue flower in desolate ground"
+  },
+  {
+    "test_id": "TC3_UPY_14",
+    "domain": "UPAYA",
+    "name": "Moon afflicted remedy: keeping solid square silver piece",
+    "source_rule_id": "LK1952_F09_UPAYA_MOON_AFFLICTED_SOLID_SILVER",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 156,
+    "pdf_page": 159,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "MOON_AFFLICTED_SOLID_SILVER"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Moon afflicted remedy: keeping solid square silver piece"
+  },
+  {
+    "test_id": "TC3_UPY_15",
+    "domain": "UPAYA",
+    "name": "Remedy cycle mandate: continuous 43 days without break",
+    "source_rule_id": "LK1952_F09_UPAYA_CYCLE_43_DAYS_MANDATE",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 150,
+    "pdf_page": 153,
+    "original_verse_hindi": "Farman 9, Safa 150-161: उपाय के नियम, समय और परहेज",
+    "chart_inputs": {
+      "ruleCode": "CYCLE_43_DAYS_MANDATE"
+    },
+    "expected_result": {
+      "isEnforced": true
+    },
+    "rationale": "Remedy cycle mandate: continuous 43 days without break"
+  },
+  {
+    "test_id": "TC3_TEV_01",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Saturn in 11 alone",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SATURN": 11
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_02",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Saturn in 11 with Rahu ('11 शनि' unconditional)",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SATURN": 11,
+        "RAHU": 11
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_03",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Jupiter in 7 alone ('सात गुरू')",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 7
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_04",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Jupiter in 10 alone",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 10
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_05",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Moon in 4 with Saturn ('पाप चंद्र 4')",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 4,
+        "SATURN": 4
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_06",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Dharmi Teva: Moon in 10 with Rahu ('पाप चंद्र 10')",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 10,
+        "RAHU": 10
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi']."
+  },
+  {
+    "test_id": "TC3_TEV_07",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Andha Teva: Sun and Saturn hostile in 10",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 10,
+        "SATURN": 10
+      },
+      "age": 35
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "andha"
+      ]
+    },
+    "rationale": "Validates classification result containing ['andha']."
+  },
+  {
+    "test_id": "TC3_TEV_08",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Andha Teva: Mars and Mercury hostile in 10",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MARS": 10,
+        "MERCURY": 10
+      },
+      "age": 35
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "andha"
+      ]
+    },
+    "rationale": "Validates classification result containing ['andha']."
+  },
+  {
+    "test_id": "TC3_TEV_09",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Andha Teva: Sun and Rahu hostile in 10",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 10,
+        "RAHU": 10
+      },
+      "age": 35
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "andha"
+      ]
+    },
+    "rationale": "Validates classification result containing ['andha']."
+  },
+  {
+    "test_id": "TC3_TEV_10",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Ratandh Teva: Sun in 7 alone",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 7
+      },
+      "age": 28
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "ratandh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['ratandh']."
+  },
+  {
+    "test_id": "TC3_TEV_11",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Ratandh Teva: Saturn in 7 and Sun in 4 ('सात शनि सुरज चौथे')",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SATURN": 7,
+        "SUN": 4
+      },
+      "age": 28
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "ratandh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['ratandh']."
+  },
+  {
+    "test_id": "TC3_TEV_12",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Nabaligh Teva: Age 11 (< 12 biological)",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 1
+      },
+      "age": 11
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "nabaligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['nabaligh']."
+  },
+  {
+    "test_id": "TC3_TEV_13",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Nabaligh Teva: Empty fist (1, 4, 7, 10 all empty)",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 2,
+        "MOON": 3,
+        "JUPITER": 5
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "nabaligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['nabaligh']."
+  },
+  {
+    "test_id": "TC3_TEV_14",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Nabaligh Teva: Afflicted Mercury ('बुध पापी')",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MERCURY": 3,
+        "SATURN": 3
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "nabaligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['nabaligh']."
+  },
+  {
+    "test_id": "TC3_TEV_15",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Baligh Teva: Mercury in 6, Sun in 1",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MERCURY": 6,
+        "SUN": 1
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "baligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['baligh']."
+  },
+  {
+    "test_id": "TC3_TEV_16",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Baligh Teva: Mercury in 6, Sun in 5",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MERCURY": 6,
+        "SUN": 5
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "baligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['baligh']."
+  },
+  {
+    "test_id": "TC3_TEV_17",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Baligh Teva: Mercury in 6, Sun in 11",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "MERCURY": 6,
+        "SUN": 11
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "baligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['baligh']."
+  },
+  {
+    "test_id": "TC3_TEV_18",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Conflicting Teva 1: Dharmi + Andha simultaneous",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 7,
+        "SUN": 10,
+        "SATURN": 10
+      },
+      "age": 35
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi",
+        "andha"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi', 'andha']."
+  },
+  {
+    "test_id": "TC3_TEV_19",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Conflicting Teva 2: Dharmi + Ratandh simultaneous",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "SATURN": 11,
+        "SUN": 7
+      },
+      "age": 35
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi",
+        "ratandh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi', 'ratandh']."
+  },
+  {
+    "test_id": "TC3_TEV_20",
+    "domain": "TEVA_CLASSIFICATION",
+    "name": "Conflicting Teva 3: Dharmi + Nabaligh simultaneous",
+    "source_rule_id": "LK1952_F14_TEVA_CLASSIFICATION",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_verse_hindi": "Farman 14, Safa 226-227: टेवे की किस्में (धर्मी, अंधा, रतौंधी, नाबालिग, बालिग)",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 10,
+        "SUN": 2
+      },
+      "age": 8
+    },
+    "expected_result": {
+      "expectedTypes": [
+        "dharmi",
+        "nabaligh"
+      ]
+    },
+    "rationale": "Validates classification result containing ['dharmi', 'nabaligh']."
+  },
+  {
+    "test_id": "TC3_VAR_01",
+    "domain": "VARSHPHAL",
+    "name": "Age 0 newborn boundary rejects Varshphal with ArgumentError (Janma Kundli only)",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 3,
+        "SUN": 1
+      },
+      "age": 0
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expected": "ArgumentError"
+    },
+    "rationale": "Validates Varshaphala shift for MOON at age 0."
+  },
+  {
+    "test_id": "TC3_VAR_02",
+    "domain": "VARSHPHAL",
+    "name": "Age 1: 1 % 3 = 1 -> shifts to House 1",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 3,
+        "SUN": 1
+      },
+      "age": 1
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for MOON at age 1."
+  },
+  {
+    "test_id": "TC3_VAR_03",
+    "domain": "VARSHPHAL",
+    "name": "Age 12: 12 % 3 = 0 -> Remainder 0 defaults to natal 3",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 3,
+        "SUN": 1
+      },
+      "age": 12
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expected": 3
+    },
+    "rationale": "Validates Varshaphala shift for MOON at age 12."
+  },
+  {
+    "test_id": "TC3_VAR_04",
+    "domain": "VARSHPHAL",
+    "name": "Age 25: 25 % 3 = 1 -> shifts to House 1 (occupied by Sun)",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MARS": 3,
+        "SUN": 1
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "planet": "MARS",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for MARS at age 25."
+  },
+  {
+    "test_id": "TC3_VAR_05",
+    "domain": "VARSHPHAL",
+    "name": "Age 25: 25 % 5 = 0 -> Remainder 0 defaults to natal 5",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 5
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "planet": "JUPITER",
+      "expected": 5
+    },
+    "rationale": "Validates Varshaphala shift for JUPITER at age 25."
+  },
+  {
+    "test_id": "TC3_VAR_06",
+    "domain": "VARSHPHAL",
+    "name": "Age 26: 26 % 5 = 1, but natal House 1 empty -> defaults to 5",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "JUPITER": 5,
+        "MOON": 3
+      },
+      "age": 26
+    },
+    "expected_result": {
+      "planet": "JUPITER",
+      "expected": 5
+    },
+    "rationale": "Validates Varshaphala shift for JUPITER at age 26."
+  },
+  {
+    "test_id": "TC3_VAR_07",
+    "domain": "VARSHPHAL",
+    "name": "Age 36: 36 % 6 = 0 -> Remainder 0 defaults to natal 6",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SATURN": 6
+      },
+      "age": 36
+    },
+    "expected_result": {
+      "planet": "SATURN",
+      "expected": 6
+    },
+    "rationale": "Validates Varshaphala shift for SATURN at age 36."
+  },
+  {
+    "test_id": "TC3_VAR_08",
+    "domain": "VARSHPHAL",
+    "name": "Age 60 mid-cycle: 60 % 2 = 0 -> defaults to natal 2",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 2,
+        "MOON": 4
+      },
+      "age": 60
+    },
+    "expected_result": {
+      "planet": "SUN",
+      "expected": 2
+    },
+    "rationale": "Validates Varshaphala shift for SUN at age 60."
+  },
+  {
+    "test_id": "TC3_VAR_09",
+    "domain": "VARSHPHAL",
+    "name": "Age 119: 119 % 4 = 3 -> shifts to natal 3 (if occupied) or natal fallback",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MARS": 4,
+        "SUN": 1
+      },
+      "age": 119
+    },
+    "expected_result": {
+      "planet": "MARS",
+      "expected": 3
+    },
+    "rationale": "Validates Varshaphala shift for MARS at age 119."
+  },
+  {
+    "test_id": "TC3_VAR_10",
+    "domain": "VARSHPHAL",
+    "name": "Age 120 cycle completion: 120 % 4 = 0 -> stays in 4",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MARS": 4
+      },
+      "age": 120
+    },
+    "expected_result": {
+      "planet": "MARS",
+      "expected": 4
+    },
+    "rationale": "Validates Varshaphala shift for MARS at age 120."
+  },
+  {
+    "test_id": "TC3_VAR_11",
+    "domain": "VARSHPHAL",
+    "name": "Age 121 cycle rollover: 121 % 3 = 1 -> shifts to House 1",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "MOON": 3,
+        "SUN": 1
+      },
+      "age": 121
+    },
+    "expected_result": {
+      "planet": "MOON",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for MOON at age 121."
+  },
+  {
+    "test_id": "TC3_VAR_12",
+    "domain": "VARSHPHAL",
+    "name": "Annual chart fixed Aries Lagna preserved at Age 30",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 1,
+        "MOON": 3,
+        "JUPITER": 5
+      },
+      "age": 30
+    },
+    "expected_result": {
+      "planet": "LAGNA_ARIES",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for LAGNA_ARIES at age 30."
+  },
+  {
+    "test_id": "TC3_VAR_13",
+    "domain": "VARSHPHAL",
+    "name": "Multiple planets (Venus 25%6=1, Mars 25%1=0->1) converging",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 2,
+        "VENUS": 6,
+        "MARS": 1
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "planet": "MULTI_COLLISION",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for MULTI_COLLISION at age 25."
+  },
+  {
+    "test_id": "TC3_VAR_14",
+    "domain": "VARSHPHAL",
+    "name": "9 planets shifting across annual chart at Age 25",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 1,
+        "MOON": 2,
+        "MARS": 3,
+        "MERCURY": 4,
+        "JUPITER": 5,
+        "VENUS": 6,
+        "SATURN": 7,
+        "RAHU": 8,
+        "KETU": 9
+      },
+      "age": 25
+    },
+    "expected_result": {
+      "planet": "FULL_CHART_SHIFT",
+      "expected": 9
+    },
+    "rationale": "Validates Varshaphala shift for FULL_CHART_SHIFT at age 25."
+  },
+  {
+    "test_id": "TC3_VAR_15",
+    "domain": "VARSHPHAL",
+    "name": "Age 75: 75 % 1 = 0 -> stays in natal 1",
+    "source_rule_id": "LK1952_F13_VARSHPHAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_verse_hindi": "Farman 13, Safa 217: 120 साला चक्र व वार्षिक कुण्डली गणित",
+    "chart_inputs": {
+      "planets": {
+        "SUN": 1
+      },
+      "age": 75
+    },
+    "expected_result": {
+      "planet": "SUN",
+      "expected": 1
+    },
+    "rationale": "Validates Varshaphala shift for SUN at age 75."
+  },
+  {
+    "test_id": "TC3_BND_01",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "House 0 rejected as out-of-bounds",
+    "source_rule_id": "LK1952_GUARD_INVALID_HOUSE_0",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "SUN": 0
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "House 0 rejected as out-of-bounds"
+  },
+  {
+    "test_id": "TC3_BND_02",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "House 13 rejected as out-of-bounds",
+    "source_rule_id": "LK1952_GUARD_INVALID_HOUSE_13",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "MOON": 13
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "House 13 rejected as out-of-bounds"
+  },
+  {
+    "test_id": "TC3_BND_03",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "House -1 rejected as out-of-bounds",
+    "source_rule_id": "LK1952_GUARD_INVALID_HOUSE_NEG",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "MARS": -1
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "House -1 rejected as out-of-bounds"
+  },
+  {
+    "test_id": "TC3_BND_04",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "House 100 rejected as out-of-bounds",
+    "source_rule_id": "LK1952_GUARD_INVALID_HOUSE_100",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "JUPITER": 100
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "House 100 rejected as out-of-bounds"
+  },
+  {
+    "test_id": "TC3_BND_05",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Negative age -1 rejected",
+    "source_rule_id": "LK1952_GUARD_NEGATIVE_AGE_1",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "Negative age -1 rejected"
+  },
+  {
+    "test_id": "TC3_BND_06",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Negative age -100 rejected",
+    "source_rule_id": "LK1952_GUARD_NEGATIVE_AGE_100",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "expectedStatus": "REJECTED"
+    },
+    "rationale": "Negative age -100 rejected"
+  },
+  {
+    "test_id": "TC3_BND_07",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Null age allowed for natal chart",
+    "source_rule_id": "LK1952_GUARD_NULL_AGE_NATAL",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "SUN": 1
+    },
+    "expected_result": {
+      "expectedStatus": "ACCEPTED"
+    },
+    "rationale": "Null age allowed for natal chart"
+  },
+  {
+    "test_id": "TC3_BND_08",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Multi-planet aspect vector summation marked UNRESOLVED",
+    "source_rule_id": "LK1952_GUARD_COMPOSITE_DRISHTI_SUM",
+    "rule_type": "UNRESOLVED",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "SUN": 1,
+      "SATURN": 1,
+      "MERCURY": 1
+    },
+    "expected_result": {
+      "expectedStatus": "UNRESOLVED"
+    },
+    "rationale": "Multi-planet aspect vector summation marked UNRESOLVED"
+  },
+  {
+    "test_id": "TC3_BND_09",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Modern metric gram weights marked UNRESOLVED",
+    "source_rule_id": "LK1952_GUARD_EXACT_METRIC_GRAMS",
+    "rule_type": "UNRESOLVED",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {
+      "REMEDY": "JAL_PRAVAH"
+    },
+    "expected_result": {
+      "expectedStatus": "UNRESOLVED"
+    },
+    "rationale": "Modern metric gram weights marked UNRESOLVED"
+  },
+  {
+    "test_id": "TC3_BND_10",
+    "domain": "BOUNDARY_AND_UNRESOLVED",
+    "name": "Production guard LalKitabEngine.isSupported == false verified",
+    "source_rule_id": "LK1952_GUARD_PRODUCTION_GUARD",
+    "rule_type": "DIRECT_SOURCE_RULE",
+    "printed_page": 1,
+    "pdf_page": 4,
+    "original_verse_hindi": "Lal Kitab Boundaries and Unresolved Rules Standard",
+    "chart_inputs": {},
+    "expected_result": {
+      "expectedStatus": "DISABLED"
+    },
+    "rationale": "Production guard LalKitabEngine.isSupported == false verified"
+  }
+]

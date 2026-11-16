@@ -1,0 +1,547 @@
+[
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_01",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "पहला पक्का घर - सूर्य व मंगल नेक",
+    "printed_page": 56,
+    "pdf_page": 59,
+    "original_hindi": "पहला घर सूर्य और मंगल का पक्का घर है। तख्त का मालिक सूर्य और फौजपति मंगल नेक।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 1
+    },
+    "expected_output": [
+      "sun",
+      "mars"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_02",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "दूसरा पक्का घर - बृहस्पति",
+    "printed_page": 59,
+    "pdf_page": 62,
+    "original_hindi": "ख़ाना नम्बर 2 बृहस्पत का पक्का घर है। धर्म अस्थान और मंदिर की मूरत।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 2
+    },
+    "expected_output": [
+      "jupiter"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_03",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "तीसरा पक्का घर - मंगल बद",
+    "printed_page": 63,
+    "pdf_page": 66,
+    "original_hindi": "ख़ाना नम्बर 3 मंगल का पक्का घर है, खूनी और लड़ाकू हथियार।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 3
+    },
+    "expected_output": [
+      "mars"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_04",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "चौथा पक्का घर - चंद्र",
+    "printed_page": 66,
+    "pdf_page": 69,
+    "original_hindi": "ख़ाना नम्बर 4 चंद्र का पक्का घर है। शीतल जल, मां की गोद और दरिया का किनारा।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 4
+    },
+    "expected_output": [
+      "moon"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_05",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "पाँचवाँ पक्का घर - बृहस्पति व सूर्य",
+    "printed_page": 70,
+    "pdf_page": 73,
+    "original_hindi": "ख़ाना नम्बर 5 बृहस्पत का पक्का घर है। औलाद, इल्म और विद्या का खज़ाना।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 5
+    },
+    "expected_output": [
+      "jupiter"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_06",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "छठा पक्का घर - बुध व केतु",
+    "printed_page": 74,
+    "pdf_page": 77,
+    "original_hindi": "ख़ाना नम्बर 6 बुध और केतु का पक्का घर है। पाताल का कुआं और ननिहाल का ताल्लुक।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 6
+    },
+    "expected_output": [
+      "mercury",
+      "ketu"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_07",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "सातवाँ पक्का घर - शुक्र व बुध",
+    "printed_page": 78,
+    "pdf_page": 81,
+    "original_hindi": "ख़ाना नम्बर 7 शुक्र और बुध का पक्का घर है। गृहस्त, दुनियादारी और औरत का सुख।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 7
+    },
+    "expected_output": [
+      "venus",
+      "mercury"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_08",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "आठवाँ पक्का घर - शनि व मंगल बद",
+    "printed_page": 82,
+    "pdf_page": 85,
+    "original_hindi": "ख़ाना नम्बर 8 सनीचर और मंगल बद का पक्का घर है। मौत का शिकंजा और श्मशान का मैदान।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 8
+    },
+    "expected_output": [
+      "saturn",
+      "mars"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_09",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "नौवाँ पक्का घर - बृहस्पति",
+    "printed_page": 86,
+    "pdf_page": 89,
+    "original_hindi": "ख़ाना नम्बर 9 बृहस्पत का पक्का घर है। किस्मत का दरवाजा और बुजुर्गों का साया।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 9
+    },
+    "expected_output": [
+      "jupiter"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_10",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "दसवाँ पक्का घर - शनि",
+    "printed_page": 90,
+    "pdf_page": 93,
+    "original_hindi": "ख़ाना नम्बर 10 सनीचर का पक्का घर है। कर्म की अदालत और सरकार का हुक्म।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 10
+    },
+    "expected_output": [
+      "saturn"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_11",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "ग्यारहवाँ पक्का घर - बृहस्पति",
+    "printed_page": 94,
+    "pdf_page": 97,
+    "original_hindi": "ख़ाना नम्बर 11 बृहस्पत का पक्का घर है। धर्म की अदालत और आमदन का जरिया।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 11
+    },
+    "expected_output": [
+      "jupiter"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F07_PAKKA_GHAR_12",
+    "category": "PAKKA_GHAR",
+    "farman_number": 7,
+    "title": "बारहवाँ पक्का घर - बृहस्पति व राहु",
+    "printed_page": 98,
+    "pdf_page": 101,
+    "original_hindi": "ख़ाना नम्बर 12 बृहस्पत और राहु का पक्का घर है। आसमान की छत और शयन सुख।",
+    "implementation_class": "LalKitabDormancyCalculator.pakkaGharLords",
+    "inputs": {
+      "house": 12
+    },
+    "expected_output": [
+      "jupiter",
+      "rahu"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 2)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_FULL_1_7",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "पूर्ण दृष्टि - 1 और 7 आमने-सामने (100% Mutual)",
+    "printed_page": 101,
+    "pdf_page": 104,
+    "original_hindi": "ख़ाना नम्बर 1 और ख़ाना नम्बर 7 एक दूसरे को पूरी सौ फीसदी नजर से देखते हैं। यह आमने-सामने की मुकम्मल नजर कहलाती है।",
+    "implementation_class": "LalKitabAspectCalculator.getStandardAspectPercentage",
+    "inputs": {
+      "fromHouse": 1,
+      "toHouse": 7
+    },
+    "expected_output": 100.0,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 3)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_HALF_4_8",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "अर्ध दृष्टि - 4 से 8 (50% One-Way)",
+    "printed_page": 105,
+    "pdf_page": 108,
+    "original_hindi": "ख़ाना नम्बर 4 ख़ाना नम्बर 8 को आधी (50 फीसदी) नजर से देखता है। मगर ख़ाना नम्बर 8 ख़ाना नम्बर 4 को इस तरह नहीं देखता।",
+    "implementation_class": "LalKitabAspectCalculator.getStandardAspectPercentage",
+    "inputs": {
+      "fromHouse": 4,
+      "toHouse": 8
+    },
+    "expected_output": 50.0,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 3)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_HALF_3_11",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "अर्ध दृष्टि - 3 से 11 (50% One-Way)",
+    "printed_page": 108,
+    "pdf_page": 111,
+    "original_hindi": "ख़ाना नम्बर 3 ख़ाना नम्बर 11 को आधी दृष्टि से देखता है। पराक्रम लाभ की तरफ देखता है।",
+    "implementation_class": "LalKitabAspectCalculator.getStandardAspectPercentage",
+    "inputs": {
+      "fromHouse": 3,
+      "toHouse": 11
+    },
+    "expected_output": 50.0,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 3)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_QUARTER_5_9",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "चौथाई दृष्टि - 5 से 9 (25% One-Way)",
+    "printed_page": 112,
+    "pdf_page": 115,
+    "original_hindi": "ख़ाना नम्बर 5 ख़ाना नम्बर 9 को चौथाई (25 फीसदी) नजर से देखता है।",
+    "implementation_class": "LalKitabAspectCalculator.getStandardAspectPercentage",
+    "inputs": {
+      "fromHouse": 5,
+      "toHouse": 9
+    },
+    "expected_output": 25.0,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 3)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "टक्कर दृष्टि (Collision Aspect)",
+    "printed_page": 118,
+    "pdf_page": 121,
+    "original_hindi": "जब दो शत्रु ग्रह आमने-सामने हों तो वह मेंढों की तरह सिर टकराते हैं। इसे टक्कर की नजर कहते हैं।",
+    "implementation_class": "LalKitabAspectCalculator.calculateAspects",
+    "inputs": {
+      "h1": 1,
+      "h2": 7,
+      "p1": "sun",
+      "p2": "saturn"
+    },
+    "expected_output": "TAKKAR",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 4)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_DHOKA",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "धोखा दृष्टि (Deceit Aspect)",
+    "printed_page": 124,
+    "pdf_page": 127,
+    "original_hindi": "ख़ाना नम्बर 10 में बैठा ग्रह मौका पाकर ख़ाना 2 या ख़ाना 8 को धोखे की नजर से मारता है।",
+    "implementation_class": "LalKitabAspectCalculator.calculateAspects",
+    "inputs": {
+      "h1": 10,
+      "h2": 2
+    },
+    "expected_output": "DHOKA",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 4)"
+  },
+  {
+    "rule_id": "LK1952_F08_DRISHTI_BUNIYAD",
+    "category": "DRISHTI",
+    "farman_number": 8,
+    "title": "बुनियादी दृष्टि (Foundational Aspect)",
+    "printed_page": 116,
+    "pdf_page": 119,
+    "original_hindi": "पक्की बुनियाद की तरह मदद ही देंगे या एक के उसूल की वहीं बुनियाद होगी।",
+    "implementation_class": "LalKitabAspectCalculator.calculateAspects",
+    "inputs": {
+      "h1": 5,
+      "h2": 9
+    },
+    "expected_output": "BUNIYADI",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 4)"
+  },
+  {
+    "rule_id": "LK1952_F06_MASNOOI_PLANETS",
+    "category": "PLANETARY_STATE",
+    "farman_number": 6,
+    "title": "मस्नूई ग्रह संयोजन",
+    "printed_page": 27,
+    "pdf_page": 30,
+    "original_hindi": "सूरज + शुक्र मिलकर केतु। सूरज + शनि मिलकर मंगल बद। गुरु + सूर्य मिलकर मंगल नेक। बुध + शुक्र मिलकर सूर्य। मंगल + शनि = राहु।",
+    "implementation_class": "LalKitabMasnooiCalculator.calculateMasnooiPlanets",
+    "inputs": {
+      "pairs": [
+        [
+          "sun",
+          "venus"
+        ],
+        [
+          "sun",
+          "saturn"
+        ],
+        [
+          "sun",
+          "jupiter"
+        ],
+        [
+          "mercury",
+          "venus"
+        ],
+        [
+          "mars",
+          "saturn"
+        ]
+      ]
+    },
+    "expected_output": [
+      "KETU",
+      "MANGAL_BAD",
+      "MANGAL_NEK",
+      "SUN",
+      "RAHU"
+    ],
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 5)"
+  },
+  {
+    "rule_id": "LK1952_F06_SOYE_HUE_GHAR",
+    "category": "PLANETARY_STATE",
+    "farman_number": 6,
+    "title": "सोया हुआ घर व सोया हुआ ग्रह",
+    "printed_page": 42,
+    "pdf_page": 45,
+    "original_hindi": "जिस घर में कोई ग्रह न बैठा हो और न किसी ग्रह की नजर पड़ती हो, वह सोया हुआ घर कहलाता है।",
+    "implementation_class": "LalKitabDormancyCalculator.analyzeDormancy",
+    "inputs": {
+      "house": 10,
+      "occupants": [],
+      "aspects": []
+    },
+    "expected_output": {
+      "isSleeping": true
+    },
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 6)"
+  },
+  {
+    "rule_id": "LK1952_F10_NEK_BAD_STATUS",
+    "category": "PLANETARY_STATE",
+    "farman_number": 10,
+    "title": "ग्रह नेक व मंदा फल निर्णय",
+    "printed_page": 162,
+    "pdf_page": 165,
+    "original_hindi": "कौन कौन सी हालतों पर और कहाँ और किस वक्त अच्छा या बुरा असर होगा।",
+    "implementation_class": "Unresolved Specification (Requires chart synthesis)",
+    "inputs": {
+      "planet": "mars",
+      "conjunction": "jupiter",
+      "house": 1
+    },
+    "expected_output": "MANGAL_NEK",
+    "verification_status": "UNRESOLVED_SPECIFICATION",
+    "test_reference": "lal_kitab_calculation_audit_test.dart"
+  },
+  {
+    "rule_id": "LK1952_F09_UPAYA_DAYTIME",
+    "category": "UPAYA",
+    "farman_number": 9,
+    "title": "दिन के समय उपाय करने का नियम",
+    "printed_page": 150,
+    "pdf_page": 153,
+    "original_hindi": "हर एक उपाय सूरज के रहते यानी दिन के वक्त ही किया जावे। रात को किया गया उपाय मंदा और उल्टा असर दे सकता है।",
+    "implementation_class": "LalKitabSafetyValidator.validateRemedyTiming",
+    "inputs": {
+      "time": "daylight"
+    },
+    "expected_output": true,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_knowledge_base_test.dart (Test 8)"
+  },
+  {
+    "rule_id": "LK1952_F09_UPAYA_NO_DONATE_EXALTED",
+    "category": "UPAYA",
+    "farman_number": 9,
+    "title": "उच्च ग्रह का दान निषेध",
+    "printed_page": 155,
+    "pdf_page": 158,
+    "original_hindi": "जो ग्रह कुंडली में उच्च हो या नेक असर दे रहा हो, उसकी मुत्तलका चीज कभी दान न करें।",
+    "implementation_class": "LalKitabSafetyValidator.validateRemedyItems",
+    "inputs": {
+      "planetDignity": "exalted",
+      "action": "donate"
+    },
+    "expected_output": false,
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_knowledge_base_test.dart (Test 8)"
+  },
+  {
+    "rule_id": "LK1952_F14_TEVA_DHARMI",
+    "category": "TEVA_CLASSIFICATION",
+    "farman_number": 14,
+    "title": "धर्मी टेवा",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_hindi": "गुरू ख़ाना नम्बर 10 में हो, या चंद्र 4 या 10 में, या सनीचर 11 में हो तो टेवा धर्मी होता है।",
+    "implementation_class": "LalKitabTevaClassifier.classifyChart",
+    "inputs": {
+      "jupiter": 10
+    },
+    "expected_output": "DHARMI",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 7)"
+  },
+  {
+    "rule_id": "LK1952_F14_TEVA_ANDHA",
+    "category": "TEVA_CLASSIFICATION",
+    "farman_number": 14,
+    "title": "अंधा टेवा",
+    "printed_page": 226,
+    "pdf_page": 229,
+    "original_hindi": "शत्रु बाहम घर 10 में बैठे टेवा होता ग्रह अंधा हो। दस अंधों को भोजन कराना इसका पक्का उपाय है।",
+    "implementation_class": "LalKitabTevaClassifier.classifyChart",
+    "inputs": {
+      "house10": [
+        "sun",
+        "saturn"
+      ]
+    },
+    "expected_output": "ANDHA",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 7)"
+  },
+  {
+    "rule_id": "LK1952_F14_TEVA_RATANDH",
+    "category": "TEVA_CLASSIFICATION",
+    "farman_number": 14,
+    "title": "रतौंधी टेवा",
+    "printed_page": 227,
+    "pdf_page": 230,
+    "original_hindi": "सूरज सातवें घर में हो तो टेवा रतौंधी कहलाता है।",
+    "implementation_class": "LalKitabTevaClassifier.classifyChart",
+    "inputs": {
+      "sun": 7
+    },
+    "expected_output": "RATANDH",
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 7)"
+  },
+  {
+    "rule_id": "LK1952_F13_VARSHPHAL_120_CYCLE",
+    "category": "ANNUAL_ROTATION",
+    "farman_number": 13,
+    "title": "वर्षफल का 120 साला चक्कर (Modulo Formula)",
+    "printed_page": 217,
+    "pdf_page": 220,
+    "original_hindi": "सब घरों के ग्रह अपने खाना नम्बर में बैठे हुए हिंदसों पर तकसीम करें। सिफ़र बाकि बचने या बाकि बचे हुए हिंदसा नम्बर वाला घर ख़ाली होने की हालत में ग्रह मुतअल्लिका जन्म कुण्डली वाले घर में ही असर कर रहा गिना जाएगा।",
+    "implementation_class": "LalKitabVarshphalCalculator.calculateVarshphal",
+    "inputs": {
+      "age": 25,
+      "natalMoon": 3
+    },
+    "expected_output": {
+      "annualMoon": 1,
+      "formula": "25 % 3 = 1"
+    },
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 8)"
+  },
+  {
+    "rule_id": "LK1952_F13_VARSHPHAL_FIXED_ARIES",
+    "category": "ANNUAL_ROTATION",
+    "farman_number": 13,
+    "title": "वर्षफल में मेष लग्न की निरंतरता",
+    "printed_page": 213,
+    "pdf_page": 216,
+    "original_hindi": "वर्षफल की कुंडली में हमेशा पहला घर मेष राशि का ही रहेगा। ग्रह अपनी सालवार गर्दिश के अनुसार नए घरों में बदलते हैं।",
+    "implementation_class": "LalKitabVarshphalCalculator.calculateVarshphal",
+    "inputs": {
+      "annualChart": "any"
+    },
+    "expected_output": {
+      "lagna": 1
+    },
+    "verification_status": "VERIFIED",
+    "test_reference": "lal_kitab_calculation_audit_test.dart (Test 8)"
+  }
+]

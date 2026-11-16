@@ -9,6 +9,7 @@ import sys
 import sqlite3
 import tempfile
 from datetime import datetime
+from typing import Optional, Dict, List, Any
 
 def get_user_data_root() -> str:
     """Return standard writable user data directory with graceful fallbacks."""
@@ -77,8 +78,35 @@ def _get_db_path() -> str:
     return ":memory:"
 
 
+def backup_crm_db() -> str:
+    r"""Create an automated timestamped backup of the customer database in %LOCALAPPDATA%\VedasKundli\backups\."""
+    try:
+        db_path = _get_db_path()
+        if not os.path.exists(db_path) or db_path == ":memory:":
+            return ""
+        backup_dir = os.path.join(get_user_data_root(), "backups")
+        os.makedirs(backup_dir, exist_ok=True)
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_file = os.path.join(backup_dir, f"gurukulam_crm_backup_{stamp}.db")
+        import shutil
+        shutil.copy2(db_path, backup_file)
+        # Keep only the last 10 backups to save disk space
+        backups = sorted([os.path.join(backup_dir, f) for f in os.listdir(backup_dir) if f.startswith("gurukulam_crm_backup_")])
+        while len(backups) > 10:
+            oldest = backups.pop(0)
+            try:
+                os.remove(oldest)
+            except Exception:
+                pass
+        return backup_file
+    except Exception:
+        return ""
+
+
 def init_crm_db():
     db_path = _get_db_path()
+    if db_path != ":memory:" and os.path.exists(db_path):
+        backup_crm_db()
     if db_path != ":memory:":
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
@@ -129,6 +157,22 @@ def init_crm_db():
             address TEXT DEFAULT '',
             tagline TEXT DEFAULT 'Ancient Vedic, KP & Lal Kitab Predictions',
             logo_data TEXT DEFAULT '',
+            updated_at TEXT NOT NULL
+        )
+    """)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS numerology_profiles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            client_id INTEGER DEFAULT NULL,
+            name TEXT NOT NULL,
+            original_name TEXT DEFAULT '',
+            script_lang TEXT DEFAULT 'Latin',
+            dob TEXT NOT NULL,
+            target_year INTEGER DEFAULT 2026,
+            system TEXT DEFAULT 'both',
+            life_path_policy TEXT DEFAULT 'component_reduction',
+            profile_data_json TEXT NOT NULL,
+            created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL
         )
     """)
@@ -395,3 +439,135 @@ def validate_access_key(key_code: str) -> dict:
         "expires_at": row[4],
         "status": "ACTIVE"
     }
+
+
+# ===========================================================================
+# NUMEROLOGY PROFILES CRM PERSISTENCE
+# ===========================================================================
+
+def save_numerology_profile(data: dict) -> int:
+    """Save or update a Numerology Profile in SQLite."""
+    conn = sqlite3.connect(_get_db_path())
+    cur = conn.cursor()
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    pid = data.get("id")
+    client_id = data.get("client_id")
+    name = data.get("name", "").strip()
+    original_name = data.get("original_name", "").strip() or name
+    script_lang = data.get("script_lang", "Latin")
+    dob = data.get("dob", "").strip()
+    target_year = int(data.get("target_year", datetime.now().year))
+    system = data.get("system", "both")
+    life_path_policy = data.get("life_path_policy", "component_reduction")
+    
+    # Store JSON payload
+    profile_data = data.get("profile_data", {})
+    if isinstance(profile_data, dict):
+        import json
+        profile_json = json.dumps(profile_data, ensure_ascii=False)
+    else:
+        profile_json = str(profile_data)
+
+    if pid:
+        cur.execute("""
+            UPDATE numerology_profiles
+            SET client_id = ?, name = ?, original_name = ?, script_lang = ?,
+                dob = ?, target_year = ?, system = ?, life_path_policy = ?,
+                profile_data_json = ?, updated_at = ?
+            WHERE id = ?
+        """, (client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, profile_json, now_str, pid))
+    else:
+        cur.execute("""
+            INSERT INTO numerology_profiles
+            (client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, profile_data_json, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, profile_json, now_str, now_str))
+        pid = cur.lastrowid
+
+    conn.commit()
+    conn.close()
+    return pid
+
+
+def get_numerology_profile(profile_id: int) -> Optional[dict]:
+    """Retrieve a single numerology profile by ID."""
+    conn = sqlite3.connect(_get_db_path())
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT id, client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, profile_data_json, created_at, updated_at
+        FROM numerology_profiles WHERE id = ?
+    """, (profile_id,))
+    r = cur.fetchone()
+    conn.close()
+    if not r:
+        return None
+    import json
+    try:
+        p_data = json.loads(r[9])
+    except Exception:
+        p_data = {}
+    return {
+        "id": r[0],
+        "client_id": r[1],
+        "name": r[2],
+        "original_name": r[3],
+        "script_lang": r[4],
+        "dob": r[5],
+        "target_year": r[6],
+        "system": r[7],
+        "life_path_policy": r[8],
+        "profile_data": p_data,
+        "created_at": r[10],
+        "updated_at": r[11]
+    }
+
+
+def list_numerology_profiles(q: str = "") -> list:
+    """List all saved numerology profiles with optional query filter."""
+    conn = sqlite3.connect(_get_db_path())
+    cur = conn.cursor()
+    if q and q.strip():
+        term = f"%{q.strip()}%"
+        cur.execute("""
+            SELECT id, client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, created_at, updated_at
+            FROM numerology_profiles
+            WHERE name LIKE ? OR original_name LIKE ? OR dob LIKE ?
+            ORDER BY updated_at DESC
+        """, (term, term, term))
+    else:
+        cur.execute("""
+            SELECT id, client_id, name, original_name, script_lang, dob, target_year, system, life_path_policy, created_at, updated_at
+            FROM numerology_profiles
+            ORDER BY updated_at DESC
+        """)
+    rows = cur.fetchall()
+    conn.close()
+    return [
+        {
+            "id": r[0],
+            "client_id": r[1],
+            "name": r[2],
+            "original_name": r[3],
+            "script_lang": r[4],
+            "dob": r[5],
+            "target_year": r[6],
+            "system": r[7],
+            "life_path_policy": r[8],
+            "created_at": r[9],
+            "updated_at": r[10]
+        }
+        for r in rows
+    ]
+
+
+def delete_numerology_profile(profile_id: int) -> bool:
+    """Delete a numerology profile by ID."""
+    conn = sqlite3.connect(_get_db_path())
+    cur = conn.cursor()
+    cur.execute("DELETE FROM numerology_profiles WHERE id = ?", (profile_id,))
+    conn.commit()
+    affected = cur.rowcount
+    conn.close()
+    return affected > 0
+

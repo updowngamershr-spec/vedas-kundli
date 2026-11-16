@@ -1,0 +1,127 @@
+{
+  "audit_metadata": {
+    "title": "Lal Kitab 1952 Aspect, Takkar, Dhoka & Buniyadi Forensic Validation",
+    "source_text": "Farman 8, Safa 101 to 149",
+    "auditor": "Vedas Kundli Engine Integrity Verification Core",
+    "duplicate_saturn_h10_resolved": true
+  },
+  "implemented_aspect_directions": [
+    {
+      "aspect_type": "KAMAL (Full 100%)",
+      "from_house": 1,
+      "to_house": 7,
+      "is_reciprocal": true,
+      "reciprocal_from": 7,
+      "reciprocal_to": 1,
+      "percentage": 100.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_FULL_1_7",
+      "safa_reference": 105,
+      "target_handling": "Applies whether target house is occupied or vacant"
+    },
+    {
+      "aspect_type": "AADHI (Half 50%)",
+      "from_house": 4,
+      "to_house": 8,
+      "is_reciprocal": false,
+      "percentage": 50.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_HALF_4_8",
+      "safa_reference": 107,
+      "target_handling": "Directional only; House 8 does NOT aspect House 4"
+    },
+    {
+      "aspect_type": "AADHI (Half 50%)",
+      "from_house": 3,
+      "to_house": 11,
+      "is_reciprocal": false,
+      "percentage": 50.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_HALF_3_11",
+      "safa_reference": 108,
+      "target_handling": "Directional only; House 11 does NOT aspect House 3"
+    },
+    {
+      "aspect_type": "CHAUTHAI (Quarter 25%)",
+      "from_house": 5,
+      "to_house": 9,
+      "is_reciprocal": false,
+      "percentage": 25.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_QUARTER_5_9",
+      "safa_reference": 109,
+      "target_handling": "Directional only; 5th house supports 9th as foundational root"
+    },
+    {
+      "aspect_type": "CHAUTHAI (Quarter 25%)",
+      "from_house": 2,
+      "to_house": 6,
+      "is_reciprocal": false,
+      "percentage": 25.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_QUARTER_2_6",
+      "safa_reference": 109,
+      "target_handling": "Directional only; 2nd house supports 6th"
+    },
+    {
+      "aspect_type": "CHAUTHAI (Quarter 25%)",
+      "from_house": 6,
+      "to_house": 12,
+      "is_reciprocal": false,
+      "percentage": 25.0,
+      "source_rule_id": "LK1952_F08_DRISHTI_QUARTER_6_12",
+      "safa_reference": 109,
+      "target_handling": "Directional only; 6th house aspects 12th"
+    },
+    {
+      "aspect_type": "TAKKAR (Hostile Collision)",
+      "from_house": 1,
+      "to_house": 7,
+      "is_reciprocal": true,
+      "percentage": 100.0,
+      "condition": "Triggered exclusively when planets in 1 and 7 are mutual enemies (Farman 6 Safa 31)",
+      "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+      "safa_reference": 110
+    },
+    {
+      "aspect_type": "TAKKAR (Hostile Collision)",
+      "from_house": 2,
+      "to_house": 8,
+      "is_reciprocal": true,
+      "percentage": 100.0,
+      "condition": "Triggered exclusively when planets in 2 and 8 are mutual enemies (Farman 6 Safa 31)",
+      "source_rule_id": "LK1952_F08_DRISHTI_TAKKAR",
+      "safa_reference": 110
+    },
+    {
+      "aspect_type": "DHOKA (Deceit Strike)",
+      "from_house": 10,
+      "to_house": 2,
+      "is_reciprocal": false,
+      "percentage": 0.0,
+      "nature": "Qualitative deceit blow (धोखा चोट); NOT a numerical 75% ray",
+      "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+      "safa_reference": 112
+    },
+    {
+      "aspect_type": "DHOKA (Deceit Strike)",
+      "from_house": 10,
+      "to_house": 8,
+      "is_reciprocal": false,
+      "percentage": 0.0,
+      "nature": "Qualitative deceit blow (धोखा चोट) targeting House 8",
+      "source_rule_id": "LK1952_F08_DRISHTI_DHOKA",
+      "safa_reference": 112
+    },
+    {
+      "aspect_type": "BUNIYAD (Foundational Base)",
+      "from_house": 5,
+      "to_house": 9,
+      "is_reciprocal": false,
+      "percentage": 50.0,
+      "nature": "Qualitative foundational support (5th house acts as parent foundation for 9th)",
+      "source_rule_id": "LK1952_F08_DRISHTI_BUNIYAD",
+      "safa_reference": 115
+    }
+  ],
+  "saturn_h10_dhoka_duplicate_resolution": {
+    "root_cause": "In Phase 5, PDF builder had hardcoded string 'खाना 10 -> खाना 2' for all dhoka strikes. When Saturn in House 10 struck both House 2 and House 8, the second strike was rendered with the hardcoded string 'खाना 10 -> खाना 2', creating an identical duplicate row.",
+    "resolution_applied": "Changed to dynamic expression 'खाना ${d.fromHouse} -> खाना ${d.toHouse}' and implemented strict Set-based deduplication.",
+    "verification_result": "Row 1 renders H10 -> H2, Row 2 renders H10 -> H8. Zero duplication verified."
+  }
+}

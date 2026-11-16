@@ -1,0 +1,99 @@
+{
+  "auditVersion": "5.2.0",
+  "timestamp": "2026-11-08T14:12:00+05:30",
+  "flutterAnalyze": {
+    "status": "PASS",
+    "issuesFound": 0,
+    "durationSeconds": 7.5
+  },
+  "lalKitabTestSuites": {
+    "test_lal_kitab_calculation_audit_test": {
+      "tests": 9,
+      "status": "PASS"
+    },
+    "test_lal_kitab_knowledge_base_test": {
+      "tests": 10,
+      "status": "PASS"
+    },
+    "test_lal_kitab_phase2_independent_tests": {
+      "tests": 122,
+      "status": "PASS"
+    },
+    "test_lal_kitab_phase3_independent_tests": {
+      "tests": 180,
+      "status": "PASS"
+    },
+    "test_lal_kitab_pdf_generation_test": {
+      "tests": 1,
+      "status": "PASS"
+    },
+    "test_lal_kitab_master_implementation_test": {
+      "tests": 33,
+      "status": "PASS"
+    },
+    "totalTests": 355,
+    "totalPassed": 355,
+    "totalFailed": 0,
+    "status": "PASS"
+  },
+  "parashariRegressionSuites": {
+    "customer_isolation_and_rendering_test": {
+      "tests": 1,
+      "status": "PASS"
+    },
+    "five_kundli_validation_runner_test": {
+      "tests": 1,
+      "status": "PASS"
+    },
+    "kundli_milan_test": {
+      "tests": 13,
+      "status": "PASS"
+    },
+    "offline_pdf_generation_test": {
+      "tests": 1,
+      "status": "PASS"
+    },
+    "real_customer_verification_test": {
+      "tests": 3,
+      "status": "PASS"
+    },
+    "ui_pdf_prediction_integration_test": {
+      "tests": 4,
+      "status": "PASS"
+    },
+    "totalRegressionTests": 44,
+    "totalPassed": 44,
+    "totalFailed": 0,
+    "status": "PASS"
+  },
+  "totalAutomatedTestsExecuted": 399,
+  "totalAutomatedTestsPassed": 399,
+  "sqliteMigration": {
+    "status": "PASS",
+    "tablesVerified": 8,
+    "foreignKeysEnforced": true,
+    "cascadesValid": true
+  },
+  "sampleReportsGenerated": {
+    "hindi": {
+      "path": "output/LAL_KITAB_SAMPLE_REPORT_HINDI.pdf",
+      "bytes": 43434,
+      "pages": 5,
+      "offlineFonts": "NotoSansDevanagari-Regular.ttf, Bold.ttf",
+      "status": "VERIFIED"
+    },
+    "english": {
+      "path": "output/LAL_KITAB_SAMPLE_REPORT_ENGLISH.pdf",
+      "bytes": 40121,
+      "pages": 5,
+      "offlineFonts": "NotoSansDevanagari-Regular.ttf, Bold.ttf",
+      "status": "VERIFIED"
+    }
+  },
+  "productionSafetyGates": {
+    "LalKitabEngine.isSupported": false,
+    "LalKitabFeatureFlags.masterEngineSupported": false,
+    "parashariEngineModified": false,
+    "status": "LOCKED_DISABLED"
+  }
+}

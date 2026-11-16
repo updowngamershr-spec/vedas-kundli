@@ -1,0 +1,686 @@
+{
+  "version": "1.1.0",
+  "product": "Vedas Kundli Numerology",
+  "policy": {
+    "traditions_are_separate": true,
+    "never_merge_formula_tables": true,
+    "never_claim_prediction_as_fact": true,
+    "never_claim_remedy_guarantees_outcome": true,
+    "never_use_health_or_finance_fear_language": true,
+    "never_recommend_stopping_medical_or_legal_help": true,
+    "never_recommend_debt_or_gambling_based_on_lucky_dates": true,
+    "no_expensive_gemstone_or_paid_ritual_push": true,
+    "no_child_gender_or_fertility_prediction": true,
+    "no_medical_diagnosis_from_numbers": true,
+    "show_method_and_intermediate_steps": true,
+    "show_source_ref_for_tradition_specific_claims": true,
+    "deduplicate_remedies_by_normalized_action": true,
+    "do_not_repeat_same_remedy_in_one_report": true,
+    "separate_symbolic_practice_from_practical_action": true,
+    "no_author_names_or_contact_details_in_user_outputs": true
+  },
+  "sources": {
+    "NUM_A": {
+      "label": "Numerology reference A",
+      "scope": "Core numbers, number profiles, Chaldean/Pythagorean approaches, compatibility, prosperity",
+      "pages": "1-62",
+      "ocr_note": "Text layer plus OCR; page markers retained"
+    },
+    "NUM_B": {
+      "label": "Numerology reference B",
+      "scope": "Life Path, Soul Urge, Expression, Personality, Pinnacles, Challenges, cycles, karmic lessons, Lo Shu, yantras, compatibility",
+      "pages": "1-109",
+      "ocr_note": "Text layer plus OCR; diagrams and tables require visual review"
+    },
+    "NUM_C": {
+      "label": "Numerology reference C",
+      "scope": "Number symbolism and broader historical/esoteric numerology concepts",
+      "pages": "1-288",
+      "ocr_note": "Text layer plus OCR; complex symbolic diagrams require visual review"
+    },
+    "MIXED_R": {
+      "label": "Mixed remedies reference",
+      "scope": "Numerology missing/repeated number remedies and separate astrology remedy topics",
+      "pages": "1-47",
+      "ocr_note": "OCR-heavy; some glyphs, quantities and mantras are uncertain"
+    }
+  },
+  "number_themes": {
+    "1": {
+      "en": "initiative, independence, leadership and self-direction",
+      "hi": "पहल, स्वतंत्रता, नेतृत्व और आत्मनिर्णय"
+    },
+    "2": {
+      "en": "cooperation, sensitivity, patience and partnership",
+      "hi": "सहयोग, संवेदनशीलता, धैर्य और साझेदारी"
+    },
+    "3": {
+      "en": "expression, learning, creativity and communication",
+      "hi": "अभिव्यक्ति, सीखना, रचनात्मकता और संवाद"
+    },
+    "4": {
+      "en": "structure, discipline, planning and practical execution",
+      "hi": "व्यवस्था, अनुशासन, योजना और व्यावहारिक क्रियान्वयन"
+    },
+    "5": {
+      "en": "adaptability, curiosity, movement and balanced freedom",
+      "hi": "अनुकूलन, जिज्ञासा, बदलाव और संतुलित स्वतंत्रता"
+    },
+    "6": {
+      "en": "care, responsibility, harmony and relationships",
+      "hi": "देखभाल, जिम्मेदारी, सामंजस्य और संबंध"
+    },
+    "7": {
+      "en": "reflection, research, analysis and inner development",
+      "hi": "चिंतन, शोध, विश्लेषण और आंतरिक विकास"
+    },
+    "8": {
+      "en": "management, accountability, resources and long-term effort",
+      "hi": "प्रबंधन, जवाबदेही, संसाधन और दीर्घकालिक प्रयास"
+    },
+    "9": {
+      "en": "completion, compassion, courage and broader contribution",
+      "hi": "समापन, करुणा, साहस और व्यापक योगदान"
+    },
+    "11": {
+      "en": "heightened sensitivity, inspiration and disciplined intuition",
+      "hi": "तीव्र संवेदनशीलता, प्रेरणा और अनुशासित अंतर्ज्ञान"
+    },
+    "22": {
+      "en": "large-scale planning, practical vision and sustained building",
+      "hi": "बड़ी योजना, व्यावहारिक दृष्टि और निरंतर निर्माण"
+    },
+    "33": {
+      "en": "service, teaching, care and balanced responsibility",
+      "hi": "सेवा, शिक्षण, देखभाल और संतुलित जिम्मेदारी"
+    }
+  },
+  "remedies": [
+    {
+      "id": "MISS-1-01",
+      "category": "missing_number",
+      "number": 1,
+      "en": "Build a daily routine and practise one small independent decision.",
+      "hi": "नियमित दिनचर्या बनाएं और रोज़ एक छोटा निर्णय स्वयं लें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.4-5",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-1-02",
+      "category": "missing_number",
+      "number": 1,
+      "en": "Practise clear communication and a constructive creative outlet.",
+      "hi": "स्पष्ट संवाद और रचनात्मक अभिव्यक्ति का अभ्यास करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.4-5",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-1-03",
+      "category": "missing_number",
+      "number": 1,
+      "en": "Traditional option: morning sunlight or a brief Surya Namaskar practice, if suitable.",
+      "hi": "परंपरागत विकल्प: उपयुक्त हो तो सुबह की धूप या संक्षिप्त सूर्य नमस्कार।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.5",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-1-04",
+      "category": "missing_number",
+      "number": 1,
+      "en": "Traditional option: Sunday prayer or a Sun-related mantra; verify the exact mantra before publication.",
+      "hi": "परंपरागत विकल्प: रविवार की प्रार्थना या सूर्य मंत्र; प्रकाशित करने से पहले मंत्र की शुद्धता जाँचें।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.5",
+      "review_status": "ocr_review"
+    },
+    {
+      "id": "MISS-2-01",
+      "category": "missing_number",
+      "number": 2,
+      "en": "Practise patience, listening and acknowledging mistakes without self-blame.",
+      "hi": "धैर्य, ध्यान से सुनना और बिना आत्म-दोष के अपनी गलती स्वीकारना सीखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.6-8",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-2-02",
+      "category": "missing_number",
+      "number": 2,
+      "en": "Maintain respectful contact with family and trusted friends while keeping healthy boundaries.",
+      "hi": "परिवार और विश्वसनीय मित्रों से सम्मानजनक संपर्क रखें और स्वस्थ सीमाएँ बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.7-8",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-2-03",
+      "category": "missing_number",
+      "number": 2,
+      "en": "Traditional option: Monday prayer or a water offering in the user's own tradition.",
+      "hi": "परंपरागत विकल्प: अपनी परंपरा के अनुसार सोमवार की प्रार्थना या जल अर्पण।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.7-8",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-3-01",
+      "category": "missing_number",
+      "number": 3,
+      "en": "Set a weekly learning goal and record what you learn.",
+      "hi": "हर सप्ताह सीखने का एक लक्ष्य तय करें और सीखी बातों को लिखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.9-10",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-3-02",
+      "category": "missing_number",
+      "number": 3,
+      "en": "Seek guidance from teachers and acknowledge their contribution.",
+      "hi": "शिक्षकों से मार्गदर्शन लें और उनके योगदान का सम्मान करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.9-10",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-3-03",
+      "category": "missing_number",
+      "number": 3,
+      "en": "Traditional option: Thursday prayer or a yellow-colour symbolic practice, if personally meaningful.",
+      "hi": "परंपरागत विकल्प: यदि आपके लिए अर्थपूर्ण हो तो गुरुवार की प्रार्थना या पीले रंग का प्रतीकात्मक प्रयोग।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.10",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-4-01",
+      "category": "missing_number",
+      "number": 4,
+      "en": "Use a written plan, calendar and task checklist; finish one task before starting another.",
+      "hi": "लिखित योजना, कैलेंडर और कार्य-सूची अपनाएँ; नया काम शुरू करने से पहले एक काम पूरा करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.11-13",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-4-02",
+      "category": "missing_number",
+      "number": 4,
+      "en": "Pause before major decisions and compare practical options.",
+      "hi": "बड़े निर्णय से पहले रुकें और व्यावहारिक विकल्पों की तुलना करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.12",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-4-03",
+      "category": "missing_number",
+      "number": 4,
+      "en": "Traditional option: spend time in a garden or around plants as a grounding routine.",
+      "hi": "परंपरागत विकल्प: मन को स्थिर करने के लिए बगीचे या पौधों के बीच समय बिताएँ।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.12",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-5-01",
+      "category": "missing_number",
+      "number": 5,
+      "en": "Improve communication, negotiation and goal-setting through deliberate practice.",
+      "hi": "सोच-समझकर अभ्यास के माध्यम से संवाद, बातचीत और लक्ष्य-निर्धारण सुधारें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.13-15",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-5-02",
+      "category": "missing_number",
+      "number": 5,
+      "en": "Use a simple spending plan and review expenses weekly.",
+      "hi": "सरल खर्च-योजना बनाएँ और हर सप्ताह खर्चों की समीक्षा करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.13-15",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-5-03",
+      "category": "missing_number",
+      "number": 5,
+      "en": "Traditional option: a Wednesday learning or prayer routine; avoid health claims attached to it.",
+      "hi": "परंपरागत विकल्प: बुधवार को सीखने या प्रार्थना की दिनचर्या; इससे स्वास्थ्य-लाभ का दावा न करें।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.15",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-6-01",
+      "category": "missing_number",
+      "number": 6,
+      "en": "Schedule time for family responsibilities while protecting personal time.",
+      "hi": "परिवार की जिम्मेदारियों के लिए समय रखें और अपने निजी समय की भी रक्षा करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.16-18",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-6-02",
+      "category": "missing_number",
+      "number": 6,
+      "en": "Practise honest communication and avoid possessive or controlling behaviour.",
+      "hi": "ईमानदार संवाद करें और अधिकार जताने या नियंत्रण करने वाले व्यवहार से बचें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.16-18",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-6-03",
+      "category": "missing_number",
+      "number": 6,
+      "en": "Traditional option: a small act of kindness or donation, within one's means.",
+      "hi": "परंपरागत विकल्प: अपनी क्षमता के अनुसार छोटा दान या सेवा का कार्य।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.17",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-7-01",
+      "category": "missing_number",
+      "number": 7,
+      "en": "Build a reflective routine such as journaling, reading or quiet study.",
+      "hi": "डायरी लिखना, पढ़ना या शांत अध्ययन जैसी चिंतनशील दिनचर्या बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.18-20",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-7-02",
+      "category": "missing_number",
+      "number": 7,
+      "en": "Practise patience, empathy and clear personal boundaries.",
+      "hi": "धैर्य, सहानुभूति और स्पष्ट व्यक्तिगत सीमाओं का अभ्यास करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.19",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-7-03",
+      "category": "missing_number",
+      "number": 7,
+      "en": "Traditional option: service to animals or a simple prayer, only where safe and appropriate.",
+      "hi": "परंपरागत विकल्प: सुरक्षित और उचित हो तो पशु-सेवा या सरल प्रार्थना।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.19",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-8-01",
+      "category": "missing_number",
+      "number": 8,
+      "en": "Create a budget, track obligations and set realistic long-term work goals.",
+      "hi": "बजट बनाएँ, देनदारियों का हिसाब रखें और यथार्थवादी दीर्घकालिक लक्ष्य तय करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.20-22",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-8-02",
+      "category": "missing_number",
+      "number": 8,
+      "en": "Practise accountability: keep promises and complete agreed tasks.",
+      "hi": "जवाबदेही अपनाएँ: वादे निभाएँ और तय किए गए काम पूरे करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.21-22",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-8-03",
+      "category": "missing_number",
+      "number": 8,
+      "en": "Traditional option: Saturday prayer or service/donation within one's means.",
+      "hi": "परंपरागत विकल्प: अपनी क्षमता के अनुसार शनिवार की प्रार्थना, सेवा या दान।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.21-22",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-9-01",
+      "category": "missing_number",
+      "number": 9,
+      "en": "Build a consistent exercise and activity routine appropriate to your ability.",
+      "hi": "अपनी क्षमता के अनुसार नियमित व्यायाम और सक्रियता की दिनचर्या बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.23-25",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-9-02",
+      "category": "missing_number",
+      "number": 9,
+      "en": "Practise emotional regulation, patience and non-aggressive communication.",
+      "hi": "भावनाओं को संतुलित करना, धैर्य रखना और बिना आक्रामकता के संवाद करना सीखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.24-25",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MISS-9-03",
+      "category": "missing_number",
+      "number": 9,
+      "en": "Traditional option: Tuesday prayer or a red-colour symbolic practice, if meaningful.",
+      "hi": "परंपरागत विकल्प: यदि अर्थपूर्ण हो तो मंगलवार की प्रार्थना या लाल रंग का प्रतीकात्मक प्रयोग।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.23-24",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-1-01",
+      "category": "repeated_number",
+      "number": 1,
+      "en": "Practise humility, active listening and shared decision-making.",
+      "hi": "विनम्रता, सक्रिय रूप से सुनना और मिलकर निर्णय लेना सीखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.5-6",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-1-02",
+      "category": "repeated_number",
+      "number": 1,
+      "en": "Do not treat colour or date avoidance as a factual necessity.",
+      "hi": "रंग या तारीख़ से बचने को अनिवार्य तथ्य न मानें।",
+      "kind": "caution",
+      "source": "MIXED_R:p.6",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-2-01",
+      "category": "repeated_number",
+      "number": 2,
+      "en": "Use emotional regulation and communicate needs directly.",
+      "hi": "भावनाओं को संतुलित करें और अपनी जरूरतें स्पष्ट रूप से बताएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.8",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-2-02",
+      "category": "repeated_number",
+      "number": 2,
+      "en": "Do not avoid people solely because of their numerology number.",
+      "hi": "केवल किसी के अंक के कारण उससे संबंध न तोड़ें।",
+      "kind": "caution",
+      "source": "MIXED_R:p.8",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-3-01",
+      "category": "repeated_number",
+      "number": 3,
+      "en": "Balance learning, reflection and action; avoid overcommitting.",
+      "hi": "सीखने, विचार और काम में संतुलन रखें; जरूरत से ज्यादा जिम्मेदारियाँ न लें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.10-11",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-3-02",
+      "category": "repeated_number",
+      "number": 3,
+      "en": "Treat colour restrictions as optional symbolism, not a rule.",
+      "hi": "रंगों से जुड़े निषेध को नियम नहीं, वैकल्पिक प्रतीकवाद मानें।",
+      "kind": "caution",
+      "source": "MIXED_R:p.11",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-4-01",
+      "category": "repeated_number",
+      "number": 4,
+      "en": "Pause before speaking or reacting; practise anger management.",
+      "hi": "बोलने या प्रतिक्रिया देने से पहले ठहरें और क्रोध-नियंत्रण का अभ्यास करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.13",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-4-02",
+      "category": "repeated_number",
+      "number": 4,
+      "en": "Do not avoid people solely because of their number.",
+      "hi": "केवल उनके अंक के कारण लोगों से दूरी न बनाएँ।",
+      "kind": "caution",
+      "source": "MIXED_R:p.13",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-5-01",
+      "category": "repeated_number",
+      "number": 5,
+      "en": "Use a daily focus block, morning movement and a simple healthy routine.",
+      "hi": "रोज़ एकाग्रता का समय रखें, सुबह सक्रिय रहें और सरल स्वस्थ दिनचर्या अपनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.15",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-5-02",
+      "category": "repeated_number",
+      "number": 5,
+      "en": "Think through important choices before acting impulsively.",
+      "hi": "बिना सोचे जल्दबाजी करने के बजाय महत्वपूर्ण विकल्पों पर विचार करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.15",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-6-01",
+      "category": "repeated_number",
+      "number": 6,
+      "en": "Review spending and practise non-possessive, respectful relationships.",
+      "hi": "खर्चों की समीक्षा करें और सम्मानजनक, गैर-अधिकारवादी संबंध बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.17-18",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-6-02",
+      "category": "repeated_number",
+      "number": 6,
+      "en": "Do not use colour avoidance as a compulsory remedy.",
+      "hi": "रंग से बचने को अनिवार्य उपाय न बनाएँ।",
+      "kind": "caution",
+      "source": "MIXED_R:p.17",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-7-01",
+      "category": "repeated_number",
+      "number": 7,
+      "en": "Use careful research and risk review before financial decisions.",
+      "hi": "वित्तीय निर्णय से पहले शोध और जोखिम की सावधानीपूर्वक समीक्षा करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.19-20",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-7-02",
+      "category": "repeated_number",
+      "number": 7,
+      "en": "Never prohibit investing or partnership solely from a numerology reading.",
+      "hi": "केवल अंक-ज्योतिष के आधार पर निवेश या साझेदारी पर रोक न लगाएँ।",
+      "kind": "caution",
+      "source": "MIXED_R:p.20",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-8-01",
+      "category": "repeated_number",
+      "number": 8,
+      "en": "Practise patience, consistency, ethical work and responsible money management.",
+      "hi": "धैर्य, निरंतरता, ईमानदार काम और जिम्मेदार धन-प्रबंधन अपनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.21-22",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-8-02",
+      "category": "repeated_number",
+      "number": 8,
+      "en": "Do not avoid a house, vehicle or phone number solely because it contains 8.",
+      "hi": "केवल 8 अंक होने के कारण घर, वाहन या फोन नंबर से न बचें।",
+      "kind": "caution",
+      "source": "MIXED_R:p.22",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-9-01",
+      "category": "repeated_number",
+      "number": 9,
+      "en": "Practise anger control, measured speech and balanced routines.",
+      "hi": "क्रोध-नियंत्रण, संयमित वाणी और संतुलित दिनचर्या अपनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.24-25",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REP-9-02",
+      "category": "repeated_number",
+      "number": 9,
+      "en": "Avoid aggressive decisions and unnecessary conflict.",
+      "hi": "आक्रामक निर्णयों और अनावश्यक विवाद से बचें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.24-25",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "GEN-01",
+      "category": "general_wellbeing",
+      "number": null,
+      "en": "Use a consistent sleep, movement and reflection routine.",
+      "hi": "नियमित नींद, शारीरिक गतिविधि और आत्मचिंतन की दिनचर्या रखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.25-26",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "GEN-02",
+      "category": "general_wellbeing",
+      "number": null,
+      "en": "Offer help or charity only within your means and without coercion.",
+      "hi": "अपनी क्षमता के अनुसार ही सेवा या दान करें; किसी दबाव में नहीं।",
+      "kind": "practical",
+      "source": "MIXED_R:p.25-27",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "FIN-01",
+      "category": "financial_stability",
+      "number": null,
+      "en": "Keep a written budget, emergency reserve and monthly review.",
+      "hi": "लिखित बजट, आपातकालीन बचत और मासिक समीक्षा रखें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.26-28",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "FIN-02",
+      "category": "financial_stability",
+      "number": null,
+      "en": "Use honest, documented transactions and avoid financial promises based on lucky dates.",
+      "hi": "ईमानदार और लिखित लेन-देन करें; शुभ तारीख़ के आधार पर वित्तीय वादे न करें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.27-29",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "DEBT-01",
+      "category": "debt_management",
+      "number": null,
+      "en": "List all debts, interest rates and due dates; prioritise a realistic repayment plan.",
+      "hi": "सभी कर्ज़, ब्याज दर और भुगतान तारीख़ लिखें; यथार्थवादी भुगतान योजना बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.27-29",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "DEBT-02",
+      "category": "debt_management",
+      "number": null,
+      "en": "Consult a qualified financial adviser or lender before restructuring debt.",
+      "hi": "कर्ज़ की पुनर्संरचना से पहले योग्य वित्तीय सलाहकार या ऋणदाता से सलाह लें।",
+      "kind": "practical",
+      "source": "MIXED_R:p.27-29",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "REL-01",
+      "category": "relationship_reflection",
+      "number": null,
+      "en": "Build respectful communication, consent and realistic expectations.",
+      "hi": "सम्मानजनक संवाद, सहमति और यथार्थवादी अपेक्षाएँ बनाएँ।",
+      "kind": "practical",
+      "source": "MIXED_R:p.29-30",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "FAMILY-01",
+      "category": "family_wellbeing",
+      "number": null,
+      "en": "Seek appropriate medical advice for fertility or pregnancy concerns; numerology cannot diagnose or promise childbirth.",
+      "hi": "संतान या गर्भधारण की चिंता में योग्य चिकित्सकीय सलाह लें; अंक-ज्योतिष निदान या संतान की गारंटी नहीं दे सकता।",
+      "kind": "safety",
+      "source": "MIXED_R:p.29-30",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "MENTAL-01",
+      "category": "mental_wellbeing",
+      "number": null,
+      "en": "For persistent low mood, depression or distress, seek a licensed mental-health professional; spiritual practices may only be optional support.",
+      "hi": "लगातार उदासी, अवसाद या परेशानी में मानसिक स्वास्थ्य विशेषज्ञ से मदद लें; आध्यात्मिक अभ्यास केवल वैकल्पिक सहारा हो सकते हैं।",
+      "kind": "safety",
+      "source": "MIXED_R:p.30-31",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "LEGAL-01",
+      "category": "legal_support",
+      "number": null,
+      "en": "For litigation, consult a qualified lawyer and follow court directions; rituals cannot replace legal representation.",
+      "hi": "मुकदमे के लिए योग्य वकील से सलाह लें और अदालत के निर्देश मानें; अनुष्ठान कानूनी प्रतिनिधित्व का विकल्प नहीं हैं।",
+      "kind": "safety",
+      "source": "MIXED_R:p.31-32",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "TRAD-01",
+      "category": "traditional_practice",
+      "number": null,
+      "en": "Optional prayer, mantra, fasting or donation may be included only if the user requests a tradition-specific spiritual reading and it is safe for them.",
+      "hi": "प्रार्थना, मंत्र, व्रत या दान तभी वैकल्पिक रूप से दें जब उपयोगकर्ता स्वयं परंपरा-आधारित आध्यात्मिक मार्गदर्शन माँगे और वह उनके लिए सुरक्षित हो।",
+      "kind": "traditional_optional",
+      "source": "MIXED_R:p.5-30",
+      "review_status": "reviewed"
+    }
+  ],
+  "astrology_only_topics": [
+    "Kemdrum Yoga",
+    "Grahan Yoga",
+    "Vish Yoga",
+    "Amavasya Yoga",
+    "Guru Chandal Dosha",
+    "Manglik Dosha",
+    "Angarak Dosha",
+    "Pitru Dosha",
+    "Nag Dosha",
+    "Pisach/Shrapit Yoga",
+    "Shakata Yoga",
+    "Shani Sade Sati",
+    "Kaal Sarp Dosha"
+  ],
+  "astrology_separation_note": "The mixed remedies document includes Kundli/Yoga/Dosha material. These topics require a separate Vedic astrology module and must not be triggered by Lo Shu missing/repeated numbers or numerology totals."
+}

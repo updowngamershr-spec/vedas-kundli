@@ -9,6 +9,7 @@ import base64
 from engine.svg_charts import render_north_indian_svg
 from engine.vargas_avkahada import compute_shodashvarga
 from engine.varshaphal_sadesati_yogas import compute_manglik_and_kalsarpa
+from engine.kundli_milan import compute_triple_manglik, compute_ten_pillars_compatibility
 
 
 def _fmt_deg(deg: float) -> str:
@@ -26,18 +27,27 @@ _IMG_CACHE = {}
 def _get_god_img_b64(name: str) -> str:
     if name in _IMG_CACHE:
         return _IMG_CACHE[name]
-    cur_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    for fname in [f"thumb_{name}.png", f"{name}.png"]:
-        target = os.path.join(cur_dir, "assets", "gods", fname)
-        if os.path.exists(target):
-            try:
-                with open(target, "rb") as f:
-                    b64 = base64.b64encode(f.read()).decode("ascii")
-                    data_url = f"data:image/png;base64,{b64}"
-                    _IMG_CACHE[name] = data_url
-                    return data_url
-            except Exception:
-                pass
+    import sys
+    base_dirs = [
+        getattr(sys, '_MEIPASS', ''),
+        os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else '',
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        os.getcwd()
+    ]
+    for cur_dir in base_dirs:
+        if not cur_dir:
+            continue
+        for fname in [f"thumb_{name}.png", f"{name}.png"]:
+            target = os.path.join(cur_dir, "assets", "gods", fname)
+            if os.path.exists(target):
+                try:
+                    with open(target, "rb") as f:
+                        b64 = base64.b64encode(f.read()).decode("ascii")
+                        data_url = f"data:image/png;base64,{b64}"
+                        _IMG_CACHE[name] = data_url
+                        return data_url
+                except Exception:
+                    pass
     return ""
 
 
@@ -59,9 +69,13 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
     b_svg = render_north_indian_svg(b_d1["lagna_sign"], b_d1["house_planets"], lang=("hi" if is_hi else "en"), size=230)
     g_svg = render_north_indian_svg(g_d1["lagna_sign"], g_d1["house_planets"], lang=("hi" if is_hi else "en"), size=230)
 
-    # 2. Manglik analysis
-    b_mang = compute_manglik_and_kalsarpa(boy_core)["manglik"]
-    g_mang = compute_manglik_and_kalsarpa(girl_core)["manglik"]
+    # 2. Classical Triple Manglik analysis (Lagna, Moon, Venus)
+    tm = milan.get("triple_manglik", {})
+    b_tm = tm.get("groom") if tm.get("groom") else compute_triple_manglik(boy_core)
+    g_tm = tm.get("bride") if tm.get("bride") else compute_triple_manglik(girl_core)
+
+    # 10 Astrological Compatibility Pillars (Classical Parameter Evaluation)
+    ten_pillars = milan.get("ten_pillars") if milan.get("ten_pillars") else compute_ten_pillars_compatibility(boy_core, girl_core, milan)
 
     # 3. Core info
     b_meta = boy_core["meta"]
@@ -152,9 +166,10 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
         badge_col = "#b91c1c"
 
     # 8. Brand info
-    kendra_name = brand.get("kendra_name", "वेदास ज्योतिष पीठ (Vedas Kundli Predictions)")
+    kendra_name = brand.get("kendra_name") or brand.get("name_en", "Astro Architects")
     astrologer_name = brand.get("astrologer_name", "आचार्य ज्योतिषविद")
     phone = brand.get("phone", "+91 98765 43210")
+    custom_logo = brand.get("logo_data") or brand.get("logo", "")
 
     # 9. Manglik Harmony Text
     m_harm = milan.get("manglik_harmony", {})
@@ -164,25 +179,81 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
     bhakoot_koot = next((k for k in milan.get("koots", []) if k.get("koot_en") == "Bhakoot"), {})
     nadi_koot = next((k for k in milan.get("koots", []) if k.get("koot_en") == "Nadi"), {})
 
-    nadi_status_text = (
-        "नाड़ी दोष पूर्णतः अनुपस्थित है। वर एवं कन्या की भिन्न नाड़ी होने से संतान सुख, दीर्घायु एवं आरोग्य सर्वोत्तम रहेगा।"
-        if float(nadi_koot.get("obtained", 0)) > 0 else
-        "एक नाड़ी होने से नाड़ी दोष उत्पन्न होता है। इसके निवारण हेतु महामृत्युंजय जप, स्वर्ण दान अथवा युगल संकल्प अनुष्ठान शास्त्रसम्मत है।"
-    ) if is_hi else (
-        "Nadi Dosha is absent or cancelled. Genetic constitution and progeny prospects are sound and harmonious."
-        if float(nadi_koot.get("obtained", 0)) > 0 else
-        "Same Nadi present. Astrological remedial pacification (Mahamrityunjaya Japa, Gauri-Shankar Puja) is recommended."
-    )
+    if nadi_koot.get("parihara_applied"):
+        nadi_status_text = nadi_koot.get("desc_hi" if is_hi else "desc_en", "")
+    elif float(nadi_koot.get("obtained", 0)) > 0:
+        nadi_status_text = (
+            "नाड़ी दोष पूर्णतः अनुपस्थित है। वर एवं कन्या की भिन्न नाड़ी होने से संतान सुख, दीर्घायु एवं आरोग्य सर्वोत्तम रहेगा।"
+            if is_hi else
+            "Nadi Dosha is absent. Genetic constitution, vitality and progeny prospects are sound and harmonious."
+        )
+    else:
+        nadi_status_text = (
+            "एक नाड़ी होने से नाड़ी दोष उत्पन्न होता है। इसके निवारण हेतु महामृत्युंजय जप, स्वर्ण दान अथवा युगल संकल्प अनुष्ठान शास्त्रसम्मत है।"
+            if is_hi else
+            "Same Nadi present. Astrological remedial pacification (Mahamrityunjaya Japa, Gauri-Shankar Puja) is recommended."
+        )
 
-    bhakoot_status_text = (
-        "भकूट दोष अनुपस्थित अथवा राशीश मित्रता के कारण पूर्ण परिहार प्राप्त है। गृहस्थ सुख व समृद्धि अनुकूल रहेगी।"
-        if float(bhakoot_koot.get("obtained", 0)) > 0 else
-        "भकूट षडाष्टक, नवपंचम अथवा द्विर्द्वादश होने पर भकूट दोष रहता है। इसके लिए भगवान शिव-पार्वती की संयुक्त उपासना कल्याणकारी है।"
-    ) if is_hi else (
-        "Bhakoot is harmonious or cancelled by friendly planetary lordship. Conjugal prosperity is well supported."
-        if float(bhakoot_koot.get("obtained", 0)) > 0 else
-        "Bhakoot dosha present. Worshipping Lord Shiva and Goddess Parvati mitigates this placement."
-    )
+    if bhakoot_koot.get("parihara_applied"):
+        bhakoot_status_text = bhakoot_koot.get("desc_hi" if is_hi else "desc_en", "")
+    elif float(bhakoot_koot.get("obtained", 0)) > 0:
+        bhakoot_status_text = (
+            "भकूट दोष अनुपस्थित है। शुभ राशि संबंध से गृहस्थ सुख, पारस्परिक प्रेम व समृद्धि अनुकूल रहेगी।"
+            if is_hi else
+            "Bhakoot is harmonious. Conjugal prosperity, mutual affection and longevity are well supported."
+        )
+    else:
+        bhakoot_status_text = (
+            "भकूट षडाष्टक, नवपंचम अथवा द्विर्द्वादश होने पर भकूट दोष रहता है। इसके लिए भगवान शिव-पार्वती की संयुक्त उपासना कल्याणकारी है।"
+            if is_hi else
+            "Bhakoot dosha present. Worshipping Lord Shiva and Goddess Parvati mitigates this placement."
+        )
+
+    # 10 Astrological Pillars HTML Generator
+    pillars_html_list = []
+    for p in ten_pillars:
+        p_title = p.get("area_hi" if is_hi else "area_en") or p.get("title_hi" if is_hi else "title_en", "")
+        p_score = p.get("score_pct", 50)
+        p_basis = p.get("astrological_basis") or p.get("basis_hi" if is_hi else "basis_en", "")
+        p_verdict = p.get("verdict_hi" if is_hi else "verdict_en", "")
+        p_cite = p.get("citation", "")
+        score_color = "#16a34a" if p_score >= 70 else ("#d97706" if p_score >= 40 else "#dc2626")
+
+        pillars_html_list.append(f"""
+        <div class="pillar-card">
+          <div class="pillar-header">
+            <span>{p_title}</span>
+            <span style="color:{score_color}; font-weight:900;">{p_score}%</span>
+          </div>
+          <div class="pillar-basis"><strong>आधार:</strong> {p_basis}</div>
+          <div class="pillar-verdict">{p_verdict} <span class="pillar-citation">[{p_cite}]</span></div>
+        </div>
+        """)
+    ten_pillars_html = "".join(pillars_html_list)
+
+    # Triple Manglik Comparative View Data
+    b_canc_text = b_tm["cancellations"][0]["desc_hi" if is_hi else "desc_en"] if b_tm.get("cancellations") else ""
+    g_canc_text = g_tm["cancellations"][0]["desc_hi" if is_hi else "desc_en"] if g_tm.get("cancellations") else ""
+    b_badge_text = "⚠️ मांगलिक (Manglik)" if b_tm["is_manglik"] else ("✅ परिहार निरस्त (Parihara Neutralized)" if b_tm.get("is_cancelled") else "✅ अमंगल मुक्त (Non-Manglik)")
+    g_badge_text = "⚠️ मांगलिक (Manglik)" if g_tm["is_manglik"] else ("✅ परिहार निरस्त (Parihara Neutralized)" if g_tm.get("is_cancelled") else "✅ अमंगल मुक्त (Non-Manglik)")
+    b_badge_col = "#DC2626" if b_tm["is_manglik"] else ("#0D9488" if b_tm.get("is_cancelled") else "#15803D")
+    g_badge_col = "#DC2626" if g_tm["is_manglik"] else ("#0D9488" if g_tm.get("is_cancelled") else "#15803D")
+
+    tm_rows = [
+        ("१. लग्न कुण्डली (From Lagna)", b_tm.get("mars_house_lagna_word_hi" if is_hi else "mars_house_lagna_word_en", ""), g_tm.get("mars_house_lagna_word_hi" if is_hi else "mars_house_lagna_word_en", "")),
+        ("२. चन्द्र कुण्डली (From Moon)", b_tm.get("mars_house_moon_word_hi" if is_hi else "mars_house_moon_word_en", ""), g_tm.get("mars_house_moon_word_hi" if is_hi else "mars_house_moon_word_en", "")),
+        ("३. शुक्र कुण्डली (From Venus)", b_tm.get("mars_house_venus_word_hi" if is_hi else "mars_house_venus_word_en", ""), g_tm.get("mars_house_venus_word_hi" if is_hi else "mars_house_venus_word_en", ""))
+    ]
+    tm_table_rows = []
+    for focal, b_val, g_val in tm_rows:
+        tm_table_rows.append(f"""
+        <tr>
+          <td><strong>{focal}</strong></td>
+          <td style="text-align:center;">{b_val}</td>
+          <td style="text-align:center;">{g_val}</td>
+        </tr>
+        """)
+    tm_table_html = "".join(tm_table_rows)
 
     ganesha_b64 = _get_god_img_b64("ganesha")
     shiva_b64 = _get_god_img_b64("shiva")
@@ -193,6 +264,42 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
     img_s_tag = f'<img src="{shiva_b64}" class="header-logo" alt="Shiva"/>' if shiva_b64 else ''
     img_d_tag = f'<img src="{durga_b64}" class="header-logo" alt="Durga"/>' if durga_b64 else ''
     img_h_tag = f'<img src="{hanuman_b64}" class="header-logo" alt="Hanuman"/>' if hanuman_b64 else ''
+
+    header_left_tag = f'<img src="{custom_logo}" class="header-logo" style="max-height:52px; max-width:110px; object-fit:contain; border-radius:4px;" alt="Logo"/>' if custom_logo else img_g_tag
+
+    # Additional Compatibility & Papa Samya
+    add_c = milan.get("additional_compatibility", {})
+    papa = add_c.get("papa_samya", {})
+    papa_balance_title = papa.get("balance_hi" if is_hi else "balance_status", "पाप साम्य संतुलित")
+    papa_summary_text = (
+        f"वर पाप अंक: {papa.get('groom_points', 0)} | कन्या पाप अंक: {papa.get('bride_points', 0)}<br/>"
+        f"{papa.get('desc_hi' if is_hi else 'desc_en', 'दोनों कुण्डलियों में पाप प्रभाव संतुलित है।')}"
+    )
+
+    dasha = add_c.get("dasha_compatibility", {})
+    dasha_title = dasha.get("dasha_harmony_hi" if is_hi else "dasha_harmony", "अनुकूल दशा सामंजस्य")
+    dasha_summary_text = (
+        f"वर वर्तमान महादशा: {dasha.get('groom_current_mahadasha', '-')} | "
+        f"कन्या वर्तमान महादशा: {dasha.get('bride_current_mahadasha', '-')}<br/>"
+        f"दशा स्वामियों का संबंध: {dasha.get('lord_relationship', 'मित्र')}"
+    )
+
+    # Specific Classical Remedies from Calculation Engine
+    engine_remedies_html = ""
+    remedy_items = milan.get("classical_remedies", [])
+    if remedy_items:
+        r_cards = []
+        for r in remedy_items:
+            r_name = r.get("dosha_hi" if is_hi else "dosha", "दोष शांति")
+            r_desc = r.get("remedy_hi" if is_hi else "remedy_en", "")
+            r_src = r.get("source", "")
+            r_cards.append(f"""
+            <div class="remedy-card" style="margin-bottom:4px; padding:4px 6px;">
+              <div class="remedy-title">🪔 {r_name} वैदिक शांति उपाय [{r_src}]:</div>
+              <div style="font-size:8px; line-height:1.3; color:#374151;">{r_desc}</div>
+            </div>
+            """)
+        engine_remedies_html = "".join(r_cards)
 
     # Build the 3-Page HTML with page breaks
     return f"""<!DOCTYPE html>
@@ -410,30 +517,43 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
     margin-top: 3px;
   }}
 
-  /* 5 Pillars Grid */
-  .pillar-grid {{
+  /* 10 Astrological Pillars Grid */
+  .ten-pillars-grid {{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    margin: 6px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 6px;
+    margin: 4px 0 5px 0;
   }}
-  .pillar-box {{
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
-    border-radius: 5px;
-    padding: 5px 3px;
-    text-align: center;
+  .pillar-card {{
+    background: #FFFDF9;
+    border: 1px solid #EADBC8;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 8px;
+    line-height: 1.25;
   }}
-  .pillar-title {{
+  .pillar-header {{
+    display: flex;
+    justify-content: space-between;
     font-size: 8.5px;
     font-weight: 800;
-    color: #92400E;
+    color: #7C2D12;
+    border-bottom: 1px solid #FEF3C7;
+    padding-bottom: 1px;
+    margin-bottom: 2px;
+  }}
+  .pillar-basis {{
+    font-size: 7.5px;
+    color: #4B5563;
     margin-bottom: 1px;
   }}
-  .pillar-stars {{
-    color: #D97706;
-    font-size: 9.5px;
-    font-weight: 800;
+  .pillar-verdict {{
+    font-size: 7.5px;
+    color: #1F2937;
+  }}
+  .pillar-citation {{
+    color: #92400E;
+    font-weight: 700;
   }}
 
   /* Remedy Pill */
@@ -467,7 +587,7 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
     <div class="corner-decor br"></div>
 
     <div class="milan-header">
-      {img_g_tag}
+      {header_left_tag}
       <div class="header-text">
         <div class="om-tag">॥ श्री गणेशाय नमः ॥ श्री कुलदेवतायै नमः ॥</div>
         <div class="main-title">॥ वैदिक अष्टकूट विवाह मेलापक विवरण ॥</div>
@@ -614,43 +734,58 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
       </tfoot>
     </table>
 
-    <!-- Manglik Dosha Analysis -->
+    <!-- Triple Manglik Dosha Analysis -->
     <div class="section-heading">
-      <span>🔥 मांगलिक दोष एवं कुज साम्य परीक्षण (Kuja Dosha & Manglik Harmony Analysis)</span>
-      <span style="font-size:8.5px; font-weight:600;">लग्न व चंद्र कुंडली आधार</span>
+      <span>🔥 त्रि-बिंदु मांगलिक दोष एवं कुज साम्य परीक्षण (Triple Manglik & Kuja Harmony Analysis)</span>
+      <span style="font-size:8.5px; font-weight:600;">लग्न, चंद्र एवं शुक्र कुंडली आधार (३ Focal Points)</span>
     </div>
+
+    <!-- Comparative Table -->
+    <table class="data-table" style="margin-bottom:5px;">
+      <thead>
+        <tr>
+          <th style="width:34%;">मांगलिक विचार केंद्र (Focal Point)</th>
+          <th style="width:33%; text-align:center;">वर स्थिति (Groom)</th>
+          <th style="width:33%; text-align:center;">कन्या स्थिति (Bride)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tm_table_html}
+      </tbody>
+    </table>
+
     <div class="two-col" style="margin-bottom:4px;">
       <div class="card">
         <div class="card-title">
-          <span>👦 वर मांगलिक स्थिति (Groom Kuja Dosha)</span>
-          <span style="font-size:9.5px; font-weight:800; color:{'#DC2626' if b_mang['is_manglik'] else '#15803D'};">
-            {'⚠️ मांगलिक (Manglik)' if b_mang['is_manglik'] else '✅ अमंगल मुक्त (Non-Manglik)'}
+          <span>👦 वर मांगलिक निर्णय (Groom Status)</span>
+          <span style="font-size:9px; font-weight:800; color:{b_badge_col};">
+            {b_badge_text}
           </span>
         </div>
-        <p style="margin:2px 0; font-size:9px;"><strong>लग्न से मंगल भाव:</strong> {b_mang.get('mars_house_lagna_word_hi' if is_hi else 'mars_house_lagna_word_en', '')}</p>
-        <p style="margin:2px 0; font-size:9px;"><strong>चंद्र से मंगल भाव:</strong> {b_mang.get('mars_house_moon_word_hi' if is_hi else 'mars_house_moon_word_en', '')}</p>
-        <p style="margin:2px 0; font-size:9px; color:#4B5563;">{b_mang.get('status_hi' if is_hi else 'status_en', '')}</p>
+        <p style="margin:2px 0; font-size:8.5px;"><strong>मंगल राशि:</strong> {b_tm['mars_sign_hi'] if is_hi else b_tm['mars_sign_en']} ({b_tm['mars_nakshatra']})</p>
+        <p style="margin:2px 0; font-size:8.5px; color:#4B5563;">{b_tm.get('status_hi' if is_hi else 'status_en', '')}</p>
+        {f'<div style="font-size:8px; color:#0D9488; font-weight:700; margin-top:2px;">📜 परिहार: {b_canc_text}</div>' if b_canc_text else ''}
       </div>
 
       <div class="card">
         <div class="card-title">
-          <span>👧 कन्या मांगलिक स्थिति (Bride Kuja Dosha)</span>
-          <span style="font-size:9.5px; font-weight:800; color:{'#DC2626' if g_mang['is_manglik'] else '#15803D'};">
-            {'⚠️ मांगलिक (Manglik)' if g_mang['is_manglik'] else '✅ अमंगल मुक्त (Non-Manglik)'}
+          <span>👧 कन्या मांगलिक निर्णय (Bride Status)</span>
+          <span style="font-size:9px; font-weight:800; color:{g_badge_col};">
+            {g_badge_text}
           </span>
         </div>
-        <p style="margin:2px 0; font-size:9px;"><strong>लग्न से मंगल भाव:</strong> {g_mang.get('mars_house_lagna_word_hi' if is_hi else 'mars_house_lagna_word_en', '')}</p>
-        <p style="margin:2px 0; font-size:9px;"><strong>चंद्र से मंगल भाव:</strong> {g_mang.get('mars_house_moon_word_hi' if is_hi else 'mars_house_moon_word_en', '')}</p>
-        <p style="margin:2px 0; font-size:9px; color:#4B5563;">{g_mang.get('status_hi' if is_hi else 'status_en', '')}</p>
+        <p style="margin:2px 0; font-size:8.5px;"><strong>मंगल राशि:</strong> {g_tm['mars_sign_hi'] if is_hi else g_tm['mars_sign_en']} ({g_tm['mars_nakshatra']})</p>
+        <p style="margin:2px 0; font-size:8.5px; color:#4B5563;">{g_tm.get('status_hi' if is_hi else 'status_en', '')}</p>
+        {f'<div style="font-size:8px; color:#0D9488; font-weight:700; margin-top:2px;">📜 परिहार: {g_canc_text}</div>' if g_canc_text else ''}
       </div>
     </div>
 
     <!-- Manglik Compatibility Summary -->
-    <div style="background:#FFFBEB; border:1.5px solid #FDE68A; border-radius:6px; padding:6px 10px; margin-top:4px;">
-      <div style="font-weight:800; color:#7C2D12; font-size:10px; margin-bottom:2px;">
+    <div style="background:#FFFBEB; border:1.5px solid #FDE68A; border-radius:6px; padding:5px 8px; margin-top:2px;">
+      <div style="font-weight:800; color:#7C2D12; font-size:9.5px; margin-bottom:1px;">
         🛡️ मांगलिक सामंजस्य निष्कर्ष (Manglik Harmony Verdict):
       </div>
-      <div style="font-size:9.5px; color:#92400E; font-weight:700;">
+      <div style="font-size:9px; color:#92400E; font-weight:700;">
         {m_verdict}
       </div>
     </div>
@@ -691,8 +826,8 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
       <div class="card">
         <div class="card-title">
           <span>🧬 नाड़ी दोष स्थिति एवं परिहार</span>
-          <span style="font-size:9px; font-weight:800; color:{'#15803D' if float(nadi_koot.get('obtained', 0)) > 0 else '#DC2626'};">
-            {nadi_koot.get('obtained', 0)} / 8 अंक
+          <span style="font-size:9px; font-weight:800; color:{'#15803D' if float(nadi_koot.get('obtained', 0)) > 0 else ('#0D9488' if nadi_koot.get('parihara_applied') else '#DC2626')};">
+            {nadi_koot.get('obtained', 0)} / 8 अंक{' (परिहार मान्य)' if nadi_koot.get('parihara_applied') else ''}
           </span>
         </div>
         <p style="font-size:9px; line-height:1.4; margin:0; color:#374151;">
@@ -703,8 +838,8 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
       <div class="card">
         <div class="card-title">
           <span>🏡 भकूट दोष स्थिति एवं परिहार</span>
-          <span style="font-size:9px; font-weight:800; color:{'#15803D' if float(bhakoot_koot.get('obtained', 0)) > 0 else '#DC2626'};">
-            {bhakoot_koot.get('obtained', 0)} / 7 अंक
+          <span style="font-size:9px; font-weight:800; color:{'#15803D' if float(bhakoot_koot.get('obtained', 0)) > 0 else ('#0D9488' if bhakoot_koot.get('parihara_applied') else '#DC2626')};">
+            {bhakoot_koot.get('obtained', 0)} / 7 अंक{' (परिहार मान्य)' if bhakoot_koot.get('parihara_applied') else ''}
           </span>
         </div>
         <p style="font-size:9px; line-height:1.4; margin:0; color:#374151;">
@@ -713,63 +848,58 @@ def build_milan_dossier_html(boy_core: dict, girl_core: dict, milan: dict, brand
       </div>
     </div>
 
-    <!-- 5 Pillars Assessment -->
+    <!-- 10 Astrological Compatibility Pillars (No Arbitrary Stars) -->
     <div class="section-heading">
-      <span>🏛️ दाम्पत्य जीवन के ५ आधार स्तम्भ (5 Pillars of Conjugal Life Harmony)</span>
-      <span style="font-size:8.5px; font-weight:600;">सर्वांगीण मूल्यांकन</span>
+      <span>🏛️ दाम्पत्य जीवन के १० शास्त्रीय आधार स्तम्भ (10 Astrological Compatibility Pillars)</span>
+      <span style="font-size:8.5px; font-weight:600;">ग्रह संबंध, भाव व अष्टकूट आधारित वैज्ञानिक फलादेश</span>
     </div>
-    <div class="pillar-grid">
-      <div class="pillar-box">
-        <div class="pillar-title">मानसिक व भावना</div>
-        <div class="pillar-stars">★★★★★</div>
-        <div style="font-size:7.5px; color:#6B7280; margin-top:1px;">उत्तम विचार साम्य</div>
+    <div class="ten-pillars-grid">
+      {ten_pillars_html}
+    </div>
+
+    <!-- Papa Samya & Dasha Compatibility Analysis -->
+    <div class="two-col" style="margin-bottom:5px;">
+      <div class="card">
+        <div class="card-title">
+          <span>⚖️ पाप साम्य संतुलन (Papa Samya)</span>
+          <span style="font-size:8.5px; font-weight:800; color:#92400E;">{papa_balance_title}</span>
+        </div>
+        <div style="font-size:8px; line-height:1.35; margin:0; color:#374151;">
+          {papa_summary_text}
+        </div>
       </div>
-      <div class="pillar-box">
-        <div class="pillar-title">आरोग्य व आयु</div>
-        <div class="pillar-stars">★★★★☆</div>
-        <div style="font-size:7.5px; color:#6B7280; margin-top:1px;">दीर्घायु व स्वास्थ्य</div>
-      </div>
-      <div class="pillar-box">
-        <div class="pillar-title">संतान व कुल वृद्धि</div>
-        <div class="pillar-stars">★★★★★</div>
-        <div style="font-size:7.5px; color:#6B7280; margin-top:1px;">शुभ वंश वृद्धि</div>
-      </div>
-      <div class="pillar-box">
-        <div class="pillar-title">आर्थिक उन्नति</div>
-        <div class="pillar-stars">★★★★☆</div>
-        <div style="font-size:7.5px; color:#6B7280; margin-top:1px;">परस्पर भाग्योदय</div>
-      </div>
-      <div class="pillar-box">
-        <div class="pillar-title">आध्यात्मिक समन्वय</div>
-        <div class="pillar-stars">★★★★★</div>
-        <div style="font-size:7.5px; color:#6B7280; margin-top:1px;">धार्मिक अनुकूलता</div>
+      <div class="card">
+        <div class="card-title">
+          <span>⏳ विंशोत्तरी दशा समन्वय (Dasha Compatibility)</span>
+          <span style="font-size:8.5px; font-weight:800; color:#047857;">{dasha_title}</span>
+        </div>
+        <div style="font-size:8px; line-height:1.35; margin:0; color:#374151;">
+          {dasha_summary_text}
+        </div>
       </div>
     </div>
 
-    <!-- Vedic Remedies & Guidelines -->
+    <!-- Vedic Remedies, Parihara vs Mitigation Distinction & Ethical Disclaimer -->
     <div class="section-heading">
-      <span>🪔 सुखद दाम्पत्य हेतु सिद्ध वैदिक उपाय एवं अनुष्ठान (Auspicious Matrimonial Remedies)</span>
-      <span style="font-size:8.5px; font-weight:600;">कल्याणकारी परामर्श</span>
+      <span>🪔 शास्त्रीय परिहार, शमन एवं वैदिक साधना (Scriptural Parihara, Mitigation & Remedies)</span>
+      <span style="font-size:8.5px; font-weight:600;">परंपरागत आध्यात्मिक मार्गदर्शन</span>
     </div>
 
+    {engine_remedies_html}
+
     <div class="remedy-card">
-      <div class="remedy-title">🕉️ श्री गौरी-शंकर एवं शिव-पार्वती संयुक्त पूजन</div>
-      <div>
-        विवाह पश्चात अथवा विवाह पूर्व दोनों पक्ष शुक्ल पक्ष के सोमवार अथवा प्रदोष काल में भगवान शिव एवं माता पार्वती का पंचामृत से अभिषेक करें। इससे दांपत्य में आजीवन प्रेम, विश्वास और सौहार्द बना रहता है।
+      <div class="remedy-title">📜 दोष परिहार बनाम शमन बनाम पारंपरिक साधना का शास्त्रीय भेद:</div>
+      <div style="font-size:8.5px; line-height:1.35; color:#374151;">
+        • <strong>शास्त्रोक्त परिहार (Cancellation):</strong> बृहत्पाराशर होराशास्त्र व मुहूर्तचिन्तामणि अनुसार स्वराशि, उच्च या शुभ भाव स्थिति से दोष स्वतः निष्प्रभावी हो जाता है। इसके लिए किसी कर्मकांड की आवश्यकता नहीं होती।<br/>
+        • <strong>ज्योतिषीय शमन (Mitigation):</strong> शुभ ग्रहों (गुरु, शुक्र) की दृष्टि या युति से अनिष्टकारी प्रभाव का स्वतः न्यून होना।<br/>
+        • <strong>वैदिक साधना (Spiritual Worship):</strong> चित्त शुद्धि, परस्पर सद्भाव एवं मानसिक शांति हेतु परंपरागत प्रार्थना (शिव-पार्वती संयुक्त पूजन, उमामहेश्वर जप)।
       </div>
     </div>
 
     <div class="remedy-card">
-      <div class="remedy-title">📿 दैनिक दांपत्य कल्याण मंत्र जप</div>
-      <div>
-        प्रातःकाल शुद्ध होकर <strong>"॥ ॐ उमामहेश्वराभ्यां नमः ॥"</strong> अथवा <strong>"॥ ॐ गौरीशंकराय नमः ॥"</strong> मंत्र की १ माला (१०८ जप) करने से पारिवारिक कलह समाप्त होकर सुख-शांति की अभिवृद्धि होती है।
-      </div>
-    </div>
-
-    <div class="remedy-card">
-      <div class="remedy-title">💎 रत्न एवं दान परामर्श</div>
-      <div>
-        गुरु (बृहस्पति) एवं शुक्र की शुभता हेतु गुरुवार को चने की दाल व बेसन के लड्डू का दान तथा शुक्रवार को श्वेत वस्तुओं (चावल, मिश्री, दूध) का दान दाम्पत्य के आर्थिक एवं भौतिक सुखों को पुष्ट करता है।
+      <div class="remedy-title">⚖️ वैदिक नीति उद्घोषणा एवं सत्यता अस्वीकरण (Ethical Astrological Declaration):</div>
+      <div style="font-size:8px; line-height:1.3; color:#4B5563;">
+        वैदिक ज्योतिष जीवन का पथ-प्रदर्शक है। अनुष्ठान व साधनाएं मन की एकाग्रता व आध्यात्मिक शांति हेतु परंपरागत भारतीय धरोहर हैं। यह किसी चमत्कार, पूर्ण विवाह गारंटी, संतान या भाग्य की वैज्ञानिक निश्चितता का दावा नहीं करतीं। दांपत्य जीवन की सफलता परस्पर प्रेम, त्याग, सम्मान और परिपक्व समझ पर आधारित होती है।
       </div>
     </div>
 
