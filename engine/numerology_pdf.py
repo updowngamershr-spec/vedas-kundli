@@ -245,7 +245,7 @@ def build_numerology_30_page_html(profile: Dict[str, Any], brand: Optional[Dict[
     <div class="glass-card">
       <div class="box-heading">METHODOLOGICAL FOUNDATIONS: WESTERN VS. SACRED CHALDEAN</div>
       <p style="font-size:10.8px; line-height:1.6; margin-bottom:10px;">
-        Astro Architects adheres to a dual-system architecture. Rather than dogmatically forcing Western Pythagorean onto Eastern names, both systems are calculated in parallel to expose deep nuances:
+        Vedas Kundli adheres to a dual-system architecture. Rather than dogmatically forcing Western Pythagorean onto Eastern names, both systems are calculated in parallel to expose deep nuances:
       </p>
       <table class="data-table">
         <thead><tr><th>Metric</th><th>Pythagorean Tradition</th><th>Chaldean Tradition</th></tr></thead>
@@ -336,7 +336,7 @@ def build_numerology_30_page_html(profile: Dict[str, Any], brand: Optional[Dict[
     <div class="glass-card">
       <div class="box-heading">LIFE PATH POLICIES: COMPONENT REDUCTION VS. ALL DIGITS</div>
       <p style="font-size:10.8px; line-height:1.6; margin-bottom:12px;">
-        Modern numerology features two mathematical paradigms for computing the Life Path from date of birth. Astro Architects computes and validates both policies to prevent hidden calculation errors:
+        Modern numerology features two mathematical paradigms for computing the Life Path from date of birth. Vedas Kundli computes and validates both policies to prevent hidden calculation errors:
       </p>
       <table class="data-table">
         <thead><tr><th>Policy</th><th>Mathematical Formula</th><th>Preservation Rule</th><th>Result for Your DOB</th></tr></thead>
@@ -863,7 +863,7 @@ def build_numerology_30_page_html(profile: Dict[str, Any], brand: Optional[Dict[
     <div class="glass-card">
       <div class="box-heading">LINGUISTIC &amp; SCRIPT TRANSLITERATION AUDIT</div>
       <p style="font-size:10.8px; line-height:1.6; margin-bottom:12px;">
-        Traditional Western numerology tables only accept Latin (A–Z) inputs. When client names are entered in Indic scripts (Devanagari/Gurmukhi), automated silent ASCII conversions can introduce devastating calculation corruptions. Astro Architects includes an Indic Unicode Transliteration Guard:
+        Traditional Western numerology tables only accept Latin (A–Z) inputs. When client names are entered in Indic scripts (Devanagari/Gurmukhi), automated silent ASCII conversions can introduce devastating calculation corruptions. Vedas Kundli includes an Indic Unicode Transliteration Guard:
       </p>
       <table class="data-table">
         <thead><tr><th>Parameter</th><th>Value</th><th>Status</th></tr></thead>
@@ -884,7 +884,7 @@ def build_numerology_30_page_html(profile: Dict[str, Any], brand: Optional[Dict[
     <div class="glass-card">
       <div class="box-heading">GROUNDED HABIT ARCHITECTURE (NON-FATALISTIC LIFE DESIGN)</div>
       <p style="font-size:10.8px; line-height:1.6; margin-bottom:12px;">
-        Astro Architects rejects passive fatalism. Your numbers do not trap you; they illuminate the psychological grooves where your energy flows with the least resistance:
+        Vedas Kundli rejects passive fatalism. Your numbers do not trap you; they illuminate the psychological grooves where your energy flows with the least resistance:
       </p>
       <div class="two-col-grid">
         <div class="glass-card">
@@ -934,7 +934,7 @@ def build_numerology_30_page_html(profile: Dict[str, Any], brand: Optional[Dict[
       <div class="highlight-banner">
         <strong>Mathematical Verification Certificate:</strong><br/>
         All reductions validated mathematically with zero calculation errors and zero placeholder omissions.<br/>
-        Engine Version: <strong>Astro Architects Core v2.4 (Glass Luxury Edition)</strong> &bull; Printed at: {datetime.now().strftime('%d %B %Y, %I:%M %p')}
+        Engine Version: <strong>Vedas Kundli Core v2.4 (Glass Luxury Edition)</strong> &bull; Printed at: {datetime.now().strftime('%d %B %Y, %I:%M %p')}
       </div>
       <div style="margin-top:24px; display:flex; justify-content:space-between; align-items:flex-end;">
         <div>
@@ -1271,17 +1271,23 @@ def export_numerology_pdf(profile: Dict[str, Any], output_pdf_path: str, brand: 
     for browser_exe in browser_candidates:
         for headless_flag in ["--headless=new", "--headless"]:
             user_data_dir = tempfile.mkdtemp(prefix="vedas_pdf_")
+            temp_target_pdf = os.path.join(tempfile.gettempdir(), f"vedas_num_{int(time.time()*1000)}.pdf")
+            if os.path.exists(temp_target_pdf):
+                try:
+                    os.remove(temp_target_pdf)
+                except Exception:
+                    pass
+
             cmd = [
                 browser_exe,
                 headless_flag,
                 "--no-sandbox",
                 "--disable-gpu",
                 "--disable-dev-shm-usage",
-                "--disable-software-rasterizer",
                 "--no-pdf-header-footer",
                 f"--user-data-dir={user_data_dir}",
-                "--virtual-time-budget=3000",
-                f"--print-to-pdf={os.path.abspath(output_pdf_path)}",
+                "--virtual-time-budget=4000",
+                f"--print-to-pdf={temp_target_pdf}",
                 file_url
             ]
             try:
@@ -1294,21 +1300,42 @@ def export_numerology_pdf(profile: Dict[str, Any], output_pdf_path: str, brand: 
                     creationflags=flags
                 )
 
-                # Wait up to 3 seconds for file handle release & buffer flush
-                for _ in range(30):
-                    if os.path.exists(output_pdf_path) and os.path.getsize(output_pdf_path) > 1000:
+                # Wait up to 10 seconds for file handle release & buffer flush
+                for _ in range(50):
+                    if os.path.exists(temp_target_pdf) and os.path.getsize(temp_target_pdf) > 1000:
                         break
-                    time.sleep(0.1)
+                    time.sleep(0.2)
 
-                if os.path.exists(output_pdf_path) and os.path.getsize(output_pdf_path) > 1000:
+                if os.path.exists(temp_target_pdf) and os.path.getsize(temp_target_pdf) > 1000:
+                    # Successfully generated to temp path, now copy to final output destination
+                    actual_dest = output_pdf_path
+                    try:
+                        if os.path.exists(output_pdf_path):
+                            try:
+                                os.remove(output_pdf_path)
+                            except Exception:
+                                pass
+                        shutil.copyfile(temp_target_pdf, actual_dest)
+                    except Exception:
+                        # Fallback if target file is locked by an open PDF viewer
+                        base_stem, ext = os.path.splitext(output_pdf_path)
+                        actual_dest = f"{base_stem}_{int(time.time())}{ext}"
+                        shutil.copyfile(temp_target_pdf, actual_dest)
+
+                    try:
+                        os.remove(temp_target_pdf)
+                    except Exception:
+                        pass
                     shutil.rmtree(user_data_dir, ignore_errors=True)
                     if os.path.exists(temp_html_path):
                         os.remove(temp_html_path)
+
+                    final_size = os.path.getsize(actual_dest) if os.path.exists(actual_dest) else 0
                     return {
                         "success": True,
-                        "path": output_pdf_path,
+                        "path": actual_dest,
                         "page_count": 30,
-                        "size_mb": round(os.path.getsize(output_pdf_path) / (1024 * 1024), 2)
+                        "size_mb": round(final_size / (1024 * 1024), 2)
                     }
                 else:
                     err_msg = proc.stderr.decode("utf-8", errors="ignore").strip()
@@ -1316,6 +1343,11 @@ def export_numerology_pdf(profile: Dict[str, Any], output_pdf_path: str, brand: 
             except Exception as be:
                 attempt_errors.append(f"{os.path.basename(browser_exe)} ({headless_flag}): {str(be)}")
             finally:
+                if os.path.exists(temp_target_pdf):
+                    try:
+                        os.remove(temp_target_pdf)
+                    except Exception:
+                        pass
                 shutil.rmtree(user_data_dir, ignore_errors=True)
 
     if os.path.exists(temp_html_path):

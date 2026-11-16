@@ -207,11 +207,11 @@ def render_gurukulam_cover_svg(lagna_sign: int, house_planets: dict, logo_data: 
             if logo_data is None:
                 logo_data = b.get("logo_data")
             if brand_name is None:
-                brand_name = b.get("kendra_name") or "ASTRO ARCHITECTS"
+                brand_name = b.get("kendra_name") or "VEDAS KUNDLI"
         except Exception:
             pass
     if not brand_name:
-        brand_name = "ASTRO ARCHITECTS"
+        brand_name = "VEDAS KUNDLI"
 
     medallion_content = ""
     if logo_data:

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Astro Architects - Dedicated Ashtakoota 36-Guna Calculation Engine
+Vedas Kundli - Dedicated Ashtakoota 36-Guna Calculation Engine
 Classical References: Muhurta Chintamani, Brihat Parashara Hora Shastra, Jataka Parijata.
 
 Implements 8 separate, mathematically verified Koota calculation functions.

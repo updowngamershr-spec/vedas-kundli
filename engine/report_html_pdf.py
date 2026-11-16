@@ -30,7 +30,7 @@ def _page_wrapper(page_num: int, meta: dict, brand: dict, title_en: str, title_h
     """Wrap content in a standard A4 Vedas Kundli Predictions bordered page with header & footer."""
     title_str = title_hi if lang == "hi" else (f"{title_en} / {title_hi}" if lang == "both" and title_hi else title_en)
     
-    brand_name = brand.get("kendra_name") or brand.get("name_en") or ("एस्ट्रो आर्किटेक्ट्स" if lang == "hi" else "Astro Architects")
+    brand_name = brand.get("kendra_name") or brand.get("name_en") or ("वेदास कुंडली" if lang == "hi" else "Vedas Kundli")
     header_right = f"{brand_name} — {'बृहत् जन्म पत्रिका' if lang == 'hi' else 'Brihat Kundli'}"
     
     logo_data = brand.get("logo_data") or brand.get("logo")
@@ -256,7 +256,7 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
     # PAGE 1: ROYAL GURUKULAM COVER PAGE
     # =========================================================================
     d1_chart = sv["charts"]["D1"]
-    brand_name = brand.get("kendra_name") or brand.get("name_en", "ASTRO ARCHITECTS")
+    brand_name = brand.get("kendra_name") or brand.get("name_en", "VEDAS KUNDLI")
     logo_data = brand.get("logo_data") or brand.get("logo")
     cover_svg = render_gurukulam_cover_svg(d1_chart["lagna_sign"], d1_chart["house_planets"], logo_data=logo_data, brand_name=brand_name)
     logo_cover_html = ''
@@ -2445,7 +2445,7 @@ def build_full_56_page_html(data: dict, lang: str = "en", package: str = "maha")
 
 def export_html_to_pdf(html_content: str, output_pdf_path: str, split_single_pages: bool = True) -> dict:
     """
-    Convert the Gurukulam / Astro Architects HTML report (with inline SVG charts and Unicode Devanagari)
+    Convert the Gurukulam / Vedas Kundli HTML report (with inline SVG charts and Unicode Devanagari)
     into a high-resolution vector PDF using Microsoft Edge or Google Chrome headless engine.
     Strictly adheres to ZERO-ERROR POLICY:
     - Never substitutes sample dossiers or estimated values.

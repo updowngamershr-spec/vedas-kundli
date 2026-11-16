@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Astro Architects - Advanced Compatibility Calculation Engine
+Vedas Kundli - Advanced Compatibility Calculation Engine
 Classical References: Brihat Parashara Hora Shastra, Phaladeepika, Jataka Parijata.
 
 Implements Section 7 calculations:

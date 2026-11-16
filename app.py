@@ -56,7 +56,7 @@ from crm_db import (
     save_numerology_profile, get_numerology_profile, list_numerology_profiles, delete_numerology_profile
 )
 
-app = FastAPI(title="Astro Architects")
+app = FastAPI(title="Vedas Kundli")
 
 @app.get("/presentation", response_class=HTMLResponse)
 @app.get("/pitch", response_class=HTMLResponse)
@@ -662,7 +662,7 @@ def apply_branding_to_kundli_data(data: dict) -> dict:
     """Apply white-label custom brand name, logo, astrologer info to complete kundli dictionary."""
     brand_cfg = get_branding()
     if brand_cfg:
-        b_name = brand_cfg.get("kendra_name") or "Astro Architects"
+        b_name = brand_cfg.get("kendra_name") or "Vedas Kundli"
         data["brand"]["kendra_name"] = b_name
         data["brand"]["name_en"] = b_name
         data["brand"]["name_hi"] = b_name
@@ -1029,6 +1029,7 @@ def api_get_preview_numerology_dossier(
 @app.post("/api/numerology/open-system-pdf")
 def api_open_numerology_system_pdf(req: NumerologyRequest):
     try:
+        import re
         profile = build_complete_numerology_profile(
             name=req.name,
             dob_str=req.dob,
@@ -1038,7 +1039,8 @@ def api_open_numerology_system_pdf(req: NumerologyRequest):
             confirmed_latin_name=req.confirmed_latin_name
         )
         brand = get_branding()
-        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', req.name.strip()) or "Client"
+        raw_name = req.name or "Client"
+        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', str(raw_name).strip()) or "Client"
         stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         pdf_filename = f"Numerology_30_Pages_{clean_name_str}_{stamp}.pdf"
         output_pdf = os.path.join(REPORTS_DIR, pdf_filename)
@@ -1047,19 +1049,22 @@ def api_open_numerology_system_pdf(req: NumerologyRequest):
         if not res.get("success"):
             return JSONResponse({"success": False, "error": res.get("error")}, status_code=500)
 
+        actual_pdf = res.get("path", output_pdf)
+        actual_filename = os.path.basename(actual_pdf)
+
         opened = False
-        if os.path.exists(output_pdf) and sys.platform == "win32":
+        if os.path.exists(actual_pdf) and sys.platform == "win32":
             try:
-                os.startfile(output_pdf)
+                os.startfile(actual_pdf)
                 opened = True
             except Exception:
                 opened = False
 
         return {
             "success": True,
-            "filename": pdf_filename,
-            "path": output_pdf,
-            "download_url": f"/api/download-pdf/{pdf_filename}",
+            "filename": actual_filename,
+            "path": actual_pdf,
+            "download_url": f"/api/download-pdf/{actual_filename}",
             "opened": opened
         }
     except Exception as e:
@@ -1069,6 +1074,7 @@ def api_open_numerology_system_pdf(req: NumerologyRequest):
 @app.post("/api/numerology/export-pdf")
 def api_export_numerology_pdf(req: NumerologyRequest):
     try:
+        import re
         profile = build_complete_numerology_profile(
             name=req.name,
             dob_str=req.dob,
@@ -1078,7 +1084,8 @@ def api_export_numerology_pdf(req: NumerologyRequest):
             confirmed_latin_name=req.confirmed_latin_name
         )
         brand = get_branding()
-        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', req.name.strip()) or "Client"
+        raw_name = req.name or "Client"
+        clean_name_str = re.sub(r'[^a-zA-Z0-9_\-]', '_', str(raw_name).strip()) or "Client"
         stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         pdf_filename = f"Numerology_30_Pages_{clean_name_str}_{stamp}.pdf"
         output_pdf = os.path.join(REPORTS_DIR, pdf_filename)
@@ -1087,18 +1094,21 @@ def api_export_numerology_pdf(req: NumerologyRequest):
         if not res.get("success"):
             return JSONResponse({"success": False, "error": res.get("error")}, status_code=500)
 
-        if os.path.exists(output_pdf) and sys.platform == "win32":
+        actual_pdf = res.get("path", output_pdf)
+        actual_filename = os.path.basename(actual_pdf)
+
+        if os.path.exists(actual_pdf) and sys.platform == "win32":
             try:
-                os.startfile(output_pdf)
+                os.startfile(actual_pdf)
             except Exception:
                 pass
 
         return {
             "success": True,
-            "filename": pdf_filename,
+            "filename": actual_filename,
             "page_count": res.get("page_count", 30),
-            "download_url": f"/api/download-pdf/{pdf_filename}",
-            "full_path": output_pdf,
+            "download_url": f"/api/download-pdf/{actual_filename}",
+            "full_path": actual_pdf,
             "opened": True
         }
     except Exception as e:
@@ -1126,7 +1136,7 @@ def index_ui():
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Astro Architects - Vedic Astrology Suite</title>
+  <title>Vedas Kundli - Vedic Astrology & Numerology Suite</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2187,12 +2197,15 @@ def index_ui():
     </div>
 
     <!-- App Title with Embossed Gold Gradient -->
+    <div style="text-align: center; margin-bottom: 12px;">
+      <img src="/assets/vedas_kundli_logo.png" alt="Vedas Kundli" style="width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(212,175,55,0.4)); border-radius: 50%;"/>
+    </div>
     <h1 style="
       font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; letter-spacing: 3px; margin: 0 0 8px 0;
       background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 30%, #D4AF37 70%, #92400E 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 20px rgba(212,175,55,0.3); text-align: center;
     ">
-      ASTRO ARCHITECTS
+      VEDAS KUNDLI
     </h1>
     <div style="font-size: 12px; color: #D1D5DB; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 24px; text-align: center;">
       Vedic Astrology • Krishnamurti Paddhati (KP) • Lal Kitab 1952 Suite
@@ -2278,7 +2291,7 @@ def index_ui():
         ॥ श्री गणेशाय नमः ॥
       </div>
       <h2 style="font-family: 'Cinzel', serif; font-size: 20px; font-weight: 900; color: #7C2D12; margin: 0 0 4px 0; letter-spacing: 1px;">
-        ASTRO ARCHITECTS
+        VEDAS KUNDLI
       </h2>
       <div style="font-size: 11.5px; color: #6B7280; font-weight: 600; margin-bottom: 18px;">
         Master Security Access • Astrologer Login
@@ -2373,7 +2386,7 @@ def index_ui():
       </div>
 
       <div style="font-size: 10.5px; color: #9CA3AF; margin-top: 14px;">
-        Astro Architects • 100% Offline Standalone Protection
+        Vedas Kundli • 100% Offline Standalone Protection
       </div>
     </div>
   </div>
@@ -2385,10 +2398,10 @@ def index_ui():
     <aside class="desktop-sidebar">
       <div>
         <div class="sidebar-brand">
-          <div class="brand-om">ॐ</div>
+          <img src="/assets/vedas_kundli_logo.png" alt="Vedas Kundli" style="width: 38px; height: 38px; object-fit: contain; border-radius: 50%; border: 1.5px solid #D4AF37; box-shadow: 0 0 8px rgba(212,175,55,0.3); margin-right: 2px; flex-shrink: 0;"/>
           <div class="brand-text">
-            <div class="title">ASTRO ARCHITECTS</div>
-            <div class="sub">Desktop Astrological Suite</div>
+            <div class="title">VEDAS KUNDLI</div>
+            <div class="sub">Vedic Astrological Suite</div>
           </div>
           <button class="mobile-sidebar-close" onclick="toggleMobileSidebar(false)" aria-label="Close Menu">✕</button>
         </div>
@@ -3889,7 +3902,7 @@ div>
           'settings': '⚙️ Astrologer White-Label Branding Settings'
         };
         const titleEl = document.getElementById('topbarTitle');
-        if (titleEl) titleEl.innerHTML = titles[viewId] || 'Astro Architects';
+        if (titleEl) titleEl.innerHTML = titles[viewId] || 'Vedas Kundli';
 
         if (viewId === 'dashboard') loadDashboard();
         if (viewId === 'clients') loadClientsTable();
@@ -3901,7 +3914,7 @@ div>
     }
 
     function closeDesktopApp() {
-      if (confirm('Are you sure you want to exit Astro Architects?')) {
+      if (confirm('Are you sure you want to exit Vedas Kundli?')) {
         fetch('/api/shutdown', {method: 'POST'}).catch(()=>{});
         window.close();
       }
@@ -6455,7 +6468,7 @@ def find_open_port(start_port=8088):
 
 def launch_native_gui(app_url: str) -> str:
     """
-    Launches Astro Architects in a 100% native desktop application window.
+    Launches Vedas Kundli in a 100% native desktop application window.
     Returns:
       'webview_closed' if pywebview native window completed.
       'app_mode_launched' if standalone Edge/Chrome app window process was started.
@@ -6464,9 +6477,9 @@ def launch_native_gui(app_url: str) -> str:
     # Tier 1: Native WebView2 Desktop Window
     try:
         import webview
-        print("[Native GUI] Launching Astro Architects Desktop Window...")
+        print("[Native GUI] Launching Vedas Kundli Desktop Window...")
         window = webview.create_window(
-            title="Astro Architects — 360° Problem Solving",
+            title="Vedas Kundli — 360° Problem Solving",
             url=app_url,
             width=1380,
             height=880,
@@ -6481,7 +6494,7 @@ def launch_native_gui(app_url: str) -> str:
         print(f"[Native GUI Warning] pywebview could not initialize: {e}")
 
     # Tier 2: Dedicated Standalone App Window via Edge / Chrome (--app mode with isolated profile)
-    app_profile_dir = os.path.join(tempfile.gettempdir(), "AstroArchitects_AppProfile")
+    app_profile_dir = os.path.join(tempfile.gettempdir(), "VedasKundli_AppProfile")
     try:
         os.makedirs(app_profile_dir, exist_ok=True)
     except Exception:
@@ -6526,7 +6539,7 @@ if __name__ == "__main__":
     port = find_open_port(8088)
     app_url = f"http://127.0.0.1:{port}"
     print("==================================================================")
-    print(f"  Astro Architects Desktop Suite running at: {app_url}")
+    print(f"  Vedas Kundli Desktop Suite running at: {app_url}")
     print("  Login ID: Admin | Password: Harman")
     print("==================================================================")
 

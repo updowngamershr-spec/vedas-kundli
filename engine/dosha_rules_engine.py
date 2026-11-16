@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Astro Architects - Classical Dosha Detection & Exception Engine
+Vedas Kundli - Classical Dosha Detection & Exception Engine
 Covers:
 1. Manglik / Kuja Dosha Engine (Lagna, Moon, Venus with 5 distinct output statuses and structured rule DB)
 2. Nadi Dosha Exception Engine (Traceable classical exceptions with Rule IDs)

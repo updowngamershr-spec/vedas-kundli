@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Astro Architects - Automated Astrological Quality & Invariant Verification Checker
+Vedas Kundli - Automated Astrological Quality & Invariant Verification Checker
 Permanent Implementation of ZERO-ERROR POLICY - EVERY REPORT, EVERY TIME.
 
 Enforces 7 Mandatory Quality Gates before any astrological report is finalized or rendered:
@@ -705,7 +705,7 @@ def run_mandatory_zero_error_audit(report_type: str, data: Dict[str, Any], html_
         "zero_error_policy_passed": True,
         "certificate_id": cert_id,
         "timestamp": datetime.now().isoformat(),
-        "engine_version": "Astro Architects v3.2.0-ZeroError",
+        "engine_version": "Vedas Kundli v3.2.0-ZeroError",
         "report_type": report_type,
         "total_gates_evaluated": 7,
         "passed_gates_count": 7,
